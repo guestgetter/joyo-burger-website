@@ -1,0 +1,363 @@
+/* JOYO Burger Website - Animations */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide In Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header Animation */
+header.scrolled {
+    background-color: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Animate Hero Content */
+.hero-text h1 {
+    animation: fadeIn 1s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+.hero-text .cta-button {
+    animation: fadeIn 1s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+/* Animate Purpose Section */
+.purpose-text h2 {
+    animation: slideIn 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.purpose-text p {
+    animation: fadeIn 0.8s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+.purpose-text p:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.purpose-text p:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+.purpose-text p:nth-child(5) {
+    animation-delay: 1.1s;
+}
+
+/* Categories Showcase Animation */
+.category-item {
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.categories-showcase .category-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.categories-showcase .category-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.categories-showcase .category-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.categories-showcase .category-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.categories-showcase .category-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.categories-showcase .category-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* Menu Items Animation */
+.menu-item {
+    transition: transform 0.4s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+}
+
+.menu-category.scrolled {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Features Animation */
+.features-grid .feature {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.features-grid .feature.scrolled {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.features-grid .feature:nth-child(1).scrolled {
+    transition-delay: 0.1s;
+}
+
+.features-grid .feature:nth-child(2).scrolled {
+    transition-delay: 0.2s;
+}
+
+.features-grid .feature:nth-child(3).scrolled {
+    transition-delay: 0.3s;
+}
+
+.features-grid .feature:nth-child(4).scrolled {
+    transition-delay: 0.4s;
+}
+
+.features-grid .feature:nth-child(5).scrolled {
+    transition-delay: 0.5s;
+}
+
+/* CTA Button Animation */
+.cta-button, .order-now-btn, .view-menu-btn, .join-btn, .cta-btn, .submit-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-button::before, .order-now-btn::before, .view-menu-btn::before, .join-btn::before, .cta-btn::before, .submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.cta-button:hover::before, .order-now-btn:hover::before, .view-menu-btn:hover::before, .join-btn:hover::before, .cta-btn:hover::before, .submit-btn:hover::before {
+    left: 0;
+}
+
+/* Testimonial Animation */
+.testimonial.active {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Section Headers Animation */
+h2 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+h2.scrolled {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Carousel Dots Animation */
+.dot {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+.dot.active {
+    transform: scale(1.1);
+}
+
+/* Newsletter Form Animation */
+.form-group input {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--ochre);
+    box-shadow: 0 0 0 2px rgba(202, 131, 26, 0.1);
+    outline: none;
+}
+
+/* Footer Animation */
+.footer-links a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--ochre);
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--ochre);
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+/* Success Message Animation */
+.success-message {
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Mobile Menu Animation */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative;
+}
+
+.bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.mobile-menu-active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Horizontal Scroll Visual Cue */
+.menu-items-container.scrollable::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+    pointer-events: none;
+    z-index: 1;
+    animation: pulse 2s infinite;
+}
+
+/* Gallery - Simple Fade Transition */
+.gallery-slide {
+    transition: opacity 0.5s ease;
+}
+
+.gallery-dot {
+    transition: background-color 0.3s ease;
+}
+
+.gallery-dot:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Categories Showcase Enhanced Animations */
+@keyframes scrollCategories {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% / 2)); /* Move half the width for perfect looping */
+    }
+}
+
+/* Smooth scroll animation with proper timing */
+.categories-scroll {
+    animation: scrollCategories 20s linear infinite; /* Faster animation: 30s → 20s */
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Remove the pause on hover rule */
+.categories-scroll:hover {
+    animation-play-state: running; /* Override the previous paused state */
+}
+
+/* Enhance item hover animations without stopping scroll */
+.category-item {
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    will-change: transform, box-shadow;
+}
+
+.category-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.category-item img {
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.category-item:hover img {
+    transform: scale(1.08);
+}
+
+/* Update index.html and index-fr.html to include the animations.css file */ 

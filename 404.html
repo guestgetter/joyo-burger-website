@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - JOYO Burger</title>
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--black);
+            color: white;
+        }
+        
+        .error-page .logo {
+            margin-bottom: 3rem;
+        }
+        
+        .error-page .logo img {
+            width: 180px;
+            margin: 0 auto;
+        }
+        
+        .error-page h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--ochre);
+        }
+        
+        .error-page p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .back-home-btn {
+            display: inline-block;
+            background-color: var(--ochre);
+            color: white;
+            font-family: var(--heading-font);
+            font-weight: 500;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius-sm);
+            margin-top: 1rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .back-home-btn:hover {
+            background-color: #b67616;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            line-height: 1;
+            margin: 0;
+            color: var(--ochre);
+            opacity: 0.2;
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 767px) {
+            .error-code {
+                font-size: 6rem;
+            }
+            
+            .error-page h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="logo">
+            <img src="JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png" alt="JOYO Burger Logo">
+        </div>
+        
+        <div class="error-code">404</div>
+        
+        <h1>Oops! Page Not Found</h1>
+        <p>Looks like you're lost in the sauce! The page you're looking for doesn't exist or has been moved.</p>
+        
+        <div class="actions">
+            <a href="index.html" class="back-home-btn">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    
+    <!-- Homepage (English) -->
+    <url>
+        <loc>https://www.joyoburger.com/</loc>
+        <lastmod>2023-07-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.joyoburger.com/fr"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.joyoburger.com/"/>
+    </url>
+    
+    <!-- Homepage (French) -->
+    <url>
+        <loc>https://www.joyoburger.com/fr</loc>
+        <lastmod>2023-07-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://www.joyoburger.com/"/>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://www.joyoburger.com/fr"/>
+    </url>
+    
+    <!-- Menu Page -->
+    <url>
+        <loc>https://www.joyoburger.com/menu</loc>
+        <lastmod>2023-07-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- About Us Page -->
+    <url>
+        <loc>https://www.joyoburger.com/about</loc>
+        <lastmod>2023-07-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Find Us Page -->
+    <url>
+        <loc>https://www.joyoburger.com/find-us</loc>
+        <lastmod>2023-07-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Careers Page -->
+    <url>
+        <loc>https://www.joyoburger.com/careers</loc>
+        <lastmod>2023-07-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Contact Page -->
+    <url>
+        <loc>https://www.joyoburger.com/contact</loc>
+        <lastmod>2023-07-01</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Blog Page -->
+    <url>
+        <loc>https://www.joyoburger.com/blog</loc>
+        <lastmod>2023-07-01</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+</urlset> 

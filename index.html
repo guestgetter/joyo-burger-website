@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOYO Burger - Burgers Done Right. Joy in Every Bite.</title>
+    <meta name="description" content="At JOYO Burger, we serve premium burgers made with fresh ingredients. Enjoy our smash burgers, chicken burgers, and hand-cut fries in Montreal.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section with Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png" alt="JOYO Burger Logo">
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="#menu" class="nav-link">MENU</a></li>
+                        <li><a href="#about" class="nav-link">ABOUT US</a></li>
+                        <li><a href="#career" class="nav-link">CAREER</a></li>
+                        <li><a href="#find-us" class="nav-link">FIND US</a></li>
+                        <li><a href="#contact" class="nav-link">CONTACT</a></li>
+                        <li><a href="#blog" class="nav-link">BLOG</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="cta-buttons">
+                    <a href="https://joyoburger.com/commande-en-ligne/" target="_blank" class="order-now-btn">ORDER NOW</a>
+                    <div class="language-selector">
+                        <a href="index.html" class="language-toggle active">EN</a>
+                        <span class="divider">|</span>
+                        <a href="index-fr.html" class="language-toggle">FR</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Burgers Done Right. <br>Joy in Every Bite.</h1>
+                <a href="#find-us" class="cta-button">FIND A JOYO NEAR YOU IN MONTREAL</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Purpose Section with Image Carousel -->
+    <section class="purpose-section">
+        <div class="purpose-text-wrapper">
+            <div class="purpose-text">
+                <h2>MADE WITH PURPOSE</h2>
+                <div class="accent-line"></div>
+                <p>At Joyo, our purpose is simple: to bring joy through better food. That means real ingredients, treated with care.</p>
+                <p>We grind our premium halal beef in-house daily, hand-cut our fries, hand-bread every chicken breast to order, and build every burger with precision and pride.</p>
+                <p>But purpose isn't just in the kitchen — it's in how we show up for our guests: with warmth, respect, and urgency.</p>
+                <p>We believe great food isn't an accident — it's a choice. A choice to respect the process. A choice to serve with passion. Every single time.</p>
+            </div>
+        </div>
+        <div class="purpose-image-gallery">
+            <div class="gallery-container">
+                <div class="gallery-slide active">
+                    <img src="JOYO - Images/joyo-scene.jpg" alt="JOYO Burger Scene">
+                </div>
+                <div class="gallery-slide">
+                    <img src="JOYO - Images/joyo-enjoying-chicken-tenders.jpg" alt="JOYO Chicken Tenders">
+                </div>
+                <div class="gallery-slide">
+                    <img src="JOYO - Images/joyo-milkshake.jpg" alt="JOYO Milkshake">
+                </div>
+                <div class="gallery-slide">
+                    <img src="JOYO - Images/joyo-sign.jpg" alt="JOYO Sign">
+                </div>
+            </div>
+            <div class="gallery-dots">
+                <span class="gallery-dot active" data-slide="0"></span>
+                <span class="gallery-dot" data-slide="1"></span>
+                <span class="gallery-dot" data-slide="2"></span>
+                <span class="gallery-dot" data-slide="3"></span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Food Categories Showcase with Horizontal Scrolling -->
+    <section class="categories-showcase">
+        <div class="categories-container">
+            <div class="categories-scroll">
+                <!-- First set of items -->
+                <div class="category-item">
+                    <img src="JOYO - Images/Le-Grand.png" alt="Smash Burgers">
+                    <h3>SMASH BURGERS</h3>
+                </div>
+                <div class="category-item">
+                    <img src="JOYO - Images/Classic-Fried-Chicken-scaled-e1741170244379.jpeg" alt="Chicken Burgers">
+                    <h3>CHICKEN BURGERS</h3>
+                </div>
+                <div class="category-item">
+                    <img src="JOYO - Images/Joyo-Poutine.png" alt="Fries and Poutines">
+                    <h3>FRIES AND POUTINES</h3>
+                </div>
+                <div class="category-item">
+                    <img src="JOYO - Images/craft-local-beer.jpg" alt="Beer & Cocktails">
+                    <h3>BEER & COCKTAILS</h3>
+                </div>
+                <div class="category-item">
+                    <img src="JOYO - Images/green-salad.jpeg" alt="Salads">
+                    <h3>SALADS</h3>
+                </div>
+                <div class="category-item">
+                    <img src="JOYO - Images/vanilla-milkshake.jpg" alt="Milkshakes">
+                    <h3>MILKSHAKES</h3>
+                </div>
+                
+                <!-- First duplicate set for seamless looping -->
+                <div class="category-item">
+                    <img src="JOYO - Images/Le-Grand.png" alt="Smash Burgers">
+                    <h3>SMASH BURGERS</h3>
+                </div>
+                <div class="category-item">
+                    <img src="JOYO - Images/Classic-Fried-Chicken-scaled-e1741170244379.jpeg" alt="Chicken Burgers">
+                    <h3>CHICKEN BURGERS</h3>
+                </div>
+                <div class="category-item">
+                    <img src="JOYO - Images/Joyo-Poutine.png" alt="Fries and Poutines">
+                    <h3>FRIES AND POUTINES</h3>
+                </div>
+                <div class="category-item">
+                    <img src="JOYO - Images/craft-local-beer.jpg" alt="Beer & Cocktails">
+                    <h3>BEER & COCKTAILS</h3>
+                </div>
+                <div class="category-item">
+                    <img src="JOYO - Images/green-salad.jpeg" alt="Salads">
+                    <h3>SALADS</h3>
+                </div>
+                <div class="category-item">
+                    <img src="JOYO - Images/vanilla-milkshake.jpg" alt="Milkshakes">
+                    <h3>MILKSHAKES</h3>
+                </div>
+            </div>
+        </div>
+        <div class="view-menu-container">
+            <a href="#menu" class="view-menu-btn">VIEW MENU</a>
+        </div>
+    </section>
+    
+    <!-- What Sets Us Apart Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2>What sets us apart</h2>
+            <div class="accent-line"></div>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <img src="JOYO - Images/burger-icon.png" alt="Home Made Icon">
+                    <p>Home made</p>
+                </div>
+                <div class="feature">
+                    <img src="JOYO - Images/french-fries-orange-e1739013907883.png" alt="Hand-cut real fries Icon">
+                    <p>Hand-cut real fries</p>
+                </div>
+                <div class="feature">
+                    <img src="JOYO - Images/salad-icon.png" alt="Vegetarian options Icon">
+                    <p>Vegetarian options</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <p>Quality pure ingredients</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <p>Prepared fresh daily</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>Joy in the air – or is it love?</h2>
+            <div class="accent-line"></div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial active">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Vicky Do</h3>
+                    <p>"The burgers here are an adequate size and the patties are juicy and nice, mildly under-seasoned. I had to add sauce for it to be perfect."</p>
+                </div>
+                <div class="testimonial">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Elizabeth Torres</h3>
+                    <p>"For me, the best burgers I've tried in MTL... everything is fresh and of great Quality and BLUE CHEESE SAUCE amazing. The beers are cold and served at the perfect temper. It's a hidden gem in Montréal."</p>
+                </div>
+            </div>
+            
+            <div class="testimonial-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+            </div>
+            
+            <div class="view-menu-container">
+                <a href="#menu" class="view-menu-btn">VIEW OUR FULL MENU</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-grid">
+            <div class="cta-card">
+                <h3>Find a JOYO Near You</h3>
+                <div class="accent-line"></div>
+                <a href="#find-us" class="cta-btn">FIND JOYO</a>
+            </div>
+            <div class="cta-card">
+                <h3>Kickstart Your Career At JOYO</h3>
+                <div class="accent-line"></div>
+                <a href="#careers" class="cta-btn">JOIN US</a>
+            </div>
+            <div class="cta-card">
+                <h3>Discover the JOYO Journey</h3>
+                <div class="accent-line"></div>
+                <a href="#about" class="cta-btn">ABOUT US</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>SIGN UP TO GET JOYO UPDATES AND A FREE BURGER ON YOUR BIRTHDAY.</h2>
+            <div class="accent-line"></div>
+            
+            <form class="newsletter-form">
+                <div class="form-group">
+                    <input type="text" name="fullName" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email*" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Phone*" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" name="birthday" placeholder="Birthday*" required>
+                </div>
+                <button type="submit" class="submit-btn">Send</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="hours">
+                    <p>Monday to Sunday</p>
+                    <p>11:00 AM to 10:00 PM</p>
+                </div>
+                
+                <div class="social-contact">
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p>info@joyoburger.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <span class="separator">|</span>
+                    <a href="#menu">Our menu</a>
+                    <span class="separator">|</span>
+                    <a href="#careers">Career @ JOYO</a>
+                    <span class="separator">|</span>
+                    <a href="#privacy">Privacy Terms of Use</a>
+                </div>
+                
+                <div class="footer-logo">
+                    <img src="JOYO - Images/joyo-smiley-footer-icon3.png" alt="JOYO Smiley">
+                </div>
+                
+                <div class="copyright">
+                    <p>&copy;2025 Joyo™ burger. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+</body>
+</html> 

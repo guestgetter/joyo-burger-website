@@ -1,0 +1,194 @@
+%!Adobe-FontList 1.22
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:/Users/sebastienbisson/Polygraphe Dropbox/Polygraphe-Projets en cours/Joyo/Création/Menu/Imprimé/Dossier Joyo-Menus-Eng-Print_M01/Document fonts/AdobeFnt22.lst
+FileLength:4957
+FileModTime:670855283
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:DINRoundOT-Black
+FamilyName:DIN Round OT
+StyleName:Black
+MenuName:DINRoundOT-Black
+StyleBits:0
+WeightClass:900
+WidthClass:5
+AngleClass:0
+FullName:DINRoundOT-Black
+WritingScript:Roman
+OutlineFileName:/Users/sebastienbisson/Polygraphe Dropbox/Polygraphe-Projets en cours/Joyo/Création/Menu/Imprimé/Dossier Joyo-Menus-Eng-Print_M01/Document fonts/DINRoundOT-Black.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:52340
+FileModTime:297963566
+NameArray:0,Mac,4,DINRoundOT-Black
+NameArray:0,Win,1,DINRoundOT-Black
+NameArray:0,Win,16,DIN Round OT
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:DINRoundOT-Light
+FamilyName:DIN Round OT
+StyleName:Light
+MenuName:DINRoundOT-Light
+StyleBits:0
+WeightClass:350
+WidthClass:5
+AngleClass:0
+FullName:DINRoundOT-Light
+WritingScript:Roman
+OutlineFileName:/Users/sebastienbisson/Polygraphe Dropbox/Polygraphe-Projets en cours/Joyo/Création/Menu/Imprimé/Dossier Joyo-Menus-Eng-Print_M01/Document fonts/DINRoundOT-Light.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:56868
+FileModTime:297963566
+NameArray:0,Mac,4,DINRoundOT-Light
+NameArray:0,Win,1,DINRoundOT-Light
+NameArray:0,Win,16,DIN Round OT
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:DINRoundOT-Medium
+FamilyName:DIN Round OT
+StyleName:Medium
+MenuName:DINRoundOT-Medium
+StyleBits:0
+WeightClass:500
+WidthClass:5
+AngleClass:0
+FullName:DINRoundOT-Medium
+WritingScript:Roman
+OutlineFileName:/Users/sebastienbisson/Polygraphe Dropbox/Polygraphe-Projets en cours/Joyo/Création/Menu/Imprimé/Dossier Joyo-Menus-Eng-Print_M01/Document fonts/DINRoundOT-Medium.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:53460
+FileModTime:297963566
+NameArray:0,Mac,4,DINRoundOT-Medium
+NameArray:0,Win,1,DINRoundOT-Medium
+NameArray:0,Win,16,DIN Round OT
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FoundersGrotesk-Medium
+FamilyName:Founders Grotesk
+StyleName:Medium
+MenuName:Founders Grotesk Medium
+StyleBits:0
+WeightClass:500
+WidthClass:5
+AngleClass:0
+FullName:Founders Grotesk Medium
+WritingScript:Roman
+OutlineFileName:/Users/sebastienbisson/Polygraphe Dropbox/Polygraphe-Projets en cours/Joyo/Création/Menu/Imprimé/Dossier Joyo-Menus-Eng-Print_M01/Document fonts/Founders Grotesk - Medium.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:56308
+FileModTime:294430054
+NameArray:0,Mac,4,Founders Grotesk Medium
+NameArray:0,Win,1,Founders Grotesk Medium
+NameArray:0,Win,16,Founders Grotesk
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FoundersGrotesk-Regular
+FamilyName:Founders Grotesk
+StyleName:Regular
+MenuName:Founders Grotesk Regular
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Founders Grotesk
+WritingScript:Roman
+OutlineFileName:/Users/sebastienbisson/Polygraphe Dropbox/Polygraphe-Projets en cours/Joyo/Création/Menu/Imprimé/Dossier Joyo-Menus-Eng-Print_M01/Document fonts/Founders Grotesk - Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:54844
+FileModTime:294430054
+NameArray:0,Mac,18,Founders Grotesk Regular
+NameArray:0,Mac,4,Founders Grotesk
+NameArray:0,Win,1,Founders Grotesk Regular
+NameArray:0,Win,16,Founders Grotesk
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FoundersGrotesk-Semibold
+FamilyName:Founders Grotesk
+StyleName:Semibold
+MenuName:Founders Grotesk Semibold
+StyleBits:0
+WeightClass:600
+WidthClass:5
+AngleClass:0
+FullName:Founders Grotesk Semibold
+WritingScript:Roman
+OutlineFileName:/Users/sebastienbisson/Polygraphe Dropbox/Polygraphe-Projets en cours/Joyo/Création/Menu/Imprimé/Dossier Joyo-Menus-Eng-Print_M01/Document fonts/Founders Grotesk - Semibold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:56580
+FileModTime:294430054
+NameArray:0,Mac,4,Founders Grotesk Semibold
+NameArray:0,Win,1,Founders Grotesk Semibold
+NameArray:0,Win,16,Founders Grotesk
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MinionPro-Regular
+FamilyName:Minion Pro
+StyleName:Regular
+MenuName:Minion Pro
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Minion Pro
+WritingScript:Roman
+OutlineFileName:/Users/sebastienbisson/Polygraphe Dropbox/Polygraphe-Projets en cours/Joyo/Création/Menu/Imprimé/Dossier Joyo-Menus-Eng-Print_M01/Document fonts/MinionPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:217280
+FileModTime:438472278
+DesignSize:110
+NameArray:0,Mac,4,Minion Pro
+NameArray:0,Win,1,Minion Pro
+%EndFont
+
