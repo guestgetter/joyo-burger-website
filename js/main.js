@@ -310,19 +310,47 @@ function initLanguageToggle() {
         toggle.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Remove active class from all toggles
-            langToggles.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked toggle
-            this.classList.add('active');
-            
-            // Here you would normally handle the language change
-            // For now, we'll just toggle the class
+            // Get the selected language
             const lang = this.textContent.trim();
             
-            // You would add API call to change language here
-            console.log(`Changing language to: ${lang}`);
+            // Check if we're not already on the page for this language
+            if (!this.classList.contains('active')) {
+                // Determine which page to navigate to
+                let targetPage = 'index.html';
+                if (lang === 'FR') {
+                    targetPage = 'index-fr.html';
+                }
+                
+                // Save language preference in localStorage for future visits
+                localStorage.setItem('preferred_language', lang);
+                
+                // Redirect to the appropriate language version
+                window.location.href = targetPage;
+            }
         });
+    });
+    
+    // Check for saved language preference on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedLang = localStorage.getItem('preferred_language');
+        
+        // If there's a saved preference and we're not already on that language page
+        if (savedLang) {
+            const currentLang = document.documentElement.lang.toUpperCase();
+            
+            if (savedLang !== currentLang) {
+                // Redirect to the preferred language version if it doesn't match current
+                let targetPage = 'index.html';
+                if (savedLang === 'FR') {
+                    targetPage = 'index-fr.html';
+                }
+                
+                // Small delay to prevent redirect loops
+                setTimeout(() => {
+                    window.location.href = targetPage;
+                }, 100);
+            }
+        }
     });
 }
 
@@ -347,8 +375,19 @@ document.addEventListener('DOMContentLoaded', function() {
             // You would normally send this data to a server
             console.log('Form submitted:', formValues);
             
-            // Show success message
-            form.innerHTML = '<div class="success-message"><h3>Thank you for subscribing!</h3><p>Your free birthday burger is waiting. We\'ll be in touch soon.</p></div>';
+            // Show success message in the appropriate language
+            const lang = document.documentElement.lang.toLowerCase();
+            let successTitle, successMessage;
+            
+            if (lang === 'fr') {
+                successTitle = "Merci de vous être inscrit !";
+                successMessage = "Votre burger d'anniversaire gratuit vous attend. Nous vous contacterons bientôt.";
+            } else {
+                successTitle = "Thank you for subscribing!";
+                successMessage = "Your free birthday burger is waiting. We'll be in touch soon.";
+            }
+            
+            form.innerHTML = `<div class="success-message"><h3>${successTitle}</h3><p>${successMessage}</p></div>`;
         });
     }
 });
@@ -357,8 +396,12 @@ document.addEventListener('DOMContentLoaded', function() {
  * Initialize the purpose section image gallery with simple fade transition
  */
 function initPurposeGallery() {
-    const slides = document.querySelectorAll('.gallery-slide');
-    const dots = document.querySelectorAll('.gallery-dot');
+    // Support both HTML structures (index.html uses gallery-slide, index-fr.html uses carousel-slide)
+    const slides = document.querySelectorAll('.gallery-slide, .carousel-slide');
+    const dots = document.querySelectorAll('.gallery-dot, .carousel-dots .dot');
+    
+    if (slides.length === 0 || dots.length === 0) return; // Exit if no slides found
+    
     let currentSlide = 0;
     let galleryInterval;
     let isTransitioning = false;
@@ -413,7 +456,7 @@ function initPurposeGallery() {
 
     // Add keyboard navigation
     document.addEventListener('keydown', (e) => {
-        const gallery = document.querySelector('.purpose-image-gallery');
+        const gallery = document.querySelector('.purpose-image-gallery, .purpose-carousel');
         // Only respond to keyboard if gallery is in viewport
         if (gallery && isElementInViewport(gallery)) {
             if (e.key === 'ArrowLeft') {
@@ -442,7 +485,7 @@ function initPurposeGallery() {
 
     // Initialize gallery if slides exist
     if (slides.length > 0) {
-        // Set first slide as active
+        // Make sure first slide is active
         slides[0].classList.add('active');
         dots[0].classList.add('active');
         
