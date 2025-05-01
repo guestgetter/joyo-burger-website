@@ -208,13 +208,12 @@ function initScrollAnimations() {
     // Elements to animate
     const purposeHeader = document.querySelector('.purpose-text h2');
     const purposeParagraphs = document.querySelectorAll('.purpose-text p');
-    const categoryItems = document.querySelectorAll('.category-item');
+    const showcaseCategories = document.querySelectorAll('.categories-showcase .category-item');
     const animateElements = document.querySelectorAll('.feature, .menu-category, h2:not(.purpose-text h2)');
     
     // Apply animations to purpose section elements
     if (purposeHeader) {
         purposeHeader.classList.add('purpose-header-animation');
-        // Check if already in viewport on page load
         if (isInViewport(purposeHeader)) {
             purposeHeader.classList.add('scrolled');
         }
@@ -223,27 +222,22 @@ function initScrollAnimations() {
     if (purposeParagraphs.length > 0) {
         purposeParagraphs.forEach((paragraph, index) => {
             paragraph.classList.add('purpose-paragraph-animation');
-            // Add additional delay for paragraphs after the first one
             if (index >= 1) {
                 paragraph.style.animationDelay = `${0.3 + index * 0.2}s`;
             }
-            
-            // Check if already in viewport on page load
             if (isInViewport(paragraph)) {
                 paragraph.classList.add('scrolled');
             }
         });
     }
     
-    // Apply animations to category items
-    if (categoryItems.length > 0) {
-        categoryItems.forEach((item, index) => {
+    // Apply animations to showcase category items only
+    if (showcaseCategories.length > 0) {
+        showcaseCategories.forEach((item, index) => {
             // Only apply to the first 6 items (not the duplicates)
             if (index < 6) {
                 item.classList.add('category-item-animation');
                 item.style.animationDelay = `${0.1 + index * 0.1}s`;
-                
-                // Check if already in viewport on page load
                 if (isInViewport(item)) {
                     item.classList.add('scrolled');
                 }
@@ -274,9 +268,9 @@ function initScrollAnimations() {
             });
         }
         
-        // Check category items
-        if (categoryItems.length > 0) {
-            categoryItems.forEach((item, index) => {
+        // Check showcase category items
+        if (showcaseCategories.length > 0) {
+            showcaseCategories.forEach((item, index) => {
                 if (index < 6 && !item.classList.contains('scrolled') && isInViewport(item)) {
                     item.classList.add('scrolled');
                 }
@@ -315,17 +309,27 @@ function initLanguageToggle() {
             
             // Check if we're not already on the page for this language
             if (!this.classList.contains('active')) {
-                // Determine which page to navigate to
-                let targetPage = 'index.html';
-                if (lang === 'FR') {
-                    targetPage = 'index-fr.html';
+                // Determine which page to navigate to based on current URL
+                let currentPath = window.location.pathname;
+                let currentPage = currentPath.split('/').pop();
+                
+                // If we're on any page other than index
+                if (currentPage && !currentPage.includes('index')) {
+                    // Just change language suffix
+                    let baseName = currentPage.split('.')[0].replace(/-fr$/, '');
+                    let targetPage = baseName + (lang === 'FR' ? '-fr' : '') + '.html';
+                    window.location.href = targetPage;
+                } else {
+                    // Default index page behavior
+                    let targetPage = 'index.html';
+                    if (lang === 'FR') {
+                        targetPage = 'index-fr.html';
+                    }
+                    window.location.href = targetPage;
                 }
                 
                 // Save language preference in localStorage for future visits
                 localStorage.setItem('preferred_language', lang);
-                
-                // Redirect to the appropriate language version
-                window.location.href = targetPage;
             }
         });
     });
@@ -339,10 +343,17 @@ function initLanguageToggle() {
             const currentLang = document.documentElement.lang.toUpperCase();
             
             if (savedLang !== currentLang) {
-                // Redirect to the preferred language version if it doesn't match current
-                let targetPage = 'index.html';
-                if (savedLang === 'FR') {
-                    targetPage = 'index-fr.html';
+                // Get current page
+                let currentPath = window.location.pathname;
+                let currentPage = currentPath.split('/').pop();
+                
+                // Determine target page based on current page
+                let targetPage;
+                if (currentPage && !currentPage.includes('index')) {
+                    let baseName = currentPage.split('.')[0].replace(/-fr$/, '');
+                    targetPage = baseName + (savedLang === 'FR' ? '-fr' : '') + '.html';
+                } else {
+                    targetPage = savedLang === 'FR' ? 'index-fr.html' : 'index.html';
                 }
                 
                 // Small delay to prevent redirect loops

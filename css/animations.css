@@ -1,10 +1,10 @@
-/* JOYO Burger Website - Animations */
+/* JOYO Burger Website - Essential Animations */
 
 /* Fade In Animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(10px);
     }
     to {
         opacity: 1;
@@ -90,9 +90,9 @@ header.scrolled {
 }
 
 /* Categories Showcase Animation */
-.category-item {
-    animation: fadeIn 0.8s ease-out forwards;
-    opacity: 0;
+.categories-showcase .category-item {
+    animation: none;
+    opacity: 1;
 }
 
 .categories-showcase .category-item:nth-child(1) {
@@ -318,46 +318,74 @@ h2.scrolled {
 }
 
 /* Categories Showcase Enhanced Animations */
-@keyframes scrollCategories {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-100% / 2)); /* Move half the width for perfect looping */
-    }
-}
-
-/* Smooth scroll animation with proper timing */
-.categories-scroll {
-    animation: scrollCategories 20s linear infinite; /* Faster animation: 30s → 20s */
-    will-change: transform;
-    backface-visibility: hidden;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* Remove the pause on hover rule */
-.categories-scroll:hover {
-    animation-play-state: running; /* Override the previous paused state */
-}
-
-/* Enhance item hover animations without stopping scroll */
-.category-item {
+.categories-showcase .category-item {
     transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
                 box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     will-change: transform, box-shadow;
 }
 
-.category-item:hover {
+.categories-showcase .category-item:hover {
     transform: translateY(-10px) scale(1.03);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-.category-item img {
+.categories-showcase .category-item img {
     transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.category-item:hover img {
+.categories-showcase .category-item:hover img {
     transform: scale(1.08);
 }
 
-/* Update index.html and index-fr.html to include the animations.css file */ 
+/* Update index.html and index-fr.html to include the animations.css file */
+
+@media (max-width: 991px) {
+    .menu-sidebar .category-item,
+    .menu-sidebar .category-item:hover,
+    .menu-sidebar .category-icon,
+    .menu-sidebar .category-item img {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+    
+    .menu-item,
+    .menu-item:hover,
+    .menu-item-content {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+/* Menu-specific animations */
+.menu-section {
+    display: none;
+}
+
+.menu-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Mobile-friendly hover states */
+@media (hover: hover) {
+    .menu-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .menu-item:hover .menu-item-image img {
+        transform: scale(1.05);
+    }
+}
+
+/* Disable animations on mobile/touch devices */
+@media (hover: none) {
+    .menu-item,
+    .menu-item-image img {
+        transform: none !important;
+        transition: none !important;
+    }
+} 

@@ -1,0 +1,199 @@
+{
+  "global": {
+    "brand": "JOYO Burger",
+    "orderNow": "COMMANDER",
+    "copyright": "© 2023 Joyo™ burger. Tous droits réservés."
+  },
+  "nav": {
+    "menu": "MENU",
+    "about": "À PROPOS",
+    "career": "CARRIÈRES",
+    "findUs": "NOUS TROUVER",
+    "contact": "CONTACT",
+    "blog": "BLOG"
+  },
+  "hero": {
+    "title": "SAVOUREZ LA JOIE"
+  },
+  "menu": {
+    "categories": {
+      "burgers": "BURGERS",
+      "fries": "FRITES & POUTINES",
+      "salads": "SALADES",
+      "milkshakes": "MILKSHAKES & SANS ALCOOL",
+      "drinks": "BIÈRE, COCKTAIL ET VIN"
+    },
+    "sections": {
+      "beef": {
+        "title": "BŒUF",
+        "description": "Haché quotidiennement en cuisine à partir de coupes halal de qualité",
+        "note": "Commandez n'importe quel burger de bœuf avec une galette végétarienne +2$"
+      },
+      "chicken": {
+        "title": "POULET",
+        "description": "Poitrine de poulet croustillante, préparée sur commande, assaisonnée à la perfection"
+      },
+      "vegetarian": {
+        "title": "VÉGÉTARIEN",
+        "description": "Options végétariennes maison qui ne compromettent pas la saveur"
+      },
+      "fries": {
+        "title": "FRITES",
+        "description": "Coupées à la main chaque jour, préparées avec de vraies pommes de terre."
+      },
+      "poutines": {
+        "title": "POUTINES"
+      },
+      "salads": {
+        "title": "SALADES",
+        "description": "L'accompagnement parfait pour un plaisir sans culpabilité"
+      },
+      "milkshakes": {
+        "title": "MILKSHAKES & SANS ALCOOL"
+      },
+      "softDrinks": {
+        "title": "Boissons Gazeuses"
+      },
+      "lemonades": {
+        "title": "Limonades"
+      },
+      "cocktails": {
+        "title": "COCKTAILS SIGNATURE",
+        "description": "COCKTAILS SIGNATURE (8,99 $)"
+      },
+      "beers": {
+        "title": "BIÈRES & VINS"
+      }
+    },
+    "footer": {
+      "glutenFree": "Tous les burgers sont disponibles avec un pain sans gluten +2$"
+    },
+    "items": {
+      "cheeseBurger": {
+        "name": "Cheese Burger",
+        "description": "Fromage cheddar, laitue, tomates, oignons, cornichons, sauce Joyo™"
+      },
+      "theSpecial": {
+        "name": "Le Spécial",
+        "description": "Fromage cheddar, cornichons, oignons caramélisés, sauce Joyo™"
+      },
+      "theBig": {
+        "name": "Le Grand",
+        "description": "Double galette maison, bacon caramélisé, fromage cheddar, laitue, tomates, oignons, cornichons et sauce Joyo."
+      },
+      "brieMushrooms": {
+        "name": "Brie & Champignons",
+        "description": "Fromage brie, oignons caramélisés, champignons sautés, roquette, sauce Joyo™"
+      },
+      "theChipotle": {
+        "name": "Le Chipotle",
+        "description": "Fromage cheddar blanc, jalapeños rôtis, cornichons, oignons rouges, roquette, sauce chipotle"
+      },
+      "theBlue": {
+        "name": "Le Bleu",
+        "description": "Fromage bleu, roquette, oignons sautés, sauce BBQ"
+      },
+      "classicChicken": {
+        "name": "Burger de Poulet Frit Classique",
+        "description": "Poitrine de poulet croustillante, tomates, oignons, laitue, cornichons, sauce Joyo™"
+      },
+      "nashvilleChicken": {
+        "name": "Burger de Poulet Nashville",
+        "description": "Poitrine de poulet croustillante épicée, salade de chou, cornichons, sauce piquante"
+      },
+      "spicyHoneyChicken": {
+        "name": "Burger de Poulet au Miel Épicé",
+        "description": "Deux filets de poulet croustillants nappés de miel épicé, laitue, cornichons, mayo"
+      },
+      "falafelBurger": {
+        "name": "Burger Falafel",
+        "description": "Galette de falafel croustillante, laitue, tomates, radis, cornichons, sauce tahini"
+      },
+      "homemadeFries": {
+        "name": "Frites Maison",
+        "description": "Les frites maison sont croustillantes, dorées et délicieuses. Préparées en faisant frire des tranches de pommes de terre, elles sont idéales avec du sel."
+      },
+      "cheeseFries": {
+        "name": "Frites Maison et Sauce au Fromage",
+        "description": "Frites maison accompagnées d'une sauce au fromage crémeuse créant une collation délicieuse. Frites croustillantes et dorées trempées dans une riche sauce."
+      },
+      "loadedFries": {
+        "name": "Frites Gourmet Garnies",
+        "description": "Cornichons, oignons hachés, oignons verts, sauce gourmet pour frites, sauce BBQ"
+      },
+      "classicPoutine": {
+        "name": "Poutine Classique",
+        "description": "Frites maison, fromage en grains, sauce à poutine"
+      },
+      "chickenPoutine": {
+        "name": "Poutine au Poulet",
+        "description": "Frites maison, deux lanières de poulet croustillant, fromage en grains, sauce à poutine"
+      },
+      "joyoPoutine": {
+        "name": "Poutine Joyo",
+        "description": "Frites maison, galette de bœuf haché, oignons sautés, champignons sautés, fromage en grains, sauce à poutine"
+      },
+      "spinachSalad": {
+        "name": "Salade d'Épinards & Brocoli",
+        "description": "Épinards, roquette, pomme, canneberges séchées, fromage feta, noix, vinaigrette à la moutarde de Dijon & sirop d'érable"
+      },
+      "greenSalad": {
+        "name": "Salade Verte",
+        "description": "Mélange de verdures, tomates, concombres, croûtons, fromage parmesan, vinaigrette balsamique"
+      },
+      "milkshakes": {
+        "vanilla": "Vanille",
+        "chocolate": "Chocolat",
+        "strawberry": "Fraise",
+        "oreo": "Oreo",
+        "peanutButter": "Beurre d'Arachide"
+      },
+      "softDrinks": {
+        "classic": "Classiques",
+        "otherFlavors": "Autres Saveurs"
+      },
+      "lemonades": {
+        "yuzu": "Yuzu & Fleur de Sureau",
+        "grapefruit": "Pamplemousse & Thé au Jasmin"
+      },
+      "cocktails": {
+        "peach7": {
+          "name": "Peach 7",
+          "description": "Southern Comfort, sweet & sour, soda au melon, amers de lime"
+        },
+        "yuzuTonic": {
+          "name": "Yuzu Tonic",
+          "description": "Aperol, citron, tonique au yuzu 1642"
+        },
+        "orangeCrush": {
+          "name": "Orange Crush",
+          "description": "Tanqueray Flor de Seville, lime, soda à l'orange"
+        },
+        "bigBerryLife": {
+          "name": "Big Berry Life",
+          "description": "Absolut Juice, purée de cerise, soda fraise-lime"
+        }
+      },
+      "beers": {
+        "craftBeer": "Bière Artisanale - Verre",
+        "importedBeer": "Bière Importée - Verre",
+        "wine": "Vin Rouge/Blanc (250ml)"
+      }
+    }
+  },
+  "footer": {
+    "hours": {
+      "days": "Lundi au Dimanche",
+      "time": "11h00 à 22h00"
+    },
+    "contact": {
+      "email": "info@joyoburger.com"
+    },
+    "links": {
+      "home": "Accueil",
+      "menu": "Notre menu",
+      "careers": "Carrière @ JOYO",
+      "privacy": "Confidentialité et Conditions d'utilisation"
+    }
+  }
+} 

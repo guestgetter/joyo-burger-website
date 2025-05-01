@@ -1,0 +1,106 @@
+/**
+ * JOYO Burger - CSS Variables
+ * 
+ * This file contains all global CSS variables for consistent theming across the site.
+ * It ensures color consistency, spacing uniformity, and typography consistency.
+ */
+
+:root {
+    /* Color Palette - Based on JOYO Brand Guidelines */
+    --color-primary: #CA831A;        /* Ocre - Main brand color */
+    --color-primary-dark: #B67616;   /* Darker ocre for hover states */
+    --color-primary-light: #D99934;  /* Lighter ocre for backgrounds */
+    
+    /* Secondary Colors from Brand Guidelines */
+    --color-secondary: #FF6239;      /* Rouge-orangé */
+    --color-secondary-dark: #E54A20; /* Darker orange-red */
+    --color-secondary-light: #FF8661;/* Lighter orange-red */
+    
+    /* Additional Brand Colors */
+    --color-light-yellow: #FEEDA7;   /* Jaune pâle */
+    --color-pink: #FFC8BE;           /* Rose */
+    --color-forest-green: #18423D;   /* Vert forêt */
+    
+    /* Background Colors */
+    --color-bg-primary: #1A1A1A;     /* Main dark background - close to Noir */
+    --color-bg-secondary: #121212;   /* Slightly darker background */
+    --color-bg-light: #F5F5F5;       /* Light background for light mode */
+    --color-bg-dark: #0F0F0F;        /* Very dark background for footer */
+    
+    /* Text Colors */
+    --color-text-dark: #1A1A1A;      /* Dark text for light backgrounds */
+    --color-text-light: #F5F5F5;     /* Light text for dark backgrounds */
+    --color-text-muted: #9E9E9E;     /* Muted/gray text */
+    --color-text-primary: #CA831A;   /* Primary colored text - Ocre */
+    
+    /* Border Colors */
+    --color-border: rgba(255, 255, 255, 0.1); /* Default border color */
+    --color-border-light: rgba(0, 0, 0, 0.1); /* Light mode border */
+    
+    /* Utility Colors */
+    --color-success: #4CAF50;        /* Green for success messages */
+    --color-error: #F44336;          /* Red for error messages */
+    --color-warning: #FFC107;        /* Amber for warning messages */
+    --color-info: #2196F3;           /* Blue for info messages */
+    
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 48px;
+    
+    /* Typography */
+    --font-family-primary: 'Poppins', sans-serif;
+    --font-family-secondary: 'Montserrat', sans-serif;
+    
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 24px;
+    --font-size-xxl: 32px;
+    --font-size-xxxl: 48px;
+    
+    /* Font Weights */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    
+    /* Border Radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 24px;
+    --border-radius-circle: 50%;
+    
+    /* Box Shadows */
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.2);
+    --shadow-inner: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Z-indices */
+    --z-index-dropdown: 100;
+    --z-index-sticky: 200;
+    --z-index-fixed: 300;
+    --z-index-modal-backdrop: 400;
+    --z-index-modal: 500;
+    --z-index-popover: 600;
+    --z-index-tooltip: 700;
+    
+    /* Container Widths */
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1280px;
+} 

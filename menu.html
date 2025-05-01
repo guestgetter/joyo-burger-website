@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOYO Burger Menu | Feed Me Joy</title>
+    <meta name="description" content="Discover JOYO Burger's menu featuring premium halal smash burgers, crispy chicken, fresh salads, hand-cut fries, and craft beverages.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/components/menu-updated.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="menu-page">
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png" alt="JOYO Burger Logo">
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="menu.html" class="nav-link active">MENU</a></li>
+                        <li><a href="about.html" class="nav-link">ABOUT US</a></li>
+                        <li><a href="career.html" class="nav-link">CAREER</a></li>
+                        <li><a href="find-us.html" class="nav-link">FIND US</a></li>
+                        <li><a href="contact.html" class="nav-link">CONTACT</a></li>
+                        <li><a href="blog.html" class="nav-link">BLOG</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="cta-buttons">
+                    <a href="https://joyoburger.com/commande-en-ligne/" target="_blank" class="order-now-btn">ORDER NOW</a>
+                    <div class="language-selector">
+                        <a href="menu.html" class="language-toggle active">EN</a>
+                        <span class="divider">|</span>
+                        <a href="menu-fr.html" class="language-toggle">FR</a>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/Joyoburger" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/joyoburger/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="menu-hero">
+        <div class="hero-overlay"></div>
+        <div class="menu-hero-content">
+            <h1>FEED ME JOY</h1>
+        </div>
+    </section>
+
+    <!-- Menu Layout -->
+    <section class="menu-content">
+        <div class="menu-layout">
+            <!-- Sidebar Navigation -->
+            <aside class="menu-sidebar">
+                <nav class="menu-categories">
+                    <ul>
+                        <li class="menu-category active" data-category="burgers">
+                            <div class="category-icon">
+                                <img src="JOYO - Images/burger-icon.png" alt="Burger icon">
+                            </div>
+                            <span>BURGERS</span>
+                        </li>
+                        <li class="menu-category" data-category="fries">
+                            <div class="category-icon">
+                                <img src="JOYO - Images/french-fries-orange-e1739013907883.png" alt="Fries icon">
+                            </div>
+                            <span>FRIES & POUTINES</span>
+                        </li>
+                        <li class="menu-category" data-category="salads">
+                            <div class="category-icon">
+                                <img src="JOYO - Images/salad-icon.png" alt="Salad icon">
+                            </div>
+                            <span>SALADS</span>
+                        </li>
+                        <li class="menu-category" data-category="milkshakes">
+                            <div class="category-icon">
+                                <img src="JOYO - Images/milkshake-icon.png" alt="Milkshake icon">
+                            </div>
+                            <span>MILKSHAKES & NON-ALC</span>
+                        </li>
+                        <li class="menu-category" data-category="drinks">
+                            <div class="category-icon">
+                                <img src="JOYO - Images/cocktail-glass-icon.png" alt="Drink icon">
+                            </div>
+                            <span>BEER, COCKTAIL AND WINE</span>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Menu Sections -->
+            <main class="menu-sections-container">
+                <!-- BURGERS Section -->
+                <section id="burgers" class="menu-section active">
+                    <div class="section-header">
+                        <h2>BEEF</h2>
+                        <p>Ground in-house daily from premium halal cuts</p>
+                        <p class="note">Order any of these beef burgers with a vegetarian patty +$2</p>
+                    </div>
+                    
+                    <div class="menu-items">
+                        <!-- Menu Items -->
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/cheese-burger.jpeg" alt="Cheese Burger">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Cheese Burger</h3>
+                                <p>Cheddar cheese, lettuce, tomatoes, onions, pickles, Joyo™ sauce</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/le-special.png" alt="The Special">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>The Special</h3>
+                                <p>Cheddar cheese, pickles, caramelized onions, Joyo™ sauce</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/Le-Grand.png" alt="The Big">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>The Big</h3>
+                                <p>Homemade double patty, caramelized bacon, cheddar cheese, lettuce, tomatoes, onions, pickles, and Joyo sauce.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/Brie-et-champignons.png" alt="Brie & Mushrooms">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Brie & Mushrooms</h3>
+                                <p>Brie cheese, caramelized onions, sautéed mushrooms, arugula, Joyo™ sauce</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/Le-Chipotle.png" alt="The Chipotle">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>The Chipotle</h3>
+                                <p>White cheddar cheese, roasted jalapeños, pickles, red onions, arugula, chipotle sauce</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/Le-Bleu.png" alt="The Blue">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>The Blue</h3>
+                                <p>Blue cheese, arugula, sautéed onions, BBQ sauce</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chicken section -->
+                    <div class="section-header">
+                        <h2>CHICKEN</h2>
+                        <p>Crispy chicken breast, made to order, seasoned to perfection</p>
+                    </div>
+                    
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/Classic-Fried-Chicken-scaled-e1741170244379.jpeg" alt="Classic Fried Chicken Burger">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Classic Fried Chicken Burger</h3>
+                                <p>Crispy chicken breast, tomatoes, onions, lettuce, pickles, Joyo™ sauce</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/Nashville-Spicy-Chicken-e1741170425119.jpeg" alt="Nashville Chicken Burger">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Nashville Chicken Burger</h3>
+                                <p>Spicy crispy chicken breast, coleslaw, pickles, spicy sauce</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/Burger-poulet-et-miel-epice.png" alt="Spicy Honey Chicken Burger">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Spicy Honey Chicken Burger</h3>
+                                <p>Two crispy chicken filets covered in spicy honey, lettuce, pickles, mayo</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Vegetarian section -->
+                    <div class="section-header">
+                        <h2>VEGETARIAN</h2>
+                        <p>Homemade Vegetarian option that don't compromise flavour</p>
+                    </div>
+                    
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/Falafel-burger.png" alt="Falafel Burger">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Falafel Burger</h3>
+                                <p>Crispy falafel patty, lettuce, tomatoes, radish, pickles, tahini sauce</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-footer">
+                        <p>All burgers available with a Gluten-Free bun +$2</p>
+                    </div>
+                </section>
+                
+                <!-- FRIES Section -->
+                <section id="fries" class="menu-section">
+                    <div class="section-header">
+                        <h2>FRIES</h2>
+                        <p>Hand cut daily, made with real potatoes.</p>
+                    </div>
+                    
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/homemade-fries.jpeg" alt="Homemade Fries">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Homemade Fries</h3>
+                                <p>Homemade fries are crispy, golden, and delicious. Made by frying potato slices, they taste best with salt.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/House-Fries-Cheese-Sauce.png" alt="Homemade Fries and Cheese Sauce">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Homemade Fries and Cheese Sauce</h3>
+                                <p>Homemade fries paired with creamy cheese sauce create a delicious snack. Crispy, golden fries dipped in rich.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/Gourmet-Homemade-Loaded-Fries.png" alt="Gourmet Homemade Loaded Fries">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Gourmet Homemade Loaded Fries</h3>
+                                <p>Pickles, diced onions, green onions, gourmet fries sauce, BBQ sauce</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-header">
+                        <h2>POUTINES</h2>
+                    </div>
+                    
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/Classic-Poutine.png" alt="Classic Poutine">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Classic Poutine</h3>
+                                <p>House fries, cheese curds, poutine sauce</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/Chicken-Poutine.png" alt="Chicken Poutine">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Chicken Poutine</h3>
+                                <p>House fries, two crispy chicken strips, cheese curds, poutine sauce</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/Joyo-Poutine.png" alt="Joyo Poutine">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Joyo Poutine</h3>
+                                <p>House fries, ground beef patty, sautéed onions, sautéed mushrooms, cheese curds, poutine sauce</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- SALADS Section -->
+                <section id="salads" class="menu-section">
+                    <div class="section-header">
+                        <h2>SALADS</h2>
+                        <p>The perfect side for a guilt free pleasure</p>
+                    </div>
+                    
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/spinach-and-broccoli-salad.jpeg" alt="Spinach & Broccoli Salad">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Spinach & Broccoli Salad</h3>
+                                <p>Spinach, arugula, apple, dried cranberries, feta cheese, nuts, Dijon mustard & maple dressing</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/green-salad.jpeg" alt="Green Salad">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Green Salad</h3>
+                                <p>Mixed greens, tomatoes, cucumbers, croutons, parmesan cheese, balsamic dressing</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- MILKSHAKES Section -->
+                <section id="milkshakes" class="menu-section">
+                    <div class="section-header">
+                        <h2>MILKSHAKES & NON-ALC</h2>
+                    </div>
+                    
+                    <div class="sub-section">
+                        <h3>Milkshakes</h3>
+                        <div class="menu-items">
+                            <div class="menu-item">
+                                <div class="menu-item-image">
+                                    <img src="JOYO - Images/vanilla-milkshake.jpg" alt="Vanilla Milkshake">
+                                </div>
+                                <div class="menu-item-content">
+                                    <h3>Vanilla</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div class="menu-item-image">
+                                    <img src="JOYO - Images/chocolate-milkshake.jpg" alt="Chocolate Milkshake">
+                                </div>
+                                <div class="menu-item-content">
+                                    <h3>Chocolate</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div class="menu-item-image">
+                                    <img src="JOYO - Images/strawberry-milkshake.jpg" alt="Strawberry Milkshake">
+                                </div>
+                                <div class="menu-item-content">
+                                    <h3>Strawberry</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div class="menu-item-image">
+                                    <img src="JOYO - Images/oreo-milkshake.jpg" alt="Oreo Milkshake">
+                                </div>
+                                <div class="menu-item-content">
+                                    <h3>Oreo</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div class="menu-item-image">
+                                    <img src="JOYO - Images/peanut-butter-milkshake.jpg" alt="Peanut Butter Milkshake">
+                                </div>
+                                <div class="menu-item-content">
+                                    <h3>Peanut Butter</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sub-section">
+                        <h3>Soft Drinks</h3>
+                        <div class="menu-items">
+                            <div class="menu-item">
+                                <div class="menu-item-image">
+                                    <img src="JOYO - Images/drink-lemonades-sodas.png" alt="Classic Soft Drinks">
+                                </div>
+                                <div class="menu-item-content">
+                                    <h3>Classic</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div class="menu-item-image">
+                                    <img src="JOYO - Images/drink-lemonades-sodas.png" alt="Flavored Soft Drinks">
+                                </div>
+                                <div class="menu-item-content">
+                                    <h3>Other Flavors</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="sub-section">
+                        <h3>Lemonades</h3>
+                        <div class="menu-items">
+                            <div class="menu-item">
+                                <div class="menu-item-image">
+                                    <img src="JOYO - Images/lemonade.jpg" alt="Yuzu & Elderflower Lemonade">
+                                </div>
+                                <div class="menu-item-content">
+                                    <h3>Yuzu & Elderflower</h3>
+                                </div>
+                            </div>
+                            
+                            <div class="menu-item">
+                                <div class="menu-item-image">
+                                    <img src="JOYO - Images/lemonade.jpg" alt="Grapefruit & Jasmine Tea">
+                                </div>
+                                <div class="menu-item-content">
+                                    <h3>Grapefruit & Jasmine Tea</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- DRINKS Section -->
+                <section id="drinks" class="menu-section">
+                    <div class="section-header">
+                        <h2>SIGNATURE COCKTAILS</h2>
+                        <p>SIGNATURE COCKTAILS ($ 8.99)</p>
+                    </div>
+                    
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/cocktails-e1740380770179.png" alt="Peach 7 Cocktail">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Peach 7</h3>
+                                <p>Southern Comfort, sweet & sour, melon soda, lime bitters</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/cocktails-e1740380770179.png" alt="Yuzu Tonic Cocktail">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Yuzu Tonic</h3>
+                                <p>Aperol, lemon, 1642 Yuzu tonic</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/cocktails-e1740380770179.png" alt="Orange Crush Cocktail">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Orange Crush</h3>
+                                <p>Tanqueray Flor de Seville, lime, orange soda</p>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/cocktails-e1740380770179.png" alt="Big Berry Life Cocktail">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Big Berry Life</h3>
+                                <p>Absolut Juice, cherry purée, strawberry-lime soda</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="section-header">
+                        <h2>BEERS & WINES</h2>
+                    </div>
+                    
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/craft-local-beer.jpg" alt="Craft Beer">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Craft Beer - Glass</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/imported-beer-glass.png" alt="Imported Beer">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Imported Beer - Glass</h3>
+                            </div>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-image">
+                                <img src="JOYO - Images/beer-being-poured.jpg" alt="Wine">
+                            </div>
+                            <div class="menu-item-content">
+                                <h3>Red/White Wine (250ml)</h3>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="hours">
+                    <p>Monday to Sunday</p>
+                    <p>11:00 AM to 10:00 PM</p>
+                </div>
+                
+                <div class="social-contact">
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/Joyoburger" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/joyoburger/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p>info@joyoburger.com</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <span class="separator">|</span>
+                    <a href="#menu">Our menu</a>
+                    <span class="separator">|</span>
+                    <a href="#careers">Career @ JOYO</a>
+                    <span class="separator">|</span>
+                    <a href="#privacy">Privacy Terms of Use</a>
+                </div>
+                
+                <div class="footer-logo">
+                    <img src="JOYO - Images/joyo-smiley-footer-icon3.png" alt="JOYO Smiley">
+                </div>
+                
+                <div class="copyright">
+                    <p>&copy;2023 Joyo™ burger. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="js/main.js"></script>
+    <script src="js/languages.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html> 

@@ -1,0 +1,199 @@
+{
+  "global": {
+    "brand": "JOYO Burger",
+    "orderNow": "ORDER NOW",
+    "copyright": "© 2023 Joyo™ burger. All Rights Reserved."
+  },
+  "nav": {
+    "menu": "MENU",
+    "about": "ABOUT US",
+    "career": "CAREER",
+    "findUs": "FIND US",
+    "contact": "CONTACT",
+    "blog": "BLOG"
+  },
+  "hero": {
+    "title": "FEED ME JOY"
+  },
+  "menu": {
+    "categories": {
+      "burgers": "BURGERS",
+      "fries": "FRIES & POUTINES",
+      "salads": "SALADS",
+      "milkshakes": "MILKSHAKES & NON-ALC",
+      "drinks": "BEER, COCKTAIL AND WINE"
+    },
+    "sections": {
+      "beef": {
+        "title": "BEEF",
+        "description": "Ground in-house daily from premium halal cuts",
+        "note": "Order any of these beef burgers with a vegetarian patty +$2"
+      },
+      "chicken": {
+        "title": "CHICKEN",
+        "description": "Crispy chicken breast, made to order, seasoned to perfection"
+      },
+      "vegetarian": {
+        "title": "VEGETARIAN",
+        "description": "Homemade Vegetarian option that don't compromise flavour"
+      },
+      "fries": {
+        "title": "FRIES",
+        "description": "Hand cut daily, made with real potatoes."
+      },
+      "poutines": {
+        "title": "POUTINES"
+      },
+      "salads": {
+        "title": "SALADS",
+        "description": "The perfect side for a guilt free pleasure"
+      },
+      "milkshakes": {
+        "title": "MILKSHAKES & NON-ALC"
+      },
+      "softDrinks": {
+        "title": "Soft Drinks"
+      },
+      "lemonades": {
+        "title": "Lemonades"
+      },
+      "cocktails": {
+        "title": "SIGNATURE COCKTAILS",
+        "description": "SIGNATURE COCKTAILS ($ 8.99)"
+      },
+      "beers": {
+        "title": "BEERS & WINES"
+      }
+    },
+    "footer": {
+      "glutenFree": "All burgers available with a Gluten-Free bun +$2"
+    },
+    "items": {
+      "cheeseBurger": {
+        "name": "Cheese Burger",
+        "description": "Cheddar cheese, lettuce, tomatoes, onions, pickles, Joyo™ sauce"
+      },
+      "theSpecial": {
+        "name": "The Special",
+        "description": "Cheddar cheese, pickles, caramelized onions, Joyo™ sauce"
+      },
+      "theBig": {
+        "name": "The Big",
+        "description": "Homemade double patty, caramelized bacon, cheddar cheese, lettuce, tomatoes, onions, pickles, and Joyo sauce."
+      },
+      "brieMushrooms": {
+        "name": "Brie & Mushrooms",
+        "description": "Brie cheese, caramelized onions, sautéed mushrooms, arugula, Joyo™ sauce"
+      },
+      "theChipotle": {
+        "name": "The Chipotle",
+        "description": "White cheddar cheese, roasted jalapeños, pickles, red onions, arugula, chipotle sauce"
+      },
+      "theBlue": {
+        "name": "The Blue",
+        "description": "Blue cheese, arugula, sautéed onions, BBQ sauce"
+      },
+      "classicChicken": {
+        "name": "Classic Fried Chicken Burger",
+        "description": "Crispy chicken breast, tomatoes, onions, lettuce, pickles, Joyo™ sauce"
+      },
+      "nashvilleChicken": {
+        "name": "Nashville Chicken Burger",
+        "description": "Spicy crispy chicken breast, coleslaw, pickles, spicy sauce"
+      },
+      "spicyHoneyChicken": {
+        "name": "Spicy Honey Chicken Burger",
+        "description": "Two crispy chicken filets covered in spicy honey, lettuce, pickles, mayo"
+      },
+      "falafelBurger": {
+        "name": "Falafel Burger",
+        "description": "Crispy falafel patty, lettuce, tomatoes, radish, pickles, tahini sauce"
+      },
+      "homemadeFries": {
+        "name": "Homemade Fries",
+        "description": "Homemade fries are crispy, golden, and delicious. Made by frying potato slices, they taste best with salt."
+      },
+      "cheeseFries": {
+        "name": "Homemade Fries and Cheese Sauce",
+        "description": "Homemade fries paired with creamy cheese sauce create a delicious snack. Crispy, golden fries dipped in rich."
+      },
+      "loadedFries": {
+        "name": "Gourmet Homemade Loaded Fries",
+        "description": "Pickles, diced onions, green onions, gourmet fries sauce, BBQ sauce"
+      },
+      "classicPoutine": {
+        "name": "Classic Poutine",
+        "description": "House fries, cheese curds, poutine sauce"
+      },
+      "chickenPoutine": {
+        "name": "Chicken Poutine",
+        "description": "House fries, two crispy chicken strips, cheese curds, poutine sauce"
+      },
+      "joyoPoutine": {
+        "name": "Joyo Poutine",
+        "description": "House fries, ground beef patty, sautéed onions, sautéed mushrooms, cheese curds, poutine sauce"
+      },
+      "spinachSalad": {
+        "name": "Spinach & Broccoli Salad",
+        "description": "Spinach, arugula, apple, dried cranberries, feta cheese, nuts, Dijon mustard & maple dressing"
+      },
+      "greenSalad": {
+        "name": "Green Salad",
+        "description": "Mixed greens, tomatoes, cucumbers, croutons, parmesan cheese, balsamic dressing"
+      },
+      "milkshakes": {
+        "vanilla": "Vanilla",
+        "chocolate": "Chocolate",
+        "strawberry": "Strawberry",
+        "oreo": "Oreo",
+        "peanutButter": "Peanut Butter"
+      },
+      "softDrinks": {
+        "classic": "Classic",
+        "otherFlavors": "Other Flavors"
+      },
+      "lemonades": {
+        "yuzu": "Yuzu & Elderflower",
+        "grapefruit": "Grapefruit & Jasmine Tea"
+      },
+      "cocktails": {
+        "peach7": {
+          "name": "Peach 7",
+          "description": "Southern Comfort, sweet & sour, melon soda, lime bitters"
+        },
+        "yuzuTonic": {
+          "name": "Yuzu Tonic",
+          "description": "Aperol, lemon, 1642 Yuzu tonic"
+        },
+        "orangeCrush": {
+          "name": "Orange Crush",
+          "description": "Tanqueray Flor de Seville, lime, orange soda"
+        },
+        "bigBerryLife": {
+          "name": "Big Berry Life",
+          "description": "Absolut Juice, cherry purée, strawberry-lime soda"
+        }
+      },
+      "beers": {
+        "craftBeer": "Craft Beer - Glass",
+        "importedBeer": "Imported Beer - Glass",
+        "wine": "Red/White Wine (250ml)"
+      }
+    }
+  },
+  "footer": {
+    "hours": {
+      "days": "Monday to Sunday",
+      "time": "11:00 AM to 10:00 PM"
+    },
+    "contact": {
+      "email": "info@joyoburger.com"
+    },
+    "links": {
+      "home": "Home",
+      "menu": "Our menu",
+      "careers": "Career @ JOYO",
+      "privacy": "Privacy Terms of Use"
+    }
+  }
+} 

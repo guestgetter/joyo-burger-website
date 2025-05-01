@@ -1,4 +1,194 @@
-/* JOYO Burger Website - Main Stylesheet */
+/**
+ * JOYO Burger - Main Stylesheet
+ * 
+ * This is the main stylesheet that imports all component CSS files and provides
+ * base styles for the entire site.
+ */
+
+/* Import Variables and Reset */
+@import 'variables.css';
+@import 'components/reset.css';
+
+/* Import Component Styles */
+@import 'components/header.css';
+@import 'components/footer.css';
+@import 'components/menu.css';
+
+/* Import Utility Styles */
+@import 'responsive.css';
+@import 'animations.css';
+
+/* Base Styles */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-primary);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+/* Section Styles */
+section {
+    padding: var(--spacing-xxl) 0;
+}
+
+/* General Links */
+a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: color var(--transition-normal);
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--color-primary);
+    color: var(--color-text-dark);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    transition: background-color var(--transition-normal), transform var(--transition-normal);
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-secondary-dark);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-dark);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-secondary);
+    margin: 0 0 var(--spacing-md);
+    line-height: 1.2;
+    color: var(--color-text-light);
+}
+
+h1 {
+    font-size: var(--font-size-xxxl);
+    font-weight: var(--font-weight-extrabold);
+}
+
+h2 {
+    font-size: var(--font-size-xxl);
+    font-weight: var(--font-weight-bold);
+}
+
+h3 {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-semibold);
+}
+
+h4 {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+}
+
+p {
+    margin: 0 0 var(--spacing-md);
+}
+
+/* Accent Line */
+.accent-line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-primary);
+    margin: var(--spacing-md) 0;
+}
+
+/* Common Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.text-primary {
+    color: var(--color-primary);
+}
+
+.bg-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-dark);
+}
+
+.bg-dark {
+    background-color: var(--color-bg-dark);
+}
+
+.bg-light {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+}
+
+.mt-1 { margin-top: var(--spacing-xs); }
+.mt-2 { margin-top: var(--spacing-sm); }
+.mt-3 { margin-top: var(--spacing-md); }
+.mt-4 { margin-top: var(--spacing-lg); }
+.mt-5 { margin-top: var(--spacing-xl); }
+
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+.mb-5 { margin-bottom: var(--spacing-xl); }
+
+.py-1 { padding-top: var(--spacing-xs); padding-bottom: var(--spacing-xs); }
+.py-2 { padding-top: var(--spacing-sm); padding-bottom: var(--spacing-sm); }
+.py-3 { padding-top: var(--spacing-md); padding-bottom: var(--spacing-md); }
+.py-4 { padding-top: var(--spacing-lg); padding-bottom: var(--spacing-lg); }
+.py-5 { padding-top: var(--spacing-xl); padding-bottom: var(--spacing-xl); }
+
+.px-1 { padding-left: var(--spacing-xs); padding-right: var(--spacing-xs); }
+.px-2 { padding-left: var(--spacing-sm); padding-right: var(--spacing-sm); }
+.px-3 { padding-left: var(--spacing-md); padding-right: var(--spacing-md); }
+.px-4 { padding-left: var(--spacing-lg); padding-right: var(--spacing-lg); }
+.px-5 { padding-left: var(--spacing-xl); padding-right: var(--spacing-xl); }
+
+/* ---------------------------------
+  Home Page Specific Styles - These will be moved to components
+--------------------------------- */
+
+/* Homepage styles will be migrated to separate component files */
 
 /* Custom Font Declarations */
 @font-face {
@@ -96,11 +286,6 @@
     padding: 0;
 }
 
-html {
-    font-size: 16px;
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: var(--body-font);
     font-weight: normal;
@@ -115,12 +300,6 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: all 0.3s ease;
 }
 
 ul, ol {
