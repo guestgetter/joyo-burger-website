@@ -60,112 +60,134 @@ function initCategoriesScroll() {
 function initMobileMenu() {
     console.log('Initializing mobile menu...');
     
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileNav = document.querySelector('.mobile-nav');
-    
-    // If these elements aren't found, potentially create them
-    if (!menuToggle || !mobileNav) {
-        console.warn('Mobile menu elements not found, attempting to create them...');
-        
-        // Create mobile toggle if it doesn't exist
-        if (!menuToggle) {
-            const newMenuToggle = document.createElement('button');
-            newMenuToggle.className = 'mobile-menu-toggle';
-            newMenuToggle.setAttribute('aria-label', 'Toggle mobile menu');
-            newMenuToggle.innerHTML = `
+    // Create mobile menu elements if they don't exist
+    const createMobileElements = () => {
+        if (!document.querySelector('.mobile-menu-toggle')) {
+            console.log('Creating mobile menu toggle...');
+            const toggle = document.createElement('button');
+            toggle.className = 'mobile-menu-toggle';
+            toggle.innerHTML = `
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             `;
-            document.body.appendChild(newMenuToggle);
-            console.log('Created mobile menu toggle');
+            document.querySelector('.header-content').appendChild(toggle);
         }
         
-        // Create mobile nav if it doesn't exist
-        if (!mobileNav) {
-            const header = document.querySelector('header');
-            const mainNav = document.querySelector('.main-nav');
+        if (!document.querySelector('.mobile-nav')) {
+            console.log('Creating mobile navigation...');
+            const mobileNav = document.createElement('div');
+            mobileNav.className = 'mobile-nav';
             
+            // Copy main nav items to mobile nav
+            const mainNav = document.querySelector('.main-nav');
             if (mainNav) {
-                const newMobileNav = document.createElement('div');
-                newMobileNav.className = 'mobile-nav';
-                
-                // Clone navigation list
-                const navList = mainNav.querySelector('.nav-list').cloneNode(true);
-                newMobileNav.appendChild(navList);
-                
-                // Add order button
-                const orderBtn = document.querySelector('.order-now-btn');
-                if (orderBtn) {
-                    const orderBtnClone = orderBtn.cloneNode(true);
-                    newMobileNav.appendChild(orderBtnClone);
-                }
-                
-                document.body.appendChild(newMobileNav);
-                console.log('Created mobile nav');
+                mobileNav.innerHTML = mainNav.innerHTML;
+                document.body.appendChild(mobileNav);
+            } else {
+                console.warn('Main navigation not found');
             }
         }
-    }
+    };
     
-    // Get references again in case we created them
-    const updatedMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const updatedMobileNav = document.querySelector('.mobile-nav');
+    createMobileElements();
     
-    if (updatedMenuToggle && updatedMobileNav) {
-        // Ensure toggle is visible
-        updatedMenuToggle.style.display = 'flex';
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    
+    if (mobileMenuToggle && mobileNav) {
+        // Set initial state
+        mobileMenuToggle.style.display = 'flex';
+        mobileNav.classList.remove('active');
         
-        // Make sure the menu is closed initially
-        updatedMobileNav.classList.remove('active');
-        updatedMenuToggle.classList.remove('mobile-menu-active');
-        
-        // Remove event listeners first to prevent duplicates
-        const newMenuToggle = updatedMenuToggle.cloneNode(true);
-        updatedMenuToggle.parentNode.replaceChild(newMenuToggle, updatedMenuToggle);
-        
-        // Add click event with properly bound this context
-        newMenuToggle.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent event bubbling
-            e.preventDefault(); // Prevent default behavior
+        mobileMenuToggle.addEventListener('click', function() {
             console.log('Mobile menu toggle clicked');
             this.classList.toggle('mobile-menu-active');
-            updatedMobileNav.classList.toggle('active');
+            mobileNav.classList.toggle('active');
             document.body.classList.toggle('menu-open');
+            
+            // Force repaint to ensure styling is applied
+            mobileNav.style.display = 'none';
+            mobileNav.offsetHeight; // Trigger reflow
+            mobileNav.style.display = 'flex';
         });
         
-        // Close mobile menu when clicking on a link
-        const mobileLinks = updatedMobileNav.querySelectorAll('a');
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileNav.querySelectorAll('a');
         mobileLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                // Allow normal behavior for links, but close menu
-                newMenuToggle.classList.remove('mobile-menu-active');
-                updatedMobileNav.classList.remove('active');
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('mobile-menu-active');
+                mobileNav.classList.remove('active');
                 document.body.classList.remove('menu-open');
             });
         });
         
         // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
-            if (updatedMobileNav.classList.contains('active') && 
-                !updatedMobileNav.contains(event.target) && 
-                !newMenuToggle.contains(event.target)) {
-                newMenuToggle.classList.remove('mobile-menu-active');
-                updatedMobileNav.classList.remove('active');
+            const isClickInsideMenu = mobileNav.contains(event.target);
+            const isClickOnToggle = mobileMenuToggle.contains(event.target);
+            
+            if (mobileNav.classList.contains('active') && !isClickInsideMenu && !isClickOnToggle) {
+                mobileMenuToggle.classList.remove('mobile-menu-active');
+                mobileNav.classList.remove('active');
                 document.body.classList.remove('menu-open');
             }
         });
         
-        // Ensure menu toggle is always visible regardless of scroll position
+        // Make sure toggle remains visible during scroll
         window.addEventListener('scroll', function() {
-            newMenuToggle.style.position = 'fixed';
-            newMenuToggle.style.top = '15px';
-            newMenuToggle.style.right = '15px';
-            newMenuToggle.style.zIndex = '9999';
+            mobileMenuToggle.style.position = 'fixed';
         });
         
-        console.log('Mobile menu initialized successfully');
+        console.log('Mobile menu initialization complete');
     } else {
-        console.error('Failed to initialize mobile menu');
+        console.error('Mobile menu elements not found');
+    }
+    
+    // Image Gallery functionality (if on homepage)
+    const galleryContainer = document.querySelector('.gallery-container');
+    if (galleryContainer) {
+        const slides = document.querySelectorAll('.gallery-slide');
+        const dots = document.querySelectorAll('.gallery-dot');
+        let currentSlide = 0;
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            slides[n].classList.add('active');
+            dots[n].classList.add('active');
+            currentSlide = n;
+        }
+        
+        // Click events for dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showSlide(index));
+        });
+        
+        // Auto scroll
+        function autoScroll() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        setInterval(autoScroll, 5000);
+    }
+    
+    // Testimonial slider functionality
+    const testimonialDots = document.querySelectorAll('.testimonial-dots .dot');
+    if (testimonialDots.length > 0) {
+        const testimonials = document.querySelectorAll('.testimonial');
+        
+        function showTestimonial(n) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            testimonialDots.forEach(dot => dot.classList.remove('active'));
+            testimonials[n].classList.add('active');
+            testimonialDots[n].classList.add('active');
+        }
+        
+        testimonialDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => showTestimonial(index));
+        });
     }
 }
 
