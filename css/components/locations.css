@@ -116,8 +116,20 @@
 }
 
 .location-image {
-    height: 200px;
+    height: 280px;
     overflow: hidden;
+    position: relative;
+}
+
+.location-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    z-index: 1;
 }
 
 .location-image img {
@@ -180,18 +192,24 @@
     display: inline-block;
     background-color: var(--ochre);
     color: black;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border-radius: 4px;
     text-decoration: none;
     font-weight: 600;
     text-align: center;
     transition: all 0.3s ease;
+    width: 100%;
+    font-family: var(--heading-font);
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
 }
 
 .directions-btn:hover {
     background-color: #b67616;
     color: white;
     transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .directions-btn i {
@@ -202,6 +220,7 @@
     display: flex;
     justify-content: center;
     gap: 15px;
+    margin-top: 5px;
 }
 
 .social-btn {
@@ -221,6 +240,7 @@
     background-color: var(--ochre);
     color: black;
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Map Section */
