@@ -1,0 +1,556 @@
+/**
+ * JOYO Burger - Career Page Styles
+ * 
+ * This file contains styles specific to the Career page
+ * of the JOYO Burger website.
+ */
+
+/* Hero Banner */
+.career-hero {
+    position: relative;
+    height: 350px;
+    background-image: url('../../JOYO - Images/joyo-careers-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.career-hero-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.career-hero-content h1 {
+    color: var(--ochre);
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
+    font-family: var(--heading-font);
+    margin-bottom: 10px;
+}
+
+.career-hero-content .hero-subtitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: var(--body-font);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* Welcome Section */
+.welcome-section {
+    padding: 80px 0;
+    background-color: var(--color-bg-secondary);
+}
+
+.welcome-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-badge {
+    display: inline-block;
+    background-color: #83BBE5;
+    color: white;
+    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 50px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--heading-font);
+}
+
+.welcome-text h2 {
+    color: var(--ochre);
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 15px;
+    text-transform: capitalize;
+    font-family: var(--heading-font);
+}
+
+.accent-line {
+    height: 3px;
+    width: 60px;
+    background-color: var(--ochre);
+    margin: 0 0 20px;
+}
+
+.welcome-text p {
+    color: white;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-family: var(--body-font);
+}
+
+.career-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--ochre);
+    color: black;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    font-family: var(--heading-font);
+}
+
+.career-cta-btn i {
+    margin-right: 10px;
+}
+
+.career-cta-btn:hover {
+    background-color: #b67616;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-image {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.welcome-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.welcome-image:hover img {
+    transform: scale(1.03);
+}
+
+/* Why Join Us Section */
+.why-join-section {
+    padding: 80px 0;
+    background-color: var(--color-bg-primary);
+}
+
+.section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.section-header h2 {
+    color: var(--ochre);
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 15px;
+    text-transform: uppercase;
+    font-family: var(--heading-font);
+}
+
+.section-header .accent-line {
+    margin: 0 auto 20px;
+}
+
+.section-header p {
+    color: #DDD;
+    font-size: 18px;
+    line-height: 1.6;
+    font-family: var(--body-font);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.benefit-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.benefit-icon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--ochre);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.benefit-icon i {
+    color: black;
+    font-size: 28px;
+}
+
+.benefit-card h3 {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 15px;
+    font-family: var(--heading-font);
+}
+
+.benefit-card p {
+    color: #CCC;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+    font-family: var(--body-font);
+}
+
+/* Open Positions Section */
+.positions-section {
+    padding: 80px 0;
+    background-color: var(--color-bg-secondary);
+}
+
+.positions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+}
+
+.position-card {
+    background-color: var(--color-bg-primary);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.position-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.position-header {
+    background-color: var(--ochre);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.position-header h3 {
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    font-family: var(--heading-font);
+}
+
+.location-badge {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 50px;
+    font-family: var(--body-font);
+}
+
+.position-details {
+    padding: 25px;
+}
+
+.position-details p {
+    color: #DDD;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0 0 20px;
+    font-family: var(--body-font);
+}
+
+.position-requirements {
+    padding: 0 0 0 20px;
+    margin: 0 0 25px;
+}
+
+.position-requirements li {
+    color: #CCC;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    font-family: var(--body-font);
+}
+
+.position-cta {
+    margin-top: 20px;
+}
+
+.apply-btn {
+    display: inline-block;
+    background-color: var(--ochre);
+    color: black;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-family: var(--heading-font);
+}
+
+.apply-btn:hover {
+    background-color: #b67616;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.positions-footer {
+    text-align: center;
+    max-width: 700px;
+    margin: 40px auto 0;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.positions-footer p {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-family: var(--body-font);
+}
+
+.general-apply-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--ochre);
+    color: black;
+    padding: 12px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    font-family: var(--heading-font);
+}
+
+.general-apply-btn i {
+    margin-right: 10px;
+}
+
+.general-apply-btn:hover {
+    background-color: #b67616;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 80px 0;
+    background-color: var(--color-bg-primary);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.testimonial-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.testimonial-card:hover .testimonial-image img {
+    transform: scale(1.05);
+}
+
+.testimonial-content {
+    padding: 25px;
+}
+
+.testimonial-text {
+    color: #DDD;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0 0 20px;
+    font-style: italic;
+    font-family: var(--body-font);
+    position: relative;
+    padding-left: 20px;
+}
+
+.testimonial-text::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 40px;
+    color: var(--ochre);
+    line-height: 1;
+    font-family: Georgia, serif;
+}
+
+.testimonial-author {
+    color: var(--ochre);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    text-align: right;
+    font-family: var(--heading-font);
+}
+
+/* Responsive Styles */
+@media (max-width: 1199px) {
+    .benefits-grid,
+    .positions-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 991px) {
+    .welcome-content,
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .welcome-text {
+        order: 1;
+    }
+    
+    .welcome-image {
+        order: 0;
+    }
+    
+    .benefit-card,
+    .position-card {
+        padding: 20px;
+    }
+    
+    .career-hero {
+        height: 300px;
+    }
+    
+    .career-hero-content h1 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 767px) {
+    .benefits-grid,
+    .positions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .section-header h2,
+    .welcome-text h2 {
+        font-size: 28px;
+    }
+    
+    .career-hero {
+        height: 250px;
+    }
+    
+    .career-hero-content h1 {
+        font-size: 36px;
+    }
+    
+    .career-hero-content .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .welcome-section,
+    .why-join-section,
+    .positions-section,
+    .testimonials-section {
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 575px) {
+    .section-badge {
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+    
+    .career-cta-btn,
+    .general-apply-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .benefit-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .benefit-icon i {
+        font-size: 24px;
+    }
+} 
