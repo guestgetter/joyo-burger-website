@@ -570,35 +570,37 @@ function initPurposeGallery() {
  * Fix all h2 headings to ensure no unwanted backgrounds or text shadows
  */
 function fixAllHeadings() {
-    const allHeadings = document.querySelectorAll('h2');
+    // Select all h2 elements
+    const headings = document.querySelectorAll('h2');
     
-    allHeadings.forEach(heading => {
-        // Remove any inline background styles
-        heading.style.background = 'none';
-        heading.style.backgroundColor = 'transparent';
-        heading.style.textShadow = 'none';
+    headings.forEach(h2 => {
+        // Remove any problematic background or color styles
+        h2.style.background = 'none';
         
-        // Force correct color based on parent section
-        const parentSection = heading.closest('section');
+        // Check if heading is in a dark section
+        const parentSection = h2.closest('section');
         if (parentSection) {
-            if (parentSection.classList.contains('features-section') || 
-                parentSection.classList.contains('categories-showcase') ||
-                parentSection.classList.contains('cta-section') ||
-                parentSection.matches('.bg-dark, footer')) {
-                heading.style.color = 'white';
+            const computedStyle = getComputedStyle(parentSection);
+            const bgColor = computedStyle.backgroundColor;
+            
+            // Convert bgcolor to RGB values for analysis
+            const rgb = bgColor.match(/\d+/g);
+            
+            if (rgb && rgb.length >= 3) {
+                // Calculate brightness (rough estimate)
+                const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+                
+                if (brightness < 128) {
+                    // Dark background - set light text
+                    h2.style.color = 'white';
+                } else {
+                    // Light background - set dark text
+                    h2.style.color = 'black';
+                }
             } else {
-                heading.style.color = '#000000';
+                // Default to white if can't determine background
+                h2.style.color = 'white';
             }
         }
-        
-        // Ensure highlight spans inside headings are properly styled
-        const highlights = heading.querySelectorAll('.highlight');
-        highlights.forEach(highlight => {
-            highlight.style.background = 'none';
-            highlight.style.backgroundColor = 'transparent';
-            highlight.style.color = '#CA831A';
-        });
     });
-    
-    console.log('All headings fixed');
 } 
