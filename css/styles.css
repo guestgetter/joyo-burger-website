@@ -601,9 +601,9 @@ header {
 
 .purpose-image-gallery {
     width: 50%;
-    height: 100%; /* Ensure full height of parent */
-    overflow: hidden;
+    height: 100%; /* Full height of parent */
     position: relative;
+    overflow: hidden;
 }
 
 .gallery-container {
@@ -631,7 +631,7 @@ header {
 
 .gallery-slide img {
     width: 100%;
-    height: 100%;
+    height: 100%; 
     object-fit: cover;
     object-position: center;
 }
@@ -860,7 +860,13 @@ header {
     }
 
     .purpose-image-gallery {
-        height: 50vh;
+        height: 60vh; /* Increase height on mobile */
+        min-height: 500px; /* Ensure minimum height */
+    }
+    
+    .gallery-slide img {
+        height: 100%;
+        object-position: center;
     }
 }
 
