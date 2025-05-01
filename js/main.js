@@ -333,17 +333,40 @@ function initScrollAnimations() {
     function fixAllHeadings() {
         const allHeadings = document.querySelectorAll('h2');
         allHeadings.forEach(heading => {
+            // Remove any problematic background or color styles
             heading.style.background = 'none';
-            heading.style.backgroundColor = 'transparent';
-            heading.style.textShadow = 'none';
             
-            // Apply proper color based on parent section
+            // Check if the heading is in the Locations page
+            const isLocationsPage = document.body.classList.contains('locations-page');
+            
+            // Skip color determination for locations page - CSS will handle it
+            if (isLocationsPage) {
+                // For locations page, only remove background
+                return;
+            }
+            
+            // For other pages, continue with brightness detection
             const parentSection = heading.closest('section');
             if (parentSection) {
-                if (parentSection.classList.contains('features-section') || 
-                    parentSection.classList.contains('categories-showcase') ||
-                    parentSection.classList.contains('cta-section') ||
-                    parentSection.classList.contains('bg-dark')) {
+                const computedStyle = getComputedStyle(parentSection);
+                const bgColor = computedStyle.backgroundColor;
+                
+                // Convert bgcolor to RGB values for analysis
+                const rgb = bgColor.match(/\d+/g);
+                
+                if (rgb && rgb.length >= 3) {
+                    // Calculate brightness (rough estimate)
+                    const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
+                    
+                    if (brightness < 128) {
+                        // Dark background - set light text
+                        heading.style.color = 'white';
+                    } else {
+                        // Light background - set dark text
+                        heading.style.color = 'black';
+                    }
+                } else {
+                    // Default to white if can't determine background
                     heading.style.color = 'white';
                 }
             }
@@ -564,43 +587,4 @@ function initPurposeGallery() {
         // Start rotation
         startRotation();
     }
-}
-
-/**
- * Fix all h2 headings to ensure no unwanted backgrounds or text shadows
- */
-function fixAllHeadings() {
-    // Select all h2 elements
-    const headings = document.querySelectorAll('h2');
-    
-    headings.forEach(h2 => {
-        // Remove any problematic background or color styles
-        h2.style.background = 'none';
-        
-        // Check if heading is in a dark section
-        const parentSection = h2.closest('section');
-        if (parentSection) {
-            const computedStyle = getComputedStyle(parentSection);
-            const bgColor = computedStyle.backgroundColor;
-            
-            // Convert bgcolor to RGB values for analysis
-            const rgb = bgColor.match(/\d+/g);
-            
-            if (rgb && rgb.length >= 3) {
-                // Calculate brightness (rough estimate)
-                const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
-                
-                if (brightness < 128) {
-                    // Dark background - set light text
-                    h2.style.color = 'white';
-                } else {
-                    // Light background - set dark text
-                    h2.style.color = 'black';
-                }
-            } else {
-                // Default to white if can't determine background
-                h2.style.color = 'white';
-            }
-        }
-    });
 } 

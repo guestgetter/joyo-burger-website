@@ -187,6 +187,18 @@ h2.scrolled {
     opacity: 1 !important;
 }
 
+/* Prevent JS animations from changing location page heading colors */
+.locations-page h2,
+.locations-page h2.scrolled,
+.locations-page section h2,
+.locations-page .locations-section h2,
+.locations-page .map-section h2,
+.locations-page .contact-cta h2 {
+    color: white !important;
+    background: none !important;
+    text-shadow: none !important;
+}
+
 /* Specific override for features section scrolled heading */
 .features-section h2.scrolled {
     color: white !important;
