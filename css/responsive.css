@@ -56,21 +56,28 @@
     
     /* Fixed position menu toggle that's always visible */
     .mobile-menu-toggle {
-        display: flex;
+        display: flex !important; /* Force display */
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        width: 45px;
-        height: 45px;
-        background: rgba(0, 0, 0, 0.7);
+        width: 50px;
+        height: 50px;
+        background: rgba(0, 0, 0, 0.8);
         border: 2px solid var(--ochre);
         cursor: pointer;
-        z-index: 1010;
-        padding: 10px;
+        z-index: 9999; /* Extremely high z-index */
+        padding: 12px;
         border-radius: 4px;
         position: fixed;
-        top: 20px;
-        right: 20px;
+        top: 15px;
+        right: 15px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-menu-toggle:hover {
+        background: rgba(0, 0, 0, 0.9);
+        transform: scale(1.05);
     }
     
     .bar {
