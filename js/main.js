@@ -12,6 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initLanguageToggle();
     initPurposeGallery();
+    
+    // Fix all h2 headings to prevent unwanted background styles
+    fixAllHeadings();
+    
+    // Run again after a short delay to catch any dynamically added elements
+    setTimeout(fixAllHeadings, 300);
+    setTimeout(fixAllHeadings, 1000);
 });
 
 /**
@@ -249,6 +256,14 @@ function initScrollAnimations() {
     animateElements.forEach(element => {
         if (isInViewport(element)) {
             element.classList.add('scrolled');
+            
+            // Ensure no unwanted background styles on h2 elements
+            if (element.tagName.toLowerCase() === 'h2') {
+                // Explicitly remove any problematic styles
+                element.style.background = 'none';
+                element.style.backgroundColor = 'transparent';
+                element.style.textShadow = 'none';
+            }
         }
     });
     
@@ -281,6 +296,27 @@ function initScrollAnimations() {
         animateElements.forEach(element => {
             if (isInViewport(element)) {
                 element.classList.add('scrolled');
+                
+                // Ensure no unwanted background styles on h2 elements
+                if (element.tagName.toLowerCase() === 'h2') {
+                    // Explicitly remove any problematic styles
+                    element.style.background = 'none';
+                    element.style.backgroundColor = 'transparent';
+                    element.style.textShadow = 'none';
+                    
+                    // Apply proper color based on parent section
+                    const parentSection = element.closest('section');
+                    if (parentSection) {
+                        if (parentSection.classList.contains('features-section') || 
+                            parentSection.classList.contains('categories-showcase') ||
+                            parentSection.classList.contains('cta-section') ||
+                            parentSection.classList.contains('bg-dark')) {
+                            element.style.color = 'white';
+                        } else {
+                            element.style.color = '#000000';
+                        }
+                    }
+                }
             }
         });
         
@@ -292,6 +328,31 @@ function initScrollAnimations() {
             header.classList.remove('scrolled');
         }
     });
+    
+    // Function to ensure no h2 elements have unwanted backgrounds
+    function fixAllHeadings() {
+        const allHeadings = document.querySelectorAll('h2');
+        allHeadings.forEach(heading => {
+            heading.style.background = 'none';
+            heading.style.backgroundColor = 'transparent';
+            heading.style.textShadow = 'none';
+            
+            // Apply proper color based on parent section
+            const parentSection = heading.closest('section');
+            if (parentSection) {
+                if (parentSection.classList.contains('features-section') || 
+                    parentSection.classList.contains('categories-showcase') ||
+                    parentSection.classList.contains('cta-section') ||
+                    parentSection.classList.contains('bg-dark')) {
+                    heading.style.color = 'white';
+                }
+            }
+        });
+    }
+    
+    // Run on page load and after slight delay to catch any dynamic changes
+    fixAllHeadings();
+    setTimeout(fixAllHeadings, 500);
 }
 
 /**
@@ -503,4 +564,41 @@ function initPurposeGallery() {
         // Start rotation
         startRotation();
     }
+}
+
+/**
+ * Fix all h2 headings to ensure no unwanted backgrounds or text shadows
+ */
+function fixAllHeadings() {
+    const allHeadings = document.querySelectorAll('h2');
+    
+    allHeadings.forEach(heading => {
+        // Remove any inline background styles
+        heading.style.background = 'none';
+        heading.style.backgroundColor = 'transparent';
+        heading.style.textShadow = 'none';
+        
+        // Force correct color based on parent section
+        const parentSection = heading.closest('section');
+        if (parentSection) {
+            if (parentSection.classList.contains('features-section') || 
+                parentSection.classList.contains('categories-showcase') ||
+                parentSection.classList.contains('cta-section') ||
+                parentSection.matches('.bg-dark, footer')) {
+                heading.style.color = 'white';
+            } else {
+                heading.style.color = '#000000';
+            }
+        }
+        
+        // Ensure highlight spans inside headings are properly styled
+        const highlights = heading.querySelectorAll('.highlight');
+        highlights.forEach(highlight => {
+            highlight.style.background = 'none';
+            highlight.style.backgroundColor = 'transparent';
+            highlight.style.color = '#CA831A';
+        });
+    });
+    
+    console.log('All headings fixed');
 } 

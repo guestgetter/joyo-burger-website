@@ -110,9 +110,102 @@ h1 {
     font-weight: var(--font-weight-extrabold);
 }
 
+/* ====================================
+   SECTION-BASED HEADING STYLES
+==================================== */
+
+/* Default heading styles for light backgrounds */
 h2 {
-    font-size: var(--font-size-xxl);
+    font-size: 2.75rem;
     font-weight: var(--font-weight-bold);
+    color: var(--black);
+    background: none !important;
+    text-shadow: none !important;
+    position: relative;
+    z-index: 2;
+}
+
+/* Dark background sections */
+.features-section h2,
+.categories-showcase h2,
+.cta-section h2,
+section.bg-dark h2,
+footer h2 {
+    color: white !important;
+}
+
+/* Light background sections - explicit declaration */
+.purpose-section h2,
+.testimonials-section h2,
+.career-section h2,
+.newsletter-section h2,
+section.bg-light h2 {
+    color: var(--black) !important;
+}
+
+/* Remove the blue background and fix styles for "what sets us apart" heading */
+.features-section h2 {
+    color: white !important;
+    background: none !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+    margin-bottom: 1.5rem;
+    margin-top: 0;
+}
+
+/* Testimonials section heading */
+.testimonials-section h2 {
+    color: var(--black) !important;
+    background: none !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+}
+
+/* Newsletter section heading */
+.newsletter-section h2 {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 2.2rem;
+    line-height: 1.3;
+    color: var(--black) !important;
+    background: none !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+    position: relative;
+    font-weight: 700;
+}
+
+/* Fix scrolled headings based on their section background */
+h2.scrolled {
+    color: inherit !important;
+    background: none !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+}
+
+/* Specific override for features section scrolled heading */
+.features-section h2.scrolled {
+    color: white !important;
+}
+
+/* Highlight text in the newsletter section */
+.newsletter-section .highlight {
+    color: var(--ochre);
+    position: relative;
+    display: inline;
+    background: none !important;
+    font-weight: 700;
+    padding: 0;
+}
+
+.newsletter-section .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--ochre);
 }
 
 h3 {
@@ -423,8 +516,8 @@ header {
 
 .order-now-btn {
     font-family: var(--font-family-secondary);
-    background-color: var(--color-primary);
-    color: var(--color-text-dark);
+    background-color: var(--ochre);
+    color: black;
     font-weight: var(--font-weight-bold);
     padding: 0.75rem 1.5rem;
     border-radius: var(--border-radius-sm);
@@ -436,9 +529,10 @@ header {
 }
 
 .order-now-btn:hover {
-    background-color: var(--color-primary-dark);
+    background-color: #b67616; /* Darker ochre */
+    color: white; /* Ensure text is white on hover for better contrast */
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .language-selector {
@@ -841,6 +935,7 @@ header {
 
 .categories-showcase .view-menu-btn:hover {
     background-color: var(--ochre);
+    color: white;
     transform: translateY(-3px);
 }
 
@@ -956,6 +1051,7 @@ header {
 
 .view-menu-btn:hover {
     background-color: var(--ochre);
+    color: white;
     transform: translateY(-3px);
 }
 
@@ -976,6 +1072,19 @@ header {
 .features-section h2 {
     margin-bottom: 1.5rem;
     margin-top: 0;
+    color: white;
+    font-size: 2.5rem;
+    background: none !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+    position: relative;
+    z-index: 2;
+}
+
+.features-section h2.scrolled {
+    color: white !important;
+    background: none !important;
+    text-shadow: none !important;
 }
 
 .features-section .accent-line {
@@ -1019,52 +1128,7 @@ header {
     margin-bottom: 0.5rem;
 }
 
-/* Testimonials Section */
-.testimonials-section {
-    padding: var(--spacing-xl) 0;
-    background-color: white;
-    text-align: center;
-    margin: 0;
-}
-
-.testimonials-section .container {
-    padding-top: var(--spacing-xl);
-    padding-bottom: var(--spacing-xl);
-}
-
-.testimonials-section h2 {
-    margin-top: 0;
-}
-
-.testimonials-section .accent-line {
-    margin: 1rem auto 3rem;
-}
-
-.testimonials-section .view-menu-container {
-    margin-top: 3rem;
-}
-
-.testimonials-section .view-menu-btn {
-    color: var(--black);
-    border: 2px solid var(--ochre);
-    font-weight: 700;
-    padding: 1rem 2.5rem;
-    font-size: 1rem;
-    background-color: transparent;
-}
-
-.testimonials-section .view-menu-btn:hover {
-    background-color: var(--ochre);
-    color: white;
-}
-
-.testimonials-slider {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    min-height: 200px;
-}
-
+/* Testimonial styling */
 .testimonial {
     position: absolute;
     top: 0;
@@ -1074,6 +1138,7 @@ header {
     visibility: hidden;
     transition: all 0.6s ease;
     padding: 0 var(--spacing-md);
+    background-color: transparent;
 }
 
 .testimonial.active {
@@ -1081,17 +1146,13 @@ header {
     visibility: visible;
 }
 
-.rating {
-    color: var(--ochre);
-    font-size: 1.2rem;
-    margin-bottom: var(--spacing-sm);
-}
-
 .testimonial h3 {
     font-family: var(--heading-font);
     font-weight: 700;
     margin-bottom: var(--spacing-sm);
     font-size: 1.5rem;
+    color: var(--black);
+    background-color: transparent;
 }
 
 .testimonial p {
@@ -1100,6 +1161,8 @@ header {
     line-height: 1.6;
     max-width: 90%;
     margin: 0 auto 1rem;
+    color: var(--black);
+    background-color: transparent;
 }
 
 .testimonial-dots {
@@ -1115,136 +1178,6 @@ header {
 
 .testimonial-dots .dot.active {
     background-color: var(--ochre);
-}
-
-/* Career Section */
-.career-section {
-    padding: var(--spacing-xxl) 0;
-    background-color: white;
-    text-align: center;
-}
-
-.career-section .accent-line {
-    margin: 1rem auto 3rem;
-}
-
-.career-section p {
-    max-width: 800px;
-    margin: 0 auto 2rem;
-    font-size: 1.2rem;
-}
-
-.join-btn {
-    display: inline-block;
-    background-color: transparent;
-    color: var(--black);
-    font-family: var(--heading-font);
-    font-weight: 500;
-    padding: 1rem 2rem;
-    border: 2px solid var(--ochre);
-    border-radius: var(--border-radius-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-}
-
-.join-btn:hover {
-    background-color: var(--ochre);
-    color: white;
-    transform: translateY(-3px);
-}
-
-/* CTA Section */
-.cta-section {
-    padding: 0;
-    background-color: var(--black);
-    margin: 0;
-}
-
-.cta-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0; /* Remove gap between cards */
-    margin: 0;
-}
-
-.cta-card {
-    padding: var(--spacing-xl) var(--spacing-md);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    min-height: 350px; /* Set minimum height for cards */
-    display: flex; 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.cta-card:nth-child(1) {
-    background-image: url('../JOYO - Images/315A7893.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-.cta-card:nth-child(2) {
-    background-image: url('../JOYO - Images/joyo-careers-hero.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-.cta-card:nth-child(3) {
-    background-image: url('../JOYO - Images/joyo-about-page-hero.png');
-    background-size: cover;
-    background-position: center;
-}
-
-.cta-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1;
-}
-
-.cta-card h3, .cta-card .accent-line, .cta-card .cta-btn {
-    position: relative;
-    z-index: 2;
-}
-
-.cta-card h3 {
-    color: white;
-    margin-bottom: var(--spacing-sm);
-    font-size: 1.6rem;
-    line-height: 1.4;
-}
-
-.cta-card .accent-line {
-    margin: 1rem auto 2rem;
-    width: 50px;
-}
-
-.cta-btn {
-    display: inline-block;
-    background-color: var(--ochre);
-    color: white;
-    font-family: var(--heading-font);
-    font-weight: 700;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-    min-width: 160px;
-}
-
-.cta-btn:hover {
-    background-color: #b67616;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Newsletter Section - Enhanced */
@@ -1280,14 +1213,23 @@ header {
 .newsletter-section h2 {
     max-width: 800px;
     margin: 0 auto;
-    font-size: 2.5rem;
-    line-height: 1.2;
+    font-size: 2.2rem;
+    line-height: 1.3;
+    color: var(--black);
+    background: none !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+    position: relative;
+    font-weight: 700;
 }
 
 .newsletter-section .highlight {
     color: var(--ochre);
     position: relative;
-    display: inline-block;
+    display: inline;
+    background: none !important;
+    font-weight: 700;
+    padding: 0;
 }
 
 .newsletter-section .highlight::after {
@@ -1298,6 +1240,22 @@ header {
     width: 100%;
     height: 3px;
     background-color: var(--ochre);
+}
+
+/* Target any light blue background that might be applied */
+h2 span.bg-highlight, 
+h2 span.highlight {
+    background: none !important;
+    color: var(--ochre);
+    font-weight: 700;
+}
+
+/* Additional fix for newsletter section heading */
+.newsletter-section h2.scrolled,
+.newsletter-section h2.scrolled span {
+    background: none !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
 }
 
 .newsletter-section .accent-line {
@@ -1498,6 +1456,15 @@ footer {
         padding: 1rem 2rem;
         font-size: 1.2rem;
         width: auto;
+        background-color: var(--ochre);
+        color: black;
+    }
+    
+    .mobile-nav .order-now-btn:hover {
+        background-color: #b67616;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     
     .mobile-nav .language-selector {
@@ -1516,4 +1483,225 @@ footer {
     .mobile-menu-toggle {
         z-index: 1001;
     }
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: var(--spacing-xl) 0;
+    background-color: white;
+    text-align: center;
+    margin: 0;
+}
+
+.testimonials-section .container {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+}
+
+.testimonials-section h2 {
+    margin-top: 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--black);
+    background: none !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+}
+
+.testimonials-section .accent-line {
+    margin: 1rem auto 3rem;
+}
+
+.testimonials-section .view-menu-container {
+    margin-top: 3rem;
+}
+
+.testimonials-section .view-menu-btn {
+    color: var(--black);
+    border: 2px solid var(--ochre);
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    background-color: transparent;
+}
+
+.testimonials-section .view-menu-btn:hover {
+    background-color: var(--ochre);
+    color: white;
+}
+
+.testimonials-slider {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 200px;
+}
+
+/* Fix for scrolled headings with improved readability */
+h2.scrolled {
+    color: var(--black) !important;
+    background: none !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+}
+
+.rating {
+    color: var(--ochre);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Career Section */
+.career-section {
+    padding: var(--spacing-xxl) 0;
+    background-color: white;
+    text-align: center;
+}
+
+.career-section .accent-line {
+    margin: 1rem auto 3rem;
+}
+
+.career-section p {
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    font-size: 1.2rem;
+}
+
+.join-btn {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--black);
+    font-family: var(--heading-font);
+    font-weight: 500;
+    padding: 1rem 2rem;
+    border: 2px solid var(--ochre);
+    border-radius: var(--border-radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.join-btn:hover {
+    background-color: var(--ochre);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 0;
+    background-color: var(--black);
+    margin: 0;
+}
+
+.cta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0; /* Remove gap between cards */
+    margin: 0;
+}
+
+.cta-card {
+    padding: var(--spacing-xl) var(--spacing-md);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 350px; /* Set minimum height for cards */
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-card:nth-child(1) {
+    background-image: url('../JOYO - Images/315A7893.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.cta-card:nth-child(2) {
+    background-image: url('../JOYO - Images/joyo-careers-hero.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.cta-card:nth-child(3) {
+    background-image: url('../JOYO - Images/joyo-about-page-hero.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.cta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.cta-card h3, .cta-card .accent-line, .cta-card .cta-btn {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-card h3 {
+    color: white;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.6rem;
+    line-height: 1.4;
+}
+
+.cta-card .accent-line {
+    margin: 1rem auto 2rem;
+    width: 50px;
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: var(--ochre);
+    color: white;
+    font-family: var(--heading-font);
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    min-width: 160px;
+}
+
+.cta-btn:hover {
+    background-color: #b67616;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Fix for scrolled headings - add specific overrides for dark sections */
+h2.scrolled {
+    color: var(--black) !important;
+    background: none !important;
+    text-shadow: none !important;
+    opacity: 1 !important;
+}
+
+/* Specific override for scrolled headings on dark backgrounds */
+.features-section h2.scrolled,
+.categories-showcase h2.scrolled,
+.cta-section h2.scrolled,
+section.bg-dark h2.scrolled,
+footer h2.scrolled {
+    color: white !important;
+}
+
+/* Explicit rule to prevent background on any h2 */
+h2, h2.scrolled, section h2, section h2.scrolled, 
+.container h2, div h2, h2 span, h2 * {
+    background: none !important;
+    text-shadow: none !important;
 } 
