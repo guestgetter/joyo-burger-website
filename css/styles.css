@@ -13,6 +13,7 @@
 @import 'components/header.css';
 @import 'components/footer.css';
 @import 'components/menu.css';
+@import 'components/locations.css';
 
 /* Import Utility Styles */
 @import 'responsive.css';

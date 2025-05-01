@@ -1,0 +1,389 @@
+/**
+ * JOYO Burger - Locations Page Styles
+ * 
+ * This file contains styles specific to the Find Us/Locations page
+ * of the JOYO Burger website.
+ */
+
+/* Hero Banner */
+.locations-hero {
+    position: relative;
+    height: 350px;
+    background-image: url('../../JOYO - Images/joyo-burger-location-page-hero.png');
+    background-size: cover;
+    background-position: center;
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.locations-hero-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.locations-hero-content h1 {
+    color: var(--ochre);
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: var(--heading-font);
+    margin-bottom: 10px;
+}
+
+.locations-hero-content .hero-subtitle {
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: var(--body-font);
+}
+
+/* Locations Section */
+.locations-section {
+    padding: 80px 0;
+    background-color: var(--color-bg-secondary);
+}
+
+.locations-section h2 {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 15px;
+    font-family: var(--heading-font);
+}
+
+.accent-line {
+    height: 3px;
+    width: 60px;
+    background-color: var(--ochre);
+    margin: 0 auto 30px;
+}
+
+.locations-intro {
+    color: #DDD;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-family: var(--body-font);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Location Cards */
+.location-card {
+    background-color: var(--color-bg-primary);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+.location-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.location-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.location-card:hover .location-image img {
+    transform: scale(1.05);
+}
+
+.location-content {
+    padding: 25px;
+}
+
+.location-content h3 {
+    color: var(--ochre);
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 20px;
+    font-family: var(--heading-font);
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+}
+
+.location-details {
+    color: #DDD;
+    font-family: var(--body-font);
+}
+
+.location-details .hours {
+    margin-bottom: 15px;
+}
+
+.location-details .hours p,
+.location-details .address p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.location-details .address {
+    margin-bottom: 20px;
+}
+
+.location-details .address i {
+    color: var(--ochre);
+    margin-right: 8px;
+}
+
+.location-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.directions-btn {
+    display: inline-block;
+    background-color: var(--ochre);
+    color: black;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.directions-btn:hover {
+    background-color: #b67616;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.directions-btn i {
+    margin-right: 8px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background-color: var(--ochre);
+    color: black;
+    transform: translateY(-2px);
+}
+
+/* Map Section */
+.map-section {
+    padding: 80px 0;
+    background-color: #222;
+}
+
+.map-section h2 {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 15px;
+    font-family: var(--heading-font);
+}
+
+.map-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.map-tab {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: var(--body-font);
+    transition: all 0.3s ease;
+}
+
+.map-tab:hover {
+    background-color: rgba(255, 204, 0, 0.2);
+}
+
+.map-tab.active {
+    background-color: var(--ochre);
+    color: black;
+}
+
+.map-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.map-frame {
+    display: none;
+    width: 100%;
+    height: 450px;
+    border: none;
+}
+
+.map-frame.active {
+    display: block;
+}
+
+/* Contact CTA Section */
+.contact-cta {
+    padding: 60px 0;
+    background-color: var(--color-bg-primary);
+    text-align: center;
+}
+
+.contact-cta h2 {
+    color: white;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0 0 15px;
+    font-family: var(--heading-font);
+}
+
+.contact-cta p {
+    color: #DDD;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-family: var(--body-font);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: var(--ochre);
+    color: black;
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    font-family: var(--heading-font);
+}
+
+.cta-btn:hover {
+    background-color: #b67616;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .locations-hero {
+        height: 300px;
+    }
+    
+    .locations-hero-content h1 {
+        font-size: 42px;
+    }
+    
+    .locations-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        gap: 30px;
+    }
+    
+    .map-container {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 767px) {
+    .locations-hero {
+        height: 250px;
+    }
+    
+    .locations-hero-content h1 {
+        font-size: 36px;
+    }
+    
+    .locations-hero-content .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .locations-section,
+    .map-section,
+    .contact-cta {
+        padding: 50px 0;
+    }
+    
+    .locations-section h2,
+    .map-section h2,
+    .contact-cta h2 {
+        font-size: 28px;
+    }
+    
+    .map-tabs {
+        flex-direction: column;
+        gap: 10px;
+        max-width: 200px;
+        margin: 0 auto 30px;
+    }
+    
+    .map-frame {
+        height: 350px;
+    }
+} 
