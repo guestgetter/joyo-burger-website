@@ -968,8 +968,14 @@ header {
     margin: 0;
 }
 
+.features-section .container {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+}
+
 .features-section h2 {
     margin-bottom: 1.5rem;
+    margin-top: 0;
 }
 
 .features-section .accent-line {
@@ -1019,6 +1025,15 @@ header {
     background-color: white;
     text-align: center;
     margin: 0;
+}
+
+.testimonials-section .container {
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
+}
+
+.testimonials-section h2 {
+    margin-top: 0;
 }
 
 .testimonials-section .accent-line {
@@ -1149,7 +1164,7 @@ header {
 .cta-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-md);
+    gap: 0; /* Remove gap between cards */
     margin: 0;
 }
 
@@ -1158,6 +1173,11 @@ header {
     text-align: center;
     position: relative;
     overflow: hidden;
+    min-height: 350px; /* Set minimum height for cards */
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cta-card:nth-child(1) {
@@ -1253,6 +1273,8 @@ header {
 .newsletter-section .container {
     position: relative;
     z-index: 1;
+    padding-top: var(--spacing-xl);
+    padding-bottom: var(--spacing-xl);
 }
 
 .newsletter-section h2 {
@@ -1387,6 +1409,7 @@ footer {
     color: white;
     padding: var(--spacing-xl) 0 var(--spacing-md);
     margin: 0;
+    border-top: none; /* Remove any border */
 }
 
 .footer-top {
@@ -1394,6 +1417,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     margin-bottom: var(--spacing-xl);
+    padding-top: 0;
 }
 
 .hours p {
@@ -1414,6 +1438,7 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-md);
+    margin-top: 0;
 }
 
 .footer-links {
