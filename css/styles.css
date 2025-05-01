@@ -43,7 +43,7 @@ body {
 
 /* Section Styles */
 section {
-    padding: var(--spacing-xxl) 0;
+    padding: 0;
 }
 
 /* General Links */
@@ -513,6 +513,7 @@ header {
     display: flex;
     align-items: center;
     padding-top: 80px;
+    margin-bottom: 0;
 }
 
 .hero::before {
@@ -569,9 +570,10 @@ header {
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 100vh; /* Maintain full viewport height */
-    min-height: 700px; /* Increase minimum height */
-    overflow: hidden; /* Prevent any possible overflow */
+    height: 100vh;
+    min-height: 700px;
+    margin: 0;
+    padding: 0;
 }
 
 .purpose-text-wrapper {
@@ -581,14 +583,12 @@ header {
     flex-direction: column;
     justify-content: center;
     background-color: white;
-    color: var(--black); /* Ensure text is black for readability */
 }
 
 .purpose-text {
     max-width: 600px;
     margin-left: auto;
     margin-right: var(--spacing-xl);
-    color: var(--black); /* Ensure text is black for readability */
 }
 
 .purpose-text h2 {
@@ -600,13 +600,11 @@ header {
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
     line-height: 1.65;
-    color: var(--black); /* Ensure text is black for readability */
 }
 
 .purpose-image-gallery {
     width: 50%;
-    height: 100vh; /* Set to full viewport height */
-    min-height: 700px; /* Match section min-height */
+    height: 100%;
     position: relative;
     overflow: hidden;
 }
@@ -747,27 +745,29 @@ header {
 
 /* Categories Showcase */
 .categories-showcase {
-    padding: var(--spacing-xl) 0;
+    padding: 0;
     background-color: var(--black);
     color: white;
     position: relative;
     overflow: hidden;
+    margin-top: 0;
 }
 
 .categories-container {
     width: 100%;
     overflow: hidden;
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: 0;
     position: relative;
+    padding-top: var(--spacing-xl);
 }
 
 .categories-scroll {
     display: flex;
     gap: var(--spacing-md);
-    width: fit-content; /* Allow the content to determine width */
-    animation: scrollCategories 20s linear infinite; /* Speed up from 30s to 20s */
+    width: fit-content;
+    animation: scrollCategories 20s linear infinite;
     padding: var(--spacing-md) 0;
-    will-change: transform; /* Performance optimization */
+    will-change: transform;
 }
 
 @keyframes scrollCategories {
@@ -775,7 +775,7 @@ header {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-100% / 2)); /* Move exactly half the width for seamless loop */
+        transform: translateX(calc(-100% / 2));
     }
 }
 
@@ -821,6 +821,7 @@ header {
 
 .categories-showcase .view-menu-container {
     margin-top: 2rem;
+    padding-bottom: var(--spacing-xl);
 }
 
 .categories-showcase .view-menu-btn {
@@ -865,8 +866,8 @@ header {
     }
 
     .purpose-image-gallery {
-        height: 60vh; /* Increase height on mobile */
-        min-height: 500px; /* Ensure minimum height */
+        height: 60vh;
+        min-height: 500px;
     }
     
     .gallery-slide img {
@@ -896,11 +897,11 @@ header {
 .menu-items-container {
     overflow-x: auto;
     padding: var(--spacing-sm) 0;
-    scrollbar-width: none; /* For Firefox */
+    scrollbar-width: none;
 }
 
 .menu-items-container::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
+    display: none;
 }
 
 .menu-items {
@@ -960,10 +961,11 @@ header {
 
 /* Features Section */
 .features-section {
-    padding: var(--spacing-xxl) 0;
+    padding: var(--spacing-xl) 0;
     background-color: var(--black);
     color: white;
     text-align: center;
+    margin: 0;
 }
 
 .features-section h2 {
@@ -1011,23 +1013,41 @@ header {
     margin-bottom: 0.5rem;
 }
 
-/* Testimonials Section - Enhanced Readability */
+/* Testimonials Section */
 .testimonials-section {
-    padding: var(--spacing-xxl) 0;
+    padding: var(--spacing-xl) 0;
     background-color: white;
     text-align: center;
-    color: var(--black);
-}
-
-.testimonials-section h2 {
-    color: var(--black);
-    font-weight: 700;
-    margin-bottom: 1rem;
-    font-size: 2.5rem;
+    margin: 0;
 }
 
 .testimonials-section .accent-line {
     margin: 1rem auto 3rem;
+}
+
+.testimonials-section .view-menu-container {
+    margin-top: 3rem;
+}
+
+.testimonials-section .view-menu-btn {
+    color: var(--black);
+    border: 2px solid var(--ochre);
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    background-color: transparent;
+}
+
+.testimonials-section .view-menu-btn:hover {
+    background-color: var(--ochre);
+    color: white;
+}
+
+.testimonials-slider {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    min-height: 200px;
 }
 
 .testimonial {
@@ -1039,7 +1059,6 @@ header {
     visibility: hidden;
     transition: all 0.6s ease;
     padding: 0 var(--spacing-md);
-    color: var(--black);
 }
 
 .testimonial.active {
@@ -1047,12 +1066,17 @@ header {
     visibility: visible;
 }
 
+.rating {
+    color: var(--ochre);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
 .testimonial h3 {
     font-family: var(--heading-font);
     font-weight: 700;
     margin-bottom: var(--spacing-sm);
     font-size: 1.5rem;
-    color: var(--black);
 }
 
 .testimonial p {
@@ -1061,8 +1085,6 @@ header {
     line-height: 1.6;
     max-width: 90%;
     margin: 0 auto 1rem;
-    color: var(--black);
-    font-weight: 500;
 }
 
 .testimonial-dots {
@@ -1119,14 +1141,16 @@ header {
 
 /* CTA Section */
 .cta-section {
-    padding: var(--spacing-xl) 0;
+    padding: 0;
     background-color: var(--black);
+    margin: 0;
 }
 
 .cta-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-md);
+    margin: 0;
 }
 
 .cta-card {
@@ -1203,12 +1227,13 @@ header {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Newsletter Section - Enhanced Readability */
+/* Newsletter Section - Enhanced */
 .newsletter-section {
-    padding: var(--spacing-xxl) 0;
+    padding: var(--spacing-xl) 0;
     background-color: white;
     text-align: center;
     position: relative;
+    margin: 0;
 }
 
 .newsletter-section::before {
@@ -1235,15 +1260,12 @@ header {
     margin: 0 auto;
     font-size: 2.5rem;
     line-height: 1.2;
-    color: var(--black);
-    font-weight: 700;
 }
 
 .newsletter-section .highlight {
     color: var(--ochre);
     position: relative;
     display: inline-block;
-    font-weight: 700;
 }
 
 .newsletter-section .highlight::after {
@@ -1266,8 +1288,7 @@ header {
     max-width: 600px;
     margin: 0 auto 2.5rem;
     font-size: 1.2rem;
-    color: var(--black);
-    font-weight: 500;
+    color: var(--gray-dark);
 }
 
 .newsletter-form {
@@ -1365,6 +1386,7 @@ footer {
     background-color: var(--black);
     color: white;
     padding: var(--spacing-xl) 0 var(--spacing-md);
+    margin: 0;
 }
 
 .footer-top {
