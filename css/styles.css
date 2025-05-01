@@ -1713,6 +1713,9 @@ h2, h2.scrolled, section h2, section h2.scrolled,
     text-shadow: none !important;
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
 }
 
 .about-hero {
@@ -1735,7 +1738,7 @@ h2, h2.scrolled, section h2, section h2.scrolled,
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
 }
 
@@ -1750,6 +1753,7 @@ h2, h2.scrolled, section h2, section h2.scrolled,
     font-size: 3.5rem;
     margin-bottom: var(--spacing-md);
     color: white;
+    text-transform: uppercase;
 }
 
 .hero-subtitle {
@@ -1765,6 +1769,15 @@ h2, h2.scrolled, section h2, section h2.scrolled,
     text-align: center;
 }
 
+.about-intro .container::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--ochre);
+    margin: 2rem auto 0;
+}
+
 .intro-text {
     max-width: 800px;
     margin: 0 auto 1.5rem;
@@ -1774,7 +1787,11 @@ h2, h2.scrolled, section h2, section h2.scrolled,
 
 .about-values {
     padding: var(--spacing-xxl) 0;
-    background-color: var(--gray-light);
+    background-color: white;
+}
+
+.about-values h2 {
+    margin-bottom: 3rem;
 }
 
 .values-grid {
@@ -1792,17 +1809,17 @@ h2, h2.scrolled, section h2, section h2.scrolled,
 
 .value-number {
     font-family: var(--heading-font);
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     font-weight: 900;
     color: var(--ochre);
+    background-color: #f9f9f9;
     line-height: 1;
     flex-shrink: 0;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid var(--ochre);
     border-radius: 50%;
 }
 
@@ -1814,6 +1831,7 @@ h2, h2.scrolled, section h2, section h2.scrolled,
     font-size: 1.75rem;
     margin-bottom: var(--spacing-sm);
     color: var(--black);
+    font-weight: 900;
 }
 
 .highlight-text {
@@ -1827,6 +1845,10 @@ h2, h2.scrolled, section h2, section h2.scrolled,
     padding: var(--spacing-xxl) 0;
     background-color: white;
     text-align: center;
+}
+
+.about-signature .accent-line {
+    margin: 1rem auto 2rem;
 }
 
 .signature-content {
@@ -1863,6 +1885,11 @@ h2, h2.scrolled, section h2, section h2.scrolled,
 
 .about-trust h2 {
     color: white !important;
+    margin-bottom: 2rem;
+}
+
+.about-trust .accent-line {
+    margin-bottom: 3rem;
 }
 
 .trust-content {
@@ -1874,6 +1901,11 @@ h2, h2.scrolled, section h2, section h2.scrolled,
     font-size: 1.25rem;
     line-height: 1.8;
     margin-bottom: var(--spacing-md);
+}
+
+.trust-content .highlight-text {
+    display: block;
+    margin-bottom: 2rem;
 }
 
 /* Responsive Styles for About Page */
@@ -1919,4 +1951,28 @@ h2, h2.scrolled, section h2, section h2.scrolled,
     .highlight-text {
         font-size: 1.15rem;
     }
+}
+
+.site-header {
+    background-color: #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.site-header .nav-link {
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.site-header .nav-link.active {
+    color: var(--ochre);
+}
+
+.site-header .nav-link:hover {
+    color: var(--ochre);
 } 
