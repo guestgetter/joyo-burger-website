@@ -1704,4 +1704,219 @@ h2, h2.scrolled, section h2, section h2.scrolled,
 .container h2, div h2, h2 span, h2 * {
     background: none !important;
     text-shadow: none !important;
+}
+
+/* About Page Styles */
+.about-page h2 {
+    color: var(--black);
+    background: none !important;
+    text-shadow: none !important;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-hero {
+    height: 70vh;
+    min-height: 500px;
+    background-image: url('../JOYO - Images/joyo-scene.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 var(--spacing-lg);
+}
+
+.about-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-md);
+    color: white;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 0;
+    color: var(--ochre);
+}
+
+.about-intro {
+    padding: var(--spacing-xxl) 0;
+    background-color: white;
+    text-align: center;
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.8;
+}
+
+.about-values {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--gray-light);
+}
+
+.values-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+}
+
+.value-item {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+}
+
+.value-number {
+    font-family: var(--heading-font);
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--ochre);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--ochre);
+    border-radius: 50%;
+}
+
+.value-content {
+    flex: 1;
+}
+
+.value-content h3 {
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--black);
+}
+
+.highlight-text {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--ochre);
+    line-height: 1.6;
+}
+
+.about-signature {
+    padding: var(--spacing-xxl) 0;
+    background-color: white;
+    text-align: center;
+}
+
+.signature-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.signature-content p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-xl);
+}
+
+.signature-image {
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.signature-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-trust {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--black);
+    text-align: center;
+    color: white;
+}
+
+.about-trust h2 {
+    color: white !important;
+}
+
+.trust-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.trust-content p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+}
+
+/* Responsive Styles for About Page */
+@media (max-width: 991px) {
+    .about-hero h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .value-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .value-number {
+        margin-bottom: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 767px) {
+    .about-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .intro-text,
+    .signature-content p,
+    .trust-content p {
+        font-size: 1.1rem;
+    }
+    
+    .value-content h3 {
+        font-size: 1.5rem;
+    }
+    
+    .highlight-text {
+        font-size: 1.15rem;
+    }
 } 
