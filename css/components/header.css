@@ -161,18 +161,20 @@
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
     display: none;
-    background: none;
+    background: rgba(0, 0, 0, 0.5);
     border: none;
     padding: 10px;
+    border-radius: 4px;
     cursor: pointer;
+    z-index: 1005;
 }
 
 .bar {
     display: block;
     width: 25px;
     height: 3px;
-    margin: 5px auto;
-    background-color: var(--color-text-light);
+    margin: 4px auto;
+    background-color: var(--ochre);
     transition: all 0.3s ease-in-out;
 }
 

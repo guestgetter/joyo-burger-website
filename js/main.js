@@ -66,7 +66,13 @@ function initMobileMenu() {
         mobileNav.classList.remove('active');
         menuToggle.classList.remove('mobile-menu-active');
         
-        menuToggle.addEventListener('click', function() {
+        // Remove event listeners first to prevent duplicates
+        const newMenuToggle = menuToggle.cloneNode(true);
+        menuToggle.parentNode.replaceChild(newMenuToggle, menuToggle);
+        
+        // Add click event with properly bound this context
+        newMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
             this.classList.toggle('mobile-menu-active');
             mobileNav.classList.toggle('active');
             document.body.classList.toggle('menu-open');
@@ -76,7 +82,7 @@ function initMobileMenu() {
         const mobileLinks = mobileNav.querySelectorAll('a');
         mobileLinks.forEach(link => {
             link.addEventListener('click', function() {
-                menuToggle.classList.remove('mobile-menu-active');
+                newMenuToggle.classList.remove('mobile-menu-active');
                 mobileNav.classList.remove('active');
                 document.body.classList.remove('menu-open');
             });
@@ -86,12 +92,14 @@ function initMobileMenu() {
         document.addEventListener('click', function(event) {
             if (mobileNav.classList.contains('active') && 
                 !mobileNav.contains(event.target) && 
-                !menuToggle.contains(event.target)) {
-                menuToggle.classList.remove('mobile-menu-active');
+                !newMenuToggle.contains(event.target)) {
+                newMenuToggle.classList.remove('mobile-menu-active');
                 mobileNav.classList.remove('active');
                 document.body.classList.remove('menu-open');
             }
         });
+    } else {
+        console.warn('Mobile menu elements not found');
     }
 }
 
