@@ -72,6 +72,13 @@ function initMobileMenu() {
             
             // Clone navigation list
             const navList = mainNav.querySelector('.nav-list').cloneNode(true);
+            
+            // Remove blog link if it exists
+            const blogLink = navList.querySelector('a[href="#blog"]');
+            if (blogLink && blogLink.parentElement) {
+                blogLink.parentElement.remove();
+            }
+            
             mobileNav.appendChild(navList);
             
             // Clone language selector and social icons
