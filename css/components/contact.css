@@ -9,7 +9,7 @@
 .contact-hero {
     position: relative;
     height: 350px;
-    background-image: url('../../JOYO - Images/joyo-burger-contact-hero.jpg');
+    background-image: url('../../JOYO - Images/joyo-contact-us-hero.jpg');
     background-size: cover;
     background-position: center;
     margin-top: 80px;
@@ -128,7 +128,7 @@
 }
 
 .contact-icon i {
-    color: black;
+    color: #000000;
     font-size: 18px;
 }
 
@@ -280,6 +280,8 @@
     color: #DDD;
     font-size: 14px;
     font-family: var(--body-font);
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 .submit-btn {
@@ -287,7 +289,7 @@
     width: 100%;
     padding: 14px 20px;
     background-color: var(--ochre);
-    color: black;
+    color: #000000;
     border: none;
     border-radius: 4px;
     font-weight: 700;
