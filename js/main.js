@@ -72,7 +72,8 @@ function initMobileMenu() {
         
         // Add click event with properly bound this context
         newMenuToggle.addEventListener('click', function(e) {
-            e.stopPropagation();
+            e.stopPropagation(); // Prevent event bubbling
+            e.preventDefault(); // Prevent default behavior
             this.classList.toggle('mobile-menu-active');
             mobileNav.classList.toggle('active');
             document.body.classList.toggle('menu-open');
@@ -81,7 +82,8 @@ function initMobileMenu() {
         // Close mobile menu when clicking on a link
         const mobileLinks = mobileNav.querySelectorAll('a');
         mobileLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function(e) {
+                // Allow normal behavior for links, but close menu
                 newMenuToggle.classList.remove('mobile-menu-active');
                 mobileNav.classList.remove('active');
                 document.body.classList.remove('menu-open');
@@ -97,6 +99,13 @@ function initMobileMenu() {
                 mobileNav.classList.remove('active');
                 document.body.classList.remove('menu-open');
             }
+        });
+        
+        // Ensure menu toggle is always visible regardless of scroll position
+        window.addEventListener('scroll', function() {
+            newMenuToggle.style.position = 'fixed';
+            newMenuToggle.style.top = '20px';
+            newMenuToggle.style.right = '20px';
         });
     } else {
         console.warn('Mobile menu elements not found');
