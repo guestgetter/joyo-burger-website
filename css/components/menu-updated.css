@@ -137,6 +137,7 @@
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    color: white;
 }
 
 .menu-section.active {
@@ -152,26 +153,31 @@
 }
 
 .section-header h2 {
-    color: var(--color-primary);
+    color: white;
     font-size: 28px;
     font-weight: 700;
     margin: 0 0 10px;
     font-family: var(--heading-font);
     text-transform: uppercase;
+    background-color: #83BBE5; /* Blue background as seen in the screenshot */
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 4px;
 }
 
 .section-header p {
-    color: var(--color-text-light);
+    color: white;
     font-size: 16px;
-    margin: 0;
+    margin: 5px 0 0;
     font-family: var(--body-font);
+    line-height: 1.4;
 }
 
 .section-header p.note {
-    margin-top: 5px;
+    margin-top: 8px;
     font-size: 14px;
     font-style: italic;
-    color: var(--color-text-muted);
+    color: #CCC;
     font-family: var(--body-font);
 }
 
@@ -221,7 +227,7 @@
 }
 
 .menu-item-content h3 {
-    color: var(--color-primary);
+    color: var(--ochre);
     font-size: 18px;
     font-weight: 700;
     margin: 0 0 10px;
@@ -229,7 +235,7 @@
 }
 
 .menu-item-content p {
-    color: var(--color-text-light);
+    color: #DDD;
     font-size: 14px;
     line-height: 1.6;
     margin: 0;
