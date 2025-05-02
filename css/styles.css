@@ -74,8 +74,9 @@ a:hover {
 }
 
 .btn:hover {
-    background-color: var(--color-primary-dark);
-    transform: translateY(-2px);
+    background-color: #b67616;
+    color: white;
+    transform: translateY(-3px);
 }
 
 .btn-secondary {
@@ -84,7 +85,8 @@ a:hover {
 }
 
 .btn-secondary:hover {
-    background-color: var(--color-secondary-dark);
+    background-color: #8b4513;
+    color: white;
 }
 
 .btn-outline {
@@ -94,8 +96,8 @@ a:hover {
 }
 
 .btn-outline:hover {
-    background-color: var(--color-primary);
-    color: var(--color-text-dark);
+    background-color: var(--ochre);
+    color: white;
 }
 
 /* Typography */
@@ -179,12 +181,13 @@ section.bg-light h2 {
     font-weight: 700;
 }
 
-/* Fix scrolled headings based on their section background */
+/* Fix for scrolled headings with improved readability */
 h2.scrolled {
     color: inherit !important;
     background: none !important;
     text-shadow: none !important;
     opacity: 1 !important;
+    transition: none !important;
 }
 
 /* Prevent JS animations from changing location page heading colors */
@@ -241,9 +244,9 @@ p {
 /* Accent Line */
 .accent-line {
     width: 60px;
-    height: 3px;
-    background-color: var(--color-primary);
-    margin: var(--spacing-md) 0;
+    height: 4px;
+    background-color: var(--ochre);
+    margin: 1rem auto 2rem;
 }
 
 /* Common Utility Classes */
@@ -462,7 +465,7 @@ button {
     width: 60px;
     height: 4px;
     background-color: var(--ochre);
-    margin: 1rem 0 2rem;
+    margin: 1rem auto 2rem;
 }
 
 /* Header Styles */
@@ -545,10 +548,10 @@ header {
 }
 
 .order-now-btn:hover {
-    background-color: #b67616; /* Darker ochre */
-    color: white; /* Ensure text is white on hover for better contrast */
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #b67616;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .language-selector {
@@ -672,6 +675,7 @@ header {
 
 .cta-button:hover {
     background-color: #b67616;
+    color: white;
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
@@ -1350,8 +1354,8 @@ h2 span.highlight {
 
 .submit-btn:hover {
     background-color: #b67616;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(202, 131, 26, 0.3);
+    color: white;
+    transform: translateY(-2px);
 }
 
 .submit-btn:hover::before {
@@ -1397,6 +1401,7 @@ footer {
 
 .hours p {
     margin-bottom: 0.25rem;
+    font-size: 1rem; /* Increased from default */
 }
 
 .social-contact {
@@ -1404,6 +1409,10 @@ footer {
     flex-direction: column;
     align-items: flex-end;
     gap: var(--spacing-sm);
+}
+
+.social-contact p {
+    font-size: 1rem; /* Added explicit font size */
 }
 
 .footer-bottom {
@@ -1423,6 +1432,11 @@ footer {
     justify-content: center;
 }
 
+.footer-links a {
+    font-size: 1rem; /* Increased from default */
+    padding: 5px 8px; /* Added padding for larger touch target */
+}
+
 .separator {
     opacity: 0.3;
 }
@@ -1433,7 +1447,7 @@ footer {
 }
 
 .copyright {
-    font-size: 0.875rem;
+    font-size: 0.95rem; /* Increased from 0.875rem */
     opacity: 0.7;
 }
 
@@ -1632,7 +1646,7 @@ h2.scrolled {
 }
 
 .cta-card:nth-child(1) {
-    background-image: url('../JOYO - Images/315A7893.jpg');
+    background-image: url('../JOYO - Images/joyo-sign.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -1712,8 +1726,52 @@ h2.scrolled {
 .categories-showcase h2.scrolled,
 .cta-section h2.scrolled,
 section.bg-dark h2.scrolled,
-footer h2.scrolled {
+footer h2.scrolled,
+.contact-form-section h2.scrolled,
+.contact-info h2.scrolled,
+.form-container h2.scrolled {
     color: white !important;
+}
+
+/* Explicitly set colors for contact page headings */
+.contact-info h2,
+.form-container h2 {
+    color: var(--ochre) !important;
+    transition: none !important;
+}
+
+/* Contact page specific overrides */
+.contact-page h2.scrolled {
+    color: var(--ochre) !important;
+}
+
+.contact-page .contact-text h3 {
+    color: white !important;
+}
+
+.contact-page .contact-socials h3 {
+    color: white !important;
+}
+
+/* Career page specific overrides */
+.career-page h2, 
+.career-page .welcome-text h2,
+.career-page .section-header h2 {
+    color: var(--ochre) !important;
+    transition: none !important;
+}
+
+.career-page h2.scrolled {
+    color: var(--ochre) !important;
+}
+
+.career-page .benefit-card h3,
+.career-page .testimonial-author {
+    color: var(--ochre) !important;
+}
+
+.career-page .position-header h3 {
+    color: black !important;
 }
 
 /* Explicit rule to prevent background on any h2 */
@@ -1780,7 +1838,10 @@ h2, h2.scrolled, section h2, section h2.scrolled,
     font-style: italic;
     margin-bottom: 0;
     color: var(--ochre);
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.8);
+    display: inline-block;
+    letter-spacing: 0.5px;
+    font-weight: 500;
 }
 
 .about-intro {
@@ -2028,27 +2089,42 @@ h2, h2.scrolled, section h2, section h2.scrolled,
 
 /* JOYO Burger - Mobile Navigation (Core Styles) */
 .joyo-mobile-nav-toggle {
-    display: none;
+    display: none; /* Hidden by default on desktop */
     background: black;
     border: 2px solid var(--ochre);
     width: 44px;
     height: 44px;
     border-radius: 4px;
-    position: fixed;
-    top: 20px;
-    right: 20px;
     z-index: 99999;
     cursor: pointer;
-    padding: 8px;
+    padding: 0;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 991px) {
+    .joyo-mobile-nav-toggle {
+        display: flex; /* Only show on tablet/mobile */
+        position: relative;
+        top: auto;
+        right: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .joyo-mobile-nav-toggle {
+        display: none; /* Ensure it's hidden on desktop */
+    }
 }
 
 .joyo-mobile-nav-toggle span {
     display: block;
-    width: 100%;
+    width: 24px;
     height: 3px;
     background-color: var(--ochre);
-    margin: 5px 0;
+    margin: 3px 0;
     transition: transform 0.3s, opacity 0.3s;
 }
 
@@ -2117,6 +2193,14 @@ h2, h2.scrolled, section h2, section h2.scrolled,
     text-transform: uppercase;
     font-weight: bold;
     text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.joyo-mobile-nav .order-now-btn:hover {
+    background-color: #b67616;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .joyo-mobile-nav .language-selector {
@@ -2144,4 +2228,26 @@ h2, h2.scrolled, section h2, section h2.scrolled,
 
 body.mobile-menu-open {
     overflow: hidden;
-} 
+}
+
+.joyo-mobile-nav-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    color: var(--ochre);
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.joyo-mobile-nav-close:hover {
+    color: white;
+}

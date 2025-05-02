@@ -97,7 +97,7 @@ function initMobileMenu() {
             if (mainNav) {
                 // Get navigation items
                 const navItems = mainNav.querySelectorAll('li a');
-                let navHTML = '<ul>';
+                let navHTML = '<button class="joyo-mobile-nav-close" aria-label="Close menu">&times;</button><ul>';
                 
                 navItems.forEach(item => {
                     navHTML += `<li><a href="${item.getAttribute('href')}">${item.textContent}</a></li>`;
@@ -163,6 +163,23 @@ function initMobileMenu() {
             this.classList.toggle('active');
             nav.classList.toggle('active');
             document.body.classList.toggle('mobile-menu-open');
+        });
+        
+        // Add close button if it doesn't exist
+        let closeButton = nav.querySelector('.joyo-mobile-nav-close');
+        if (!closeButton) {
+            closeButton = document.createElement('button');
+            closeButton.className = 'joyo-mobile-nav-close';
+            closeButton.setAttribute('aria-label', 'Close menu');
+            closeButton.innerHTML = '&times;';
+            nav.insertBefore(closeButton, nav.firstChild);
+        }
+        
+        // Handle close button click
+        closeButton.addEventListener('click', function() {
+            toggle.classList.remove('active');
+            nav.classList.remove('active');
+            document.body.classList.remove('mobile-menu-open');
         });
         
         // Close menu when clicking a link
@@ -413,6 +430,24 @@ function initScrollAnimations() {
         allHeadings.forEach(heading => {
             // Remove any problematic background or color styles
             heading.style.background = 'none';
+            
+            // Check if the heading is in the Contact page
+            const isContactPage = document.body.classList.contains('contact-page');
+            if (isContactPage) {
+                // For headings that should be ochre colored on contact page
+                if (heading.closest('.contact-info') || heading.closest('.form-container')) {
+                    heading.style.color = 'var(--ochre)';
+                    return;
+                }
+            }
+            
+            // Check if the heading is in the Career page
+            const isCareerPage = document.body.classList.contains('career-page');
+            if (isCareerPage) {
+                // For headings that should be ochre colored on career page
+                heading.style.color = 'var(--ochre)';
+                return;
+            }
             
             // Check if the heading is in the Locations page
             const isLocationsPage = document.body.classList.contains('locations-page');
