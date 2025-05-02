@@ -50,14 +50,18 @@
     margin-bottom: 10px;
 }
 
-.career-hero-content .hero-subtitle {
-    color: white;
+.career-hero-content .hero-subtitle,
+p.hero-subtitle {
+    color: var(--ochre);
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 500;
     max-width: 600px;
     margin: 0 auto;
     font-family: var(--body-font);
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 2;
 }
 
 /* Welcome Section */
