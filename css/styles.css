@@ -475,9 +475,8 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    background-color: var(--color-bg-primary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .header-content {
@@ -625,7 +624,7 @@ header {
     position: relative;
     display: flex;
     align-items: center;
-    padding-top: 80px;
+    padding-top: 0;
     margin-bottom: 0;
 }
 
@@ -2035,12 +2034,13 @@ h2, h2.scrolled, section h2, section h2.scrolled,
 }
 
 .site-header {
-    background-color: #000000;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
+    background-color: var(--color-bg-primary);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .site-header .nav-link {

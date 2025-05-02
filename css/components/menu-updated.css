@@ -15,7 +15,7 @@
     background-image: url('../../JOYO - Images/menu-hero.jpg');
     background-size: cover;
     background-position: center;
-    margin-top: 80px; /* This margin will be removed for mobile */
+    margin-top: 0; /* Removed margin to eliminate gap */
     overflow: hidden;
 }
 
