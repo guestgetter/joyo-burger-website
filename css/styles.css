@@ -594,21 +594,28 @@ header {
     color: var(--ochre);
 }
 
+/* Mobile menu toggle - ensure bars are always visible */
 .mobile-menu-toggle {
-    display: none;
+    display: flex !important;
     flex-direction: column;
-    gap: 6px;
-    background: none;
-    border: none;
-    cursor: pointer;
+    justify-content: space-around;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #D4A44D;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    border-radius: 4px;
+    padding: 12px;
 }
 
-.bar {
-    width: 30px;
-    height: 3px;
-    background-color: white;
+.mobile-menu-toggle .bar {
+    display: block;
+    width: 26px;
+    height: 5px;
+    background-color: #D4A44D;
+    margin: 3px 0;
     border-radius: 3px;
-    transition: all 0.3s ease;
 }
 
 /* Hero Section */

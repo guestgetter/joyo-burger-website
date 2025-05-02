@@ -62,18 +62,28 @@ function initMobileMenu() {
     
     // Create mobile menu elements if they don't exist
     const createMobileElements = () => {
+        // Only create a toggle if one doesn't exist
         if (!document.querySelector('.mobile-menu-toggle')) {
             console.log('Creating mobile menu toggle...');
             const toggle = document.createElement('button');
             toggle.className = 'mobile-menu-toggle';
+            toggle.setAttribute('aria-label', 'Toggle mobile menu');
             toggle.innerHTML = `
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             `;
-            document.querySelector('.header-content').appendChild(toggle);
+            
+            // Append to header content for proper alignment
+            const headerContent = document.querySelector('.header-content');
+            if (headerContent) {
+                headerContent.appendChild(toggle);
+            } else {
+                document.body.appendChild(toggle);
+            }
         }
         
+        // Create mobile nav if it doesn't exist
         if (!document.querySelector('.mobile-nav')) {
             console.log('Creating mobile navigation...');
             const mobileNav = document.createElement('div');
@@ -82,7 +92,31 @@ function initMobileMenu() {
             // Copy main nav items to mobile nav
             const mainNav = document.querySelector('.main-nav');
             if (mainNav) {
-                mobileNav.innerHTML = mainNav.innerHTML;
+                // Clone the navigation list
+                const navList = mainNav.querySelector('.nav-list').cloneNode(true);
+                mobileNav.appendChild(navList);
+                
+                // Add order button
+                const orderBtn = document.querySelector('.order-now-btn');
+                if (orderBtn) {
+                    const orderBtnClone = orderBtn.cloneNode(true);
+                    mobileNav.appendChild(orderBtnClone);
+                }
+                
+                // Add language selector if it exists
+                const langSelector = document.querySelector('.language-selector');
+                if (langSelector) {
+                    const langSelectorClone = langSelector.cloneNode(true);
+                    mobileNav.appendChild(langSelectorClone);
+                }
+                
+                // Add social icons if they exist
+                const socialIcons = document.querySelector('.social-icons');
+                if (socialIcons) {
+                    const socialIconsClone = socialIcons.cloneNode(true);
+                    mobileNav.appendChild(socialIconsClone);
+                }
+                
                 document.body.appendChild(mobileNav);
             } else {
                 console.warn('Main navigation not found');
@@ -96,20 +130,22 @@ function initMobileMenu() {
     const mobileNav = document.querySelector('.mobile-nav');
     
     if (mobileMenuToggle && mobileNav) {
-        // Set initial state
-        mobileMenuToggle.style.display = 'flex';
+        // Make sure the menu is closed initially
         mobileNav.classList.remove('active');
+        mobileMenuToggle.classList.remove('mobile-menu-active');
         
-        mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             console.log('Mobile menu toggle clicked');
             this.classList.toggle('mobile-menu-active');
             mobileNav.classList.toggle('active');
             document.body.classList.toggle('menu-open');
             
-            // Force repaint to ensure styling is applied
+            // Force repaint to ensure styling is applied correctly
             mobileNav.style.display = 'none';
             mobileNav.offsetHeight; // Trigger reflow
-            mobileNav.style.display = 'flex';
+            mobileNav.style.display = '';
         });
         
         // Close mobile menu when clicking a link
@@ -132,11 +168,6 @@ function initMobileMenu() {
                 mobileNav.classList.remove('active');
                 document.body.classList.remove('menu-open');
             }
-        });
-        
-        // Make sure toggle remains visible during scroll
-        window.addEventListener('scroll', function() {
-            mobileMenuToggle.style.position = 'fixed';
         });
         
         console.log('Mobile menu initialization complete');
