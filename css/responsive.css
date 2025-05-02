@@ -49,153 +49,138 @@
         font-size: 3rem;
     }
     
-    /* Navigation */
+    /* NEW Mobile Navigation */
     .main-nav {
-        display: none;
+        display: none; /* Hide desktop nav */
     }
     
-    /* Fixed position menu toggle that's always visible */
+    /* Mobile toggle button */
     .mobile-menu-toggle {
-        display: flex !important; /* Force display */
-        flex-direction: column;
-        justify-content: center; /* Center bars vertically */
-        align-items: center;
-        width: 50px;
-        height: 50px;
-        background: rgba(0, 0, 0, 0.85);
+        display: block;
+        width: 40px;
+        height: 40px;
+        background-color: #000000;
         border: 2px solid var(--ochre);
-        cursor: pointer;
-        z-index: 9999; /* Extremely high z-index */
-        padding: 10px; /* Reduced padding to make bars more visible */
         border-radius: 4px;
         position: fixed;
-        top: 15px;
-        right: 15px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        transition: all 0.3s ease;
+        top: 20px;
+        right: 20px;
+        z-index: 10000;
+        cursor: pointer;
+        padding: 8px;
     }
     
-    .mobile-menu-toggle:hover {
-        background: rgba(0, 0, 0, 0.95);
-        transform: scale(1.05);
-    }
-    
-    .bar {
+    .mobile-menu-toggle .bar {
         display: block;
         width: 100%;
-        height: 4px; /* Increased from 3px to 4px for better visibility */
+        height: 3px;
         background-color: var(--ochre);
-        transition: all 0.3s ease;
-        margin: 4px 0; /* Increased from 2px to 4px for better spacing */
-        border-radius: 2px; /* Added for smoother appearance */
+        margin: 5px 0;
+        transition: 0.3s;
     }
     
-    .mobile-menu-active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-        background-color: white;
-    }
-    
-    .mobile-menu-active .bar:nth-child(2) {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-    
-    .mobile-menu-active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-        background-color: white;
-    }
-    
+    /* Mobile Menu Styles */
     .mobile-nav {
         position: fixed;
         top: 0;
         left: 0;
+        right: 0;
+        bottom: 0;
         width: 100%;
-        height: 100vh; /* Use viewport height to ensure full coverage */
-        background-color: #000000; /* Solid black background always */
-        padding: 80px 2rem 2rem;
-        z-index: 9990; /* Very high z-index, just below toggle */
-        transform: translateX(100%);
-        transition: transform 0.4s ease, opacity 0.4s ease;
+        height: 100vh;
+        background-color: #000000;
+        z-index: 9999;
         overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        visibility: hidden;
+        display: none; /* Start hidden */
         opacity: 0;
+        padding-top: 80px;
         text-align: center;
     }
     
+    /* When active */
     .mobile-nav.active {
-        transform: translateX(0);
-        visibility: visible;
+        display: block;
         opacity: 1;
-        background-color: #000000; /* Solid black background when active */
-        z-index: 9990; /* Higher z-index to ensure it's above everything except toggle */
     }
     
-    body.menu-open {
-        overflow: hidden;
+    /* Active toggle button */
+    .mobile-menu-active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
     }
     
+    .mobile-menu-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    /* Menu items */
     .mobile-nav .nav-list {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        margin: 2rem 0;
-        padding: 0;
         list-style: none;
+        padding: 0;
+        margin: 0 0 30px 0;
+    }
+    
+    .mobile-nav .nav-list li {
+        margin-bottom: 20px;
     }
     
     .mobile-nav .nav-link {
-        font-size: 1.8rem;
-        display: block;
-        padding: 0.75rem 0;
-        color: white !important; /* Force white color */
+        color: #FFFFFF;
+        font-size: 24px;
         text-decoration: none;
         font-weight: bold;
-        transition: color 0.3s ease;
+        display: block;
+        padding: 10px;
     }
     
     .mobile-nav .nav-link:hover,
     .mobile-nav .nav-link.active {
-        color: var(--ochre) !important; /* Force ochre color on hover/active */
+        color: var(--ochre);
     }
     
+    /* Order now button */
     .mobile-nav .order-now-btn {
-        margin: 1rem auto;
-        display: block;
-        width: 200px;
-        text-align: center;
-        font-size: 1.2rem;
-        padding: 12px 0;
+        display: inline-block;
+        margin: 20px auto;
+        padding: 12px 30px;
     }
     
-    /* Content styles */
-    .hero-content, section > .container {
-        z-index: 1;
+    /* Language selector */
+    .mobile-nav .language-selector {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
     }
     
-    .cta-buttons {
-        gap: 0.5rem;
-    }
-    
-    .language-selector, .social-icons {
-        display: none;
-    }
-    
-    .mobile-nav .language-selector,
+    /* Social icons */
     .mobile-nav .social-icons {
         display: flex;
-        margin-top: 1.5rem;
-    }
-    
-    .mobile-nav .social-icons {
         justify-content: center;
-        gap: 2rem;
-        margin-top: 3rem;
+        gap: 30px;
+        margin-top: 30px;
     }
     
     .mobile-nav .social-icons a {
-        font-size: 1.5rem;
+        color: #FFFFFF;
+        font-size: 24px;
+    }
+    
+    .mobile-nav .social-icons a:hover {
+        color: var(--ochre);
+    }
+    
+    /* Hide desktop elements in mobile */
+    .cta-buttons .language-selector,
+    .cta-buttons .social-icons {
+        display: none;
+    }
+    
+    /* Body styles when menu is open */
+    body.menu-open {
+        overflow: hidden; /* Prevent scrolling when menu is open */
     }
     
     /* Purpose Section */
@@ -352,6 +337,17 @@
         text-align: center;
     }
     
+    /* Mobile menu adjustments for very small screens */
+    .mobile-nav .nav-link {
+        font-size: 20px;
+        padding: 8px;
+    }
+    
+    .mobile-menu-toggle {
+        top: 15px;
+        right: 15px;
+    }
+    
     /* Menu Showcase */
     .menu-item {
         flex: 0 0 250px;
@@ -407,10 +403,6 @@
     
     .cta-buttons {
         margin-right: 0;
-    }
-    
-    .mobile-nav {
-        top: 0;
     }
 }
 
