@@ -1,0 +1,158 @@
+/**
+ * JOYO Burger - Categories Showcase Component Styles
+ */
+
+/* Categories Showcase Layout */
+.categories-showcase {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-bg-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.categories-container {
+    width: 100%;
+    overflow: hidden;
+    padding: var(--spacing-xl) 0;
+    margin-bottom: var(--spacing-xl);
+}
+
+.categories-scroll {
+    display: flex;
+    animation: scrollCategories 60s linear infinite;
+    width: fit-content;
+}
+
+/* Scrolling Animation */
+@keyframes scrollCategories {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Category Items */
+.category-item {
+    flex: 0 0 300px;
+    margin: 0 var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.category-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.category-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.category-item:hover img {
+    transform: scale(1.1);
+}
+
+.category-item h3 {
+    background-color: var(--color-dark);
+    color: white;
+    padding: var(--spacing-md);
+    text-align: center;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-bold);
+    position: relative;
+    z-index: 1;
+    letter-spacing: 1px;
+}
+
+/* View Menu Button */
+.categories-showcase .view-menu-container {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+}
+
+.categories-showcase .view-menu-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--ochre);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    border-radius: var(--border-radius-md);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 2px solid transparent;
+}
+
+.categories-showcase .view-menu-btn:hover {
+    background-color: var(--color-dark);
+    border-color: var(--ochre);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Category item animations */
+.category-item-animation {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.category-item-animation.scrolled {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .category-item {
+        flex: 0 0 250px;
+    }
+    
+    .category-item img {
+        height: 170px;
+    }
+    
+    .category-item h3 {
+        font-size: 1rem;
+        padding: var(--spacing-sm);
+    }
+    
+    .categories-showcase .view-menu-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .categories-showcase {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .categories-container {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .category-item {
+        flex: 0 0 200px;
+        margin: 0 var(--spacing-sm);
+    }
+    
+    .category-item img {
+        height: 140px;
+    }
+    
+    .category-item h3 {
+        font-size: 0.9rem;
+    }
+} 
