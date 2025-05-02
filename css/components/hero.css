@@ -35,6 +35,10 @@
     max-width: var(--container-md);
     margin: 0 auto;
     padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .hero-text {
@@ -126,6 +130,10 @@
     max-width: var(--container-md);
     margin: 0 auto;
     padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .about-hero h1,
@@ -145,11 +153,6 @@
     max-width: 700px;
     margin: 0 auto;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-    background-color: rgba(0, 0, 0, 0.3);
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    border-left: 4px solid var(--ochre);
 }
 
 /* Responsive adjustments */
