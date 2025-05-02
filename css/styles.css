@@ -617,8 +617,8 @@ header {
 
 /* Hero Section */
 .hero {
-    height: 110vh; /* Increased from 100vh */
-    min-height: 700px; /* Increased from 600px */
+    height: 120vh; /* Increased from 110vh */
+    min-height: 800px; /* Increased from 700px */
     background-image: url('../JOYO - Images/joyo-burger-homepage-hero-image.jpg');
     background-size: cover;
     background-position: center;
@@ -648,10 +648,16 @@ header {
     padding: 0 var(--container-padding);
     max-width: var(--container-width);
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    padding-bottom: 10vh; /* Add padding to move content up from bottom */
 }
 
 .hero-text {
     max-width: 650px;
+    margin-left: 5%; /* Add some left margin for better positioning */
 }
 
 .hero h1 {

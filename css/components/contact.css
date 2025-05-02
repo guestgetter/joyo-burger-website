@@ -1,19 +1,14 @@
-/**
- * JOYO Burger - Contact Page Styles
- * 
- * This file contains styles specific to the Contact page
- * of the JOYO Burger website.
- */
-
 /* Hero Banner */
 .contact-hero {
     position: relative;
-    height: 350px;
+    height: 450px; /* Increased from 350px */
     background-image: url('../../JOYO - Images/joyo-contact-us-hero.jpg');
     background-size: cover;
     background-position: center;
     margin-top: 0;
     overflow: hidden;
+    display: flex;
+    align-items: center; /* Center content vertically */
 }
 
 .hero-overlay {
@@ -27,7 +22,7 @@
 
 .contact-hero-content {
     position: relative;
-    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +34,7 @@
 
 .contact-hero-content h1 {
     color: var(--ochre);
-    font-size: 48px;
+    font-size: 60px; /* Increased from 48px */
     font-weight: 800;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -47,7 +42,7 @@
     padding: 0;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
     font-family: var(--heading-font);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .contact-hero-content .hero-subtitle {
@@ -375,4 +370,4 @@
     .form-container {
         padding: 20px;
     }
-} 
+}

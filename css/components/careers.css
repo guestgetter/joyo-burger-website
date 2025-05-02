@@ -8,12 +8,14 @@
 /* Hero Banner */
 .career-hero {
     position: relative;
-    height: 350px;
+    height: 450px;
     background-image: url('../../JOYO - Images/joyo-careers-hero.jpg');
     background-size: cover;
     background-position: center;
     margin-top: 0;
     overflow: hidden;
+    display: flex;
+    align-items: center;
 }
 
 .hero-overlay {
@@ -27,7 +29,7 @@
 
 .career-hero-content {
     position: relative;
-    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,7 +41,7 @@
 
 .career-hero-content h1 {
     color: var(--ochre);
-    font-size: 48px;
+    font-size: 60px;
     font-weight: 800;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -47,7 +49,7 @@
     padding: 0;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
     font-family: var(--heading-font);
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .career-hero-content .hero-subtitle {
