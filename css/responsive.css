@@ -49,138 +49,19 @@
         font-size: 3rem;
     }
     
-    /* NEW Mobile Navigation */
+    /* Mobile Navigation */
     .main-nav {
         display: none; /* Hide desktop nav */
     }
     
-    /* Mobile toggle button */
-    .mobile-menu-toggle {
-        display: block;
-        width: 40px;
-        height: 40px;
-        background-color: #000000;
-        border: 2px solid var(--ochre);
-        border-radius: 4px;
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        z-index: 10000;
-        cursor: pointer;
-        padding: 8px;
-    }
-    
-    .mobile-menu-toggle .bar {
-        display: block;
-        width: 100%;
-        height: 3px;
-        background-color: var(--ochre);
-        margin: 5px 0;
-        transition: 0.3s;
-    }
-    
-    /* Mobile Menu Styles */
-    .mobile-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: #000000;
-        z-index: 9999;
-        overflow-y: auto;
-        display: none; /* Start hidden */
-        opacity: 0;
-        padding-top: 80px;
-        text-align: center;
-    }
-    
-    /* When active */
-    .mobile-nav.active {
-        display: block;
-        opacity: 1;
-    }
-    
-    /* Active toggle button */
-    .mobile-menu-active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-    
-    .mobile-menu-active .bar:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .mobile-menu-active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-    
-    /* Menu items */
-    .mobile-nav .nav-list {
-        list-style: none;
-        padding: 0;
-        margin: 0 0 30px 0;
-    }
-    
-    .mobile-nav .nav-list li {
-        margin-bottom: 20px;
-    }
-    
-    .mobile-nav .nav-link {
-        color: #FFFFFF;
-        font-size: 24px;
-        text-decoration: none;
-        font-weight: bold;
-        display: block;
-        padding: 10px;
-    }
-    
-    .mobile-nav .nav-link:hover,
-    .mobile-nav .nav-link.active {
-        color: var(--ochre);
-    }
-    
-    /* Order now button */
-    .mobile-nav .order-now-btn {
-        display: inline-block;
-        margin: 20px auto;
-        padding: 12px 30px;
-    }
-    
-    /* Language selector */
-    .mobile-nav .language-selector {
-        display: flex;
-        justify-content: center;
-        margin: 20px 0;
-    }
-    
-    /* Social icons */
-    .mobile-nav .social-icons {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-        margin-top: 30px;
-    }
-    
-    .mobile-nav .social-icons a {
-        color: #FFFFFF;
-        font-size: 24px;
-    }
-    
-    .mobile-nav .social-icons a:hover {
-        color: var(--ochre);
+    .joyo-mobile-nav-toggle {
+        display: block; /* Show mobile toggle */
     }
     
     /* Hide desktop elements in mobile */
     .cta-buttons .language-selector,
     .cta-buttons .social-icons {
         display: none;
-    }
-    
-    /* Body styles when menu is open */
-    body.menu-open {
-        overflow: hidden; /* Prevent scrolling when menu is open */
     }
     
     /* Purpose Section */
@@ -338,14 +219,16 @@
     }
     
     /* Mobile menu adjustments for very small screens */
-    .mobile-nav .nav-link {
+    .joyo-mobile-nav a {
         font-size: 20px;
         padding: 8px;
     }
     
-    .mobile-menu-toggle {
+    .joyo-mobile-nav-toggle {
         top: 15px;
         right: 15px;
+        width: 40px;
+        height: 40px;
     }
     
     /* Menu Showcase */

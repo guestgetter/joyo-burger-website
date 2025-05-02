@@ -55,109 +55,139 @@ function initCategoriesScroll() {
 }
 
 /**
- * Initialize mobile menu functionality - NEW SIMPLIFIED VERSION
+ * JOYO Burger - Mobile Navigation
+ * A simple, reliable mobile navigation system
  */
 function initMobileMenu() {
-    console.log('Initializing mobile menu...');
+    console.log('Initializing JOYO mobile menu...');
     
     // Get mobile menu elements
-    const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const mobileNav = document.querySelector('.mobile-nav');
+    const menuToggle = document.querySelector('.joyo-mobile-nav-toggle');
+    const mobileNav = document.querySelector('.joyo-mobile-nav');
     
-    // If mobile menu doesn't exist, create one
-    if (!mobileNav) {
-        console.log('Creating mobile navigation...');
+    if (!menuToggle || !mobileNav) {
+        console.error('Mobile menu elements not found. Creating them...');
         
-        // Create mobile navigation element
-        const newMobileNav = document.createElement('div');
-        newMobileNav.className = 'mobile-nav';
+        // Create missing elements if needed
+        if (!menuToggle) {
+            const newToggle = document.createElement('button');
+            newToggle.className = 'joyo-mobile-nav-toggle';
+            newToggle.setAttribute('aria-label', 'Toggle mobile menu');
+            newToggle.innerHTML = `
+                <span></span>
+                <span></span>
+                <span></span>
+            `;
+            
+            // Add toggle to header or body
+            const headerContent = document.querySelector('.header-content');
+            if (headerContent) {
+                headerContent.appendChild(newToggle);
+            } else {
+                document.body.appendChild(newToggle);
+            }
+        }
         
-        // Copy navigation from main navigation
-        const mainNav = document.querySelector('.main-nav');
-        if (mainNav) {
-            // Clone nav list
-            const navList = mainNav.querySelector('.nav-list').cloneNode(true);
-            newMobileNav.appendChild(navList);
+        if (!mobileNav) {
+            const newNav = document.createElement('div');
+            newNav.className = 'joyo-mobile-nav';
             
-            // Add order button
-            const orderBtn = document.querySelector('.order-now-btn');
-            if (orderBtn) {
-                const orderBtnClone = orderBtn.cloneNode(true);
-                newMobileNav.appendChild(orderBtnClone);
+            // Create navigation content
+            const mainNav = document.querySelector('.main-nav');
+            if (mainNav) {
+                // Get navigation items
+                const navItems = mainNav.querySelectorAll('li a');
+                let navHTML = '<ul>';
+                
+                navItems.forEach(item => {
+                    navHTML += `<li><a href="${item.getAttribute('href')}">${item.textContent}</a></li>`;
+                });
+                
+                navHTML += '</ul>';
+                
+                // Add order button
+                const orderBtn = document.querySelector('.order-now-btn');
+                if (orderBtn) {
+                    navHTML += `<a href="${orderBtn.getAttribute('href')}" target="_blank" class="order-now-btn">${orderBtn.textContent}</a>`;
+                }
+                
+                // Add language selector
+                const langSelector = document.querySelector('.language-selector');
+                if (langSelector) {
+                    navHTML += '<div class="language-selector">';
+                    const langLinks = langSelector.querySelectorAll('a');
+                    const langDivider = langSelector.querySelector('.divider');
+                    
+                    if (langLinks.length > 0) {
+                        navHTML += `<a href="${langLinks[0].getAttribute('href')}" class="language-toggle ${langLinks[0].classList.contains('active') ? 'active' : ''}">${langLinks[0].textContent}</a>`;
+                        if (langDivider) {
+                            navHTML += `<span class="divider">${langDivider.textContent}</span>`;
+                        }
+                        if (langLinks.length > 1) {
+                            navHTML += `<a href="${langLinks[1].getAttribute('href')}" class="language-toggle ${langLinks[1].classList.contains('active') ? 'active' : ''}">${langLinks[1].textContent}</a>`;
+                        }
+                    }
+                    
+                    navHTML += '</div>';
+                }
+                
+                // Add social icons
+                const socialIcons = document.querySelector('.social-icons');
+                if (socialIcons) {
+                    navHTML += '<div class="social-icons">';
+                    const socialLinks = socialIcons.querySelectorAll('a');
+                    
+                    socialLinks.forEach(link => {
+                        navHTML += `<a href="${link.getAttribute('href')}" target="_blank">${link.innerHTML}</a>`;
+                    });
+                    
+                    navHTML += '</div>';
+                }
+                
+                newNav.innerHTML = navHTML;
+                document.body.appendChild(newNav);
             }
-            
-            // Add language selector
-            const langSelector = document.querySelector('.language-selector');
-            if (langSelector) {
-                const langClone = langSelector.cloneNode(true);
-                newMobileNav.appendChild(langClone);
-            }
-            
-            // Add social icons
-            const socialIcons = document.querySelector('.social-icons');
-            if (socialIcons) {
-                const socialClone = socialIcons.cloneNode(true);
-                newMobileNav.appendChild(socialClone);
-            }
-            
-            // Add to document
-            document.body.appendChild(newMobileNav);
         }
     }
     
-    // If toggle doesn't exist, create one
-    if (!menuToggle) {
-        console.log('Creating mobile menu toggle...');
-        
-        // Create menu toggle
-        const newMenuToggle = document.createElement('button');
-        newMenuToggle.className = 'mobile-menu-toggle';
-        newMenuToggle.innerHTML = `
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        `;
-        
-        // Add to document
-        const headerContent = document.querySelector('.header-content');
-        if (headerContent) {
-            headerContent.appendChild(newMenuToggle);
-        } else {
-            document.body.appendChild(newMenuToggle);
-        }
-    }
-    
-    // Get references (in case they were just created)
-    const toggle = document.querySelector('.mobile-menu-toggle');
-    const nav = document.querySelector('.mobile-nav');
+    // Get elements again (in case they were created)
+    const toggle = document.querySelector('.joyo-mobile-nav-toggle');
+    const nav = document.querySelector('.joyo-mobile-nav');
     
     if (toggle && nav) {
-        // Add click event to toggle
-        toggle.addEventListener('click', function() {
+        // Toggle mobile menu
+        toggle.addEventListener('click', function(e) {
+            e.stopPropagation();
             console.log('Mobile menu toggle clicked');
-            this.classList.toggle('mobile-menu-active');
+            
+            this.classList.toggle('active');
             nav.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
+            document.body.classList.toggle('mobile-menu-open');
         });
         
         // Close menu when clicking a link
         const links = nav.querySelectorAll('a');
         links.forEach(link => {
             link.addEventListener('click', function() {
-                toggle.classList.remove('mobile-menu-active');
+                // Don't close for language toggle
+                if (this.classList.contains('language-toggle')) {
+                    return;
+                }
+                
+                toggle.classList.remove('active');
                 nav.classList.remove('active');
-                document.body.classList.remove('menu-open');
+                document.body.classList.remove('mobile-menu-open');
             });
         });
         
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (nav.classList.contains('active') &&
-                !nav.contains(e.target) &&
+            if (nav.classList.contains('active') && 
+                !nav.contains(e.target) && 
                 !toggle.contains(e.target)) {
-                toggle.classList.remove('mobile-menu-active');
+                toggle.classList.remove('active');
                 nav.classList.remove('active');
-                document.body.classList.remove('menu-open');
+                document.body.classList.remove('mobile-menu-open');
             }
         });
         

@@ -594,28 +594,21 @@ header {
     color: var(--ochre);
 }
 
-/* Mobile menu toggle - ensure bars are always visible */
 .mobile-menu-toggle {
-    display: flex !important;
+    display: none;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border: 2px solid #D4A44D;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 9999;
-    border-radius: 4px;
-    padding: 12px;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
-.mobile-menu-toggle .bar {
-    display: block;
-    width: 26px;
-    height: 5px;
-    background-color: #D4A44D;
-    margin: 3px 0;
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: white;
     border-radius: 3px;
+    transition: all 0.3s ease;
 }
 
 /* Hero Section */
@@ -2031,4 +2024,124 @@ h2, h2.scrolled, section h2, section h2.scrolled,
     position: relative;
     z-index: 2;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* JOYO Burger - Mobile Navigation (Core Styles) */
+.joyo-mobile-nav-toggle {
+    display: none;
+    background: black;
+    border: 2px solid var(--ochre);
+    width: 44px;
+    height: 44px;
+    border-radius: 4px;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 99999;
+    cursor: pointer;
+    padding: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.joyo-mobile-nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--ochre);
+    margin: 5px 0;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.joyo-mobile-nav-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.joyo-mobile-nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.joyo-mobile-nav-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.joyo-mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    z-index: 99990;
+    padding-top: 80px;
+    overflow-y: auto;
+    text-align: center;
+}
+
+.joyo-mobile-nav.active {
+    display: block;
+}
+
+.joyo-mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.joyo-mobile-nav li {
+    margin-bottom: 20px;
+}
+
+.joyo-mobile-nav a {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.joyo-mobile-nav a:hover, 
+.joyo-mobile-nav a.active {
+    color: var(--ochre);
+}
+
+.joyo-mobile-nav .order-now-btn {
+    display: inline-block;
+    margin: 20px auto;
+    background-color: var(--ochre);
+    color: black;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.joyo-mobile-nav .language-selector {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.joyo-mobile-nav .language-selector a {
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.joyo-mobile-nav .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.joyo-mobile-nav .social-icons a {
+    font-size: 24px;
+    padding: 5px;
+}
+
+body.mobile-menu-open {
+    overflow: hidden;
 } 
