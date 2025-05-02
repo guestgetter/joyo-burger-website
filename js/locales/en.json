@@ -2,7 +2,7 @@
   "global": {
     "brand": "JOYO Burger",
     "orderNow": "ORDER NOW",
-    "copyright": "© 2023 Joyo™ burger. All Rights Reserved."
+    "copyright": "© 2025 Joyo™ burger. All Rights Reserved."
   },
   "nav": {
     "menu": "MENU",
@@ -195,5 +195,8 @@
       "careers": "Career @ JOYO",
       "privacy": "Privacy Terms of Use"
     }
-  }
+  },
+  "message": "We've received your message. Thank you for contacting JOYO Burger!",
+  "back": "Back to Home",
+  "loading": "Loading..."
 } 

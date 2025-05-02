@@ -143,4 +143,4 @@ The website is deployed via standard static hosting. Any changes to the main bra
 
 ## License
 
-© 2023 Joyo™ burger. All Rights Reserved. 
+© 2025 Joyo™ burger. All Rights Reserved. 
