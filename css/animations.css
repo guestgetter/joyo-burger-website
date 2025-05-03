@@ -388,4 +388,186 @@ h2.scrolled {
         transform: none !important;
         transition: none !important;
     }
+}
+
+/* JOYO Burger - Animation Styles */
+
+/* Basic Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Category Scroll Animation */
+@keyframes scrollCategories {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% / 2));
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+.fade-in-right {
+    animation: fadeInRight 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+/* Animation Delays */
+.delay-100 {
+    animation-delay: 0.1s;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+.delay-400 {
+    animation-delay: 0.4s;
+}
+
+.delay-500 {
+    animation-delay: 0.5s;
+}
+
+/* Animation Trigger Classes */
+.purpose-header-animation,
+.purpose-paragraph-animation,
+.category-item-animation {
+    opacity: 0;
+    animation-play-state: paused;
+}
+
+.purpose-header-animation {
+    animation: fadeInUp 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+.purpose-paragraph-animation {
+    animation: fadeInRight 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+.category-item-animation {
+    animation: fadeIn 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+.purpose-header-animation.scrolled,
+.purpose-paragraph-animation.scrolled,
+.category-item-animation.scrolled {
+    animation-play-state: running;
+}
+
+/* Add a subtle pulse effect to category items after they appear */
+.category-item-animation.scrolled {
+    animation: fadeIn 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards, 
+               pulse 3s ease-in-out 1s infinite;
+}
+
+/* Transition Classes */
+.transition-normal {
+    transition: all 0.3s ease;
+}
+
+.transition-slow {
+    transition: all 0.5s ease;
+}
+
+.transition-fast {
+    transition: all 0.2s ease;
+}
+
+/* Special Effects */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Button Animation */
+.btn {
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Gallery Animation */
+.gallery-slide {
+    transition: opacity 0.5s ease;
+}
+
+/* Link Animation */
+.animated-link {
+    position: relative;
+}
+
+.animated-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--ochre);
+    transition: width 0.3s ease;
+}
+
+.animated-link:hover::after {
+    width: 100%;
 } 

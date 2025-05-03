@@ -1,20 +1,71 @@
-/**
- * JOYO Burger - Hero Component Styles
- */
+/* JOYO Burger - Hero Section Styles */
 
-/* Main Hero Section */
-.hero {
+/* Common Hero Styles */
+.hero-section {
     position: relative;
-    height: 100vh;
-    min-height: 600px;
-    background-image: url('../../JOYO - Images/joyo-burger-homepage-hero-image.jpg');
-    background-size: cover;
-    background-position: center;
+    height: 70vh;
+    min-height: 500px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    margin: 0;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+.hero-section h1, 
+.hero-section h2 {
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section p {
+    position: relative;
+    z-index: 2;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95), 0 0 15px rgba(0, 0, 0, 0.85);
+    display: inline-block;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    z-index: 2;
+    position: relative;
+}
+
+/* Homepage Hero */
+.hero {
+    height: 120vh;
+    min-height: 800px;
+    background-image: url('../JOYO - Images/joyo-burger-homepage-hero-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    margin-bottom: 0;
 }
 
 .hero::before {
@@ -24,7 +75,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.35);
     z-index: 1;
 }
 
@@ -32,81 +83,41 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: var(--container-md);
+    padding: 0 var(--container-padding);
+    max-width: var(--container-width);
     margin: 0 auto;
-    padding: var(--spacing-xl);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    height: 100%;
+    padding-bottom: 10vh;
 }
 
 .hero-text {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 650px;
+    margin-left: 5%;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: var(--spacing-xl);
     color: white;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 2rem;
+    font-size: 4rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-.cta-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: var(--ochre);
-    color: white;
-    font-size: 1.1rem;
-    font-weight: var(--font-weight-bold);
-    text-transform: uppercase;
-    border-radius: var(--border-radius-md);
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.cta-button:hover {
-    background-color: #b67616;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-/* Page-specific hero styles */
-.about-hero,
-.locations-hero,
-.contact-hero,
-.career-hero,
-.privacy-hero {
-    position: relative;
-    height: 50vh;
-    min-height: 400px;
+/* About Hero */
+.about-hero {
+    height: 70vh;
+    min-height: 500px;
+    background-image: url('../JOYO - Images/joyo-scene.jpg');
     background-size: cover;
     background-position: center;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-}
-
-.about-hero {
-    background-image: url('../../JOYO - Images/joyo-about-us-page-hero.jpg');
-}
-
-.locations-hero {
-    background-image: url('../../JOYO - Images/joyo-find-us-page-hero.jpg');
-}
-
-.contact-hero {
-    background-image: url('../../JOYO - Images/joyo-contact-us-page-hero.jpg');
-}
-
-.career-hero {
-    background-image: url('../../JOYO - Images/joyo-careers-page-hero.jpg');
-}
-
-.privacy-hero {
-    background-image: url('../../JOYO - Images/joyo-privacy-policy-page-hero.jpg');
+    color: white;
 }
 
 .hero-overlay {
@@ -115,88 +126,87 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
-.about-hero-content,
-.locations-hero-content,
-.contact-hero-content,
-.career-hero-content,
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 var(--spacing-lg);
+}
+
+.about-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-md);
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Privacy Hero */
+.privacy-hero {
+    position: relative;
+    height: 50vh;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../JOYO - Images/joyo-burger-smash-burgers-that-lift-you-up.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--color-text-light);
+    text-align: center;
+}
+
+.privacy-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
 .privacy-hero-content {
     position: relative;
     z-index: 2;
-    width: 100%;
-    max-width: var(--container-md);
-    margin: 0 auto;
-    padding: var(--spacing-xl);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 0 20px;
+    max-width: 800px;
 }
 
-.about-hero h1,
-.locations-hero h1,
-.contact-hero h1,
-.career-hero h1,
 .privacy-hero h1 {
     font-size: 3rem;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    margin-bottom: var(--spacing-md);
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hero-subtitle {
-    font-size: 1.4rem;
-    color: var(--ochre);
-    max-width: 700px;
-    margin: 0 auto;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
-    letter-spacing: 0.5px;
-    font-weight: 500;
-    position: relative;
-    z-index: 2;
-}
-
-/* Responsive adjustments */
+/* Hero Responsive Styles */
 @media (max-width: 991px) {
-    .hero h1 {
-        font-size: 2.8rem;
+    .hero h1,
+    .about-hero h1 {
+        font-size: 3rem;
     }
     
     .hero-subtitle {
-        font-size: 1.2rem;
-    }
-    
-    .about-hero h1,
-    .locations-hero h1,
-    .contact-hero h1,
-    .career-hero h1,
-    .privacy-hero h1 {
-        font-size: 2.5rem;
+        font-size: 1.3rem;
     }
 }
 
 @media (max-width: 767px) {
-    .hero h1 {
-        font-size: 2.2rem;
+    .hero h1,
+    .about-hero h1 {
+        font-size: 2.5rem;
     }
     
     .hero-subtitle {
         font-size: 1.1rem;
     }
     
-    .about-hero h1,
-    .locations-hero h1,
-    .contact-hero h1,
-    .career-hero h1,
     .privacy-hero h1 {
-        font-size: 2rem;
-    }
-    
-    .cta-button {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
+        font-size: 2.25rem;
     }
 } 

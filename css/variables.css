@@ -6,90 +6,92 @@
  */
 
 :root {
-    /* Color Palette - Based on JOYO Brand Guidelines */
-    --color-primary: #CA831A;        /* Ocre - Main brand color */
-    --color-primary-dark: #B67616;   /* Darker ocre for hover states */
-    --color-primary-light: #D99934;  /* Lighter ocre for backgrounds */
+    /* Primary Colors */
+    --black: #000000;
+    --ochre: #CA831A;
+    --color-primary: var(--ochre);
+    --color-secondary: #B67616;
     
-    /* Secondary Colors from Brand Guidelines */
-    --color-secondary: #FF6239;      /* Rouge-orangé */
-    --color-secondary-dark: #E54A20; /* Darker orange-red */
-    --color-secondary-light: #FF8661;/* Lighter orange-red */
-    
-    /* Additional Brand Colors */
-    --color-light-yellow: #FEEDA7;   /* Jaune pâle */
-    --color-pink: #FFC8BE;           /* Rose */
-    --color-forest-green: #18423D;   /* Vert forêt */
+    /* Secondary Colors */
+    --light-yellow: #FEEDA7;
+    --red-orange: #FF6239;
+    --pink: #FFCB8E;
+    --forest-green: #18423D;
     
     /* Background Colors */
-    --color-bg-primary: #1A1A1A;     /* Main dark background - close to Noir */
-    --color-bg-secondary: #121212;   /* Slightly darker background */
-    --color-bg-light: #F5F5F5;       /* Light background for light mode */
-    --color-bg-dark: #0F0F0F;        /* Very dark background for footer */
+    --color-bg-primary: #000000;
+    --color-bg-secondary: #222222;
+    --color-bg-light: #FFFFFF;
+    --color-bg-dark: #000000;
     
     /* Text Colors */
-    --color-text-dark: #1A1A1A;      /* Dark text for light backgrounds */
-    --color-text-light: #F5F5F5;     /* Light text for dark backgrounds */
-    --color-text-muted: #9E9E9E;     /* Muted/gray text */
-    --color-text-primary: #CA831A;   /* Primary colored text - Ocre */
+    --color-text-dark: #000000;
+    --color-text-light: #FFFFFF;
+    --color-text-muted: rgba(255, 255, 255, 0.7);
     
-    /* Border Colors */
-    --color-border: rgba(255, 255, 255, 0.1); /* Default border color */
-    --color-border-light: rgba(0, 0, 0, 0.1); /* Light mode border */
+    /* Neutral Colors */
+    --gray-light: #f7f7f7;
+    --gray-medium: #e0e0e0;
+    --gray-dark: #333333;
     
-    /* Utility Colors */
-    --color-success: #4CAF50;        /* Green for success messages */
-    --color-error: #F44336;          /* Red for error messages */
-    --color-warning: #FFC107;        /* Amber for warning messages */
-    --color-info: #2196F3;           /* Blue for info messages */
-    
-    /* Spacing */
-    --spacing-xs: 4px;
-    --spacing-sm: 8px;
-    --spacing-md: 16px;
-    --spacing-lg: 24px;
-    --spacing-xl: 32px;
-    --spacing-xxl: 48px;
-    
-    /* Typography */
-    --font-family-primary: 'Poppins', sans-serif;
-    --font-family-secondary: 'Montserrat', sans-serif;
-    
-    --font-size-xs: 12px;
-    --font-size-sm: 14px;
-    --font-size-md: 16px;
-    --font-size-lg: 18px;
-    --font-size-xl: 24px;
-    --font-size-xxl: 32px;
-    --font-size-xxxl: 48px;
+    /* Font Families */
+    --font-family-primary: 'Founders Grotesk', sans-serif;
+    --font-family-secondary: 'DINRound', sans-serif;
+    --heading-font: var(--font-family-secondary);
+    --body-font: var(--font-family-primary);
     
     /* Font Weights */
     --font-weight-light: 300;
-    --font-weight-regular: 400;
+    --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
-    --font-weight-extrabold: 800;
+    --font-weight-extrabold: 900;
+    
+    /* Font Sizes */
+    --font-size-xs: 0.75rem;   /* 12px */
+    --font-size-sm: 0.875rem;  /* 14px */
+    --font-size-base: 1rem;    /* 16px */
+    --font-size-md: 1.125rem;  /* 18px */
+    --font-size-lg: 1.25rem;   /* 20px */
+    --font-size-xl: 1.5rem;    /* 24px */
+    --font-size-xxl: 2rem;     /* 32px */
+    --font-size-xxxl: 3rem;    /* 48px */
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 2rem;     /* 32px */
+    --spacing-lg: 3rem;     /* 48px */
+    --spacing-xl: 4rem;     /* 64px */
+    --spacing-xxl: 6rem;    /* 96px */
     
     /* Border Radius */
     --border-radius-sm: 4px;
     --border-radius-md: 8px;
     --border-radius-lg: 16px;
     --border-radius-xl: 24px;
-    --border-radius-circle: 50%;
     
-    /* Box Shadows */
-    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
-    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.2);
-    --shadow-inner: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Container Widths */
+    --container-sm: 640px;
+    --container-md: 768px;
+    --container-lg: 1024px;
+    --container-xl: 1300px;
+    --container-width: var(--container-xl);
+    --container-padding: 2rem;
     
     /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
     
-    /* Z-indices */
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0 16px 32px rgba(0, 0, 0, 0.25);
+    
+    /* Z-index layers */
     --z-index-dropdown: 100;
     --z-index-sticky: 200;
     --z-index-fixed: 300;
@@ -97,10 +99,4 @@
     --z-index-modal: 500;
     --z-index-popover: 600;
     --z-index-tooltip: 700;
-    
-    /* Container Widths */
-    --container-sm: 640px;
-    --container-md: 768px;
-    --container-lg: 1024px;
-    --container-xl: 1280px;
 } 
