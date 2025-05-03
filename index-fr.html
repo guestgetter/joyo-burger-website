@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOYO Burger - Des Burgers Bien Faits. De la Joie à Chaque Bouchée.</title>
-    <meta name="description" content="Chez JOYO Burger, nous servons des burgers premium faits avec des ingrédients frais. Savourez nos smash burgers, burgers de poulet et frites coupées à la main à Montréal.">
+    <title>Meilleurs Smash Burgers à Montréal | JOYO Burger | Bœuf Halal Frais</title>
+    <meta name="description" content="Découvrez les meilleurs smash burgers de Montréal chez JOYO Burger. Bœuf halal frais haché sur place quotidiennement, frites coupées à la main et sauces signature dans nos deux emplacements à Montréal.">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="JOYO - Images/joyo-smiley-footer-icon3.png">
     <link rel="apple-touch-icon" href="JOYO - Images/joyo-smiley-footer-icon3.png">
@@ -20,6 +20,97 @@
     <link rel="stylesheet" href="css/animations.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- JSON-LD Structured Data for Restaurant (French) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "JOYO Burger",
+      "image": "https://www.joyoburger.com/JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png",
+      "url": "https://www.joyoburger.com/index-fr.html",
+      "telephone": "+15145555696",
+      "email": "info@joyoburger.com",
+      "priceRange": "$$",
+      "servesCuisine": ["Restaurant de Burgers", "Halal", "Smash Burger", "Burger Montréal"],
+      "areaServed": "Montréal",
+      "description": "Smash burgers premium avec du bœuf halal frais haché sur place quotidiennement, frites coupées à la main et boissons artisanales à Montréal.",
+      "sameAs": [
+        "https://www.facebook.com/Joyoburger",
+        "https://www.instagram.com/joyoburger/"
+      ],
+      "hasMenu": "https://www.joyoburger.com/menu-fr.html",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Plusieurs emplacements à Montréal",
+        "addressLocality": "Montréal",
+        "addressRegion": "Québec",
+        "postalCode": "H1Y 1X6",
+        "addressCountry": "CA"
+      },
+      "potentialAction": {
+        "@type": "OrderAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://joyoburger.com/commande-en-ligne/",
+          "inLanguage": "fr",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/IOSPlatform",
+            "http://schema.org/AndroidPlatform"
+          ]
+        },
+        "deliveryMethod": [
+          "http://purl.org/goodrelations/v1#DeliveryModePickUp",
+          "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"
+        ]
+      },
+      "department": [
+        {
+          "@type": "Restaurant",
+          "name": "JOYO Burger - Masson",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3036 Rue Masson",
+            "addressLocality": "Montréal",
+            "addressRegion": "Québec",
+            "postalCode": "H1Y 1X6",
+            "addressCountry": "CA"
+          },
+          "telephone": "+15145555696",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ]
+        },
+        {
+          "@type": "Restaurant",
+          "name": "JOYO Burger - Wellington",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "4567 Rue Wellington",
+            "addressLocality": "Montréal",
+            "addressRegion": "Québec",
+            "postalCode": "H4G 1W8",
+            "addressCountry": "CA"
+          },
+          "telephone": "+15145555696",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Header Section with Navigation -->
@@ -69,7 +160,8 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Des Burgers Bien Faits. <br>De la Joie à Chaque Bouchée.</h1>
+                <h1>Les Meilleurs Smash Burgers de Montréal.<br>De la Joie à Chaque Bouchée.</h1>
+                <p class="hero-subtitle">Bœuf halal frais haché sur place quotidiennement dans nos emplacements à Montréal</p>
                 <a href="find-us-fr.html" class="cta-button">TROUVER UN JOYO PRÈS DE VOUS À MONTRÉAL</a>
             </div>
         </div>
@@ -79,10 +171,10 @@
     <section class="purpose-section">
         <div class="purpose-text-wrapper">
             <div class="purpose-text">
-                <h2>FAIT AVEC INTENTION</h2>
+                <h2>FAIT AVEC INTENTION À MONTRÉAL</h2>
                 <div class="accent-line"></div>
-                <p>Chez Joyo, notre mission est simple : apporter de la joie à travers une meilleure nourriture. Cela signifie des ingrédients authentiques, traités avec soin.</p>
-                <p>Nous hachons notre bœuf halal premium chaque jour, coupons nos frites à la main, panons chaque poitrine de poulet sur commande, et assemblons chaque burger avec précision et fierté.</p>
+                <p>Chez Joyo Burger Montréal, notre mission est simple : apporter de la joie à travers une meilleure nourriture. Cela signifie des ingrédients authentiques, traités avec soin.</p>
+                <p>Nous hachons notre bœuf halal premium chaque jour, coupons nos frites à la main, panons chaque poitrine de poulet sur commande, et assemblons chaque smash burger à la montréalaise avec précision et fierté.</p>
                 <p>Mais notre intention ne se limite pas à la cuisine — elle se retrouve dans notre façon d'accueillir nos invités : avec chaleur, respect et empressement.</p>
                 <p>Nous croyons que la bonne nourriture n'est pas un accident — c'est un choix. Un choix de respecter le processus. Un choix de servir avec passion. À chaque fois.</p>
             </div>
