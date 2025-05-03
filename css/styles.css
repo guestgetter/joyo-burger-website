@@ -617,8 +617,8 @@ header {
 
 /* Hero Section */
 .hero {
-    height: 100vh; /* Standardized height */
-    min-height: 700px;
+    height: 90vh; /* Increased from 100vh to create more dramatic effect */
+    min-height: 800px; /* Increased from 700px */
     background-image: url('../JOYO - Images/joyo-burger-homepage-hero-image.jpg');
     background-size: cover;
     background-position: center;
@@ -652,19 +652,32 @@ header {
     align-items: center;
     justify-content: flex-start;
     height: 100%;
-    padding-top: 60px; /* Add padding for fixed header */
+    padding-top: 0; /* Removed top padding for better centering */
 }
 
 .hero-text {
     max-width: 650px;
-    margin-left: 5%; /* Add some left margin for better positioning */
+    margin-left: 5%;
+    transform: translateY(-40px); /* Move text up slightly for better visual balance */
 }
 
 .hero h1 {
     color: white;
-    margin-bottom: 2rem;
-    font-size: 4rem;
+    margin-bottom: 2.5rem; /* Increased from 2rem for more spacing between heading and button */
+    font-size: 4.25rem; /* Increased from 4rem for more impact */
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
+    line-height: 1.1; /* Added to improve readability of multi-line heading */
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95), 0 0 15px rgba(0, 0, 0, 0.85);
+    display: inline-block;
+    letter-spacing: 0.5px;
+    font-weight: 500;
 }
 
 .cta-button {
@@ -687,21 +700,10 @@ header {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.hero-subtitle {
-    font-size: 1.5rem;
-    font-style: italic;
-    margin-bottom: 1.5rem;
-    color: white;
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95), 0 0 15px rgba(0, 0, 0, 0.85);
-    display: inline-block;
-    letter-spacing: 0.5px;
-    font-weight: 500;
-}
-
 /* Standardized hero section styles */
 .about-hero, .career-hero, .locations-hero, .contact-hero, .menu-hero {
-    height: 70vh;
-    min-height: 550px;
+    height: 80vh; /* Increased from 70vh */
+    min-height: 650px; /* Increased from 550px */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -719,8 +721,8 @@ header {
     z-index: 2;
     max-width: 800px;
     padding: 0 var(--spacing-lg);
-    padding-top: 70px; /* Ensure content isn't too high up with fixed header */
-    transform: translateY(0); /* Fine-tune vertical alignment */
+    padding-top: 0; /* Removed top padding to better center content */
+    transform: translateY(0);
 }
 
 .about-hero h1, .career-hero h1, .locations-hero h1, .contact-hero h1, .menu-hero h1 {
@@ -734,48 +736,58 @@ header {
 /* Media queries for responsive hero sections */
 @media (max-width: 1200px) {
     .about-hero, .career-hero, .locations-hero, .contact-hero, .menu-hero {
-        min-height: 500px;
+        min-height: 550px; /* Increased from 500px */
     }
 }
 
 @media (max-width: 991px) {
     .hero {
-        min-height: 600px;
+        min-height: 650px; /* Increased from 600px */
     }
     
     .about-hero, .career-hero, .locations-hero, .contact-hero, .menu-hero {
-        min-height: 450px;
+        min-height: 500px; /* Increased from 450px */
     }
     
     .about-hero h1, .career-hero h1, .locations-hero h1, .contact-hero h1, .menu-hero h1 {
-        font-size: 3rem;
+        font-size: 3.5rem; /* Adjusted for medium screens */
     }
     
     .hero-subtitle {
         font-size: 1.3rem;
     }
+    
+    .hero-text {
+        transform: translateY(-20px); /* Less dramatic shift on smaller screens */
+    }
 }
 
 @media (max-width: 767px) {
     .hero {
-        min-height: 500px;
+        min-height: 550px; /* Increased from 500px */
     }
     
     .about-hero, .career-hero, .locations-hero, .contact-hero, .menu-hero {
-        min-height: 350px;
-        height: 60vh;
+        min-height: 400px; /* Increased from 350px */
+        height: 70vh; /* Increased from 60vh */
     }
     
     .about-hero h1, .career-hero h1, .locations-hero h1, .contact-hero h1, .menu-hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.75rem; /* Adjusted for small screens */
+        margin-bottom: 1.5rem; /* Less spacing on mobile */
     }
     
     .hero-subtitle {
         font-size: 1.1rem;
     }
     
+    .hero-text {
+        transform: translateY(0); /* No vertical shift on mobile */
+        margin-left: 0; /* Center on mobile */
+    }
+    
     .hero-content, .about-hero-content, .career-hero-content, .locations-hero-content, .contact-hero-content, .menu-hero-content {
-        padding-top: 90px; /* Increase padding for mobile layout with larger header */
+        padding-top: 60px; /* Decreased from 90px for better vertical positioning */
     }
 }
 
@@ -1068,7 +1080,8 @@ header {
 /* Responsive styles for Purpose Section */
 @media (max-width: 991px) {
     .purpose-section {
-        flex-direction: column-reverse;
+        display: flex !important;
+        flex-direction: column !important;
         height: auto;
     }
 
@@ -1079,7 +1092,7 @@ header {
 
     .purpose-text-wrapper {
         padding: var(--spacing-xl) var(--container-padding);
-        order: -1; /* This moves the text above the gallery */
+        order: -1 !important; /* This moves the text above the gallery */
     }
 
     .purpose-text {
@@ -1090,7 +1103,7 @@ header {
     .purpose-image-gallery {
         height: 60vh;
         min-height: 500px;
-        order: 1; /* This places the gallery below the text */
+        order: 1 !important; /* This places the gallery below the text */
     }
     
     .gallery-slide img {
@@ -2108,7 +2121,8 @@ h2, h2.scrolled, section h2, section h2.scrolled,
 
 @media (max-width: 767px) {
     .about-hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.75rem;
+        margin-bottom: 1.5rem;
     }
     
     .hero-subtitle {

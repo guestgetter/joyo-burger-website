@@ -8,8 +8,8 @@
 /* Hero Banner */
 .locations-hero {
     position: relative;
-    height: 70vh;
-    min-height: 550px;
+    height: 80vh;
+    min-height: 650px;
     background-image: url('../../JOYO - Images/joyo-burger-location-page-hero.png');
     background-size: cover;
     background-position: center;
@@ -353,7 +353,8 @@
 /* Responsive Styles */
 @media (max-width: 991px) {
     .locations-hero {
-        height: 300px;
+        height: 60vh;
+        min-height: 500px;
     }
     
     .locations-hero-content h1 {
@@ -373,7 +374,8 @@
 
 @media (max-width: 767px) {
     .locations-hero {
-        height: 250px;
+        height: 70vh;
+        min-height: 400px;
     }
     
     .locations-hero-content h1 {

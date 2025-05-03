@@ -1,8 +1,8 @@
 /* Hero Banner */
 .contact-hero {
     position: relative;
-    height: 70vh;
-    min-height: 550px;
+    height: 80vh;
+    min-height: 650px;
     background-image: url('../../JOYO - Images/joyo-contact-us-hero.jpg');
     background-size: cover;
     background-position: center;
@@ -31,7 +31,7 @@
     text-align: center;
     z-index: 2;
     padding: 0 20px;
-    padding-top: 70px; /* Ensure content isn't too high up with fixed header */
+    padding-top: 0;
 }
 
 .contact-hero-content h1 {
@@ -335,7 +335,8 @@
     }
     
     .contact-hero {
-        height: 300px;
+        height: 60vh;
+        min-height: 500px;
     }
     
     .contact-hero-content h1 {
@@ -345,7 +346,8 @@
 
 @media (max-width: 767px) {
     .contact-hero {
-        height: 250px;
+        height: 70vh;
+        min-height: 400px;
     }
     
     .contact-hero-content h1 {
