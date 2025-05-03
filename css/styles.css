@@ -974,17 +974,17 @@ header {
     padding: 0;
     background-color: var(--black);
     color: white;
-    position: relative;
-    overflow: hidden;
-    margin-top: 0;
+    overflow: hidden; /* Prevent horizontal scrollbar */
+    position: relative; /* Ensure proper stacking context */
+    margin-top: 0; /* Ensure no gap at top */
 }
 
 .categories-container {
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 0;
     position: relative;
-    padding-top: var(--spacing-xl);
+    padding: var(--spacing-xl) var(--container-padding) var(--spacing-lg);
+    max-width: var(--container-width);
+    margin: 0 auto;
+    overflow: hidden; /* Contain the sliding animation */
 }
 
 .categories-scroll {
@@ -1083,6 +1083,7 @@ header {
         display: flex !important;
         flex-direction: column !important;
         height: auto;
+        margin-bottom: 0; /* Remove any bottom margin */
     }
 
     .purpose-text-wrapper,
@@ -1104,11 +1105,30 @@ header {
         height: 60vh;
         min-height: 500px;
         order: 1 !important; /* This places the gallery below the text */
+        margin-bottom: 0; /* Remove any bottom margin */
     }
     
     .gallery-slide img {
         height: 100%;
         object-position: center;
+    }
+    
+    /* Remove gap between sections */
+    .categories-showcase {
+        margin-top: 0;
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .purpose-image-gallery {
+        height: 50vh; /* Slightly shorter on mobile */
+        min-height: 400px;
+    }
+    
+    /* Ensure consistent spacing on mobile */
+    .categories-showcase .categories-container {
+        padding-top: var(--spacing-lg); /* Reduce top padding on mobile */
     }
 }
 
