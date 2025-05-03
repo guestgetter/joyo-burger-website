@@ -1,7 +1,8 @@
 /* Hero Banner */
 .contact-hero {
     position: relative;
-    height: 450px; /* Increased from 350px */
+    height: 70vh;
+    min-height: 550px;
     background-image: url('../../JOYO - Images/joyo-contact-us-hero.jpg');
     background-size: cover;
     background-position: center;
@@ -30,11 +31,12 @@
     text-align: center;
     z-index: 2;
     padding: 0 20px;
+    padding-top: 70px; /* Ensure content isn't too high up with fixed header */
 }
 
 .contact-hero-content h1 {
     color: var(--ochre);
-    font-size: 60px; /* Increased from 48px */
+    font-size: 3.5rem;
     font-weight: 800;
     letter-spacing: 2px;
     text-transform: uppercase;
