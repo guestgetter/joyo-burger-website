@@ -1,4 +1,12 @@
 User-agent: *
 Allow: /
 
+# Enable crawling of all content
+Allow: /*.html$
+Allow: /*.php$
+Allow: /css/
+Allow: /js/
+Allow: /JOYO - Images/
+
+# Sitemap location
 Sitemap: https://www.joyoburger.com/sitemap.xml 

@@ -3,13 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find JOYO Burger | Locations in Montreal</title>
-    <meta name="description" content="Visit JOYO Burger at our locations in Montreal. Find our addresses, hours, and directions to enjoy our fresh, homemade burgers.">
+    <title>JOYO Burger Locations in Montreal | Masson & Wellington | Best Burger Spots</title>
+    <meta name="description" content="Visit our two Montreal burger restaurants - JOYO Burger on Masson St and Wellington St. Locally owned smash burger spots with fresh halal beef, hand-cut fries, and craft beer.">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animations.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- JSON-LD Structured Data for Restaurant Locations -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "JOYO Burger",
+      "url": "https://www.joyoburger.com",
+      "logo": "https://www.joyoburger.com/JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png",
+      "sameAs": [
+        "https://www.facebook.com/Joyoburger",
+        "https://www.instagram.com/joyoburger/"
+      ],
+      "@id": "https://www.joyoburger.com",
+      "location": [
+        {
+          "@type": "Restaurant",
+          "name": "JOYO Burger - Masson",
+          "hasMap": "https://maps.google.com/?q=3036+Masson+St,+Montreal,+QC,+H1Y+1X6",
+          "image": "https://www.joyoburger.com/JOYO - Images/joyo-burgger-masson-location-interior.jpg",
+          "telephone": "+15145555696",
+          "email": "info@joyoburger.com",
+          "priceRange": "$$",
+          "servesCuisine": ["Burger Restaurant", "Halal", "Smash Burger"],
+          "menu": "https://www.joyoburger.com/menu.html",
+          "acceptsReservations": "True",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3036 Masson St",
+            "addressLocality": "Montreal",
+            "addressRegion": "QC",
+            "postalCode": "H1Y 1X6",
+            "addressCountry": "CA"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 45.5442495,
+            "longitude": -73.5706362
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ]
+        },
+        {
+          "@type": "Restaurant",
+          "name": "JOYO Burger - Wellington",
+          "hasMap": "https://maps.google.com/?q=4567+Wellington+St,+Montreal,+Quebec+H4G+1W8",
+          "image": "https://www.joyoburger.com/JOYO - Images/joyo-burger-wellington-location-interior.jpg",
+          "telephone": "+15145555696",
+          "email": "info@joyoburger.com",
+          "priceRange": "$$",
+          "servesCuisine": ["Burger Restaurant", "Halal", "Smash Burger"],
+          "menu": "https://www.joyoburger.com/menu.html",
+          "acceptsReservations": "True",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "4567 Wellington St",
+            "addressLocality": "Montreal",
+            "addressRegion": "QC",
+            "postalCode": "H4G 1W8",
+            "addressCountry": "CA"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 45.4622980,
+            "longitude": -73.5725282
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="locations-page">
     <!-- Header Section with Navigation -->

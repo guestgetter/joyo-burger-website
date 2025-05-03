@@ -3,13 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOYO Burger Menu | Feed Me Joy</title>
-    <meta name="description" content="Discover JOYO Burger's menu featuring premium halal smash burgers, crispy chicken, fresh salads, hand-cut fries, and craft beverages.">
+    <title>Montreal Smash Burger Menu | JOYO Burger | Halal Beef & Fresh Ingredients</title>
+    <meta name="description" content="JOYO Burger's Montreal menu features premium halal smash burgers, hand-breaded chicken sandwiches, fresh-cut fries, and signature poutines made with locally-sourced ingredients.">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/components/menu-updated.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- JSON-LD Structured Data for Menu -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "JOYO Burger",
+      "url": "https://www.joyoburger.com",
+      "image": "https://www.joyoburger.com/JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png",
+      "hasMenu": {
+        "@type": "Menu",
+        "name": "JOYO Burger Menu",
+        "description": "Premium smash burgers with fresh halal beef ground in-house daily, hand-cut fries, and craft beverages in Montreal.",
+        "hasMenuSection": [
+          {
+            "@type": "MenuSection",
+            "name": "Beef Burgers",
+            "description": "Ground in-house daily from premium halal cuts",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Cheese Burger",
+                "description": "Cheddar cheese, lettuce, tomatoes, onions, pickles, Joyo™ sauce",
+                "image": "https://www.joyoburger.com/JOYO - Images/cheese-burger.jpeg",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "12.99",
+                  "priceCurrency": "CAD"
+                },
+                "suitableForDiet": "Halal"
+              },
+              {
+                "@type": "MenuItem",
+                "name": "The Special",
+                "description": "Cheddar cheese, pickles, caramelized onions, Joyo™ sauce",
+                "image": "https://www.joyoburger.com/JOYO - Images/le-special.png",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "13.99",
+                  "priceCurrency": "CAD"
+                },
+                "suitableForDiet": "Halal"
+              },
+              {
+                "@type": "MenuItem",
+                "name": "The Big",
+                "description": "Homemade double patty, caramelized bacon, cheddar cheese, lettuce, tomatoes, onions, pickles, and Joyo sauce",
+                "image": "https://www.joyoburger.com/JOYO - Images/Le-Grand.png",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "16.99",
+                  "priceCurrency": "CAD"
+                },
+                "suitableForDiet": "Halal"
+              }
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "name": "Sides",
+            "description": "Hand-cut fries and poutines",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Hand-Cut Fries",
+                "description": "Fresh potatoes cut daily and double-fried for maximum crispness",
+                "image": "https://www.joyoburger.com/JOYO - Images/Joyo-Poutine.png",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "4.99",
+                  "priceCurrency": "CAD"
+                },
+                "suitableForDiet": "Vegetarian"
+              }
+            ]
+          }
+        ]
+      }
+    }
+    </script>
 </head>
 <body class="menu-page">
     <!-- Header -->

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOYO Burger - Burgers Done Right. Joy in Every Bite.</title>
-    <meta name="description" content="At JOYO Burger, we serve premium burgers made with fresh ingredients. Enjoy our smash burgers, chicken burgers, and hand-cut fries in Montreal.">
+    <title>Best Smash Burgers in Montreal | JOYO Burger | Fresh Halal Beef</title>
+    <meta name="description" content="Experience Montreal's finest smash burgers at JOYO Burger. Fresh halal beef ground in-house daily, hand-cut fries, and signature sauces at our two convenient Montreal locations.">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="JOYO - Images/joyo-smiley-footer-icon3.png">
     <link rel="apple-touch-icon" href="JOYO - Images/joyo-smiley-footer-icon3.png">
@@ -20,6 +20,97 @@
     <link rel="stylesheet" href="css/animations.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- JSON-LD Structured Data for Restaurant -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "JOYO Burger",
+      "image": "https://www.joyoburger.com/JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png",
+      "url": "https://www.joyoburger.com",
+      "telephone": "+15145555696",
+      "email": "info@joyoburger.com",
+      "priceRange": "$$",
+      "servesCuisine": ["Burger Restaurant", "Halal", "Smash Burger", "Montreal Burger"],
+      "areaServed": "Montreal",
+      "description": "Premium smash burgers with fresh halal beef ground in-house daily, hand-cut fries, and craft beverages in Montreal.",
+      "sameAs": [
+        "https://www.facebook.com/Joyoburger",
+        "https://www.instagram.com/joyoburger/"
+      ],
+      "hasMenu": "https://www.joyoburger.com/menu.html",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Multiple locations in Montreal",
+        "addressLocality": "Montreal",
+        "addressRegion": "Quebec",
+        "postalCode": "H1Y 1X6",
+        "addressCountry": "CA"
+      },
+      "potentialAction": {
+        "@type": "OrderAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://joyoburger.com/order-online/",
+          "inLanguage": "en",
+          "actionPlatform": [
+            "http://schema.org/DesktopWebPlatform",
+            "http://schema.org/IOSPlatform",
+            "http://schema.org/AndroidPlatform"
+          ]
+        },
+        "deliveryMethod": [
+          "http://purl.org/goodrelations/v1#DeliveryModePickUp",
+          "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"
+        ]
+      },
+      "department": [
+        {
+          "@type": "Restaurant",
+          "name": "JOYO Burger - Masson",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3036 Masson St",
+            "addressLocality": "Montreal",
+            "addressRegion": "Quebec",
+            "postalCode": "H1Y 1X6",
+            "addressCountry": "CA"
+          },
+          "telephone": "+15145555696",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ]
+        },
+        {
+          "@type": "Restaurant",
+          "name": "JOYO Burger - Wellington",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "4567 Wellington St",
+            "addressLocality": "Montreal",
+            "addressRegion": "Quebec",
+            "postalCode": "H4G 1W8",
+            "addressCountry": "CA"
+          },
+          "telephone": "+15145555696",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+              "opens": "11:00",
+              "closes": "22:00"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Header Section with Navigation -->
@@ -90,7 +181,8 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Burgers Done Right. <br>Joy in Every Bite.</h1>
+                <h1>Montreal's Best Smash Burgers.<br>Joy in Every Bite.</h1>
+                <p class="hero-subtitle">Fresh halal beef ground in-house daily at our Montreal locations</p>
                 <a href="find-us.html" class="cta-button">FIND A JOYO NEAR YOU IN MONTREAL</a>
             </div>
         </div>
@@ -100,10 +192,10 @@
     <section class="purpose-section">
         <div class="purpose-text-wrapper">
             <div class="purpose-text">
-                <h2>MADE WITH PURPOSE</h2>
+                <h2>MADE WITH PURPOSE IN MONTREAL</h2>
                 <div class="accent-line"></div>
-                <p>At Joyo, our purpose is simple: to bring joy through better food. That means real ingredients, treated with care.</p>
-                <p>We grind our premium halal beef in-house daily, hand-cut our fries, hand-bread every chicken breast to order, and build every burger with precision and pride.</p>
+                <p>At Joyo Burger Montreal, our purpose is simple: to bring joy through better food. That means real ingredients, treated with care.</p>
+                <p>We grind our premium halal beef in-house daily, hand-cut our fries, hand-bread every chicken breast to order, and build every Montreal-style smash burger with precision and pride.</p>
                 <p>But purpose isn't just in the kitchen — it's in how we show up for our guests: with warmth, respect, and urgency.</p>
                 <p>We believe great food isn't an accident — it's a choice. A choice to respect the process. A choice to serve with passion. Every single time.</p>
             </div>
