@@ -26,13 +26,13 @@ html {
 }
 
 body {
-    font-family: var(--body-font);
-    font-weight: normal;
+    font-family: var(--font-family-primary);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-light);
     line-height: 1.6;
-    color: var(--black);
-    background-color: white;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
-    font-size: 1.05rem; /* Slightly larger base font size */
 }
 
 .container {
@@ -628,7 +628,6 @@ header {
     align-items: center;
     padding-top: 0;
     margin-bottom: 0;
-    border-bottom: 0;
 }
 
 .hero::before {
@@ -742,7 +741,6 @@ header {
 @media (max-width: 991px) {
     .hero {
         min-height: 600px;
-        margin-bottom: 0;
     }
     
     .about-hero, .career-hero, .locations-hero, .contact-hero, .menu-hero {
@@ -756,17 +754,11 @@ header {
     .hero-subtitle {
         font-size: 1.3rem;
     }
-    
-    /* Fix gap between hero and purpose section on mobile */
-    .purpose-section {
-        margin-top: -1px; /* Creates a slight overlap to prevent white gap */
-    }
 }
 
 @media (max-width: 767px) {
     .hero {
         min-height: 500px;
-        margin-bottom: 0;
     }
     
     .about-hero, .career-hero, .locations-hero, .contact-hero, .menu-hero {
@@ -784,15 +776,6 @@ header {
     
     .hero-content, .about-hero-content, .career-hero-content, .locations-hero-content, .contact-hero-content, .menu-hero-content {
         padding-top: 90px; /* Increase padding for mobile layout with larger header */
-    }
-    
-    /* Additional fixes for mobile */
-    .purpose-section {
-        margin-top: -1px; /* Creates a slight overlap to prevent white gap */
-    }
-    
-    .purpose-text-wrapper {
-        padding-top: 2rem; /* Reduce top padding on mobile */
     }
 }
 
@@ -1087,7 +1070,6 @@ header {
     .purpose-section {
         flex-direction: column-reverse;
         height: auto;
-        margin-top: -1px;
     }
 
     .purpose-text-wrapper,
@@ -1097,6 +1079,7 @@ header {
 
     .purpose-text-wrapper {
         padding: var(--spacing-xl) var(--container-padding);
+        order: -1; /* This moves the text above the gallery */
     }
 
     .purpose-text {
@@ -1107,38 +1090,12 @@ header {
     .purpose-image-gallery {
         height: 60vh;
         min-height: 500px;
+        order: 1; /* This places the gallery below the text */
     }
     
     .gallery-slide img {
         height: 100%;
         object-position: center;
-    }
-    
-    /* Fix gap between purpose and categories sections */
-    .categories-showcase {
-        margin-top: -1px;
-    }
-}
-
-@media (max-width: 767px) {
-    .purpose-image-gallery {
-        height: 50vh;
-        min-height: 350px;
-    }
-    
-    .purpose-text-wrapper {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-    }
-    
-    /* Adjust categories showcase for mobile */
-    .categories-container {
-        padding-top: 2rem;
-    }
-    
-    .categories-showcase .view-menu-container {
-        margin-top: 1rem;
-        padding-bottom: 2rem;
     }
 }
 
@@ -2496,41 +2453,5 @@ body.mobile-menu-open {
     
     .policy-content h3, .terms-content h3 {
         font-size: 1.35rem;
-    }
-}
-
-@media (max-width: 575px) {
-    body {
-        font-size: 1rem;
-    }
-    
-    /* Remove all gaps between sections on mobile */
-    section {
-        margin: 0;
-        padding: 0;
-    }
-    
-    .hero {
-        min-height: 380px;
-    }
-    
-    /* Ensure sections flow together */
-    .categories-showcase,
-    .features-section,
-    .testimonials-section,
-    .cta-section,
-    .newsletter-section {
-        margin-top: -1px;
-        border-top: 0;
-    }
-    
-    /* Smaller text for better mobile experience */
-    .purpose-text p {
-        font-size: 1.1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .purpose-text h2 {
-        font-size: 1.8rem;
     }
 }
