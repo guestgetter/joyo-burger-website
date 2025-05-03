@@ -3,86 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Montreal Smash Burger Menu | JOYO Burger | Halal Beef & Fresh Ingredients</title>
-    <meta name="description" content="JOYO Burger's Montreal menu features premium halal smash burgers, hand-breaded chicken sandwiches, fresh-cut fries, and signature poutines made with locally-sourced ingredients.">
+    <title>JOYO Burger Menu | Halal Smash Burgers & Hand-Cut Fries | Montreal's Best Burgers</title>
+    <meta name="description" content="Explore JOYO Burger's menu featuring premium halal smash burgers, crispy chicken, hand-cut fries, fresh salads, craft beers and house-made milkshakes in Montreal.">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="keywords" content="JOYO Burger menu, halal smash burgers, best burgers Montreal, hand-cut fries, Montreal restaurant menu, chicken burger, craft beer, milkshakes, poutine">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://joyoburger.com/menu.html">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="JOYO Burger Menu | Premium Smash Burgers in Montreal">
+    <meta property="og:description" content="Fresh, halal smash burgers, crispy chicken, hand-cut fries and craft drinks at JOYO Burger, Montreal's favorite burger destination.">
+    <meta property="og:image" content="https://joyoburger.com/JOYO - Images/Le-Grand.png">
+    <meta property="og:url" content="https://joyoburger.com/menu.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="JOYO - Images/joyo-smiley-footer-icon3.png">
+    <link rel="apple-touch-icon" href="JOYO - Images/joyo-smiley-footer-icon3.png">
+    
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/components/menu.css">
     <link rel="stylesheet" href="css/components/menu-updated.css">
-    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- JSON-LD Structured Data for Menu -->
+    <!-- Schema.org structured data for Restaurant Menu -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Restaurant",
       "name": "JOYO Burger",
-      "url": "https://www.joyoburger.com",
-      "image": "https://www.joyoburger.com/JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png",
+      "image": "https://joyoburger.com/JOYO - Images/joyo-burger-homepage-hero-image.jpg",
+      "url": "https://joyoburger.com",
+      "telephone": "+15145555696",
+      "servesCuisine": ["Burger", "Halal", "Fast Casual"],
+      "priceRange": "$$",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "3036 Masson St",
+          "addressLocality": "Montreal",
+          "addressRegion": "QC",
+          "postalCode": "H1Y 1X6",
+          "addressCountry": "CA"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "4567 Wellington St",
+          "addressLocality": "Montreal",
+          "addressRegion": "QC",
+          "postalCode": "H4G 1W8",
+          "addressCountry": "CA"
+        }
+      ],
       "hasMenu": {
         "@type": "Menu",
-        "name": "JOYO Burger Menu",
-        "description": "Premium smash burgers with fresh halal beef ground in-house daily, hand-cut fries, and craft beverages in Montreal.",
         "hasMenuSection": [
           {
             "@type": "MenuSection",
-            "name": "Beef Burgers",
-            "description": "Ground in-house daily from premium halal cuts",
+            "name": "Smash Burgers",
             "hasMenuItem": [
               {
                 "@type": "MenuItem",
-                "name": "Cheese Burger",
-                "description": "Cheddar cheese, lettuce, tomatoes, onions, pickles, Joyo™ sauce",
-                "image": "https://www.joyoburger.com/JOYO - Images/cheese-burger.jpeg",
-                "offers": {
-                  "@type": "Offer",
-                  "price": "12.99",
-                  "priceCurrency": "CAD"
-                },
-                "suitableForDiet": "Halal"
-              },
-              {
-                "@type": "MenuItem",
-                "name": "The Special",
-                "description": "Cheddar cheese, pickles, caramelized onions, Joyo™ sauce",
-                "image": "https://www.joyoburger.com/JOYO - Images/le-special.png",
-                "offers": {
-                  "@type": "Offer",
-                  "price": "13.99",
-                  "priceCurrency": "CAD"
-                },
-                "suitableForDiet": "Halal"
-              },
-              {
-                "@type": "MenuItem",
-                "name": "The Big",
-                "description": "Homemade double patty, caramelized bacon, cheddar cheese, lettuce, tomatoes, onions, pickles, and Joyo sauce",
-                "image": "https://www.joyoburger.com/JOYO - Images/Le-Grand.png",
+                "name": "Le Grand",
+                "description": "Double smash patty, cheddar, lettuce, tomato, onion, JOYO sauce",
                 "offers": {
                   "@type": "Offer",
                   "price": "16.99",
                   "priceCurrency": "CAD"
                 },
-                "suitableForDiet": "Halal"
+                "suitableForDiet": "HalalDiet"
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Le Classic",
+                "description": "Smash patty, American cheese, pickles, onion, JOYO sauce",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "12.99",
+                  "priceCurrency": "CAD"
+                },
+                "suitableForDiet": "HalalDiet"
+              }
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "name": "Chicken Burgers",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Classic Fried Chicken",
+                "description": "Crispy halal chicken breast, lettuce, pickles, JOYO mayo",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "15.99",
+                  "priceCurrency": "CAD"
+                },
+                "suitableForDiet": "HalalDiet"
               }
             ]
           },
           {
             "@type": "MenuSection",
             "name": "Sides",
-            "description": "Hand-cut fries and poutines",
             "hasMenuItem": [
               {
                 "@type": "MenuItem",
                 "name": "Hand-Cut Fries",
-                "description": "Fresh potatoes cut daily and double-fried for maximum crispness",
-                "image": "https://www.joyoburger.com/JOYO - Images/Joyo-Poutine.png",
+                "description": "Daily fresh-cut potatoes, double-fried for perfection",
                 "offers": {
                   "@type": "Offer",
-                  "price": "4.99",
+                  "price": "5.99",
                   "priceCurrency": "CAD"
-                },
-                "suitableForDiet": "Vegetarian"
+                }
+              },
+              {
+                "@type": "MenuItem",
+                "name": "JOYO Poutine",
+                "description": "Hand-cut fries, cheese curds, signature gravy",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "9.99",
+                  "priceCurrency": "CAD"
+                }
               }
             ]
           }

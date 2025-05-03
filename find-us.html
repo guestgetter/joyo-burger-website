@@ -3,39 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOYO Burger Locations in Montreal | Masson & Wellington | Best Burger Spots</title>
-    <meta name="description" content="Visit our two Montreal burger restaurants - JOYO Burger on Masson St and Wellington St. Locally owned smash burger spots with fresh halal beef, hand-cut fries, and craft beer.">
+    <title>JOYO Burger Locations in Montreal | Masson & Wellington | Best Montreal Burgers</title>
+    <meta name="description" content="Visit JOYO Burger's two Montreal locations: Masson (Rosemont) and Wellington (Verdun). Enjoy our premium halal smash burgers, hand-cut fries and craft drinks.">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="keywords" content="JOYO Burger locations, burger restaurant Montreal, Masson burger, Wellington burger, halal food Montreal, burger places near me, best burgers Rosemont, best burgers Verdun">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://joyoburger.com/find-us.html">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="JOYO Burger Locations in Montreal | Masson & Wellington">
+    <meta property="og:description" content="Find our premium burger restaurants in Masson (Rosemont) and Wellington (Verdun). Fresh halal smash burgers, hand-cut fries, and craft drinks daily 11AM-10PM.">
+    <meta property="og:image" content="https://joyoburger.com/JOYO - Images/joyo-burger-location-page-hero.png">
+    <meta property="og:url" content="https://joyoburger.com/find-us.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="JOYO - Images/joyo-smiley-footer-icon3.png">
+    <link rel="apple-touch-icon" href="JOYO - Images/joyo-smiley-footer-icon3.png">
+    
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animations.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- JSON-LD Structured Data for Restaurant Locations -->
+    <!-- Schema.org structured data for Local Business Locations -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "JOYO Burger",
-      "url": "https://www.joyoburger.com",
-      "logo": "https://www.joyoburger.com/JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png",
-      "sameAs": [
-        "https://www.facebook.com/Joyoburger",
-        "https://www.instagram.com/joyoburger/"
-      ],
-      "@id": "https://www.joyoburger.com",
+      "url": "https://joyoburger.com",
+      "logo": "https://joyoburger.com/JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png",
+      "description": "JOYO Burger serves premium halal smash burgers, chicken burgers, and hand-cut fries in Montreal. Visit our locations in Masson and Wellington.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+15145555696",
+        "contactType": "customer service",
+        "email": "info@joyoburger.com",
+        "areaServed": "Montreal"
+      },
       "location": [
         {
           "@type": "Restaurant",
           "name": "JOYO Burger - Masson",
-          "hasMap": "https://maps.google.com/?q=3036+Masson+St,+Montreal,+QC,+H1Y+1X6",
-          "image": "https://www.joyoburger.com/JOYO - Images/joyo-burgger-masson-location-interior.jpg",
-          "telephone": "+15145555696",
-          "email": "info@joyoburger.com",
-          "priceRange": "$$",
-          "servesCuisine": ["Burger Restaurant", "Halal", "Smash Burger"],
-          "menu": "https://www.joyoburger.com/menu.html",
-          "acceptsReservations": "True",
+          "image": "https://joyoburger.com/JOYO - Images/joyo-burgger-masson-location-interior.jpg",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "3036 Masson St",
@@ -46,9 +59,12 @@
           },
           "geo": {
             "@type": "GeoCoordinates",
-            "latitude": 45.5442495,
-            "longitude": -73.5706362
+            "latitude": 45.544245,
+            "longitude": -73.570636
           },
+          "telephone": "+15145555696",
+          "servesCuisine": ["Burger", "Halal", "Fast Casual"],
+          "priceRange": "$$",
           "openingHoursSpecification": [
             {
               "@type": "OpeningHoursSpecification",
@@ -56,19 +72,13 @@
               "opens": "11:00",
               "closes": "22:00"
             }
-          ]
+          ],
+          "hasMap": "https://maps.google.com/?q=3036+Masson+St,+Montreal,+QC,+H1Y+1X6"
         },
         {
           "@type": "Restaurant",
           "name": "JOYO Burger - Wellington",
-          "hasMap": "https://maps.google.com/?q=4567+Wellington+St,+Montreal,+Quebec+H4G+1W8",
-          "image": "https://www.joyoburger.com/JOYO - Images/joyo-burger-wellington-location-interior.jpg",
-          "telephone": "+15145555696",
-          "email": "info@joyoburger.com",
-          "priceRange": "$$",
-          "servesCuisine": ["Burger Restaurant", "Halal", "Smash Burger"],
-          "menu": "https://www.joyoburger.com/menu.html",
-          "acceptsReservations": "True",
+          "image": "https://joyoburger.com/JOYO - Images/joyo-burger-wellington-location-interior.jpg",
           "address": {
             "@type": "PostalAddress",
             "streetAddress": "4567 Wellington St",
@@ -79,9 +89,12 @@
           },
           "geo": {
             "@type": "GeoCoordinates",
-            "latitude": 45.4622980,
-            "longitude": -73.5725282
+            "latitude": 45.462298,
+            "longitude": -73.572528
           },
+          "telephone": "+15145555696",
+          "servesCuisine": ["Burger", "Halal", "Fast Casual"],
+          "priceRange": "$$",
           "openingHoursSpecification": [
             {
               "@type": "OpeningHoursSpecification",
@@ -89,7 +102,8 @@
               "opens": "11:00",
               "closes": "22:00"
             }
-          ]
+          ],
+          "hasMap": "https://maps.google.com/?q=4567+Wellington+St,+Montreal,+Quebec+H4G+1W8"
         }
       ]
     }
