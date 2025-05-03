@@ -45,6 +45,8 @@ body {
 /* Section Styles */
 section {
     padding: 0;
+    margin: 0;
+    border: none;
 }
 
 /* General Links */
@@ -626,8 +628,9 @@ header {
     position: relative;
     display: flex;
     align-items: center;
-    padding-top: 0;
-    margin-bottom: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
 }
 
 .hero::before {
@@ -788,6 +791,7 @@ header {
     min-height: 700px;
     margin: 0;
     padding: 0;
+    border: none;
 }
 
 .purpose-text-wrapper {
@@ -2452,4 +2456,19 @@ body.mobile-menu-open {
     .policy-content h3, .terms-content h3 {
         font-size: 1.35rem;
     }
+}
+
+/* Hero and Purpose Wrapper */
+.hero-purpose-wrapper {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    line-height: 0; /* Remove any line-height-based gaps */
+    font-size: 0; /* Remove any font-size-based gaps */
+}
+
+.hero-purpose-wrapper section {
+    line-height: normal; /* Restore normal line-height inside sections */
+    font-size: 16px; /* Restore base font size */
 }
