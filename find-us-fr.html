@@ -3,97 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JOYO Burger Emplacements à Montréal | Masson & Wellington | Meilleurs Spots de Burgers</title>
-    <meta name="description" content="Visitez nos deux restaurants à Montréal - JOYO Burger sur la rue Masson et Wellington. Spots de smash burgers locaux avec bœuf halal frais, frites coupées à la main et bière artisanale.">
+    <title>Trouvez JOYO Burger | Emplacements à Montréal</title>
+    <meta name="description" content="Visitez JOYO Burger à nos emplacements à Montréal. Trouvez nos adresses, heures d'ouverture et directions pour déguster nos burgers frais et faits maison.">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/locations-fix.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- JSON-LD Structured Data for Restaurant Locations (French) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "JOYO Burger",
-      "url": "https://www.joyoburger.com/find-us-fr.html",
-      "logo": "https://www.joyoburger.com/JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png",
-      "sameAs": [
-        "https://www.facebook.com/Joyoburger",
-        "https://www.instagram.com/joyoburger/"
-      ],
-      "@id": "https://www.joyoburger.com",
-      "location": [
-        {
-          "@type": "Restaurant",
-          "name": "JOYO Burger - Masson",
-          "hasMap": "https://maps.google.com/?q=3036+Masson+St,+Montreal,+QC,+H1Y+1X6",
-          "image": "https://www.joyoburger.com/JOYO - Images/joyo-burgger-masson-location-interior.jpg",
-          "telephone": "+15145555696",
-          "email": "info@joyoburger.com",
-          "priceRange": "$$",
-          "servesCuisine": ["Restaurant de Burgers", "Halal", "Smash Burger"],
-          "menu": "https://www.joyoburger.com/menu-fr.html",
-          "acceptsReservations": "True",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "3036 Rue Masson",
-            "addressLocality": "Montréal",
-            "addressRegion": "QC",
-            "postalCode": "H1Y 1X6",
-            "addressCountry": "CA"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 45.5442495,
-            "longitude": -73.5706362
-          },
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-              "opens": "11:00",
-              "closes": "22:00"
-            }
-          ]
-        },
-        {
-          "@type": "Restaurant",
-          "name": "JOYO Burger - Wellington",
-          "hasMap": "https://maps.google.com/?q=4567+Wellington+St,+Montreal,+Quebec+H4G+1W8",
-          "image": "https://www.joyoburger.com/JOYO - Images/joyo-burger-wellington-location-interior.jpg",
-          "telephone": "+15145555696",
-          "email": "info@joyoburger.com",
-          "priceRange": "$$",
-          "servesCuisine": ["Restaurant de Burgers", "Halal", "Smash Burger"],
-          "menu": "https://www.joyoburger.com/menu-fr.html",
-          "acceptsReservations": "True",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "4567 Rue Wellington",
-            "addressLocality": "Montréal",
-            "addressRegion": "QC",
-            "postalCode": "H4G 1W8",
-            "addressCountry": "CA"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 45.4622980,
-            "longitude": -73.5725282
-          },
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-              "opens": "11:00",
-              "closes": "22:00"
-            }
-          ]
-        }
-      ]
-    }
-    </script>
 </head>
 <body class="locations-page">
     <!-- Header Section with Navigation -->
@@ -181,23 +98,24 @@
                     <div class="location-image">
                         <img src="JOYO - Images/joyo-burgger-masson-location-interior.jpg" alt="Intérieur du restaurant JOYO Burger Masson">
                     </div>
-                    <div class="location-content">
-                        <h3>JOYO Burger – Masson</h3>
-                        <div class="location-details">
-                            <div class="hours">
-                                <p><strong>Lundi au dimanche</strong></p>
-                                <p>11h00 à 22h00</p>
-                            </div>
-                            <div class="address">
-                                <p><i class="fas fa-map-marker-alt"></i> 3036 rue Masson, Montréal, QC, H1Y 1X6</p>
-                            </div>
-                            <div class="location-links">
-                                <a href="https://maps.google.com/?q=3036+Masson+St,+Montreal,+QC,+H1Y+1X6" target="_blank" class="directions-btn"><i class="fas fa-directions"></i> Itinéraire</a>
-                                <div class="social-links">
-                                    <a href="https://www.facebook.com/Joyoburger" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="https://www.instagram.com/joyoburger/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
+                    <div class="location-info">
+                        <h3>JOYO Burger - Masson</h3>
+                        
+                        <p class="days">Lundi au dimanche</p>
+                        <p class="hours">11h00 à 22h00</p>
+                        
+                        <p class="address"><i class="fas fa-map-marker-alt"></i>3036 rue Masson, Montréal, QC, H1Y 1X6</p>
+                        
+                        <p class="phone">Téléphone: (514) 555-JOYO</p>
+                        
+                        <div class="location-actions">
+                            <a href="https://maps.google.com/?q=3036+Masson+St,+Montreal,+QC,+H1Y+1X6" target="_blank" class="btn-directions">
+                                ITINÉRAIRE
+                            </a>
+                        </div>
+                        <div class="location-social">
+                            <a href="https://www.facebook.com/Joyoburger" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/joyoburger/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -207,23 +125,24 @@
                     <div class="location-image">
                         <img src="JOYO - Images/joyo-burger-wellington-location-interior.jpg" alt="Emplacement JOYO Burger Wellington avec tireuses à bière">
                     </div>
-                    <div class="location-content">
-                        <h3>JOYO Burger – Wellington</h3>
-                        <div class="location-details">
-                            <div class="hours">
-                                <p><strong>Lundi au dimanche</strong></p>
-                                <p>11h00 à 22h00</p>
-                            </div>
-                            <div class="address">
-                                <p><i class="fas fa-map-marker-alt"></i> 4567 rue Wellington, Montréal, Québec H4G 1W8</p>
-                            </div>
-                            <div class="location-links">
-                                <a href="https://maps.google.com/?q=4567+Wellington+St,+Montreal,+Quebec+H4G+1W8" target="_blank" class="directions-btn"><i class="fas fa-directions"></i> Itinéraire</a>
-                                <div class="social-links">
-                                    <a href="https://www.facebook.com/Joyoburger" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="https://www.instagram.com/joyoburger/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
+                    <div class="location-info">
+                        <h3>JOYO Burger - Wellington</h3>
+                        
+                        <p class="days">Lundi au dimanche</p>
+                        <p class="hours">11h00 à 22h00</p>
+                        
+                        <p class="address"><i class="fas fa-map-marker-alt"></i>4567 rue Wellington, Montréal, Québec H4G 1W8</p>
+                        
+                        <p class="phone">Téléphone: (514) 555-4569</p>
+                        
+                        <div class="location-actions">
+                            <a href="https://maps.google.com/?q=4567+Wellington+St,+Montreal,+QC,+H4G+1W3" target="_blank" class="btn-directions">
+                                ITINÉRAIRE
+                            </a>
+                        </div>
+                        <div class="location-social">
+                            <a href="https://www.facebook.com/Joyoburger" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/joyoburger/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,262 @@
+/**
+ * JOYO Burger - Locations styling fixes
+ * 
+ * This file contains fixes for the styling of location cards
+ * to match the original design and JOYO brand standards.
+ */
+
+/* Brand Colors from JOYO Style Guide */
+:root {
+  --joyo-noir: #000000;       /* RGB: 0, 0, 0 */
+  --joyo-ocre: #CA831A;       /* RGB: 202, 131, 26 */
+  --joyo-jaune: #FEEDA7;      /* RGB: 254, 237, 167 */
+  --joyo-rouge: #FF6239;      /* RGB: 255, 98, 57 */
+  --joyo-rose: #FFC8BE;       /* RGB: 255, 200, 190 */
+  --joyo-vert: #18423D;       /* RGB: 24, 66, 61 */
+  --joyo-dark-bg: #0A0A0A;    /* Dark background */
+  --joyo-card-bg: #111111;    /* Card background */
+}
+
+/* Location Cards Styling - For Find Us page */
+.locations-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.location-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--joyo-noir);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 550px;
+  transition: transform 0.3s ease;
+}
+
+.location-card:hover {
+  transform: translateY(-5px);
+}
+
+.location-image {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+}
+
+.location-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.location-card:hover .location-image img {
+  transform: scale(1.05);
+}
+
+/* Location Card Content Styling */
+.location-info, .location-content {
+  padding: 25px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--joyo-noir);
+}
+
+.location-info h3, .location-content h3 {
+  color: var(--joyo-ocre);
+  font-size: 21px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+  border: none;
+  padding: 0;
+}
+
+/* Days and Hours styling - match the reference image */
+.location-card p.days {
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+  margin-bottom: 5px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.location-card p.hours {
+  color: #aaa;
+  font-size: 14px;
+  margin: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Address styling with location pin */
+.location-info .address, .location-content .address p {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 15px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.location-info .address i, .location-content .address p i {
+  color: var(--joyo-ocre);
+  margin-right: 6px;
+}
+
+/* Phone styling */
+.location-card .phone {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 25px;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+
+.location-card .phone strong {
+  color: #fff;
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+/* Common styles for buttons - match the reference image */
+.location-actions,
+.location-links {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.btn-directions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--joyo-ocre);
+  color: black;
+  padding: 14px 10px;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  max-width: 200px;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-directions:hover {
+  background-color: #b67616;
+  color: #000;
+}
+
+/* Social Media Icons */
+.location-social {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  width: 100%;
+}
+
+.location-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #333;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.location-social a:hover {
+  background: var(--joyo-ocre);
+  color: #000;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+  .locations-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .location-card {
+    max-width: 100%;
+  }
+  
+  .location-actions,
+  .location-links {
+    flex-direction: column;
+  }
+}
+
+/* For single location pages - Masson and Wellington */
+.location-page .info-card {
+  background: var(--joyo-card-bg);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.location-page .info-card h3 {
+  color: var(--joyo-ocre);
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.location-page .info-card h3 i {
+  margin-right: 8px;
+}
+
+.location-page .info-card p {
+  color: #ccc;
+  margin: 5px 0;
+}
+
+.location-page .info-card a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.location-page .info-card a.btn {
+  display: inline-block;
+  margin-top: 15px;
+  background: var(--joyo-ocre);
+  color: #000;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  transition: all 0.3s ease;
+}
+
+.location-page .info-card a.btn:hover {
+  background: #b67616;
+}
+
+.location-page .location-image img {
+  border-radius: 10px;
+}
+
+/* Fix for accent line under section headings */
+.accent-line {
+  background-color: var(--joyo-ocre);
+} 
