@@ -1014,13 +1014,14 @@ header {
     overflow: hidden; /* Prevent horizontal scrollbar */
     position: relative; /* Ensure proper stacking context */
     margin-top: 0; /* Ensure no gap at top */
+    width: 100%; /* Ensure full width */
 }
 
 .categories-container {
     position: relative;
-    padding: var(--spacing-xl) var(--container-padding) var(--spacing-lg);
-    max-width: var(--container-width);
-    margin: 0 auto;
+    padding: var(--spacing-xl) 0 var(--spacing-lg); /* Remove horizontal padding */
+    width: 100%; /* Full width */
+    margin: 0;
     overflow: hidden; /* Contain the sliding animation */
 }
 
@@ -1032,6 +1033,7 @@ header {
     animation-play-state: running;
     padding: var(--spacing-md) 0;
     will-change: transform;
+    margin-left: var(--spacing-md); /* Add some left margin to start */
 }
 
 /* Add animation-play-state control */
@@ -1091,6 +1093,8 @@ header {
 .categories-showcase .view-menu-container {
     margin-top: 2rem;
     padding-bottom: var(--spacing-xl);
+    text-align: center;
+    width: 100%;
 }
 
 .categories-showcase .view-menu-btn {
@@ -1163,6 +1167,9 @@ header {
     .categories-showcase .categories-container {
         margin-top: -1px !important; /* Negative margin to eliminate any pixel gap */
         padding-top: var(--spacing-lg);
+        width: 100%; /* Ensure full width on mobile */
+        padding-left: 0;
+        padding-right: 0;
     }
     
     /* Force stacking context change to prevent any space from appearing */
