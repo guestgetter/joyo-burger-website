@@ -739,106 +739,55 @@ function initPurposeGallery() {
     if (slides.length === 0 || dots.length === 0) return; // Exit if no slides found
     
     let currentSlide = 0;
-    let galleryInterval;
-    let isTransitioning = false;
+    let totalSlides = slides.length;
+    let slideInterval;
 
-    // Function to show a specific slide with fade transition
     function showSlide(index) {
-        if (currentSlide === index || isTransitioning) return;
-        isTransitioning = true;
+        // Hide all slides
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+            slide.style.opacity = '0';
+        });
         
-        // Remove active class from current slide and dot
-        slides[currentSlide].classList.remove('active');
-        dots[currentSlide].classList.remove('active');
+        // Remove active class from all dots
+        dots.forEach(dot => {
+            dot.classList.remove('active');
+        });
         
-        // Add active class to new slide and dot
+        // Show active slide and dot
         slides[index].classList.add('active');
+        slides[index].style.opacity = '1';
         dots[index].classList.add('active');
-        
-        // Update current slide
-        currentSlide = index;
-        
-        // Reset transition lock after animation completes
-        setTimeout(() => {
-            isTransitioning = false;
-        }, 500); // Match this to the CSS transition duration
     }
 
-    // Function to show the next slide
     function nextSlide() {
-        const nextIndex = (currentSlide + 1) % slides.length;
-        showSlide(nextIndex);
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
     }
 
-    // Start automatic slide rotation
-    function startRotation(startIndex) {
-        stopRotation(); // Clear any existing interval
-        
-        // If a specific start index is provided, show that slide first
-        if (startIndex !== undefined) {
-            showSlide(startIndex);
-        }
-        
-        galleryInterval = setInterval(nextSlide, 4000); // 4 second interval
-        
-        // Store reference to the interval globally so it can be accessed by other functions
-        window.galleryIntervalRef = galleryInterval;
-    }
-    
-    // Make the start rotation function available globally
-    window.startGalleryRotation = startRotation;
-
-    // Stop automatic slide rotation
-    function stopRotation() {
-        clearInterval(galleryInterval);
-        window.galleryIntervalRef = null;
+    // Set up automatic slideshow
+    function startSlideshow() {
+        slideInterval = setInterval(nextSlide, 3000);
     }
 
-    // Add click events to dots
+    // Initialize the first slide
+    showSlide(currentSlide);
+    startSlideshow();
+
+    // Add click event to dots for manual navigation
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-            showSlide(index);
-            stopRotation();
-            startRotation();
+            clearInterval(slideInterval);
+            currentSlide = index;
+            showSlide(currentSlide);
+            startSlideshow();
         });
     });
+}
 
-    // Add keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        const gallery = document.querySelector('.purpose-image-gallery, .purpose-carousel');
-        // Only respond to keyboard if gallery is in viewport
-        if (gallery && isElementInViewport(gallery)) {
-            if (e.key === 'ArrowLeft') {
-                const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
-                showSlide(prevIndex);
-                stopRotation();
-                startRotation();
-            } else if (e.key === 'ArrowRight') {
-                nextSlide();
-                stopRotation();
-                startRotation();
-            }
-        }
-    });
-
-    // Helper function to check if element is in viewport
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
+// Initialize gallery if it exists
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.gallery-slide')) {
+        initGallery();
     }
-
-    // Initialize gallery if slides exist
-    if (slides.length > 0) {
-        // Make sure first slide is active
-        slides[0].classList.add('active');
-        dots[0].classList.add('active');
-        
-        // Start rotation
-        startRotation();
-    }
-} 
+}); 
