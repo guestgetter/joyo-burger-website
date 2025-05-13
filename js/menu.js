@@ -44,7 +44,13 @@ function initMenuNavigation() {
                 if (section.id === targetCategory) {
                     section.classList.add('active');
                     
-                    // Scroll to top of section on mobile
+                    // Always scroll to top of section container, regardless of screen size
+                    const menuContainer = document.querySelector('.menu-sections-container');
+                    if (menuContainer) {
+                        menuContainer.scrollTop = 0;
+                    }
+                    
+                    // For mobile, also scroll the page to the top of the section
                     if (window.innerWidth < 992) {
                         const sectionTop = section.getBoundingClientRect().top + window.pageYOffset - 70;
                         window.scrollTo({
