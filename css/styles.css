@@ -617,15 +617,15 @@ header {
 
 /* Hero Section */
 .hero {
-    height: 90vh; /* Increased from 100vh to create more dramatic effect */
-    min-height: 800px; /* Increased from 700px */
+    height: 95vh; /* Increased from 90vh for more dramatic effect */
+    min-height: 850px; /* Increased from 800px */
     background-image: url('../JOYO - Images/joyo-burger-homepage-hero-image.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center 20%; /* Adjusted to focus more on the burger */
     background-repeat: no-repeat;
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-end; /* Changed from center to align content to bottom */
     padding-top: 0;
     margin-bottom: 0;
 }
@@ -660,6 +660,8 @@ header {
     text-align: center;
     justify-content: flex-start; /* Align to the left */
     padding-left: 10%;
+    align-items: flex-end; /* Align items to bottom */
+    padding-bottom: 10%; /* Add padding at bottom */
 }
 
 .hero-text {
@@ -668,7 +670,6 @@ header {
     padding: var(--spacing-xl);
     text-align: left; /* Align text to the left */
     position: relative;
-    bottom: -10%; /* Move down */
     left: 2%; /* Move slightly left */
 }
 
@@ -757,7 +758,8 @@ header {
 
 @media (max-width: 991px) {
     .hero {
-        min-height: 650px; /* Increased from 600px */
+        min-height: 700px; /* Increased from 650px */
+        background-position: center 25%; /* Adjust focus on burger for tablets */
     }
     
     .about-hero, .career-hero, .locations-hero, .contact-hero, .menu-hero {
@@ -772,14 +774,19 @@ header {
         font-size: 1.3rem;
     }
     
+    .hero-content {
+        padding-bottom: 15%; /* More bottom padding on tablets */
+    }
+    
     .hero-text {
-        transform: translateY(-20px); /* Less dramatic shift on smaller screens */
+        transform: none; /* Remove the transform that was shifting it up */
     }
 }
 
 @media (max-width: 767px) {
     .hero {
-        height: 85vh;
+        height: 90vh;
+        background-position: center 30%; /* Further adjust focus for mobile */
     }
 
     .about-hero, .career-hero, .locations-hero, .contact-hero, .menu-hero {
@@ -808,18 +815,19 @@ header {
         margin-right: auto;
     }
     
+    .hero-content {
+        justify-content: center; /* Center content horizontally on mobile */
+        padding-left: 0;
+        padding-bottom: 20%; /* More bottom padding on mobile */
+    }
+    
     .hero-text {
-        transform: translateY(0); /* No vertical shift on mobile */
+        transform: none; /* Remove any vertical shift */
         margin-left: auto; /* Center the text container */
         margin-right: auto;
         max-width: 100%;
         text-align: center; /* Center all text within */
         padding: 0 20px; /* Add side padding for breathing room */
-    }
-    
-    .hero-content, .about-hero-content, .career-hero-content, .locations-hero-content, .contact-hero-content, .menu-hero-content {
-        padding-top: 60px; /* Decreased from 90px for better vertical positioning */
-        justify-content: center; /* Center the hero content horizontally */
     }
     
     .hero .cta-button {
