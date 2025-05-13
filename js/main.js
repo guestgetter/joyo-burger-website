@@ -163,6 +163,15 @@ function initMobileMenu() {
             this.classList.toggle('active');
             nav.classList.toggle('active');
             document.body.classList.toggle('mobile-menu-open');
+            
+            // Toggle categories scrolling when mobile menu is open/closed
+            toggleCategoriesScroll(nav.classList.contains('active'));
+            
+            // Toggle gallery rotation when mobile menu is open/closed
+            toggleGalleryRotation(nav.classList.contains('active'));
+            
+            // Toggle testimonials rotation when mobile menu is open/closed
+            toggleTestimonialsRotation(nav.classList.contains('active'));
         });
         
         // Add close button if it doesn't exist
@@ -180,6 +189,15 @@ function initMobileMenu() {
             toggle.classList.remove('active');
             nav.classList.remove('active');
             document.body.classList.remove('mobile-menu-open');
+            
+            // Resume categories scrolling when menu is closed
+            toggleCategoriesScroll(false);
+            
+            // Resume gallery rotation when menu is closed
+            toggleGalleryRotation(false);
+            
+            // Resume testimonials rotation when menu is closed
+            toggleTestimonialsRotation(false);
         });
         
         // Close menu when clicking a link
@@ -194,6 +212,15 @@ function initMobileMenu() {
                 toggle.classList.remove('active');
                 nav.classList.remove('active');
                 document.body.classList.remove('mobile-menu-open');
+                
+                // Resume categories scrolling when menu is closed
+                toggleCategoriesScroll(false);
+                
+                // Resume gallery rotation when menu is closed
+                toggleGalleryRotation(false);
+                
+                // Resume testimonials rotation when menu is closed
+                toggleTestimonialsRotation(false);
             });
         });
         
@@ -205,12 +232,99 @@ function initMobileMenu() {
                 toggle.classList.remove('active');
                 nav.classList.remove('active');
                 document.body.classList.remove('mobile-menu-open');
+                
+                // Resume categories scrolling when menu is closed
+                toggleCategoriesScroll(false);
+                
+                // Resume gallery rotation when menu is closed
+                toggleGalleryRotation(false);
+                
+                // Resume testimonials rotation when menu is closed
+                toggleTestimonialsRotation(false);
             }
         });
         
         console.log('Mobile menu initialized successfully');
     } else {
         console.error('Failed to initialize mobile menu');
+    }
+    
+    // Function to toggle categories scrolling animation
+    function toggleCategoriesScroll(isPaused) {
+        const categoriesScroll = document.querySelector('.categories-scroll');
+        if (categoriesScroll) {
+            if (isPaused) {
+                categoriesScroll.style.animationPlayState = 'paused';
+                console.log('Categories scrolling paused');
+            } else {
+                categoriesScroll.style.animationPlayState = 'running';
+                console.log('Categories scrolling resumed');
+            }
+        }
+    }
+    
+    // Global variable to store gallery interval reference
+    window.galleryIntervalRef = null;
+    
+    // Function to toggle gallery rotation
+    function toggleGalleryRotation(isPaused) {
+        if (isPaused) {
+            // If paused and we have a gallery interval, stop it
+            if (window.galleryIntervalRef) {
+                clearInterval(window.galleryIntervalRef);
+                console.log('Gallery rotation paused');
+            }
+        } else {
+            // If resumed, restart the gallery rotation
+            const slides = document.querySelectorAll('.gallery-slide, .carousel-slide');
+            if (slides.length > 0) {
+                // Find the currently active slide
+                let activeIndex = 0;
+                slides.forEach((slide, index) => {
+                    if (slide.classList.contains('active')) {
+                        activeIndex = index;
+                    }
+                });
+                
+                // Restart rotation from the current slide
+                if (window.startGalleryRotation && typeof window.startGalleryRotation === 'function') {
+                    window.startGalleryRotation(activeIndex);
+                    console.log('Gallery rotation resumed from slide', activeIndex);
+                }
+            }
+        }
+    }
+    
+    // Global variable to store testimonials interval reference
+    window.testimonialsIntervalRef = null;
+    
+    // Function to toggle testimonials rotation
+    function toggleTestimonialsRotation(isPaused) {
+        if (isPaused) {
+            // If paused and we have a testimonials interval, stop it
+            if (window.testimonialsIntervalRef) {
+                clearInterval(window.testimonialsIntervalRef);
+                console.log('Testimonials rotation paused');
+            }
+        } else {
+            // If resumed, restart the testimonials rotation
+            const testimonials = document.querySelectorAll('.testimonial');
+            if (testimonials.length > 0) {
+                // Find the currently active testimonial
+                let activeIndex = 0;
+                testimonials.forEach((testimonial, index) => {
+                    if (testimonial.classList.contains('active')) {
+                        activeIndex = index;
+                    }
+                });
+                
+                // Restart rotation from the current testimonial
+                if (window.startTestimonialsRotation && typeof window.startTestimonialsRotation === 'function') {
+                    window.startTestimonialsRotation(activeIndex);
+                    console.log('Testimonials rotation resumed from testimonial', activeIndex);
+                }
+            }
+        }
     }
 }
 
@@ -269,13 +383,27 @@ function initTestimonials() {
     }
 
     // Start automatic testimonial rotation
-    function startRotation() {
+    function startRotation(startIndex) {
+        stopRotation(); // Clear any existing interval
+        
+        // If a specific start index is provided, show that testimonial first
+        if (startIndex !== undefined) {
+            showTestimonial(startIndex);
+        }
+        
         testimonialInterval = setInterval(nextTestimonial, 8000);
+        
+        // Store reference to the interval globally so it can be accessed by other functions
+        window.testimonialsIntervalRef = testimonialInterval;
     }
+    
+    // Make the start rotation function available globally
+    window.startTestimonialsRotation = startRotation;
 
     // Stop automatic testimonial rotation
     function stopRotation() {
         clearInterval(testimonialInterval);
+        window.testimonialsIntervalRef = null;
     }
 
     // Add click events to dots
@@ -643,14 +771,27 @@ function initPurposeGallery() {
     }
 
     // Start automatic slide rotation
-    function startRotation() {
+    function startRotation(startIndex) {
         stopRotation(); // Clear any existing interval
+        
+        // If a specific start index is provided, show that slide first
+        if (startIndex !== undefined) {
+            showSlide(startIndex);
+        }
+        
         galleryInterval = setInterval(nextSlide, 4000); // 4 second interval
+        
+        // Store reference to the interval globally so it can be accessed by other functions
+        window.galleryIntervalRef = galleryInterval;
     }
+    
+    // Make the start rotation function available globally
+    window.startGalleryRotation = startRotation;
 
     // Stop automatic slide rotation
     function stopRotation() {
         clearInterval(galleryInterval);
+        window.galleryIntervalRef = null;
     }
 
     // Add click events to dots
