@@ -293,16 +293,6 @@
     font-family: var(--heading-font);
 }
 
-.location-badge {
-    background-color: rgba(0, 0, 0, 0.2);
-    color: white;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 50px;
-    font-family: var(--body-font);
-}
-
 .position-details {
     padding: 25px;
 }
@@ -330,26 +320,6 @@
 
 .position-cta {
     margin-top: 20px;
-}
-
-.apply-btn {
-    display: inline-block;
-    background-color: var(--ochre);
-    color: black;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-family: var(--heading-font);
-}
-
-.apply-btn:hover {
-    background-color: #b67616;
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .positions-footer {
@@ -447,37 +417,35 @@
 }
 
 .testimonial-content {
-    padding: 0;
+    flex: 1;
 }
 
 .testimonial-text {
     color: #DDD;
     font-size: 16px;
-    line-height: 1.7;
-    margin: 0 0 20px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    position: relative;
     font-style: italic;
     font-family: var(--body-font);
-    position: relative;
-    padding-left: 20px;
 }
 
 .testimonial-text::before {
-    content: '"';
-    position: absolute;
-    left: 0;
-    top: 0;
-    font-size: 40px;
+    content: "\201C";
+    font-size: 60px;
     color: var(--ochre);
-    line-height: 1;
+    opacity: 0.5;
+    position: absolute;
+    top: -20px;
+    left: -15px;
     font-family: Georgia, serif;
 }
 
 .testimonial-author {
-    color: var(--ochre);
-    font-size: 15px;
+    color: white;
     font-weight: 600;
-    margin: 0;
-    text-align: right;
+    font-size: 18px;
+    margin-bottom: 5px;
     font-family: var(--heading-font);
 }
 
@@ -486,6 +454,7 @@
     .benefits-grid,
     .positions-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
     }
 }
 
@@ -506,16 +475,16 @@
     
     .benefit-card,
     .position-card {
-        padding: 20px;
+        padding: 25px;
     }
     
     .career-hero {
-        height: 60vh;
-        min-height: 500px;
+        min-height: 550px;
+        height: 70vh;
     }
     
     .career-hero-content h1 {
-        font-size: 42px;
+        font-size: 2.8rem;
     }
 }
 
@@ -523,6 +492,7 @@
     .benefits-grid,
     .positions-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .section-header h2,
@@ -531,16 +501,16 @@
     }
     
     .career-hero {
-        height: 70vh;
-        min-height: 400px;
+        min-height: 450px;
+        height: 60vh;
     }
     
     .career-hero-content h1 {
-        font-size: 36px;
+        font-size: 2.2rem;
     }
     
     .career-hero-content .hero-subtitle {
-        font-size: 16px;
+        font-size: 1rem;
     }
     
     .welcome-section,
@@ -553,14 +523,14 @@
 
 @media (max-width: 575px) {
     .section-badge {
-        margin-bottom: 10px;
         font-size: 12px;
+        padding: 4px 12px;
     }
     
     .career-cta-btn,
     .general-apply-btn {
-        width: 100%;
-        justify-content: center;
+        padding: 10px 20px;
+        font-size: 14px;
     }
     
     .benefit-icon {
