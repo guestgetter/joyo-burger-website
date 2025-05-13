@@ -620,8 +620,8 @@ header {
     height: 95vh; /* Increased from 90vh for more dramatic effect */
     min-height: 850px; /* Increased from 800px */
     background-image: url('../JOYO - Images/joyo-burger-homepage-hero-image.jpg');
-    background-size: cover;
-    background-position: center 20%; /* Adjusted to focus more on the burger */
+    background-size: 120% auto; /* Increased from cover to make burger larger */
+    background-position: center 40%; /* Adjusted to focus more on the burger */
     background-repeat: no-repeat;
     position: relative;
     display: flex;
@@ -759,7 +759,8 @@ header {
 @media (max-width: 991px) {
     .hero {
         min-height: 700px; /* Increased from 650px */
-        background-position: center 25%; /* Adjust focus on burger for tablets */
+        background-position: center 45%; /* Adjust focus on burger for tablets */
+        background-size: 130% auto; /* Make burger even larger on tablets */
     }
     
     .about-hero, .career-hero, .locations-hero, .contact-hero, .menu-hero {
@@ -786,7 +787,8 @@ header {
 @media (max-width: 767px) {
     .hero {
         height: 90vh;
-        background-position: center 30%; /* Further adjust focus for mobile */
+        background-position: center 42%; /* Further adjust focus for mobile */
+        background-size: 150% auto; /* Make burger even larger on mobile */
     }
 
     .about-hero, .career-hero, .locations-hero, .contact-hero, .menu-hero {
