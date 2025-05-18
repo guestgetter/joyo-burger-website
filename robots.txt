@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.joyoburger.com/sitemap.xml 
+Sitemap: https://joyoburger.com/sitemap.xml 
