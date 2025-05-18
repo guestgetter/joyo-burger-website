@@ -248,23 +248,8 @@ h2.scrolled {
     transition: color 0.3s ease;
 }
 
-.footer-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -2px;
-    left: 0;
-    background-color: var(--ochre);
-    transition: width 0.3s ease;
-}
-
 .footer-links a:hover {
     color: var(--ochre);
-}
-
-.footer-links a:hover::after {
-    width: 100%;
 }
 
 /* Success Message Animation */

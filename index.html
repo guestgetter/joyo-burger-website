@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>JOYO Burger - Premium Halal Smash Burgers in Montreal | Best Burgers MTL</title>
     <meta name="description" content="Montreal's favorite halal smash burgers at JOYO Burger. Fresh, house-ground beef, hand-cut fries, and chef-crafted recipes in Masson and Wellington. Order online or visit us!">
     <!-- Favicon -->
@@ -29,6 +29,10 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animations.css">
+    <!-- Hero section emergency fix CSS -->
+    <link rel="stylesheet" href="css/hero-fix.css">
+    <!-- Mobile-specific hero fix -->
+    <link rel="stylesheet" href="css/hero-mobile-fix.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -131,7 +135,7 @@
                 </nav>
                 
                 <div class="cta-buttons">
-                    <a href="https://joyoburger.com/order-online/" target="_blank" class="order-now-btn">ORDER ONLINE</a>
+                    <a href="https://joyoburger.com/commande-en-ligne/" target="_blank" class="order-now-btn">ORDER ONLINE</a>
                     <div class="language-selector">
                         <a href="index.html" class="language-toggle active">EN</a>
                         <span class="divider">|</span>
@@ -162,7 +166,7 @@
             <li><a href="find-us.html">FIND US</a></li>
             <li><a href="contact.html">CONTACT</a></li>
         </ul>
-        <a href="https://joyoburger.com/order-online/" target="_blank" class="order-now-btn">ORDER ONLINE</a>
+        <a href="https://joyoburger.com/commande-en-ligne/" target="_blank" class="order-now-btn">ORDER ONLINE</a>
         <div class="language-selector">
             <a href="index.html" class="language-toggle active">EN</a>
             <span class="divider">|</span>
@@ -176,6 +180,8 @@
     
     <!-- Hero Section -->
     <section class="hero">
+        <!-- Fixed position background to ensure full coverage -->
+        <div class="hero-background"></div>
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="smaller-text">Burgers Done Right. <br>Joy in Every Bite.</h1>
@@ -290,28 +296,28 @@
             
             <div class="features-grid">
                 <div class="feature">
-                    <img src="JOYO - Images/burger-icon.png" alt="Home Made Icon">
+                    <img src="JOYO - Images/Icons/joyo-icon-smash-burger.svg" alt="Home Made Icon" class="feature-icon-svg">
                     <p>Home made</p>
                 </div>
                 <div class="feature">
-                    <img src="JOYO - Images/french-fries-orange-e1739013907883.png" alt="Hand-cut real fries Icon">
+                    <img src="JOYO - Images/Icons/joyo-icon-chef-hat.svg" alt="Hand-cut real fries Icon" class="feature-icon-svg">
                     <p>Hand-cut real fries</p>
                 </div>
                 <div class="feature">
-                    <img src="JOYO - Images/salad-icon.png" alt="Vegetarian options Icon">
+                    <img src="JOYO - Images/Icons/joyo-icon-salad.svg" alt="Vegetarian options Icon" class="feature-icon-svg">
                     <p>Vegetarian options</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
+                    <img src="JOYO - Images/Icons/joyo-icon-fire.svg" alt="Quality pure ingredients Icon" class="feature-icon-svg">
                     <p>Quality pure ingredients</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
+                    <img src="JOYO - Images/icons/joyo-icon-chicken.svg" alt="Prepared fresh daily Icon" class="feature-icon-svg">
                     <p>Prepared fresh daily</p>
+                </div>
+                <div class="feature">
+                    <img src="JOYO - Images/Icons/joyo-icon-beef.svg" alt="Halal beef Icon" class="feature-icon-svg">
+                    <p>100% Halal beef</p>
                 </div>
             </div>
         </div>
@@ -408,20 +414,6 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-top">
-                <div class="hours">
-                    <p>3036 Masson Street</p>
-                    <p>Montreal, QC H1Y 1X6</p>
-                    <p>514-LOV JOYO (508 5696)</p>
-                </div>
-                
-                <div class="social-contact">
-                    <p>Monday to Sunday</p>
-                    <p>11h00 à 22h00</p>
-                    <p><a href="mailto:info@joyoburger.com">info@joyoburger.com</a></p>
-                </div>
-            </div>
-            
             <div class="footer-bottom">
                 <div class="footer-links">
                     <a href="index.html">Home</a>
@@ -443,7 +435,7 @@
                 </div>
                 
                 <div class="copyright">
-                    <p>©2021 JoYo™ burger. All Rights Reserved.</p>
+                    <p>©2025 Joyo Burger. All Rights Reserved.</p>
                 </div>
             </div>
         </div>

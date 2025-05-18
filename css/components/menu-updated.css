@@ -11,11 +11,11 @@
 /* Menu Hero Banner */
 .menu-hero {
     position: relative;
-    height: 300px;
+    height: 240px;
     background-image: url('../../JOYO - Images/menu-hero.jpg');
     background-size: cover;
     background-position: center;
-    margin-top: 0; /* Removed margin to eliminate gap */
+    margin-top: 0;
     overflow: hidden;
 }
 
@@ -148,9 +148,6 @@
 
 .menu-section {
     display: none;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
     color: white;
 }
 
@@ -158,6 +155,12 @@
     display: block;
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Prevent animation and transition on the initially loaded active section */
+.menu-section.active.no-load-animation {
+    animation: none !important;
+    transition: none !important;
 }
 
 .section-header {
@@ -173,10 +176,6 @@
     margin: 0 0 10px;
     font-family: var(--heading-font);
     text-transform: uppercase;
-    background-color: #83BBE5 !important; /* Blue background as seen in the screenshot */
-    display: inline-block;
-    padding: 5px 15px;
-    border-radius: 4px;
 }
 
 .section-header p {
@@ -273,55 +272,89 @@
 
 /* Section Footer */
 .section-footer {
-    margin-top: 24px;
-    margin-bottom: 60px;
-    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
 }
 
 .section-footer p {
-    color: var(--color-text-muted);
+    color: #AAA;
     font-size: 15px;
+    margin: 0;
     font-style: italic;
+    text-align: center;
     font-family: var(--body-font);
 }
 
-/* Add styles for responsive design */
+/* Mobile and Tablet Adjustments */
 @media (max-width: 991px) {
     .menu-layout {
         flex-direction: column;
     }
     
     .menu-sidebar {
-        flex: 0 0 auto;
-        position: relative;
-        top: 0;
+        position: sticky;
+        top: 60px; /* Adjust based on actual header height on mobile */
+        left: 0;
+        width: 100%;
         height: auto;
+        max-height: 85px; /* Increased slightly to accommodate icon + text */
         padding-right: 0;
-        margin-bottom: 30px;
+        background-color: var(--color-bg-secondary);
+        z-index: 999;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
     }
     
     .menu-categories ul {
         display: flex;
         flex-direction: row;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 30px;
+        white-space: nowrap;
+        padding: 5px 10px;
+        margin: 0;
+        align-items: stretch; /* Ensure items fill height if needed */
     }
     
     .menu-category {
-        width: auto;
-        padding: 10px 15px;
+        flex: 0 0 auto;
+        min-width: 90px; /* Give items a minimum width */
+        flex-direction: column; /* Stack icon and text */
+        align-items: center; /* Center items */
+        justify-content: center; /* Center content vertically */
+        margin-right: 8px;
         margin-bottom: 0;
+        padding: 8px 5px; /* Adjust padding for stacked layout */
+        text-align: center;
+        height: 100%; /* Make items fill the sidebar height */
+    }
+
+    .menu-category .category-icon {
+        width: 28px; /* Adjust icon size if needed */
+        height: 28px;
+        margin-right: 0; /* Remove side margin */
+        margin-bottom: 5px; /* Add space between icon and text */
+    }
+
+    .menu-category span {
+        font-size: 12px; /* Reduce font size for mobile */
+        line-height: 1.2;
+        white-space: normal; /* Allow text to wrap if very long */
+    }
+
+    .menu-category:last-child {
+        margin-right: 0;
     }
     
     .menu-sections-container {
         padding-left: 0;
         border-left: none;
+        margin-top: 10px;
     }
     
     .menu-items {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 30px;
     }
     
     .menu-item-image {
@@ -331,52 +364,32 @@
 
 @media (max-width: 767px) {
     .menu-hero {
-        height: 200px;
-        margin-top: 0; /* Remove the gap between header and hero on mobile */
+        height: 220px;
     }
     
     .menu-hero-content h1 {
         font-size: 36px;
     }
     
-    .menu-category {
-        padding: 8px 12px;
+    .menu-sidebar {
+        max-height: 80px; /* Slight adjustment for smaller mobiles */
     }
-    
+
+    .menu-category {
+        min-width: 80px; /* Adjust min-width */
+        padding: 6px 4px;
+    }
+
     .menu-category .category-icon {
         width: 24px;
         height: 24px;
-        margin-right: 8px;
+        margin-bottom: 4px;
     }
-    
-    .menu-category span {
-        font-size: 13px;
-    }
-    
-    .menu-items {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 20px;
-    }
-    
-    .menu-item-image {
-        height: 180px;
-    }
-    
-    .section-header h2 {
-        font-size: 22px;
-        padding: 4px 12px;
-    }
-    
-    .section-header p {
-        font-size: 15px;
-    }
-    
-    .section-header p.note {
-        font-size: 13px;
-    }
-}
 
-@media (max-width: 575px) {
+    .menu-category span {
+        font-size: 11px; /* Further reduce font size */
+    }
+    
     .menu-items {
         grid-template-columns: 1fr;
     }
@@ -385,50 +398,64 @@
         height: 200px;
     }
     
+    .section-header h2 {
+        font-size: 24px;
+    }
+    
+    .section-header p {
+        font-size: 15px;
+    }
+    
+    .section-header p.note {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 575px) {
+    .menu-sidebar {
+        max-height: 75px;
+    }
     .menu-categories ul {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding-bottom: 10px;
-        /* Make all categories visible without scrolling */
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 8px;
-        justify-content: center;
-        overflow-x: visible;
-        padding: 0 5px 15px 5px;
+        justify-content: flex-start; /* Allow scrolling rather than space-between */
+        padding: 5px;
     }
     
     .menu-category {
-        flex: 0 0 auto;
-        white-space: nowrap;
-        /* Make categories more compact */
-        padding: 6px 10px;
-        margin-bottom: 5px;
-        width: calc(50% - 8px); /* Two categories per row */
-        display: flex;
-        justify-content: center;
-        box-sizing: border-box;
+        /* flex: 1 1 auto; */ /* remove flex-grow for more consistent sizing */
+        min-width: 70px; /* Further adjust */
+        padding: 8px 5px; /* Consistent padding from 991px should be fine */
+        margin-right: 6px;
+        /* flex-direction: column; */ /* Already set at 991px */
+        /* text-align: center; */ /* Already set at 991px */
     }
     
+    /* .menu-category:last-child already handled */
+    
     .menu-category .category-icon {
-        margin-right: 5px;
-        width: 20px;
-        height: 20px;
+        width: 22px; /* Slightly smaller icon */
+        height: 22px;
+        /* margin-right: 0; */ /* Already set */
+        margin-bottom: 4px;
     }
     
     .menu-category span {
-        font-size: 12px;
+        font-size: 10px; /* Smallest font size */
+        line-height: 1.1;
+    }
+
+    .menu-items {
+        gap: 30px;
     }
     
-    /* Ensure menu item descriptions remain readable on mobile */
+    .menu-item-image {
+        height: 180px;
+    }
+    
     .menu-item-content h3 {
         font-size: 18px;
     }
     
     .menu-item-content p {
         font-size: 14px;
-        line-height: 1.6;
     }
 } 

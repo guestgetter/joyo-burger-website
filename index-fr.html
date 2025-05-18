@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>JOYO Burger - Des Burgers Bien Faits. De la Joie à Chaque Bouchée.</title>
     <meta name="description" content="Chez JOYO Burger, nous servons des burgers premium faits avec des ingrédients frais. Savourez nos smash burgers, burgers de poulet et frites coupées à la main à Montréal.">
     <!-- Favicon -->
@@ -25,6 +25,10 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animations.css">
+    <!-- Hero section emergency fix CSS -->
+    <link rel="stylesheet" href="css/hero-fix.css">
+    <!-- Mobile-specific hero fix -->
+    <link rel="stylesheet" href="css/hero-mobile-fix.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -74,6 +78,8 @@
     
     <!-- Hero Section -->
     <section class="hero">
+        <!-- Fixed position background to ensure full coverage -->
+        <div class="hero-background"></div>
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="smaller-text">Burger fait-maison. Savourez la vie.</h1>
@@ -188,28 +194,28 @@
             
             <div class="features-grid">
                 <div class="feature">
-                    <img src="JOYO - Images/burger-icon.png" alt="Icône Fait Maison - Burgers Halal Premium chez JOYO Montréal">
+                    <img src="JOYO - Images/Icons/joyo-icon-smash-burger.svg" alt="Icône Fait Maison - Burgers Halal Premium chez JOYO Montréal" class="feature-icon-svg">
                     <p>Fait maison</p>
                 </div>
                 <div class="feature">
-                    <img src="JOYO - Images/french-fries-orange-e1739013907883.png" alt="Icône Frites Coupées à la Main - Fraîches Quotidiennement chez JOYO Burger Montréal">
+                    <img src="JOYO - Images/Icons/joyo-icon-chef-hat.svg" alt="Icône Frites Coupées à la Main - Fraîches Quotidiennement chez JOYO Burger Montréal" class="feature-icon-svg">
                     <p>Frites coupées à la main</p>
                 </div>
                 <div class="feature">
-                    <img src="JOYO - Images/salad-icon.png" alt="Icône Options Végétariennes - Alternatives Santé chez JOYO Burger Montréal">
+                    <img src="JOYO - Images/Icons/joyo-icon-salad.svg" alt="Icône Options Végétariennes - Alternatives Santé chez JOYO Burger Montréal" class="feature-icon-svg">
                     <p>Options végétariennes</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
+                    <img src="JOYO - Images/Icons/joyo-icon-fire.svg" alt="Icône Ingrédients Purs de Qualité - JOYO Burger Montréal" class="feature-icon-svg">
                     <p>Ingrédients purs de qualité</p>
                 </div>
                 <div class="feature">
-                    <div class="feature-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
+                    <img src="JOYO - Images/icons/joyo-icon-chicken.svg" alt="Icône Préparé Frais - JOYO Burger Montréal" class="feature-icon-svg">
                     <p>Préparé frais chaque jour</p>
+                </div>
+                <div class="feature">
+                    <img src="JOYO - Images/Icons/joyo-icon-beef.svg" alt="Icône Boeuf Halal - JOYO Burger Montréal" class="feature-icon-svg">
+                    <p>Boeuf 100% Halal</p>
                 </div>
             </div>
         </div>
@@ -306,20 +312,6 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-top">
-                <div class="hours">
-                    <p>3036 rue Masson</p>
-                    <p>Montréal, QC H1Y 1X6</p>
-                    <p>514-LOV JOYO (508 5696)</p>
-                </div>
-                
-                <div class="social-contact">
-                    <p>Lundi à Dimanche</p>
-                    <p>11h00 à 22h00</p>
-                    <p><a href="mailto:info@joyoburger.com">info@joyoburger.com</a></p>
-                </div>
-            </div>
-            
             <div class="footer-bottom">
                 <div class="footer-links">
                     <a href="index-fr.html">Accueil</a>
@@ -341,7 +333,7 @@
                 </div>
                 
                 <div class="copyright">
-                    <p>©2021 JoYo™ burger. Tous droits réservés.</p>
+                    <p>©2025 Joyo Burger. Tous droits réservés.</p>
                 </div>
             </div>
         </div>

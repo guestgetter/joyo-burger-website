@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="css/components/menu-updated.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Critical sticky menu fix - added last to override everything -->
+    <link rel="stylesheet" href="css/menu-sticky.css">
 </head>
 <body class="menu-page">
     <!-- Header -->
@@ -94,7 +97,7 @@
                             <div class="category-icon">
                                 <img src="JOYO - Images/milkshake-icon.png" alt="Milkshakes Maison chez JOYO Burger Montréal">
                             </div>
-                            <span>MILKSHAKES & LIMONADES</span>
+                            <span>MILKSHAKES & NON-ALC</span>
                         </li>
                         <li class="menu-category" data-category="drinks">
                             <div class="category-icon">
@@ -109,7 +112,7 @@
             <!-- Menu Sections -->
             <main class="menu-sections-container">
                 <!-- BURGERS Section -->
-                <section id="burgers" class="menu-section active">
+                <section id="burgers" class="menu-section active" style="opacity: 1 !important; transform: translateY(0) !important; transition: none !important; display: block !important;">
                     <div class="section-header">
                         <h2>BŒUF</h2>
                         <p>Fait avec du bœuf frais halal de première qualité haché quotidiennement sur place</p>
@@ -350,7 +353,7 @@
                 <!-- MILKSHAKES Section -->
                 <section id="milkshakes" class="menu-section">
                     <div class="section-header">
-                        <h2>MILKSHAKES & LIMONADES</h2>
+                        <h2>MILKSHAKES & NON-ALC</h2>
                     </div>
                     
                     <div class="sub-section">
@@ -454,7 +457,7 @@
                 <section id="drinks" class="menu-section">
                     <div class="section-header">
                         <h2>COCKTAILS SIGNATURE</h2>
-                        <p>COCKTAILS SIGNATURE (8,99 $)</p>
+                        <p>COCKTAILS SIGNATURE</p>
                     </div>
                     
                     <div class="menu-items">
@@ -539,20 +542,6 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-top">
-                <div class="hours">
-                    <p>3036 Masson Street</p>
-                    <p>Montreal, QC H1Y 1X6</p>
-                    <p>514-LOV JOYO (508 5696)</p>
-                </div>
-                
-                <div class="social-contact">
-                    <p>Lundi à Dimanche</p>
-                    <p>11h00 à 22h00</p>
-                    <p><a href="mailto:info@joyoburger.com">info@joyoburger.com</a></p>
-                </div>
-            </div>
-            
             <div class="footer-bottom">
                 <div class="footer-links">
                     <a href="index-fr.html">Accueil</a>
@@ -561,7 +550,7 @@
                     <span class="separator">|</span>
                     <a href="career-fr.html">Carrière</a>
                     <span class="separator">|</span>
-                    <a href="privacy-fr.html">Confidentialité</a>
+                    <a href="privacy-fr.html">Confidentialité et Conditions d'Utilisation</a>
                 </div>
                 
                 <div class="social-icons">
@@ -570,11 +559,11 @@
                 </div>
                 
                 <div class="footer-logo">
-                    <img src="JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png" alt="JOYO Burger Logo">
+                    <img src="JOYO - Images/joyo-smiley.png" alt="JOYO Burger Smiley">
                 </div>
                 
                 <div class="copyright">
-                    <p>©2021 JoYo™ burger. All Rights Reserved.</p>
+                    <p>©2025 Joyo Burger. All Rights Reserved.</p>
                 </div>
             </div>
         </div>

@@ -22,14 +22,15 @@
     --color-forest-green: #18423D;   /* Vert forêt */
     
     /* Background Colors */
-    --color-bg-primary: #1A1A1A;     /* Main dark background - close to Noir */
+    --color-bg-primary: #000000;     /* Crisp Black for header */
+    --color-bg-content: #1A1A1A;   /* Main dark background for page content */
     --color-bg-secondary: #121212;   /* Slightly darker background */
     --color-bg-light: #F5F5F5;       /* Light background for light mode */
     --color-bg-dark: #0F0F0F;        /* Very dark background for footer */
     
     /* Text Colors */
     --color-text-dark: #1A1A1A;      /* Dark text for light backgrounds */
-    --color-text-light: #F5F5F5;     /* Light text for dark backgrounds */
+    --color-text-light: #FFFFFF;     /* White text for dark backgrounds */
     --color-text-muted: #9E9E9E;     /* Muted/gray text */
     --color-text-primary: #CA831A;   /* Primary colored text - Ocre */
     
