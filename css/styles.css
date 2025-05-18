@@ -23,16 +23,23 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
+    width: 100%; /* Ensure full width */
+    height: 100%; /* Ensure full height */
+    margin: 0;
+    padding: 0;
+    /* overflow-x: hidden; */ /* Prevent horizontal scroll - THIS CAN BREAK STICKY POSITIONING */
 }
 
 body {
     font-family: var(--font-family-primary);
-    background-color: var(--color-bg-primary);
+    background-color: var(--color-bg-content);
     color: var(--color-text-light);
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */ /* THIS CAN BREAK STICKY POSITIONING */
+    width: 100%; /* Ensure full width */
+    min-height: 100%; /* Ensure full height */
 }
 
 .container {
@@ -586,12 +593,14 @@ header {
 
 .social-icons {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .social-icons a {
-    color: white;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: var(--color-text-light);
 }
 
 .social-icons a:hover {
@@ -617,17 +626,24 @@ header {
 
 /* Hero Section */
 .hero {
-    height: 95vh; /* Increased from 90vh for more dramatic effect */
-    min-height: 850px; /* Increased from 800px */
-    background-image: url('../JOYO - Images/joyo-burger-homepage-hero-image.jpg');
-    background-size: 120% auto; /* Increased from cover to make burger larger */
-    background-position: center 40%; /* Adjusted to focus more on the burger */
-    background-repeat: no-repeat;
     position: relative;
+    width: 100vw; 
+    height: 100vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url('../JOYO - Images/joyo-burger-homepage-hero-image.jpg');
+    background-size: cover;
+    background-position: center;
     display: flex;
-    align-items: flex-end; /* Changed from center to align content to bottom */
-    padding-top: 0;
-    margin-bottom: 0;
+    /* Restore previous alignment for large burger/low text */
+    align-items: flex-end; 
+    justify-content: flex-start; 
+    text-align: left;
+    color: white;
+    overflow: hidden; /* Crucial with 100vw */
+    /* Ensure no accidental horizontal margins */
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .hero::before {
@@ -1286,10 +1302,11 @@ header {
 
 /* Features Section */
 .features-section {
-    background-color: var(--color-bg-secondary);
+    background-color: var(--black);
     padding: var(--spacing-xxl) 0;
     position: relative;
     z-index: 1;
+    margin-top: 150px; /* Substantially increased spacing for more noticeable separation */
 }
 
 .features-section .container {
@@ -1301,6 +1318,7 @@ header {
     text-align: center;
     margin-bottom: 1rem;
     color: var(--color-text-light);
+    margin-top: 20px; /* Add more breathing room above the heading */
 }
 
 .features-section .accent-line {
@@ -1309,7 +1327,7 @@ header {
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(6, 1fr); /* Changed from auto-fit to explicit 6 columns */
     gap: var(--spacing-lg);
     justify-content: center;
     margin-top: var(--spacing-xl);
@@ -1329,6 +1347,42 @@ header {
     transition: transform var(--transition-normal);
 }
 
+.feature-icon-svg {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto var(--spacing-md);
+    transition: transform 0.3s ease;
+}
+
+/* Using natural colors from SVG files */
+.feature:nth-child(1) .feature-icon-svg {
+    /* Natural SVG color */
+}
+
+.feature:nth-child(2) .feature-icon-svg {
+    /* Natural SVG color */
+}
+
+.feature:nth-child(3) .feature-icon-svg {
+    /* Natural SVG color */
+}
+
+.feature:nth-child(4) .feature-icon-svg {
+    /* Natural SVG color */
+}
+
+.feature:nth-child(5) .feature-icon-svg {
+    /* Natural SVG color */
+}
+
+.feature:nth-child(6) .feature-icon-svg {
+    /* Natural SVG color */
+}
+
+.feature:hover .feature-icon-svg {
+    transform: scale(1.1);
+}
+
 .feature-icon {
     display: flex;
     align-items: center;
@@ -1338,7 +1392,7 @@ header {
     margin: 0 auto var(--spacing-md);
 }
 
-/* New color variations for icons */
+/* Old color variations for icons - can be removed */
 .feature:nth-child(1) .feature-icon {
     color: #e74c3c; /* Red */
 }
@@ -1701,11 +1755,11 @@ footer {
 
 .social-icons a {
     font-size: 1.5rem;
-    color: var(--ochre);
+    color: var(--color-text-light);
 }
 
 .social-icons a:hover {
-    color: white;
+    color: var(--ochre);
 }
 
 /* Mobile Menu Styles */
@@ -2614,5 +2668,18 @@ body.mobile-menu-open {
     
     .policy-content h3, .terms-content h3 {
         font-size: 1.35rem;
+    }
+}
+
+/* Update responsive settings for smaller screens */
+@media (max-width: 991px) {
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet */
+    }
+}
+
+@media (max-width: 767px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
     }
 }
