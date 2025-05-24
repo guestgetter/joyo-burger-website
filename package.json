@@ -1,35 +1,26 @@
 {
   "name": "joyo-burger-website",
   "version": "1.0.0",
-  "description": "JOYO Burger website with performance optimizations",
-  "main": "index.html",
+  "description": "JOYO Burger - Montreal's Best Halal Smash Burgers Website",
+  "main": "server.js",
   "scripts": {
-    "optimize-images": "node optimize-images.js",
-    "start": "python3 -m http.server 8000",
-    "serve": "python3 -m http.server 8000",
-    "build": "npm run optimize-images",
-    "test": "echo \"No tests specified\" && exit 0"
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "dependencies": {
-    "sharp": "^0.32.6"
+    "express": "^4.18.2"
   },
-  "devDependencies": {},
   "keywords": [
-    "restaurant",
+    "joyo",
     "burger",
     "montreal",
     "halal",
-    "performance",
-    "webp",
-    "optimization"
+    "restaurant",
+    "static-site"
   ],
   "author": "JOYO Burger",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "joyo-burger-website"
-  },
-  "engines": {
-    "node": ">=14.0.0"
-  }
+  "license": "MIT"
 } 
