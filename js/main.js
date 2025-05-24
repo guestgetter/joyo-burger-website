@@ -110,8 +110,8 @@ function initMobileMenu() {
         }, { passive: false });
     }
         
-    // Close menu when clicking outside
-    document.addEventListener('click', function(e) {
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
         if (isMenuOpen && !mobileNav.contains(e.target) && !mobileNavToggle.contains(e.target)) {
             closeMenu();
         }

@@ -65,28 +65,6 @@
       ]
     }
     </script>
-    
-    <!-- Critical CSS inline for faster rendering -->
-    <style>
-        /* Critical above-the-fold styles */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background-color: #1a1a1a; color: #f5f5f5; }
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { position: fixed; top: 0; width: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: 1000; }
-        .header-content { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
-        .logo img { height: 50px; width: auto; }
-        
-        /* Critical navigation styles to prevent FOUC */
-        .nav-list { display: flex; list-style: none; gap: 2rem; }
-        .nav-link { color: white; text-decoration: none; font-weight: 500; text-transform: uppercase; }
-        .order-now-btn { background-color: #ca831a; color: white; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; font-weight: bold; text-transform: uppercase; }
-        .language-toggle { color: white; text-decoration: none; }
-        .social-icons a { color: white; text-decoration: none; }
-        .joyo-mobile-nav { display: none; }
-        .joyo-mobile-nav-toggle { display: none; background: none; border: none; }
-    </style>
-    
-    <!-- Non-critical CSS loaded asynchronously -->
 </head>
 <body class="about-page">
     <!-- Header Section with Navigation -->
