@@ -1214,6 +1214,36 @@ header {
     .categories-showcase .categories-container {
         padding-top: var(--spacing-md); /* Reduced padding on mobile */
     }
+    
+    /* Mobile-specific Purpose Section centering fixes */
+    .purpose-text-wrapper {
+        text-align: center !important;
+        padding: var(--spacing-xl) var(--container-padding);
+    }
+    
+    .purpose-text {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 100% !important;
+    }
+    
+    .purpose-text h2 {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    .purpose-text .accent-line {
+        margin: 1rem auto 2rem !important;
+        display: block !important;
+    }
+    
+    .purpose-text p {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 }
 
 /* Menu Showcase */

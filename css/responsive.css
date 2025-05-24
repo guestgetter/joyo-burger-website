@@ -224,6 +224,74 @@
     .social-contact {
         align-items: center;
     }
+    
+    /* Purpose Section - ensure "MADE WITH PURPOSE" is centered on mobile */
+    .purpose-text {
+        text-align: center !important;
+    }
+    
+    .purpose-text h2 {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    .purpose-text .accent-line {
+        margin: 1rem auto 2rem !important;
+    }
+    
+    /* Location pages - ensure GET DIRECTIONS buttons are centered */
+    .location-actions,
+    .location-links {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        margin-top: 15px !important;
+    }
+    
+    .btn-directions,
+    .directions-btn {
+        margin: 0 auto !important;
+        display: block !important;
+        text-align: center !important;
+        width: 100% !important;
+        max-width: 220px !important;
+    }
+    
+    /* Additional specific location page fixes */
+    .location-page .info-card {
+        text-align: center !important;
+    }
+    
+    .location-page .info-card a.btn {
+        margin: 15px auto 0 !important;
+        display: block !important;
+        text-align: center !important;
+        width: 100% !important;
+        max-width: 220px !important;
+    }
+    
+    /* Individual location detail pages */
+    .location-info {
+        text-align: center !important;
+    }
+    
+    .location-info .address,
+    .location-info .phone,
+    .location-info .days,
+    .location-info .hours {
+        text-align: center !important;
+    }
+    
+    /* Social icons centering */
+    .location-social {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 15px !important;
+        margin-top: 20px !important;
+        width: 100% !important;
+    }
 }
 
 /* Mobile Portrait (up to 575px) */

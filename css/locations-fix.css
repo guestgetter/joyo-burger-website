@@ -204,6 +204,54 @@
   .location-links {
     flex-direction: column;
   }
+  
+  /* Enhanced mobile centering for buttons and content */
+  .location-info, .location-content {
+    text-align: center !important;
+    padding: 25px 20px 20px;
+  }
+  
+  .location-actions,
+  .location-links {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: 15px !important;
+  }
+  
+  .btn-directions {
+    margin: 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 200px !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  /* Social media icons centering */
+  .location-social {
+    justify-content: center !important;
+    width: 100% !important;
+    margin-top: 20px !important;
+  }
+  
+  /* Ensure all text elements are centered */
+  .location-card p.days,
+  .location-card p.hours,
+  .location-card .phone {
+    text-align: center !important;
+    width: 100% !important;
+  }
+  
+  .location-info .address, 
+  .location-content .address p {
+    text-align: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+  }
 }
 
 /* For single location pages - Masson and Wellington */

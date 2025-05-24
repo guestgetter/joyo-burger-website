@@ -1,622 +1,312 @@
 /**
- * JOYO Burger Website - Main JavaScript
+ * JOYO Burger Website - Optimized Main JavaScript
+ * Performance-focused version with minimal impact on page load
  */
+
+// Utility function for debouncing
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Cache DOM elements to avoid repeated queries
+const DOM = {
+    body: document.body,
+    header: null,
+    categoriesScroll: null,
+    gallerySlides: null,
+    galleryDots: null,
+    testimonials: null,
+    testimonialDots: null
+};
+
+// Initialize DOM cache when ready
+function cacheDOMElements() {
+    DOM.header = document.querySelector('header');
+    DOM.categoriesScroll = document.querySelector('.categories-scroll');
+    DOM.gallerySlides = document.querySelectorAll('.gallery-slide');
+    DOM.galleryDots = document.querySelectorAll('.gallery-dot');
+    DOM.testimonials = document.querySelectorAll('.testimonial');
+    DOM.testimonialDots = document.querySelectorAll('.testimonial-dots .dot');
+}
 
 // Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
+    // Cache DOM elements first
+    cacheDOMElements();
+    
+    // Initialize components with minimal impact
+    requestAnimationFrame(() => {
     initMobileMenu();
     initSmoothScrolling();
     initCategoriesScroll();
     initTestimonials();
-    initScrollAnimations();
-    initLanguageToggle();
     initPurposeGallery();
     
-    // Fix all h2 headings to prevent unwanted background styles
+        // Defer non-critical animations
+        setTimeout(() => {
+            initScrollAnimations();
     fixAllHeadings();
-    
-    // Run again after a short delay to catch any dynamically added elements
-    setTimeout(fixAllHeadings, 300);
-    setTimeout(fixAllHeadings, 1000);
+        }, 100);
+    });
 });
 
 /**
- * Initialize the categories scrolling effect
- */
-function initCategoriesScroll() {
-    const categoriesContainer = document.querySelector('.categories-container');
-    
-    if (categoriesContainer) {
-        const categoriesScroll = categoriesContainer.querySelector('.categories-scroll');
-        
-        // Ensure continuous looping by checking when animation completes
-        categoriesScroll.addEventListener('animationiteration', () => {
-            // Reset position instantly if needed for smoother transition
-            console.log('Animation loop completed');
-        });
-        
-        // Make category items more interactive without affecting the scroll
-        const categoryItems = categoriesContainer.querySelectorAll('.category-item');
-        categoryItems.forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                // Only adjust visual properties, don't change the scroll
-                this.style.zIndex = '10';
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                // Reset after hover
-                setTimeout(() => {
-                    this.style.zIndex = '';
-                }, 300);
-            });
-        });
-    }
-}
-
-/**
- * JOYO Burger - Mobile Navigation
- * A simple, reliable mobile navigation system
+ * Optimized mobile menu with robust initialization
  */
 function initMobileMenu() {
-    console.log('Initializing JOYO mobile menu...');
-    
-    // Get mobile menu elements
-    const menuToggle = document.querySelector('.joyo-mobile-nav-toggle');
+    const mobileNavToggle = document.querySelector('.joyo-mobile-nav-toggle');
     const mobileNav = document.querySelector('.joyo-mobile-nav');
+    const mobileNavClose = document.querySelector('.joyo-mobile-nav-close');
     
-    if (!menuToggle || !mobileNav) {
-        console.error('Mobile menu elements not found. Creating them...');
-        
-        // Create missing elements if needed
-        if (!menuToggle) {
-            const newToggle = document.createElement('button');
-            newToggle.className = 'joyo-mobile-nav-toggle';
-            newToggle.setAttribute('aria-label', 'Toggle mobile menu');
-            newToggle.innerHTML = `
-                <span></span>
-                <span></span>
-                <span></span>
-            `;
-            
-            // Add toggle to header or body
-            const headerContent = document.querySelector('.header-content');
-            if (headerContent) {
-                headerContent.appendChild(newToggle);
-            } else {
-                document.body.appendChild(newToggle);
-            }
-        }
-        
-        if (!mobileNav) {
-            const newNav = document.createElement('div');
-            newNav.className = 'joyo-mobile-nav';
-            
-            // Create navigation content
-            const mainNav = document.querySelector('.main-nav');
-            if (mainNav) {
-                // Get navigation items
-                const navItems = mainNav.querySelectorAll('li a');
-                let navHTML = '<button class="joyo-mobile-nav-close" aria-label="Close menu">&times;</button><ul>';
-                
-                navItems.forEach(item => {
-                    navHTML += `<li><a href="${item.getAttribute('href')}">${item.textContent}</a></li>`;
-                });
-                
-                navHTML += '</ul>';
-                
-                // Add order button
-                const orderBtn = document.querySelector('.order-now-btn');
-                if (orderBtn) {
-                    navHTML += `<a href="${orderBtn.getAttribute('href')}" target="_blank" class="order-now-btn">${orderBtn.textContent}</a>`;
-                }
-                
-                // Add language selector
-                const langSelector = document.querySelector('.language-selector');
-                if (langSelector) {
-                    navHTML += '<div class="language-selector">';
-                    const langLinks = langSelector.querySelectorAll('a');
-                    const langDivider = langSelector.querySelector('.divider');
-                    
-                    if (langLinks.length > 0) {
-                        navHTML += `<a href="${langLinks[0].getAttribute('href')}" class="language-toggle ${langLinks[0].classList.contains('active') ? 'active' : ''}">${langLinks[0].textContent}</a>`;
-                        if (langDivider) {
-                            navHTML += `<span class="divider">${langDivider.textContent}</span>`;
-                        }
-                        if (langLinks.length > 1) {
-                            navHTML += `<a href="${langLinks[1].getAttribute('href')}" class="language-toggle ${langLinks[1].classList.contains('active') ? 'active' : ''}">${langLinks[1].textContent}</a>`;
-                        }
-                    }
-                    
-                    navHTML += '</div>';
-                }
-                
-                // Add social icons
-                const socialIcons = document.querySelector('.social-icons');
-                if (socialIcons) {
-                    navHTML += '<div class="social-icons">';
-                    const socialLinks = socialIcons.querySelectorAll('a');
-                    
-                    socialLinks.forEach(link => {
-                        navHTML += `<a href="${link.getAttribute('href')}" target="_blank">${link.innerHTML}</a>`;
-                    });
-                    
-                    navHTML += '</div>';
-                }
-                
-                newNav.innerHTML = navHTML;
-                document.body.appendChild(newNav);
-            }
-        }
+    if (!mobileNavToggle || !mobileNav) {
+        console.warn('Mobile menu elements not found on this page');
+        return;
     }
     
-    // Get elements again (in case they were created)
-    const toggle = document.querySelector('.joyo-mobile-nav-toggle');
-    const nav = document.querySelector('.joyo-mobile-nav');
+    let isMenuOpen = false;
     
-    if (toggle && nav) {
-        // Toggle mobile menu
-        toggle.addEventListener('click', function(e) {
+    function closeMenu() {
+        isMenuOpen = false;
+        mobileNavToggle.classList.remove('active');
+        mobileNav.classList.remove('active');
+        DOM.body.classList.remove('mobile-menu-open');
+        toggleAnimations(false);
+    }
+    
+    function openMenu() {
+        isMenuOpen = true;
+        mobileNavToggle.classList.add('active');
+        mobileNav.classList.add('active');
+        DOM.body.classList.add('mobile-menu-open');
+        toggleAnimations(true);
+    }
+    
+    // Add click event to toggle button
+    mobileNavToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if (isMenuOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    }, { passive: false });
+    
+    // Add click event to close button
+    if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', function(e) {
+            e.preventDefault();
             e.stopPropagation();
-            console.log('Mobile menu toggle clicked');
-            
-            this.classList.toggle('active');
-            nav.classList.toggle('active');
-            document.body.classList.toggle('mobile-menu-open');
-            
-            // Toggle categories scrolling when mobile menu is open/closed
-            toggleCategoriesScroll(nav.classList.contains('active'));
-            
-            // Toggle gallery rotation when mobile menu is open/closed
-            toggleGalleryRotation(nav.classList.contains('active'));
-            
-            // Toggle testimonials rotation when mobile menu is open/closed
-            toggleTestimonialsRotation(nav.classList.contains('active'));
-        });
-        
-        // Add close button if it doesn't exist
-        let closeButton = nav.querySelector('.joyo-mobile-nav-close');
-        if (!closeButton) {
-            closeButton = document.createElement('button');
-            closeButton.className = 'joyo-mobile-nav-close';
-            closeButton.setAttribute('aria-label', 'Close menu');
-            closeButton.innerHTML = '&times;';
-            nav.insertBefore(closeButton, nav.firstChild);
-        }
-        
-        // Handle close button click
-        closeButton.addEventListener('click', function() {
-            toggle.classList.remove('active');
-            nav.classList.remove('active');
-            document.body.classList.remove('mobile-menu-open');
-            
-            // Resume categories scrolling when menu is closed
-            toggleCategoriesScroll(false);
-            
-            // Resume gallery rotation when menu is closed
-            toggleGalleryRotation(false);
-            
-            // Resume testimonials rotation when menu is closed
-            toggleTestimonialsRotation(false);
-        });
-        
-        // Close menu when clicking a link
-        const links = nav.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', function() {
-                // Don't close for language toggle
-                if (this.classList.contains('language-toggle')) {
-                    return;
-                }
-                
-                toggle.classList.remove('active');
-                nav.classList.remove('active');
-                document.body.classList.remove('mobile-menu-open');
-                
-                // Resume categories scrolling when menu is closed
-                toggleCategoriesScroll(false);
-                
-                // Resume gallery rotation when menu is closed
-                toggleGalleryRotation(false);
-                
-                // Resume testimonials rotation when menu is closed
-                toggleTestimonialsRotation(false);
-            });
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (nav.classList.contains('active') && 
-                !nav.contains(e.target) && 
-                !toggle.contains(e.target)) {
-                toggle.classList.remove('active');
-                nav.classList.remove('active');
-                document.body.classList.remove('mobile-menu-open');
-                
-                // Resume categories scrolling when menu is closed
-                toggleCategoriesScroll(false);
-                
-                // Resume gallery rotation when menu is closed
-                toggleGalleryRotation(false);
-                
-                // Resume testimonials rotation when menu is closed
-                toggleTestimonialsRotation(false);
-            }
-        });
-        
-        console.log('Mobile menu initialized successfully');
-    } else {
-        console.error('Failed to initialize mobile menu');
+            closeMenu();
+        }, { passive: false });
     }
-    
-    // Function to toggle categories scrolling animation
-    function toggleCategoriesScroll(isPaused) {
-        const categoriesScroll = document.querySelector('.categories-scroll');
-        if (categoriesScroll) {
-            if (isPaused) {
-                categoriesScroll.style.animationPlayState = 'paused';
-                console.log('Categories scrolling paused');
-            } else {
-                categoriesScroll.style.animationPlayState = 'running';
-                console.log('Categories scrolling resumed');
-            }
+        
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (isMenuOpen && !mobileNav.contains(e.target) && !mobileNavToggle.contains(e.target)) {
+            closeMenu();
         }
-    }
+    }, { passive: true });
     
-    // Global variable to store gallery interval reference
-    window.galleryIntervalRef = null;
+    // Close menu when clicking on nav links
+    const navLinks = mobileNav.querySelectorAll('a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeMenu();
+        }, { passive: true });
+    });
+}
+
+/**
+ * Toggle animations based on menu state for better performance
+ */
+function toggleAnimations(isPaused) {
+    const animatedElements = [DOM.categoriesScroll];
     
-    // Function to toggle gallery rotation
-    function toggleGalleryRotation(isPaused) {
-        if (isPaused) {
-            // If paused and we have a gallery interval, stop it
-            if (window.galleryIntervalRef) {
-                clearInterval(window.galleryIntervalRef);
-                console.log('Gallery rotation paused');
-            }
-        } else {
-            // If resumed, restart the gallery rotation
-            const slides = document.querySelectorAll('.gallery-slide, .carousel-slide');
-            if (slides.length > 0) {
-                // Find the currently active slide
-                let activeIndex = 0;
-                slides.forEach((slide, index) => {
-                    if (slide.classList.contains('active')) {
-                        activeIndex = index;
-                    }
-                });
-                
-                // Restart rotation from the current slide
-                if (window.startGalleryRotation && typeof window.startGalleryRotation === 'function') {
-                    window.startGalleryRotation(activeIndex);
-                    console.log('Gallery rotation resumed from slide', activeIndex);
-                }
-            }
+    animatedElements.forEach(element => {
+        if (element) {
+            element.style.animationPlayState = isPaused ? 'paused' : 'running';
         }
-    }
+    });
+}
+
+/**
+ * Optimized categories scroll with reduced GPU load
+ */
+function initCategoriesScroll() {
+    if (!DOM.categoriesScroll) return;
     
-    // Global variable to store testimonials interval reference
-    window.testimonialsIntervalRef = null;
-    
-    // Function to toggle testimonials rotation
-    function toggleTestimonialsRotation(isPaused) {
-        if (isPaused) {
-            // If paused and we have a testimonials interval, stop it
-            if (window.testimonialsIntervalRef) {
-                clearInterval(window.testimonialsIntervalRef);
-                console.log('Testimonials rotation paused');
-            }
-        } else {
-            // If resumed, restart the testimonials rotation
-            const testimonials = document.querySelectorAll('.testimonial');
-            if (testimonials.length > 0) {
-                // Find the currently active testimonial
-                let activeIndex = 0;
-                testimonials.forEach((testimonial, index) => {
-                    if (testimonial.classList.contains('active')) {
-                        activeIndex = index;
-                    }
-                });
-                
-                // Restart rotation from the current testimonial
-                if (window.startTestimonialsRotation && typeof window.startTestimonialsRotation === 'function') {
-                    window.startTestimonialsRotation(activeIndex);
-                    console.log('Testimonials rotation resumed from testimonial', activeIndex);
-                }
-            }
-        }
+    // Reduce animation complexity on lower-end devices
+    if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
+        DOM.categoriesScroll.style.animationDuration = '30s'; // Slower animation
     }
 }
 
 /**
- * Initialize smooth scrolling for anchor links
+ * Optimized smooth scrolling with passive listeners
  */
 function initSmoothScrolling() {
-    const links = document.querySelectorAll('a[href^="#"]:not([href="#"])');
-    
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
                 });
             }
-        });
+        }, { passive: false });
     });
 }
 
 /**
- * Initialize testimonials slider
+ * Optimized testimonials with requestAnimationFrame
  */
 function initTestimonials() {
-    const testimonials = document.querySelectorAll('.testimonial');
-    const dots = document.querySelectorAll('.testimonial-dots .dot');
+    if (!DOM.testimonials.length) return;
+    
     let currentTestimonial = 0;
-    let testimonialInterval;
+    let animationId;
 
-    // Function to show a specific testimonial
     function showTestimonial(index) {
-        // Remove active class from all testimonials and dots
-        testimonials.forEach(testimonial => testimonial.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
+        DOM.testimonials.forEach((testimonial, i) => {
+            testimonial.classList.toggle('active', i === index);
+        });
         
-        // Add active class to current testimonial and dot
-        testimonials[index].classList.add('active');
-        dots[index].classList.add('active');
-        
-        currentTestimonial = index;
-    }
-
-    // Function to show the next testimonial
-    function nextTestimonial() {
-        currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-        showTestimonial(currentTestimonial);
-    }
-
-    // Start automatic testimonial rotation
-    function startRotation(startIndex) {
-        stopRotation(); // Clear any existing interval
-        
-        // If a specific start index is provided, show that testimonial first
-        if (startIndex !== undefined) {
-            showTestimonial(startIndex);
-        }
-        
-        testimonialInterval = setInterval(nextTestimonial, 8000);
-        
-        // Store reference to the interval globally so it can be accessed by other functions
-        window.testimonialsIntervalRef = testimonialInterval;
+        DOM.testimonialDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
     }
     
-    // Make the start rotation function available globally
-    window.startTestimonialsRotation = startRotation;
-
-    // Stop automatic testimonial rotation
-    function stopRotation() {
-        clearInterval(testimonialInterval);
-        window.testimonialsIntervalRef = null;
-    }
-
-    // Add click events to dots
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            stopRotation();
-            showTestimonial(index);
-            startRotation();
+    function nextTestimonial() {
+        currentTestimonial = (currentTestimonial + 1) % DOM.testimonials.length;
+        showTestimonial(currentTestimonial);
+        
+        // Use requestAnimationFrame for smoother transitions
+        animationId = requestAnimationFrame(() => {
+            setTimeout(nextTestimonial, 5000);
         });
-    });
-
-    // Initialize testimonial rotation
-    if (testimonials.length > 0) {
-        showTestimonial(0);
-        startRotation();
     }
+    
+    // Set up dot click handlers
+    DOM.testimonialDots.forEach((dot, index) => {
+        dot.addEventListener('click', function() {
+            currentTestimonial = index;
+            showTestimonial(currentTestimonial);
+            
+            // Reset timer
+            cancelAnimationFrame(animationId);
+            setTimeout(nextTestimonial, 5000);
+        }, { passive: true });
+    });
+    
+    // Start rotation
+    setTimeout(nextTestimonial, 5000);
 }
 
 /**
- * Initialize scroll animations
+ * Optimized purpose gallery with intersection observer
+ */
+function initPurposeGallery() {
+    if (!DOM.gallerySlides.length) return;
+    
+    let currentSlide = 0;
+    let isVisible = false;
+    
+    function showSlide(index) {
+        DOM.gallerySlides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+        });
+        
+        DOM.galleryDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+    
+    function nextSlide() {
+        if (!isVisible) return; // Don't animate if not visible
+        
+        currentSlide = (currentSlide + 1) % DOM.gallerySlides.length;
+        showSlide(currentSlide);
+    }
+    
+    // Use Intersection Observer to control animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            isVisible = entry.isIntersecting;
+        });
+    }, { threshold: 0.5 });
+    
+    const galleryContainer = document.querySelector('.purpose-image-gallery');
+    if (galleryContainer) {
+        observer.observe(galleryContainer);
+    }
+    
+    // Set up dot click handlers
+    DOM.galleryDots.forEach((dot, index) => {
+        dot.addEventListener('click', function() {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }, { passive: true });
+    });
+    
+    // Start slideshow
+    setInterval(nextSlide, 4000);
+}
+
+/**
+ * Optimized scroll animations with Intersection Observer
  */
 function initScrollAnimations() {
-    // Function to check if an element is in viewport
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
-            rect.bottom >= 0
-        );
-    }
-    
-    // Elements to animate
-    const purposeHeader = document.querySelector('.purpose-text h2');
-    const purposeParagraphs = document.querySelectorAll('.purpose-text p');
-    const showcaseCategories = document.querySelectorAll('.categories-showcase .category-item');
-    const animateElements = document.querySelectorAll('.feature, .menu-category, h2:not(.purpose-text h2)');
-    
-    // Apply animations to purpose section elements
-    if (purposeHeader) {
-        purposeHeader.classList.add('purpose-header-animation');
-        if (isInViewport(purposeHeader)) {
-            purposeHeader.classList.add('scrolled');
-        }
-    }
-    
-    if (purposeParagraphs.length > 0) {
-        purposeParagraphs.forEach((paragraph, index) => {
-            paragraph.classList.add('purpose-paragraph-animation');
-            if (index >= 1) {
-                paragraph.style.animationDelay = `${0.3 + index * 0.2}s`;
-            }
-            if (isInViewport(paragraph)) {
-                paragraph.classList.add('scrolled');
+    // Use Intersection Observer for better performance
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('scrolled');
+                // Unobserve to prevent repeated triggers
+                observer.unobserve(entry.target);
             }
         });
-    }
-    
-    // Apply animations to showcase category items only
-    if (showcaseCategories.length > 0) {
-        showcaseCategories.forEach((item, index) => {
-            // Only apply to the first 6 items (not the duplicates)
-            if (index < 6) {
-                item.classList.add('category-item-animation');
-                item.style.animationDelay = `${0.1 + index * 0.1}s`;
-                if (isInViewport(item)) {
-                    item.classList.add('scrolled');
-                }
-            }
-        });
-    }
-    
-    // Add scroll class to elements in viewport on page load
-    animateElements.forEach(element => {
-        if (isInViewport(element)) {
-            element.classList.add('scrolled');
-            
-            // Ensure no unwanted background styles on h2 elements
-            if (element.tagName.toLowerCase() === 'h2') {
-                // Explicitly remove any problematic styles
-                element.style.background = 'none';
-                element.style.backgroundColor = 'transparent';
-                element.style.textShadow = 'none';
-            }
-        }
+    }, {
+        threshold: 0.1,
+        rootMargin: '50px'
     });
     
-    // Add scroll event listener to trigger animations when scrolling
-    window.addEventListener('scroll', () => {
-        // Check purpose header
-        if (purposeHeader && !purposeHeader.classList.contains('scrolled') && isInViewport(purposeHeader)) {
-            purposeHeader.classList.add('scrolled');
-        }
-        
-        // Check purpose paragraphs
-        if (purposeParagraphs.length > 0) {
-            purposeParagraphs.forEach(paragraph => {
-                if (!paragraph.classList.contains('scrolled') && isInViewport(paragraph)) {
-                    paragraph.classList.add('scrolled');
-                }
-            });
-        }
-        
-        // Check showcase category items
-        if (showcaseCategories.length > 0) {
-            showcaseCategories.forEach((item, index) => {
-                if (index < 6 && !item.classList.contains('scrolled') && isInViewport(item)) {
-                    item.classList.add('scrolled');
-                }
-            });
-        }
-        
-        // Check other animated elements
-        animateElements.forEach(element => {
-            if (isInViewport(element)) {
-                element.classList.add('scrolled');
-                
-                // Ensure no unwanted background styles on h2 elements
-                if (element.tagName.toLowerCase() === 'h2') {
-                    // Explicitly remove any problematic styles
-                    element.style.background = 'none';
-                    element.style.backgroundColor = 'transparent';
-                    element.style.textShadow = 'none';
-                    
-                    // Apply proper color based on parent section
-                    const parentSection = element.closest('section');
-                    if (parentSection) {
-                        if (parentSection.classList.contains('features-section') || 
-                            parentSection.classList.contains('categories-showcase') ||
-                            parentSection.classList.contains('cta-section') ||
-                            parentSection.classList.contains('bg-dark')) {
-                            element.style.color = 'white';
-                        } else {
-                            element.style.color = '#000000';
-                        }
-                    }
-                }
-            }
-        });
-        
-        // Handle header background
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+    // Observe elements that need scroll animations
+    const elementsToAnimate = document.querySelectorAll('h2, .feature, .purpose-text p');
+    elementsToAnimate.forEach(element => {
+        observer.observe(element);
     });
+}
+
+/**
+ * Optimized heading fix function
+ */
+function fixAllHeadings() {
+    // Use more specific selectors to avoid unnecessary processing
+    const headings = document.querySelectorAll('h2:not(.fixed)');
     
-    // Function to ensure no h2 elements have unwanted backgrounds
-    function fixAllHeadings() {
-        const allHeadings = document.querySelectorAll('h2');
-        allHeadings.forEach(heading => {
-            // Remove any problematic background or color styles
-            heading.style.background = 'none';
-            
-            // Check if the heading is in the Contact page
-            const isContactPage = document.body.classList.contains('contact-page');
-            if (isContactPage) {
-                // For headings that should be ochre colored on contact page
-                if (heading.closest('.contact-info') || heading.closest('.form-container')) {
-                    heading.style.color = 'var(--ochre)';
-                    return;
-                }
-            }
-            
-            // Check if the heading is in the Career page
-            const isCareerPage = document.body.classList.contains('career-page');
-            if (isCareerPage) {
-                // For headings that should be ochre colored on career page
-                heading.style.color = 'var(--ochre)';
-                return;
-            }
-            
-            // Check if the heading is in the Locations page
-            const isLocationsPage = document.body.classList.contains('locations-page');
-            
-            // Skip color determination for locations page - CSS will handle it
-            if (isLocationsPage) {
-                // For locations page, only remove background
-                return;
-            }
-            
-            // For other pages, continue with brightness detection
-            const parentSection = heading.closest('section');
-            if (parentSection) {
-                const computedStyle = getComputedStyle(parentSection);
-                const bgColor = computedStyle.backgroundColor;
-                
-                // Convert bgcolor to RGB values for analysis
-                const rgb = bgColor.match(/\d+/g);
-                
-                if (rgb && rgb.length >= 3) {
-                    // Calculate brightness (rough estimate)
-                    const brightness = (parseInt(rgb[0]) * 299 + parseInt(rgb[1]) * 587 + parseInt(rgb[2]) * 114) / 1000;
-                    
-                    if (brightness < 128) {
-                        // Dark background - set light text
-                        heading.style.color = 'white';
-                    } else {
-                        // Light background - set dark text
-                        heading.style.color = 'black';
-                    }
-                } else {
-                    // Default to white if can't determine background
-                    heading.style.color = 'white';
-                }
-            }
-        });
-    }
-    
-    // Run on page load and after slight delay to catch any dynamic changes
-    fixAllHeadings();
-    setTimeout(fixAllHeadings, 500);
+    headings.forEach(heading => {
+        // Remove any unwanted styles more efficiently
+        if (heading.style.background) {
+            heading.style.removeProperty('background');
+            heading.style.removeProperty('background-color');
+            heading.style.removeProperty('background-image');
+        }
+        
+        // Mark as fixed to avoid reprocessing
+        heading.classList.add('fixed');
+    });
 }
 
 /**
@@ -725,69 +415,5 @@ document.addEventListener('DOMContentLoaded', function() {
             
             form.innerHTML = `<div class="success-message"><h3>${successTitle}</h3><p>${successMessage}</p></div>`;
         });
-    }
-});
-
-/**
- * Initialize the purpose section image gallery with simple fade transition
- */
-function initPurposeGallery() {
-    // Support both HTML structures (index.html uses gallery-slide, index-fr.html uses carousel-slide)
-    const slides = document.querySelectorAll('.gallery-slide, .carousel-slide');
-    const dots = document.querySelectorAll('.gallery-dot, .carousel-dots .dot');
-    
-    if (slides.length === 0 || dots.length === 0) return; // Exit if no slides found
-    
-    let currentSlide = 0;
-    let totalSlides = slides.length;
-    let slideInterval;
-
-    function showSlide(index) {
-        // Hide all slides
-        slides.forEach(slide => {
-            slide.classList.remove('active');
-            slide.style.opacity = '0';
-        });
-        
-        // Remove active class from all dots
-        dots.forEach(dot => {
-            dot.classList.remove('active');
-        });
-        
-        // Show active slide and dot
-        slides[index].classList.add('active');
-        slides[index].style.opacity = '1';
-        dots[index].classList.add('active');
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        showSlide(currentSlide);
-    }
-
-    // Set up automatic slideshow
-    function startSlideshow() {
-        slideInterval = setInterval(nextSlide, 3000);
-    }
-
-    // Initialize the first slide
-    showSlide(currentSlide);
-    startSlideshow();
-
-    // Add click event to dots for manual navigation
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            clearInterval(slideInterval);
-            currentSlide = index;
-            showSlide(currentSlide);
-            startSlideshow();
-        });
-    });
-}
-
-// Initialize gallery if it exists
-document.addEventListener('DOMContentLoaded', function() {
-    if (document.querySelector('.gallery-slide')) {
-        initGallery();
     }
 }); 
