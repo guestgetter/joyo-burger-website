@@ -19,98 +19,98 @@ class HighLevelIntegration {
             const response = await fetch(`${this.apiBaseUrl}/contacts/`, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${this.apiKey}`,
                     'Content-Type': 'application/json',
-                    'Version': '2021-07-28'
+                    'Authorization': `Bearer ${this.apiKey}`,
+                    'Version': '2021-07-28',
+                    'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    locationId: this.locationId,
-                    firstName: contactData.firstName || '',
-                    lastName: contactData.lastName || '',
-                    name: contactData.name || `${contactData.firstName || ''} ${contactData.lastName || ''}`.trim(),
+                    firstName: contactData.firstName || contactData.fullName?.split(' ')[0] || '',
+                    lastName: contactData.lastName || contactData.fullName?.split(' ').slice(1).join(' ') || '',
                     email: contactData.email,
                     phone: contactData.phone,
-                    dateOfBirth: contactData.birthday || null,
-                    tags: contactData.tags || [],
-                    customFields: contactData.customFields || {},
-                    source: contactData.source || 'Website'
+                    locationId: this.locationId,
+                    customFields: contactData.customFields || [],
+                    tags: contactData.tags || []
                 })
             });
 
-            if (!response.ok) {
-                throw new Error(`HighLevel API error: ${response.status} ${response.statusText}`);
+            if (response.ok) {
+                const result = await response.json();
+                console.log('✅ HighLevel contact created:', result);
+                return { success: true, data: result };
+            } else {
+                const errorText = await response.text();
+                console.error('❌ HighLevel API Error:', response.status, errorText);
+                throw new Error(`HighLevel API Error: ${response.status} - ${errorText}`);
             }
-
-            const result = await response.json();
-            console.log('Contact successfully added to HighLevel:', result);
+        } catch (error) {
+            console.error('❌ HighLevel submission failed:', error);
             
             // Send fallback email notification
-            await this.sendFallbackEmail(contactData);
-            
-            return { success: true, data: result };
-        } catch (error) {
-            console.error('HighLevel submission failed:', error);
-            
-            // Send fallback email on API failure
             await this.sendFallbackEmail(contactData, error.message);
             
+            throw error;
+        }
+    }
+
+    /**
+     * Send fallback email when HighLevel API fails
+     */
+    async sendFallbackEmail(contactData, errorMessage) {
+        try {
+            console.log('📧 Fallback email data:', {
+                to: this.fallbackEmails,
+                contactData,
+                error: errorMessage,
+                timestamp: new Date().toISOString()
+            });
+            
+            // In a real implementation, you would integrate with an email service
+            // For now, we'll just log the data that would be sent
+            return { success: true, message: 'Fallback email logged' };
+        } catch (error) {
+            console.error('❌ Fallback email failed:', error);
             return { success: false, error: error.message };
         }
     }
 
     /**
-     * Send fallback email notification
+     * Show success message to user
      */
-    async sendFallbackEmail(contactData, errorMessage = null) {
-        const emailData = {
-            to: this.fallbackEmails,
-            subject: errorMessage ? 
-                `[URGENT] JOYO Form Submission - HighLevel API Failed` : 
-                `New JOYO ${contactData.formType} Submission`,
-            body: this.formatEmailBody(contactData, errorMessage)
-        };
-
-        // Note: In a production environment, you would implement actual email sending
-        // For now, we'll log the email data
-        console.log('Fallback email data:', emailData);
+    showSuccessMessage(form, isVip = false) {
+        const messageHtml = `
+            <div class="form-success-message">
+                <span class="success-icon">🎉</span>
+                <h3>Thank You!</h3>
+                <p>Your submission has been received successfully. ${isVip ? 'Welcome to the JOYO VIP family!' : 'We\'ll be in touch soon!'}</p>
+                ${isVip ? '<p><strong>🎁 You\'re now part of our VIP community and will receive exclusive offers!</strong></p>' : ''}
+            </div>
+        `;
         
-        // You could integrate with a service like EmailJS, SendGrid, or similar here
-        return emailData;
+        form.innerHTML = messageHtml;
+        
+        // Scroll to message
+        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     /**
-     * Format email body for fallback notifications
+     * Show error message to user
      */
-    formatEmailBody(contactData, errorMessage = null) {
-        let body = `
-New ${contactData.formType} submission from JOYO Burger website:
-
-Name: ${contactData.name || 'Not provided'}
-Email: ${contactData.email}
-Phone: ${contactData.phone || 'Not provided'}
-`;
-
-        if (contactData.birthday) {
-            body += `Birthday: ${contactData.birthday}\n`;
-        }
-
-        if (contactData.comments) {
-            body += `Comments: ${contactData.comments}\n`;
-        }
-
-        if (contactData.tags && contactData.tags.length > 0) {
-            body += `Tags: ${contactData.tags.join(', ')}\n`;
-        }
-
-        body += `Source: ${contactData.source || 'Website'}\n`;
-        body += `Timestamp: ${new Date().toISOString()}\n`;
-
-        if (errorMessage) {
-            body += `\n⚠️ ERROR: HighLevel API failed with error: ${errorMessage}\n`;
-            body += `Please manually add this contact to HighLevel CRM.\n`;
-        }
-
-        return body;
+    showErrorMessage(form) {
+        const messageHtml = `
+            <div class="form-error-message">
+                <span class="error-icon">⚠️</span>
+                <h3>Oops! Something went wrong</h3>
+                <p>We're having trouble processing your submission right now. Please try again in a few minutes or contact us directly at <a href="mailto:info@joyoburger.com">info@joyoburger.com</a></p>
+                <button type="button" class="try-again-btn" onclick="location.reload()">TRY AGAIN</button>
+            </div>
+        `;
+        
+        form.innerHTML = messageHtml;
+        
+        // Scroll to message
+        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     /**
@@ -118,19 +118,21 @@ Phone: ${contactData.phone || 'Not provided'}
      */
     async handleNewsletterSubmission(formData) {
         const contactData = {
-            formType: 'Newsletter Signup',
-            firstName: this.extractFirstName(formData.get('fullName')),
-            lastName: this.extractLastName(formData.get('fullName')),
-            name: formData.get('fullName'),
+            fullName: formData.get('fullName'),
             email: formData.get('email'),
             phone: formData.get('phone'),
             birthday: formData.get('birthday'),
             tags: ['joyo-vip'], // VIP tag for newsletter signups
-            source: 'Website - Newsletter',
-            customFields: {
-                'newsletter_signup': 'true',
-                'birthday_burger_eligible': 'true'
-            }
+            customFields: [
+                {
+                    key: 'birthday',
+                    value: formData.get('birthday')
+                },
+                {
+                    key: 'source',
+                    value: 'Newsletter Signup'
+                }
+            ]
         };
 
         return await this.submitContact(contactData);
@@ -140,85 +142,34 @@ Phone: ${contactData.phone || 'Not provided'}
      * Handle contact form submission
      */
     async handleContactSubmission(formData) {
-        const isVipOptIn = formData.get('newsletter') === 'on';
-        const tags = isVipOptIn ? ['joyo-vip'] : [];
-
         const contactData = {
-            formType: 'Contact Form',
-            name: formData.get('name'),
-            firstName: this.extractFirstName(formData.get('name')),
-            lastName: this.extractLastName(formData.get('name')),
+            fullName: formData.get('name'),
             email: formData.get('email'),
             phone: formData.get('phone'),
-            comments: formData.get('comments'),
-            tags: tags,
-            source: 'Website - Contact Form',
-            customFields: {
-                'contact_form_submission': 'true',
-                'vip_opt_in': isVipOptIn ? 'true' : 'false',
-                'comments': formData.get('comments') || ''
-            }
+            customFields: [
+                {
+                    key: 'message',
+                    value: formData.get('message')
+                },
+                {
+                    key: 'source',
+                    value: 'Contact Form'
+                }
+            ]
         };
 
+        // Check if they opted into VIP
+        const vipOptIn = formData.get('vip-optin');
+        if (vipOptIn) {
+            contactData.tags = ['joyo-vip'];
+        }
+
         return await this.submitContact(contactData);
-    }
-
-    /**
-     * Extract first name from full name
-     */
-    extractFirstName(fullName) {
-        if (!fullName) return '';
-        return fullName.split(' ')[0] || '';
-    }
-
-    /**
-     * Extract last name from full name
-     */
-    extractLastName(fullName) {
-        if (!fullName) return '';
-        const parts = fullName.split(' ');
-        return parts.length > 1 ? parts.slice(1).join(' ') : '';
-    }
-
-    /**
-     * Show success message
-     */
-    showSuccessMessage(container, formType) {
-        const successMessage = document.createElement('div');
-        successMessage.className = 'form-success-message';
-        successMessage.innerHTML = `
-            <div class="success-icon">✓</div>
-            <h3>Thank You!</h3>
-            <p>${formType === 'Newsletter Signup' ? 
-                'Welcome to the JOYO family! You\'re now signed up for updates and your free birthday burger.' : 
-                'Your message has been sent successfully. We\'ll get back to you soon!'
-            }</p>
-        `;
-        
-        container.innerHTML = '';
-        container.appendChild(successMessage);
-    }
-
-    /**
-     * Show error message
-     */
-    showErrorMessage(container, errorMessage) {
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'form-error-message';
-        errorDiv.innerHTML = `
-            <div class="error-icon">⚠️</div>
-            <h3>Oops! Something went wrong</h3>
-            <p>We're having trouble processing your submission right now. Please try again in a few minutes or contact us directly at <a href="mailto:info@joyoburger.com">info@joyoburger.com</a>.</p>
-            <button type="button" class="retry-btn" onclick="location.reload()">Try Again</button>
-        `;
-        
-        container.appendChild(errorDiv);
     }
 }
 
 // Initialize HighLevel integration
-const highLevel = new HighLevelIntegration();
+const highLevelIntegration = new HighLevelIntegration();
 
-// Export for use in other scripts
-window.HighLevelIntegration = HighLevelIntegration;
-window.highLevel = highLevel; 
+// Export for use in main.js
+window.highLevelIntegration = highLevelIntegration; 
