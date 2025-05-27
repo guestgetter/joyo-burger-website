@@ -398,14 +398,14 @@ function initFormHandlers() {
             
             try {
                 // Check if HighLevel integration is available
-                if (typeof window.highLevel !== 'undefined') {
+                if (typeof window.highLevelIntegration !== 'undefined') {
                     const formData = new FormData(this);
-                    const result = await window.highLevel.handleNewsletterSubmission(formData);
+                    const result = await window.highLevelIntegration.handleNewsletterSubmission(formData);
                     
                     if (result.success) {
-                        window.highLevel.showSuccessMessage(this.parentElement, 'Newsletter Signup');
+                        window.highLevelIntegration.showSuccessMessage(this.parentElement, true); // true for VIP
                     } else {
-                        window.highLevel.showErrorMessage(this.parentElement, result.error);
+                        window.highLevelIntegration.showErrorMessage(this.parentElement);
                     }
                 } else {
                     // Fallback if HighLevel integration isn't loaded
@@ -414,8 +414,8 @@ function initFormHandlers() {
                 }
             } catch (error) {
                 console.error('Form submission error:', error);
-                if (typeof window.highLevel !== 'undefined') {
-                    window.highLevel.showErrorMessage(this.parentElement, error.message);
+                if (typeof window.highLevelIntegration !== 'undefined') {
+                    window.highLevelIntegration.showErrorMessage(this.parentElement);
                 } else {
                     showFallbackMessage(this.parentElement, 'error');
                 }
@@ -438,14 +438,16 @@ function initFormHandlers() {
             
             try {
                 // Check if HighLevel integration is available
-                if (typeof window.highLevel !== 'undefined') {
+                if (typeof window.highLevelIntegration !== 'undefined') {
                     const formData = new FormData(this);
-                    const result = await window.highLevel.handleContactSubmission(formData);
+                    const result = await window.highLevelIntegration.handleContactSubmission(formData);
                     
                     if (result.success) {
-                        window.highLevel.showSuccessMessage(this.parentElement, 'Contact Form');
+                        // Check if VIP opt-in was selected
+                        const isVip = formData.get('newsletter') ? true : false;
+                        window.highLevelIntegration.showSuccessMessage(this.parentElement, isVip);
                     } else {
-                        window.highLevel.showErrorMessage(this.parentElement, result.error);
+                        window.highLevelIntegration.showErrorMessage(this.parentElement);
                     }
                 } else {
                     // Fallback if HighLevel integration isn't loaded
@@ -454,8 +456,8 @@ function initFormHandlers() {
                 }
             } catch (error) {
                 console.error('Form submission error:', error);
-                if (typeof window.highLevel !== 'undefined') {
-                    window.highLevel.showErrorMessage(this.parentElement, error.message);
+                if (typeof window.highLevelIntegration !== 'undefined') {
+                    window.highLevelIntegration.showErrorMessage(this.parentElement);
                 } else {
                     showFallbackMessage(this.parentElement, 'error');
                 }

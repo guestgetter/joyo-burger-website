@@ -149,7 +149,7 @@ class HighLevelIntegration {
             customFields: [
                 {
                     key: 'message',
-                    value: formData.get('message')
+                    value: formData.get('comments')
                 },
                 {
                     key: 'source',
@@ -158,8 +158,8 @@ class HighLevelIntegration {
             ]
         };
 
-        // Check if they opted into VIP
-        const vipOptIn = formData.get('vip-optin');
+        // Check if they opted into VIP (newsletter checkbox)
+        const vipOptIn = formData.get('newsletter');
         if (vipOptIn) {
             contactData.tags = ['joyo-vip'];
         }
