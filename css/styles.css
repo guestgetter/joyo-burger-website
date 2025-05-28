@@ -15,9 +15,9 @@
 @import 'components/menu.css';
 @import 'components/locations.css';
 
-/* Import Utility Styles */
-@import 'responsive.css';
-@import 'animations.css';
+/* Import Utility Styles - REMOVE THESE FOR NOW */
+/* @import 'responsive.css'; */
+/* @import 'animations.css'; */
 
 /* Base Styles */
 html {

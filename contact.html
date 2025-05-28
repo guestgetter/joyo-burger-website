@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/components/contact.css">
+    <link rel="stylesheet" href="css/form-messages.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -147,7 +148,13 @@
                     <div class="accent-line"></div>
                     <p class="form-intro">We'd love to hear from you. Share your experience at JOYO™ or simply send us a message with a suggestion or question!</p>
                     
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <!-- Hidden field for Netlify Forms spam protection -->
+                        <input type="hidden" name="form-name" value="contact" />
+                        <div style="display: none;">
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </div>
+                        
                         <div class="form-group">
                             <label for="name">Name *</label>
                             <input type="text" id="name" name="name" required>
@@ -211,27 +218,15 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="js/main.js"></script>
-    <script>
-        // Form submission handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Simulate form submission
-            const submitBtn = document.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                const form = document.getElementById('contactForm');
-                const successMessage = document.createElement('div');
-                successMessage.className = 'success-message';
-                successMessage.innerHTML = '<h3>Thank you!</h3><p>Your message has been sent successfully. We will get back to you soon.</p>';
-                form.innerHTML = '';
-                form.appendChild(successMessage);
-            }, 1500);
-        });
+    <!-- EmailJS for contact form email notifications -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // Initialize EmailJS (you'll need to replace with actual service ID)
+        // For now, this is commented out until proper EmailJS setup
+        // emailjs.init('YOUR_PUBLIC_KEY');
     </script>
+    
+    <script src="js/highlevel-integration.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html> 

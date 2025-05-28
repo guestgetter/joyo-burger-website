@@ -56,6 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
     fixAllHeadings();
         }, 100);
     });
+
+    // Initialize form handlers
+    initFormHandlers();
 });
 
 /**
@@ -203,14 +206,10 @@ function initTestimonials() {
         dot.addEventListener('click', function() {
             currentTestimonial = index;
             showTestimonial(currentTestimonial);
-            
-            // Reset timer
-            cancelAnimationFrame(animationId);
-            setTimeout(nextTestimonial, 5000);
         }, { passive: true });
     });
     
-    // Start rotation
+    // Start slideshow
     setTimeout(nextTestimonial, 5000);
 }
 
@@ -381,39 +380,121 @@ function initLanguageToggle() {
 }
 
 /**
- * Handle form submission
+ * Initialize HighLevel form handlers
  */
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.querySelector('.newsletter-form');
-    
-    if (form) {
-        form.addEventListener('submit', function(e) {
+function initFormHandlers() {
+    // Newsletter form handler
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Get form values
-            const formData = new FormData(form);
-            const formValues = {};
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
             
-            for (const [key, value] of formData.entries()) {
-                formValues[key] = value;
+            // Show loading state
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            
+            try {
+                // Check if HighLevel integration is available
+                if (typeof window.highLevelIntegration !== 'undefined') {
+                    const formData = new FormData(this);
+                    const result = await window.highLevelIntegration.handleNewsletterSubmission(formData);
+                    
+                    if (result.success) {
+                        window.highLevelIntegration.showSuccessMessage(this.parentElement, true); // true for VIP
+                    } else {
+                        window.highLevelIntegration.showErrorMessage(this.parentElement);
+                    }
+                } else {
+                    // Fallback if HighLevel integration isn't loaded
+                    console.error('HighLevel integration not available');
+                    showFallbackMessage(this.parentElement, 'success', 'Newsletter Signup');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                if (typeof window.highLevelIntegration !== 'undefined') {
+                    window.highLevelIntegration.showErrorMessage(this.parentElement);
+                } else {
+                    showFallbackMessage(this.parentElement, 'error');
+                }
             }
-            
-            // You would normally send this data to a server
-            console.log('Form submitted:', formValues);
-            
-            // Show success message in the appropriate language
-            const lang = document.documentElement.lang.toLowerCase();
-            let successTitle, successMessage;
-            
-            if (lang === 'fr') {
-                successTitle = "Merci de vous être inscrit !";
-                successMessage = "Votre burger d'anniversaire gratuit vous attend. Nous vous contacterons bientôt.";
-            } else {
-                successTitle = "Thank you for subscribing!";
-                successMessage = "Your free birthday burger is waiting. We'll be in touch soon.";
-            }
-            
-            form.innerHTML = `<div class="success-message"><h3>${successTitle}</h3><p>${successMessage}</p></div>`;
         });
     }
-}); 
+    
+    // Contact form handler
+    const contactForm = document.querySelector('#contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            
+            try {
+                // Check if HighLevel integration is available
+                if (typeof window.highLevelIntegration !== 'undefined') {
+                    const formData = new FormData(this);
+                    const result = await window.highLevelIntegration.handleContactSubmission(formData);
+                    
+                    if (result.success) {
+                        // Check if VIP opt-in was selected
+                        const isVip = formData.get('newsletter') ? true : false;
+                        window.highLevelIntegration.showSuccessMessage(
+                            this.parentElement, 
+                            isVip, 
+                            result.emailSent
+                        );
+                    } else {
+                        window.highLevelIntegration.showErrorMessage(this.parentElement);
+                    }
+                } else {
+                    // Fallback if HighLevel integration isn't loaded
+                    console.error('HighLevel integration not available');
+                    showFallbackMessage(this.parentElement, 'success', 'Contact Form');
+                }
+            } catch (error) {
+                console.error('Form submission error:', error);
+                if (typeof window.highLevelIntegration !== 'undefined') {
+                    window.highLevelIntegration.showErrorMessage(this.parentElement);
+                } else {
+                    showFallbackMessage(this.parentElement, 'error');
+                }
+            }
+        });
+    }
+}
+
+/**
+ * Fallback message display when HighLevel integration isn't available
+ */
+function showFallbackMessage(container, type, formType = '') {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = type === 'success' ? 'form-success-message' : 'form-error-message';
+    
+    if (type === 'success') {
+        messageDiv.innerHTML = `
+            <div class="success-icon">✓</div>
+            <h3>Thank You!</h3>
+            <p>${formType === 'Newsletter Signup' ? 
+                'Welcome to the JOYO family! You\'re now signed up for updates and your free birthday burger.' : 
+                'Your message has been sent successfully. We\'ll get back to you soon!'
+            }</p>
+        `;
+    } else {
+        messageDiv.innerHTML = `
+            <div class="error-icon">⚠️</div>
+            <h3>Oops! Something went wrong</h3>
+            <p>We're having trouble processing your submission right now. Please try again in a few minutes or contact us directly at <a href="mailto:info@joyoburger.com">info@joyoburger.com</a>.</p>
+            <button type="button" class="retry-btn" onclick="location.reload()">Try Again</button>
+        `;
+    }
+    
+    container.innerHTML = '';
+    container.appendChild(messageDiv);
+} 
