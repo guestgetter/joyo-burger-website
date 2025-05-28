@@ -131,16 +131,6 @@ class HighLevelIntegration {
             fullName: formData.get('fullName'),
             email: formData.get('email'),
             phone: formData.get('phone'),
-            customFields: [
-                {
-                    key: 'birthday',
-                    value: formData.get('birthday')
-                },
-                {
-                    key: 'source',
-                    value: 'Newsletter Signup'
-                }
-            ],
             tags: ['joyo-vip'] // Always tag newsletter signups as VIP
         };
 
@@ -154,17 +144,7 @@ class HighLevelIntegration {
         const contactData = {
             fullName: formData.get('name'), // Contact form uses 'name' field
             email: formData.get('email'),
-            phone: formData.get('phone'),
-            customFields: [
-                {
-                    key: 'message',
-                    value: formData.get('comments') // Contact form uses 'comments' field
-                },
-                {
-                    key: 'source',
-                    value: 'Contact Form'
-                }
-            ]
+            phone: formData.get('phone')
         };
 
         // Check if they opted into VIP (newsletter checkbox)
