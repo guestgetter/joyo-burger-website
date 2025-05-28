@@ -21,40 +21,52 @@ class HighLevelIntegration {
             // First, check if contact already exists
             const existingContact = await this.findExistingContact(contactData.email);
             
+            let contactResult;
             if (existingContact) {
                 console.log('🔄 Contact exists, updating instead of creating...');
-                return await this.updateExistingContact(existingContact.id, contactData);
-            }
-
-            // Create new contact if none exists
-            const response = await fetch(`${this.apiBaseUrl}/contacts/`, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${this.apiKey}`,
-                    'Content-Type': 'application/json',
-                    'Version': '2021-07-28'
-                },
-                body: JSON.stringify({
-                    // Correct v2 API format
-                    firstName: contactData.firstName || contactData.fullName?.split(' ')[0] || '',
-                    lastName: contactData.lastName || contactData.fullName?.split(' ').slice(1).join(' ') || '',
-                    name: contactData.fullName || `${contactData.firstName || ''} ${contactData.lastName || ''}`.trim(),
-                    email: contactData.email,
-                    phone: contactData.phone,
-                    locationId: this.locationId,
-                    tags: contactData.tags || []
-                })
-            });
-
-            const result = await response.json();
-            
-            if (response.ok) {
-                console.log('✅ Contact created in HighLevel:', result);
-                return { success: true, data: result };
+                contactResult = await this.updateExistingContact(existingContact.id, contactData);
             } else {
-                console.error('❌ HighLevel API Error:', result);
-                throw new Error(result.message || 'Failed to submit to HighLevel');
+                // Create new contact if none exists
+                const response = await fetch(`${this.apiBaseUrl}/contacts/`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${this.apiKey}`,
+                        'Content-Type': 'application/json',
+                        'Version': '2021-07-28'
+                    },
+                    body: JSON.stringify({
+                        // Correct v2 API format
+                        firstName: contactData.firstName || contactData.fullName?.split(' ')[0] || '',
+                        lastName: contactData.lastName || contactData.fullName?.split(' ').slice(1).join(' ') || '',
+                        name: contactData.fullName || `${contactData.firstName || ''} ${contactData.lastName || ''}`.trim(),
+                        email: contactData.email,
+                        phone: contactData.phone,
+                        locationId: this.locationId,
+                        tags: contactData.tags || []
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (response.ok) {
+                    console.log('✅ Contact created in HighLevel:', result);
+                    contactResult = { success: true, data: result };
+                } else {
+                    console.error('❌ HighLevel API Error:', result);
+                    throw new Error(result.message || 'Failed to submit to HighLevel');
+                }
             }
+
+            // If we have comments and a successful contact creation/update, add as a note
+            if (contactResult.success && contactData.comments && contactData.comments.trim()) {
+                const contactId = contactResult.data?.contact?.id || existingContact?.id;
+                if (contactId) {
+                    await this.addContactNote(contactId, contactData.comments, contactData.fullName);
+                }
+            }
+
+            return contactResult;
+            
         } catch (error) {
             console.error('❌ HighLevel Integration Error:', error);
             
@@ -375,6 +387,41 @@ This message was sent automatically from the JOYO Burger website contact form.
         `;
         
         container.innerHTML = messageHtml;
+    }
+
+    /**
+     * Add a note to a contact in HighLevel
+     */
+    async addContactNote(contactId, comments, contactName) {
+        try {
+            const noteContent = `Contact Form Message from ${contactName}:\n\n${comments}\n\nSubmitted: ${new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' })}`;
+            
+            const response = await fetch(`${this.apiBaseUrl}/contacts/${contactId}/notes`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${this.apiKey}`,
+                    'Content-Type': 'application/json',
+                    'Version': '2021-07-28'
+                },
+                body: JSON.stringify({
+                    body: noteContent,
+                    userId: 'system' // or your user ID if available
+                })
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log('✅ Contact note added successfully:', result);
+                return true;
+            } else {
+                const error = await response.json();
+                console.error('❌ Failed to add contact note:', error);
+                return false;
+            }
+        } catch (error) {
+            console.error('❌ Error adding contact note:', error);
+            return false;
+        }
     }
 }
 
