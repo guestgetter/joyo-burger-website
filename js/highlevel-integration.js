@@ -18,7 +18,15 @@ class HighLevelIntegration {
      */
     async submitContact(contactData) {
         try {
-            // Use the correct v2 endpoint format
+            // First, check if contact already exists
+            const existingContact = await this.findExistingContact(contactData.email);
+            
+            if (existingContact) {
+                console.log('🔄 Contact exists, updating instead of creating...');
+                return await this.updateExistingContact(existingContact.id, contactData);
+            }
+
+            // Create new contact if none exists
             const response = await fetch(`${this.apiBaseUrl}/contacts/`, {
                 method: 'POST',
                 headers: {
@@ -34,7 +42,6 @@ class HighLevelIntegration {
                     email: contactData.email,
                     phone: contactData.phone,
                     locationId: this.locationId,
-                    customFields: contactData.customFields || [],
                     tags: contactData.tags || []
                 })
             });
@@ -42,17 +49,10 @@ class HighLevelIntegration {
             const result = await response.json();
             
             if (response.ok) {
-                console.log('✅ Contact submitted to HighLevel:', result);
+                console.log('✅ Contact created in HighLevel:', result);
                 return { success: true, data: result };
             } else {
                 console.error('❌ HighLevel API Error:', result);
-                
-                // If it's a duplicate contact error, try to update instead
-                if (result.message && result.message.includes('duplicated contacts')) {
-                    console.log('🔄 Contact exists, attempting to update...');
-                    return await this.updateExistingContact(contactData);
-                }
-                
                 throw new Error(result.message || 'Failed to submit to HighLevel');
             }
         } catch (error) {
@@ -70,12 +70,12 @@ class HighLevelIntegration {
     }
 
     /**
-     * Update existing contact when duplicate is found
+     * Find existing contact by email
      */
-    async updateExistingContact(contactData) {
+    async findExistingContact(email) {
         try {
-            // First, find the contact by email
-            const searchResponse = await fetch(`${this.apiBaseUrl}/contacts/search/duplicate?locationId=${this.locationId}&email=${contactData.email}`, {
+            // Use the correct GET contacts endpoint with query parameter
+            const response = await fetch(`${this.apiBaseUrl}/contacts/?locationId=${this.locationId}&query=${encodeURIComponent(email)}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${this.apiKey}`,
@@ -84,42 +84,65 @@ class HighLevelIntegration {
                 }
             });
 
-            if (searchResponse.ok) {
-                const searchResult = await searchResponse.json();
-                if (searchResult.contacts && searchResult.contacts.length > 0) {
-                    const existingContact = searchResult.contacts[0];
+            if (response.ok) {
+                const result = await response.json();
+                
+                // Check if any contacts were found and if email matches exactly
+                if (result.contacts && result.contacts.length > 0) {
+                    // Find exact email match (case insensitive)
+                    const exactMatch = result.contacts.find(contact => 
+                        contact.email && contact.email.toLowerCase() === email.toLowerCase()
+                    );
                     
-                    // Update the existing contact
-                    const updateResponse = await fetch(`${this.apiBaseUrl}/contacts/${existingContact.id}`, {
-                        method: 'PUT',
-                        headers: {
-                            'Authorization': `Bearer ${this.apiKey}`,
-                            'Content-Type': 'application/json',
-                            'Version': '2021-07-28'
-                        },
-                        body: JSON.stringify({
-                            firstName: contactData.firstName || contactData.fullName?.split(' ')[0] || existingContact.firstName,
-                            lastName: contactData.lastName || contactData.fullName?.split(' ').slice(1).join(' ') || existingContact.lastName,
-                            phone: contactData.phone || existingContact.phone,
-                            customFields: contactData.customFields || [],
-                            tags: [...(existingContact.tags || []), ...(contactData.tags || [])]
-                        })
-                    });
-
-                    if (updateResponse.ok) {
-                        const updateResult = await updateResponse.json();
-                        console.log('✅ Contact updated successfully:', updateResult);
-                        return { success: true, data: updateResult, updated: true };
+                    if (exactMatch) {
+                        console.log('📧 Found existing contact:', exactMatch);
+                        return exactMatch;
                     }
                 }
             }
             
-            // If update fails, still return success for user experience
-            return { success: true, fallback: true };
+            return null;
+        } catch (error) {
+            console.error('❌ Error searching for existing contact:', error);
+            return null;
+        }
+    }
+
+    /**
+     * Update existing contact when duplicate is found
+     */
+    async updateExistingContact(contactId, contactData) {
+        try {
+            const response = await fetch(`${this.apiBaseUrl}/contacts/${contactId}`, {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${this.apiKey}`,
+                    'Content-Type': 'application/json',
+                    'Version': '2021-07-28'
+                },
+                body: JSON.stringify({
+                    firstName: contactData.firstName || contactData.fullName?.split(' ')[0] || '',
+                    lastName: contactData.lastName || contactData.fullName?.split(' ').slice(1).join(' ') || '',
+                    name: contactData.fullName || `${contactData.firstName || ''} ${contactData.lastName || ''}`.trim(),
+                    phone: contactData.phone,
+                    tags: contactData.tags || []
+                })
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log('✅ Contact updated successfully:', result);
+                return { success: true, data: result, updated: true };
+            } else {
+                const error = await response.json();
+                console.error('❌ Update failed:', error);
+                throw new Error(error.message || 'Failed to update contact');
+            }
             
         } catch (error) {
             console.error('❌ Update contact failed:', error);
-            return { success: true, fallback: true };
+            // Still return success for user experience, but log the issue
+            return { success: true, fallback: true, error: error.message };
         }
     }
 
