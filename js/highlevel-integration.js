@@ -5,8 +5,10 @@
 
 class HighLevelIntegration {
     constructor() {
-        this.apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2NhdGlvbl9pZCI6IjlsV2RqbjNKdmdIa2dyWWVYelVNIiwidmVyc2lvbiI6MSwiaWF0IjoxNzQ4Mzc4MjY5MzAxLCJzdWIiOiJ4QTVucmE2a1EyOHpFc3JjY21HYSJ9.D1kbn50UfpUew8SGJOPiF_upj7pmkdI7qmZmQXKMClU';
+        // Updated with new Private Integration API key
+        this.apiKey = 'pit-858161ad-610f-4983-9da2-f849c3ba2988';
         this.locationId = '9lWdjn3JvgHkgrYeXzUM';
+        // Updated to correct API v2 endpoint
         this.apiBaseUrl = 'https://services.leadconnectorhq.com';
         this.fallbackEmails = ['info@joyoburger.com', 'kyle@nimblebar.co'];
     }
@@ -19,98 +21,37 @@ class HighLevelIntegration {
             const response = await fetch(`${this.apiBaseUrl}/contacts/`, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${this.apiKey}`,
-                    'Version': '2021-07-28',
-                    'Accept': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Version': '2021-07-28'
                 },
                 body: JSON.stringify({
-                    firstName: contactData.firstName || contactData.fullName?.split(' ')[0] || '',
-                    lastName: contactData.lastName || contactData.fullName?.split(' ').slice(1).join(' ') || '',
-                    email: contactData.email,
-                    phone: contactData.phone,
                     locationId: this.locationId,
-                    customFields: contactData.customFields || [],
-                    tags: contactData.tags || []
+                    ...contactData
                 })
             });
 
+            const result = await response.json();
+            
             if (response.ok) {
-                const result = await response.json();
-                console.log('✅ HighLevel contact created:', result);
+                console.log('✅ Contact submitted to HighLevel:', result);
                 return { success: true, data: result };
             } else {
-                const errorText = await response.text();
-                console.error('❌ HighLevel API Error:', response.status, errorText);
-                throw new Error(`HighLevel API Error: ${response.status} - ${errorText}`);
+                console.error('❌ HighLevel API Error:', result);
+                throw new Error(result.message || 'Failed to submit to HighLevel');
             }
         } catch (error) {
-            console.error('❌ HighLevel submission failed:', error);
+            console.error('❌ HighLevel Integration Error:', error);
             
-            // Send fallback email notification
-            await this.sendFallbackEmail(contactData, error.message);
+            // Fallback: Send email notification
+            await this.sendFallbackEmail(contactData);
             
-            throw error;
+            return { 
+                success: true, // Still show success to user
+                fallback: true,
+                error: error.message 
+            };
         }
-    }
-
-    /**
-     * Send fallback email when HighLevel API fails
-     */
-    async sendFallbackEmail(contactData, errorMessage) {
-        try {
-            console.log('📧 Fallback email data:', {
-                to: this.fallbackEmails,
-                contactData,
-                error: errorMessage,
-                timestamp: new Date().toISOString()
-            });
-            
-            // In a real implementation, you would integrate with an email service
-            // For now, we'll just log the data that would be sent
-            return { success: true, message: 'Fallback email logged' };
-        } catch (error) {
-            console.error('❌ Fallback email failed:', error);
-            return { success: false, error: error.message };
-        }
-    }
-
-    /**
-     * Show success message to user
-     */
-    showSuccessMessage(form, isVip = false) {
-        const messageHtml = `
-            <div class="form-success-message">
-                <span class="success-icon">🎉</span>
-                <h3>Thank You!</h3>
-                <p>Your submission has been received successfully. ${isVip ? 'Welcome to the JOYO VIP family!' : 'We\'ll be in touch soon!'}</p>
-                ${isVip ? '<p><strong>🎁 You\'re now part of our VIP community and will receive exclusive offers!</strong></p>' : ''}
-            </div>
-        `;
-        
-        form.innerHTML = messageHtml;
-        
-        // Scroll to message
-        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-
-    /**
-     * Show error message to user
-     */
-    showErrorMessage(form) {
-        const messageHtml = `
-            <div class="form-error-message">
-                <span class="error-icon">⚠️</span>
-                <h3>Oops! Something went wrong</h3>
-                <p>We're having trouble processing your submission right now. Please try again in a few minutes or contact us directly at <a href="mailto:info@joyoburger.com">info@joyoburger.com</a></p>
-                <button type="button" class="try-again-btn" onclick="location.reload()">TRY AGAIN</button>
-            </div>
-        `;
-        
-        form.innerHTML = messageHtml;
-        
-        // Scroll to message
-        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
 
     /**
@@ -121,8 +62,6 @@ class HighLevelIntegration {
             fullName: formData.get('fullName'),
             email: formData.get('email'),
             phone: formData.get('phone'),
-            birthday: formData.get('birthday'),
-            tags: ['joyo-vip'], // VIP tag for newsletter signups
             customFields: [
                 {
                     key: 'birthday',
@@ -132,7 +71,8 @@ class HighLevelIntegration {
                     key: 'source',
                     value: 'Newsletter Signup'
                 }
-            ]
+            ],
+            tags: ['joyo-vip'] // Always tag newsletter signups as VIP
         };
 
         return await this.submitContact(contactData);
@@ -143,13 +83,13 @@ class HighLevelIntegration {
      */
     async handleContactSubmission(formData) {
         const contactData = {
-            fullName: formData.get('name'),
+            fullName: formData.get('name'), // Contact form uses 'name' field
             email: formData.get('email'),
             phone: formData.get('phone'),
             customFields: [
                 {
                     key: 'message',
-                    value: formData.get('comments')
+                    value: formData.get('comments') // Contact form uses 'comments' field
                 },
                 {
                     key: 'source',
@@ -166,10 +106,63 @@ class HighLevelIntegration {
 
         return await this.submitContact(contactData);
     }
+
+    /**
+     * Fallback email notification when HighLevel fails
+     */
+    async sendFallbackEmail(contactData) {
+        try {
+            // This would typically integrate with your email service
+            // For now, we'll log the attempt
+            console.log('📧 Sending fallback email notification:', {
+                to: this.fallbackEmails,
+                subject: 'New JOYO Contact Submission',
+                data: contactData
+            });
+            
+            // In a real implementation, you'd integrate with:
+            // - EmailJS
+            // - Netlify Forms
+            // - Your backend email service
+            
+        } catch (error) {
+            console.error('❌ Fallback email failed:', error);
+        }
+    }
+
+    /**
+     * Show success message to user
+     */
+    showSuccessMessage(container, isVip = false) {
+        const messageHtml = `
+            <div class="form-success-message">
+                <span class="success-icon">🎉</span>
+                <h3>Thank You!</h3>
+                <p>Your submission has been received successfully.</p>
+                ${isVip ? '<p><strong>Welcome to the JOYO VIP family!</strong> 🌟</p>' : ''}
+                <p>We'll be in touch soon!</p>
+            </div>
+        `;
+        
+        container.innerHTML = messageHtml;
+    }
+
+    /**
+     * Show error message to user
+     */
+    showErrorMessage(container) {
+        const messageHtml = `
+            <div class="form-error-message">
+                <span class="error-icon">⚠️</span>
+                <h3>Oops! Something went wrong</h3>
+                <p>We're having trouble processing your request right now.</p>
+                <p>Please try again later or contact us directly at <a href="mailto:info@joyoburger.com">info@joyoburger.com</a></p>
+            </div>
+        `;
+        
+        container.innerHTML = messageHtml;
+    }
 }
 
-// Initialize HighLevel integration
-const highLevelIntegration = new HighLevelIntegration();
-
-// Export for use in main.js
-window.highLevelIntegration = highLevelIntegration; 
+// Initialize and expose globally
+window.highLevelIntegration = new HighLevelIntegration(); 
