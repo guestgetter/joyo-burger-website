@@ -445,7 +445,11 @@ function initFormHandlers() {
                     if (result.success) {
                         // Check if VIP opt-in was selected
                         const isVip = formData.get('newsletter') ? true : false;
-                        window.highLevelIntegration.showSuccessMessage(this.parentElement, isVip);
+                        window.highLevelIntegration.showSuccessMessage(
+                            this.parentElement, 
+                            isVip, 
+                            result.emailSent
+                        );
                     } else {
                         window.highLevelIntegration.showErrorMessage(this.parentElement);
                     }

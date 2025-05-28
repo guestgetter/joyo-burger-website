@@ -148,14 +148,20 @@
                     <div class="accent-line"></div>
                     <p class="form-intro">Nous aimerions avoir de vos nouvelles. Partagez votre expérience chez JOYO™ ou envoyez-nous simplement un message avec une suggestion ou une question!</p>
                     
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" name="contact-fr" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <!-- Hidden field for Netlify Forms spam protection -->
+                        <input type="hidden" name="form-name" value="contact-fr" />
+                        <div style="display: none;">
+                            <label>Ne remplissez pas ceci si vous êtes humain: <input name="bot-field" /></label>
+                        </div>
+                        
                         <div class="form-group">
                             <label for="name">Nom *</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Email *</label>
+                            <label for="email">Courriel *</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         
@@ -171,10 +177,10 @@
                         
                         <div class="form-checkbox">
                             <input type="checkbox" id="newsletter" name="newsletter">
-                            <label for="newsletter">Rapprochez-vous de JOYO – inscrivez-vous pour recevoir nos mises à jour</label>
+                            <label for="newsletter">Rapprochez-vous de JOYO – inscrivez-vous aux mises à jour</label>
                         </div>
                         
-                        <button type="submit" class="submit-btn">Envoyer</button>
+                        <button type="submit" class="submit-btn">Soumettre</button>
                     </form>
                 </div>
             </div>
@@ -212,6 +218,14 @@
     </footer>
 
     <!-- JavaScript -->
+    <!-- EmailJS for contact form email notifications -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // Initialize EmailJS (you'll need to replace with actual service ID)
+        // For now, this is commented out until proper EmailJS setup
+        // emailjs.init('YOUR_PUBLIC_KEY');
+    </script>
+    
     <script src="js/highlevel-integration.js"></script>
     <script src="js/main.js"></script>
 </body>

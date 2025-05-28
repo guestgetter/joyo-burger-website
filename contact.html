@@ -148,7 +148,13 @@
                     <div class="accent-line"></div>
                     <p class="form-intro">We'd love to hear from you. Share your experience at JOYO™ or simply send us a message with a suggestion or question!</p>
                     
-                    <form class="contact-form" id="contactForm">
+                    <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <!-- Hidden field for Netlify Forms spam protection -->
+                        <input type="hidden" name="form-name" value="contact" />
+                        <div style="display: none;">
+                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                        </div>
+                        
                         <div class="form-group">
                             <label for="name">Name *</label>
                             <input type="text" id="name" name="name" required>
@@ -212,6 +218,14 @@
     </footer>
 
     <!-- JavaScript -->
+    <!-- EmailJS for contact form email notifications -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // Initialize EmailJS (you'll need to replace with actual service ID)
+        // For now, this is commented out until proper EmailJS setup
+        // emailjs.init('YOUR_PUBLIC_KEY');
+    </script>
+    
     <script src="js/highlevel-integration.js"></script>
     <script src="js/main.js"></script>
 </body>

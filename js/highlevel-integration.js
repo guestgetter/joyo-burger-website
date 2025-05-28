@@ -167,7 +167,8 @@ class HighLevelIntegration {
         const contactData = {
             fullName: formData.get('name'), // Contact form uses 'name' field
             email: formData.get('email'),
-            phone: formData.get('phone')
+            phone: formData.get('phone'),
+            comments: formData.get('comments') || '' // Get the comments field
         };
 
         // Check if they opted into VIP (newsletter checkbox)
@@ -176,7 +177,148 @@ class HighLevelIntegration {
             contactData.tags = ['joyo-vip'];
         }
 
-        return await this.submitContact(contactData);
+        // Always send email notification for contact form submissions
+        const emailSent = await this.sendContactFormEmail(contactData);
+
+        // Also submit to HighLevel CRM
+        const crmResult = await this.submitContact(contactData);
+
+        // Return combined result
+        return {
+            success: crmResult.success,
+            emailSent: emailSent,
+            data: crmResult.data,
+            updated: crmResult.updated,
+            fallback: crmResult.fallback
+        };
+    }
+
+    /**
+     * Send email notification for contact form submissions
+     */
+    async sendContactFormEmail(contactData) {
+        try {
+            // Prepare email content
+            const emailSubject = `New Contact Form Submission from ${contactData.fullName}`;
+            const emailBody = `
+New contact form submission received from JOYO Burger website:
+
+Name: ${contactData.fullName}
+Email: ${contactData.email}
+Phone: ${contactData.phone}
+${contactData.comments ? `Comments: ${contactData.comments}` : ''}
+${contactData.tags && contactData.tags.includes('joyo-vip') ? '\n✨ VIP Newsletter Signup: YES' : ''}
+
+Submitted: ${new Date().toLocaleString('en-CA', { timeZone: 'America/Toronto' })}
+
+---
+This message was sent automatically from the JOYO Burger website contact form.
+            `.trim();
+
+            console.log('📧 Contact Form Email Notification:', {
+                to: this.fallbackEmails,
+                subject: emailSubject,
+                contactData: contactData
+            });
+
+            // Method 1: Try Netlify Forms (if deployed on Netlify)
+            if (window.location.hostname.includes('netlify') || window.location.hostname.includes('github.io')) {
+                try {
+                    const netlifyResponse = await fetch('/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: new URLSearchParams({
+                            'form-name': 'contact',
+                            'name': contactData.fullName,
+                            'email': contactData.email,
+                            'phone': contactData.phone,
+                            'comments': contactData.comments || '',
+                            'newsletter': contactData.tags && contactData.tags.includes('joyo-vip') ? 'on' : '',
+                            'subject': emailSubject
+                        }).toString()
+                    });
+
+                    if (netlifyResponse.ok) {
+                        console.log('✅ Email notification sent via Netlify Forms');
+                        return true;
+                    }
+                } catch (netlifyError) {
+                    console.log('⚠️ Netlify Forms failed, trying other methods...', netlifyError);
+                }
+            }
+
+            // Method 2: Try Formspree (backup email service)
+            try {
+                const formspreeResponse = await fetch('https://formspree.io/f/xdkogkpv', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: contactData.fullName,
+                        email: contactData.email,
+                        phone: contactData.phone,
+                        comments: contactData.comments || 'No comments provided',
+                        vip_signup: contactData.tags && contactData.tags.includes('joyo-vip') ? 'Yes' : 'No',
+                        _subject: emailSubject,
+                        _replyto: contactData.email,
+                        _cc: this.fallbackEmails.join(',')
+                    })
+                });
+
+                if (formspreeResponse.ok) {
+                    console.log('✅ Email notification sent via Formspree');
+                    return true;
+                }
+            } catch (formspreeError) {
+                console.log('⚠️ Formspree failed, trying EmailJS...', formspreeError);
+            }
+
+            // Method 3: Try EmailJS if available and configured
+            if (typeof emailjs !== 'undefined' && window.emailjsConfigured) {
+                try {
+                    await emailjs.send('service_id', 'template_id', {
+                        to_email: this.fallbackEmails.join(','),
+                        subject: emailSubject,
+                        message: emailBody,
+                        from_name: contactData.fullName,
+                        from_email: contactData.email,
+                        phone: contactData.phone,
+                        comments: contactData.comments || 'No comments provided'
+                    });
+                    console.log('✅ Email notification sent via EmailJS');
+                    return true;
+                } catch (emailjsError) {
+                    console.log('⚠️ EmailJS failed:', emailjsError);
+                }
+            }
+
+            // Method 4: Final fallback - log for manual processing
+            console.log('📧 All email methods failed. Contact form data logged for manual processing:', {
+                timestamp: new Date().toISOString(),
+                name: contactData.fullName,
+                email: contactData.email,
+                phone: contactData.phone,
+                comments: contactData.comments,
+                vipSignup: contactData.tags && contactData.tags.includes('joyo-vip')
+            });
+
+            // Store in localStorage as emergency backup
+            const emergencyBackup = JSON.parse(localStorage.getItem('joyoContactBackup') || '[]');
+            emergencyBackup.push({
+                timestamp: new Date().toISOString(),
+                ...contactData
+            });
+            localStorage.setItem('joyoContactBackup', JSON.stringify(emergencyBackup));
+            
+            return false; // Indicate email sending failed
+            
+        } catch (error) {
+            console.error('❌ Failed to send contact form email:', error);
+            return false;
+        }
     }
 
     /**
@@ -205,14 +347,14 @@ class HighLevelIntegration {
     /**
      * Show success message to user
      */
-    showSuccessMessage(container, isVip = false) {
+    showSuccessMessage(container, isVip = false, emailSent = true) {
         const messageHtml = `
             <div class="form-success-message">
                 <span class="success-icon">🎉</span>
                 <h3>Thank You!</h3>
                 <p>Your submission has been received successfully.</p>
                 ${isVip ? '<p><strong>Welcome to the JOYO VIP family!</strong> 🌟</p>' : ''}
-                <p>We'll be in touch soon!</p>
+                ${emailSent ? '<p>📧 Our team has been notified and will be in touch soon!</p>' : '<p>⚠️ We received your message and will respond as soon as possible.</p>'}
             </div>
         `;
         
