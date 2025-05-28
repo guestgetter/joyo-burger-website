@@ -18,6 +18,7 @@ class HighLevelIntegration {
      */
     async submitContact(contactData) {
         try {
+            // Use the correct v2 endpoint format
             const response = await fetch(`${this.apiBaseUrl}/contacts/`, {
                 method: 'POST',
                 headers: {
@@ -26,8 +27,15 @@ class HighLevelIntegration {
                     'Version': '2021-07-28'
                 },
                 body: JSON.stringify({
+                    // Correct v2 API format
+                    firstName: contactData.firstName || contactData.fullName?.split(' ')[0] || '',
+                    lastName: contactData.lastName || contactData.fullName?.split(' ').slice(1).join(' ') || '',
+                    name: contactData.fullName || `${contactData.firstName || ''} ${contactData.lastName || ''}`.trim(),
+                    email: contactData.email,
+                    phone: contactData.phone,
                     locationId: this.locationId,
-                    ...contactData
+                    customFields: contactData.customFields || [],
+                    tags: contactData.tags || []
                 })
             });
 
@@ -38,6 +46,13 @@ class HighLevelIntegration {
                 return { success: true, data: result };
             } else {
                 console.error('❌ HighLevel API Error:', result);
+                
+                // If it's a duplicate contact error, try to update instead
+                if (result.message && result.message.includes('duplicated contacts')) {
+                    console.log('🔄 Contact exists, attempting to update...');
+                    return await this.updateExistingContact(contactData);
+                }
+                
                 throw new Error(result.message || 'Failed to submit to HighLevel');
             }
         } catch (error) {
@@ -51,6 +66,60 @@ class HighLevelIntegration {
                 fallback: true,
                 error: error.message 
             };
+        }
+    }
+
+    /**
+     * Update existing contact when duplicate is found
+     */
+    async updateExistingContact(contactData) {
+        try {
+            // First, find the contact by email
+            const searchResponse = await fetch(`${this.apiBaseUrl}/contacts/search/duplicate?locationId=${this.locationId}&email=${contactData.email}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${this.apiKey}`,
+                    'Content-Type': 'application/json',
+                    'Version': '2021-07-28'
+                }
+            });
+
+            if (searchResponse.ok) {
+                const searchResult = await searchResponse.json();
+                if (searchResult.contacts && searchResult.contacts.length > 0) {
+                    const existingContact = searchResult.contacts[0];
+                    
+                    // Update the existing contact
+                    const updateResponse = await fetch(`${this.apiBaseUrl}/contacts/${existingContact.id}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `Bearer ${this.apiKey}`,
+                            'Content-Type': 'application/json',
+                            'Version': '2021-07-28'
+                        },
+                        body: JSON.stringify({
+                            firstName: contactData.firstName || contactData.fullName?.split(' ')[0] || existingContact.firstName,
+                            lastName: contactData.lastName || contactData.fullName?.split(' ').slice(1).join(' ') || existingContact.lastName,
+                            phone: contactData.phone || existingContact.phone,
+                            customFields: contactData.customFields || [],
+                            tags: [...(existingContact.tags || []), ...(contactData.tags || [])]
+                        })
+                    });
+
+                    if (updateResponse.ok) {
+                        const updateResult = await updateResponse.json();
+                        console.log('✅ Contact updated successfully:', updateResult);
+                        return { success: true, data: updateResult, updated: true };
+                    }
+                }
+            }
+            
+            // If update fails, still return success for user experience
+            return { success: true, fallback: true };
+            
+        } catch (error) {
+            console.error('❌ Update contact failed:', error);
+            return { success: true, fallback: true };
         }
     }
 
