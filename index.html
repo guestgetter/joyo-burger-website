@@ -26,8 +26,8 @@
     <meta name="description" content="Montreal's #1 halal smash burgers at JOYO Burger in Rosemont & Verdun. Premium house-ground beef, authentic hand-cut fries, and local craft beer. Best rated burgers in Montreal!">
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png" as="image">
-    <link rel="preload" href="JOYO - Images/joyo-burger-homepage-hero-image.jpg" as="image">
+    <link rel="preload" href="JOYO - Images/optimized/Joyo-Logo-RGB-Jaune-transparent-bg.webp" as="image">
+    <link rel="preload" href="JOYO - Images/optimized/joyo-burger-homepage-hero-image.webp" as="image">
     <link rel="preload" href="css/styles.css" as="style">
     <link rel="preload" href="js/main.js" as="script">
     
@@ -36,13 +36,13 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="JOYO - Images/joyo-burger-favicon.png" sizes="32x32">
-    <link rel="apple-touch-icon" href="JOYO - Images/joyo-burger-favicon.png" sizes="180x180">
+    <link rel="icon" type="image/png" href="JOYO - Images/optimized/joyo-burger-favicon.webp" sizes="32x32">
+    <link rel="apple-touch-icon" href="JOYO - Images/optimized/joyo-burger-favicon.webp" sizes="180x180">
     
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="JOYO Burger - Montreal's Best Halal Smash Burgers | #1 Rated in Montreal">
     <meta property="og:description" content="Montreal's top-rated smash burgers in Rosemont (Masson St) and Verdun (Wellington St). Fresh halal beef ground daily, authentic hand-cut Quebec fries, and local craft beer.">
-    <meta property="og:image" content="https://joyoburger.com/JOYO - Images/joyo-burger-homepage-hero-image.jpg">
+    <meta property="og:image" content="https://joyoburger.com/JOYO - Images/optimized/joyo-burger-homepage-hero-image.jpg">
     <meta property="og:url" content="https://joyoburger.com/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -66,7 +66,7 @@
         header { position: fixed; top: 0; width: 100%; background-color: rgba(0, 0, 0, 0.9); z-index: 1000; }
         .header-content { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
         .logo img { height: 50px; width: auto; }
-        .hero { position: relative; width: 100vw; height: 100vh; background-image: url('JOYO - Images/joyo-burger-homepage-hero-image.jpg'); background-size: cover; background-position: center; display: flex; align-items: flex-end; justify-content: flex-start; }
+        .hero { position: relative; width: 100vw; height: 100vh; background-image: url('JOYO - Images/optimized/joyo-burger-homepage-hero-image.webp'); background-size: cover; background-position: center; display: flex; align-items: flex-end; justify-content: flex-start; }
         .hero::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.35); z-index: 1; }
         .hero-content { position: relative; z-index: 2; padding-left: 10%; padding-bottom: 10%; }
         .hero h1 { color: white; font-size: 3.2rem; margin-bottom: 20px; text-shadow: 0 0 10px rgba(0, 0, 0, 0.6); }
@@ -173,7 +173,10 @@
             <div class="header-content">
                 <div class="logo">
                     <a href="index.html">
-                        <img src="JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png" alt="JOYO Burger - Montreal's Best Halal Smash Burgers" width="120" height="50">
+                        <picture>
+                            <source srcset="JOYO - Images/optimized/Joyo-Logo-RGB-Jaune-transparent-bg.webp" type="image/webp">
+                            <img src="JOYO - Images/optimized/Joyo-Logo-RGB-Jaune-transparent-bg.jpg" alt="JOYO Burger - Montreal's Best Halal Smash Burgers" width="120" height="50">
+                        </picture>
                     </a>
                 </div>
                 
@@ -259,16 +262,28 @@
         <div class="purpose-image-gallery" style="order: 1;">
             <div class="gallery-container">
                 <div class="gallery-slide active">
-                    <img src="JOYO - Images/joyo-scene.jpg" alt="JOYO Burger Restaurant in Montreal - Happy Customers Enjoying Smash Burgers" loading="lazy" width="600" height="400">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/joyo-scene.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/joyo-scene.jpg" alt="JOYO Burger Restaurant in Montreal - Happy Customers Enjoying Smash Burgers" loading="lazy" width="600" height="400">
+                    </picture>
                 </div>
                 <div class="gallery-slide">
-                    <img src="JOYO - Images/joyo-enjoying-chicken-tenders.jpg" alt="JOYO's Crispy Chicken Tenders - Hand-Breaded Fresh Daily in Montreal" loading="lazy" width="600" height="400">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/joyo-enjoying-chicken-tenders.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/joyo-enjoying-chicken-tenders.jpg" alt="JOYO's Crispy Chicken Tenders - Hand-Breaded Fresh Daily in Montreal" loading="lazy" width="600" height="400">
+                    </picture>
                 </div>
                 <div class="gallery-slide">
-                    <img src="JOYO - Images/joyo-milkshake.jpg" alt="House-Made Milkshakes at JOYO Burger Montreal - Perfect Pairing for Halal Burgers" loading="lazy" width="600" height="400">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/joyo-milkshake.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/joyo-milkshake.jpg" alt="House-Made Milkshakes at JOYO Burger Montreal - Perfect Pairing for Halal Burgers" loading="lazy" width="600" height="400">
+                    </picture>
                 </div>
                 <div class="gallery-slide">
-                    <img src="JOYO - Images/joyo-sign.jpg" alt="JOYO Burger Montreal Location Storefront - Montreal's Favorite Burger Restaurant" loading="lazy" width="600" height="400">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/joyo-sign.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/joyo-sign.jpg" alt="JOYO Burger Montreal Location Storefront - Montreal's Favorite Burger Restaurant" loading="lazy" width="600" height="400">
+                    </picture>
                 </div>
             </div>
             <div class="gallery-dots">
@@ -286,53 +301,89 @@
             <div class="categories-scroll">
                 <!-- First set of items -->
                 <div class="category-item">
-                    <img src="JOYO - Images/Le-Grand.png" alt="JOYO's Premium Halal Smash Burgers in Montreal - House-Ground Daily" loading="lazy" width="250" height="200">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/Le-Grand.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/Le-Grand.jpg" alt="JOYO's Premium Halal Smash Burgers in Montreal - House-Ground Daily" loading="lazy" width="250" height="200">
+                    </picture>
                     <h3>SMASH BURGERS</h3>
                 </div>
                 <div class="category-item">
-                    <img src="JOYO - Images/Classic-Fried-Chicken-scaled-e1741170244379.jpeg" alt="JOYO's Crispy Chicken Burgers - Hand-Breaded Halal Chicken in Montreal" loading="lazy" width="250" height="200">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/Classic-Fried-Chicken-scaled-e1741170244379.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/Classic-Fried-Chicken-scaled-e1741170244379.jpg" alt="JOYO's Crispy Chicken Burgers - Hand-Breaded Halal Chicken in Montreal" loading="lazy" width="250" height="200">
+                    </picture>
                     <h3>CHICKEN BURGERS</h3>
                 </div>
                 <div class="category-item">
-                    <img src="JOYO - Images/Joyo-Poutine.png" alt="Montreal-Style Poutine at JOYO Burger - Hand-Cut Fries and Quebec Cheese Curds" loading="lazy" width="250" height="200">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/Joyo-Poutine.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/Joyo-Poutine.jpg" alt="Montreal-Style Poutine at JOYO Burger - Hand-Cut Fries and Quebec Cheese Curds" loading="lazy" width="250" height="200">
+                    </picture>
                     <h3>FRIES AND POUTINES</h3>
                 </div>
                 <div class="category-item">
-                    <img src="JOYO - Images/craft-local-beer.jpg" alt="Craft Beer Selection at JOYO Burger Montreal - Perfect with Premium Burgers" loading="lazy" width="250" height="200">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/craft-local-beer.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/craft-local-beer.jpg" alt="Craft Beer Selection at JOYO Burger Montreal - Perfect with Premium Burgers" loading="lazy" width="250" height="200">
+                    </picture>
                     <h3>BEER & COCKTAILS</h3>
                 </div>
                 <div class="category-item">
-                    <img src="JOYO - Images/green-salad.jpeg" alt="Fresh Salads at JOYO Burger Montreal - Healthy Options with Local Ingredients" loading="lazy" width="250" height="200">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/green-salad.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/green-salad.jpg" alt="Fresh Salads at JOYO Burger Montreal - Healthy Options with Local Ingredients" loading="lazy" width="250" height="200">
+                    </picture>
                     <h3>SALADS</h3>
                 </div>
                 <div class="category-item">
-                    <img src="JOYO - Images/vanilla-milkshake.jpg" alt="Homemade Milkshakes at JOYO Burger - Classic and Specialty Flavors in Montreal" loading="lazy" width="250" height="200">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/vanilla-milkshake.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/vanilla-milkshake.jpg" alt="Homemade Milkshakes at JOYO Burger - Classic and Specialty Flavors in Montreal" loading="lazy" width="250" height="200">
+                    </picture>
                     <h3>MILKSHAKES</h3>
                 </div>
                 
                 <!-- First duplicate set for seamless looping -->
                 <div class="category-item">
-                    <img src="JOYO - Images/Le-Grand.png" alt="JOYO's Premium Halal Smash Burgers in Montreal - House-Ground Daily" loading="lazy" width="250" height="200">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/Le-Grand.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/Le-Grand.jpg" alt="JOYO's Premium Halal Smash Burgers in Montreal - House-Ground Daily" loading="lazy" width="250" height="200">
+                    </picture>
                     <h3>SMASH BURGERS</h3>
                 </div>
                 <div class="category-item">
-                    <img src="JOYO - Images/Classic-Fried-Chicken-scaled-e1741170244379.jpeg" alt="JOYO's Crispy Chicken Burgers - Hand-Breaded Halal Chicken in Montreal" loading="lazy" width="250" height="200">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/Classic-Fried-Chicken-scaled-e1741170244379.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/Classic-Fried-Chicken-scaled-e1741170244379.jpg" alt="JOYO's Crispy Chicken Burgers - Hand-Breaded Halal Chicken in Montreal" loading="lazy" width="250" height="200">
+                    </picture>
                     <h3>CHICKEN BURGERS</h3>
                 </div>
                 <div class="category-item">
-                    <img src="JOYO - Images/Joyo-Poutine.png" alt="Montreal-Style Poutine at JOYO Burger - Hand-Cut Fries and Quebec Cheese Curds" loading="lazy" width="250" height="200">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/Joyo-Poutine.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/Joyo-Poutine.jpg" alt="Montreal-Style Poutine at JOYO Burger - Hand-Cut Fries and Quebec Cheese Curds" loading="lazy" width="250" height="200">
+                    </picture>
                     <h3>FRIES AND POUTINES</h3>
                 </div>
                 <div class="category-item">
-                    <img src="JOYO - Images/craft-local-beer.jpg" alt="Craft Beer Selection at JOYO Burger Montreal - Perfect with Premium Burgers" loading="lazy" width="250" height="200">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/craft-local-beer.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/craft-local-beer.jpg" alt="Craft Beer Selection at JOYO Burger Montreal - Perfect with Premium Burgers" loading="lazy" width="250" height="200">
+                    </picture>
                     <h3>BEER & COCKTAILS</h3>
                 </div>
                 <div class="category-item">
-                    <img src="JOYO - Images/green-salad.jpeg" alt="Fresh Salads at JOYO Burger Montreal - Healthy Options with Local Ingredients" loading="lazy" width="250" height="200">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/green-salad.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/green-salad.jpg" alt="Fresh Salads at JOYO Burger Montreal - Healthy Options with Local Ingredients" loading="lazy" width="250" height="200">
+                    </picture>
                     <h3>SALADS</h3>
                 </div>
                 <div class="category-item">
-                    <img src="JOYO - Images/vanilla-milkshake.jpg" alt="Homemade Milkshakes at JOYO Burger - Classic and Specialty Flavors in Montreal" loading="lazy" width="250" height="200">
+                    <picture>
+                        <source srcset="JOYO - Images/optimized/vanilla-milkshake.webp" type="image/webp">
+                        <img src="JOYO - Images/optimized/vanilla-milkshake.jpg" alt="Homemade Milkshakes at JOYO Burger - Classic and Specialty Flavors in Montreal" loading="lazy" width="250" height="200">
+                    </picture>
                     <h3>MILKSHAKES</h3>
                 </div>
             </div>
