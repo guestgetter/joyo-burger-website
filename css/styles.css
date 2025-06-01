@@ -499,7 +499,7 @@ header {
 .logo img {
     height: 50px;
     width: auto;
-    max-width: 120px; /* Ensure it doesn't get too wide */
+    max-width: 150px; /* Increase max width to prevent cutting */
     display: block;
 }
 
@@ -511,7 +511,7 @@ header {
 .logo picture img {
     height: 50px;
     width: auto;
-    max-width: 120px;
+    max-width: 150px; /* Increase max width to prevent cutting */
     display: block;
 }
 
@@ -907,27 +907,37 @@ header {
 
 .purpose-image-gallery {
     width: 50%;
-    height: 100%;
+    height: 100vh !important; /* Force full viewport height */
+    min-height: 700px !important; /* Minimum height to match text */
     position: relative;
     overflow: hidden;
+    display: flex; /* Add flex to center content */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
 }
 
 .gallery-container {
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     position: relative;
+    display: flex; /* Add flex */
+    align-items: center; /* Center slides */
+    justify-content: center; /* Center slides */
 }
 
-/* Gallery Slide - Simple Fade Transition */
+/* Gallery Slide - Force full height */
 .gallery-slide {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100% !important; /* Force full height */
     opacity: 0;
     z-index: 1;
     transition: opacity 0.5s ease;
+    display: flex; /* Add flex */
+    align-items: center; /* Center image */
+    justify-content: center; /* Center image */
 }
 
 .gallery-slide.active {
@@ -936,10 +946,11 @@ header {
 }
 
 .gallery-slide img {
-    width: 100%;
-    height: 100%; 
+    width: 100% !important; /* Force full width */
+    height: 100% !important; /* Force full height */
     object-fit: cover;
     object-position: center;
+    display: block; /* Remove any inline spacing */
 }
 
 .gallery-dots {
