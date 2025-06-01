@@ -499,6 +499,20 @@ header {
 .logo img {
     height: 50px;
     width: auto;
+    max-width: 120px; /* Ensure it doesn't get too wide */
+    display: block;
+}
+
+.logo picture {
+    display: block;
+    height: 50px;
+}
+
+.logo picture img {
+    height: 50px;
+    width: auto;
+    max-width: 120px;
+    display: block;
 }
 
 .main-nav .nav-list {
@@ -1201,6 +1215,27 @@ header {
     /* Force stacking context change to prevent any space from appearing */
     body {
         overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+}
+
+/* Fix for desktop - ensure purpose section stays side-by-side */
+@media (min-width: 992px) {
+    .purpose-section {
+        display: flex !important;
+        flex-direction: row !important;
+        height: 100vh !important;
+        min-height: 700px !important;
+    }
+
+    .purpose-text-wrapper {
+        width: 50% !important;
+        order: 1 !important;
+    }
+
+    .purpose-image-gallery {
+        width: 50% !important;
+        height: 100% !important;
+        order: 2 !important;
     }
 }
 
