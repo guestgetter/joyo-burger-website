@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "JOYO Burger website - static deployment",
   "scripts": {
-    "build": "mkdir -p dist && cp -r *.html css js JOYO* robots.txt sitemap.xml .htaccess dist/",
+    "build": "mkdir -p dist && cp -r *.html css js JOYO* robots.txt sitemap.xml .htaccess dist/ && mkdir -p dist/menu dist/about dist/contact dist/career dist/find-us dist/blog && cp dist/menu.html dist/menu/index.html && cp dist/about.html dist/about/index.html && cp dist/contact.html dist/contact/index.html && cp dist/career.html dist/career/index.html && cp dist/find-us.html dist/find-us/index.html && cp dist/blog.html dist/blog/index.html",
     "optimize-images": "node optimize-images.js"
   },
   "dependencies": {
