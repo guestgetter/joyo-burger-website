@@ -1,6 +1,7 @@
 {
   "name": "joyo-burger-website",
   "version": "1.0.0",
+  "description": "JOYO Burger website - static deployment",
   "scripts": {
     "build": "mkdir -p dist && cp -r *.html css js JOYO* robots.txt sitemap.xml .htaccess dist/",
     "optimize-images": "node optimize-images.js"
