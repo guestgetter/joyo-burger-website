@@ -19,10 +19,6 @@ RewriteRule ^index\.html$ https://joyoburger.com/? [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/$ /$1 [L,R=301]
 
-# Add www prefix
-RewriteCond %{HTTP_HOST} ^joyoburger\.com [NC]
-RewriteRule ^(.*)$ https://www.joyoburger.com/$1 [L,R=301]
-
 # Language handling
 RewriteRule ^fr/?$ /index-fr.html [L]
 RewriteRule ^en/?$ /index.html [L]
