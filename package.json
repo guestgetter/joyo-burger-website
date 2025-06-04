@@ -1,5 +1,18 @@
 {
+  "name": "joyo-burger-website",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "mkdir -p dist && cp -r *.html css js JOYO* robots.txt sitemap.xml .htaccess dist/",
+    "optimize-images": "node optimize-images.js"
+  },
   "dependencies": {
-    "sharp": "^0.34.2"
+    "express": "^4.18.2",
+    "sharp": "^0.32.6"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
   }
 }
