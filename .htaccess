@@ -7,24 +7,31 @@ RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://www.joyoburger.com/$1 [R=301,L]
 
-# Redirect .html to clean URLs - Using RewriteRule instead of RedirectMatch
-RewriteRule ^menu\.html$ /menu [R=301,L]
-RewriteRule ^about\.html$ /about [R=301,L]
-RewriteRule ^contact\.html$ /contact [R=301,L]
-RewriteRule ^career\.html$ /career [R=301,L]
-RewriteRule ^find-us\.html$ /find-us [R=301,L]
-RewriteRule ^privacy\.html$ /privacy [R=301,L]
-
-# French pages
-RewriteRule ^menu-fr\.html$ /menu-fr [R=301,L]
-RewriteRule ^about-fr\.html$ /about-fr [R=301,L]
-RewriteRule ^contact-fr\.html$ /contact-fr [R=301,L]
-RewriteRule ^career-fr\.html$ /career-fr [R=301,L]
-RewriteRule ^find-us-fr\.html$ /find-us-fr [R=301,L]
-RewriteRule ^privacy-fr\.html$ /privacy-fr [R=301,L]
+# Redirect .html URLs to clean URLs - FIRST PRIORITY
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
 
 # Redirect index.html to root
 RewriteRule ^index\.html$ /? [R=301,L]
+
+# Test if mod_rewrite is working with a simple redirect
+# Redirect .html to clean URLs - Multiple approaches for maximum compatibility
+
+# Method 1: Direct file-based redirects (most compatible)
+RedirectMatch 301 ^/menu\.html$ /menu
+RedirectMatch 301 ^/about\.html$ /about
+RedirectMatch 301 ^/contact\.html$ /contact
+RedirectMatch 301 ^/career\.html$ /career
+RedirectMatch 301 ^/find-us\.html$ /find-us
+RedirectMatch 301 ^/privacy\.html$ /privacy
+
+# Method 2: French pages
+RedirectMatch 301 ^/menu-fr\.html$ /menu-fr
+RedirectMatch 301 ^/about-fr\.html$ /about-fr
+RedirectMatch 301 ^/contact-fr\.html$ /contact-fr
+RedirectMatch 301 ^/career-fr\.html$ /career-fr
+RedirectMatch 301 ^/find-us-fr\.html$ /find-us-fr
+RedirectMatch 301 ^/privacy-fr\.html$ /privacy-fr
 
 # Internal rewrites for clean URLs
 RewriteRule ^menu$ /menu.html [L]
@@ -59,7 +66,15 @@ RewriteRule ^([^/.]+)$ /$1.html [L]
 
 # Compression
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
 </IfModule>
 
 # Cache settings
