@@ -14,8 +14,34 @@ RewriteRule ^ /%1 [R=301,L]
 # Redirect index.html to root
 RewriteRule ^index\.html$ /? [R=301,L]
 
-# Internal rewrites for clean URLs (add .html extension)
-# Specific French pages first
+# Test if mod_rewrite is working with a simple redirect
+# Redirect .html to clean URLs - Multiple approaches for maximum compatibility
+
+# Method 1: Direct file-based redirects (most compatible)
+RedirectMatch 301 ^/menu\.html$ /menu
+RedirectMatch 301 ^/about\.html$ /about
+RedirectMatch 301 ^/contact\.html$ /contact
+RedirectMatch 301 ^/career\.html$ /career
+RedirectMatch 301 ^/find-us\.html$ /find-us
+RedirectMatch 301 ^/privacy\.html$ /privacy
+
+# Method 2: French pages
+RedirectMatch 301 ^/menu-fr\.html$ /menu-fr
+RedirectMatch 301 ^/about-fr\.html$ /about-fr
+RedirectMatch 301 ^/contact-fr\.html$ /contact-fr
+RedirectMatch 301 ^/career-fr\.html$ /career-fr
+RedirectMatch 301 ^/find-us-fr\.html$ /find-us-fr
+RedirectMatch 301 ^/privacy-fr\.html$ /privacy-fr
+
+# Internal rewrites for clean URLs
+RewriteRule ^menu$ /menu.html [L]
+RewriteRule ^about$ /about.html [L]
+RewriteRule ^contact$ /contact.html [L]
+RewriteRule ^career$ /career.html [L]
+RewriteRule ^find-us$ /find-us.html [L]
+RewriteRule ^privacy$ /privacy.html [L]
+
+# French pages
 RewriteRule ^menu-fr$ /menu-fr.html [L]
 RewriteRule ^about-fr$ /about-fr.html [L]
 RewriteRule ^contact-fr$ /contact-fr.html [L]
