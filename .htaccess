@@ -27,13 +27,13 @@ RewriteRule ^(.*)/$ /$1 [L,R=301]
 RewriteRule ^fr/?$ /index-fr.html [L]
 RewriteRule ^en/?$ /index.html [L]
 
-# French page redirects
-RewriteRule ^menu-fr/?$ /menu-fr.html [L]
-RewriteRule ^about-fr/?$ /about-fr.html [L]
-RewriteRule ^contact-fr/?$ /contact-fr.html [L]
-RewriteRule ^career-fr/?$ /career-fr.html [L]
-RewriteRule ^find-us-fr/?$ /find-us-fr.html [L]
-RewriteRule ^privacy-fr/?$ /privacy-fr.html [L]
+# French page redirects - Fixed syntax to match working general rule
+RewriteRule ^menu-fr$ /menu-fr.html [L]
+RewriteRule ^about-fr$ /about-fr.html [L]
+RewriteRule ^contact-fr$ /contact-fr.html [L]
+RewriteRule ^career-fr$ /career-fr.html [L]
+RewriteRule ^find-us-fr$ /find-us-fr.html [L]
+RewriteRule ^privacy-fr$ /privacy-fr.html [L]
 
 # Add .html extension internally (not in URL) 
 RewriteCond %{REQUEST_FILENAME} !-f
