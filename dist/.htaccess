@@ -8,12 +8,10 @@ RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://www.joyoburger.com/$1 [R=301,L]
 
 # Redirect index.html to root
-RewriteCond %{THE_REQUEST} /index\.html [NC]
 RewriteRule ^index\.html$ /? [R=301,L]
 
-# Redirect .html URLs to clean URLs
-RewriteCond %{THE_REQUEST} \s/+([^.\s]*?)\.html[\s?] [NC]
-RewriteRule ^ /%1? [R=301,L]
+# Redirect .html URLs to clean URLs - Simple approach
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
 
 # Internal rewrites for clean URLs (add .html extension)
 # Specific French pages first
