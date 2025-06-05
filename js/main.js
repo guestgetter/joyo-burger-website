@@ -3,12 +3,73 @@
  * Performance-focused version with minimal impact on page load
  */
 
-// Redirect .html URLs to clean URLs (fallback if .htaccess doesn't work)
+// COMPREHENSIVE URL HANDLING - Pure JavaScript Solution
 (function() {
     const currentPath = window.location.pathname;
+    const currentSearch = window.location.search;
+    const currentHash = window.location.hash;
+    
+    // 1. Redirect .html URLs to clean URLs
     if (currentPath.endsWith('.html') && currentPath !== '/index.html') {
         const cleanPath = currentPath.replace('.html', '');
-        window.location.replace(window.location.origin + cleanPath + window.location.search + window.location.hash);
+        window.location.replace(window.location.origin + cleanPath + currentSearch + currentHash);
+        return;
+    }
+    
+    // 2. Handle clean URLs - Serve the correct .html file
+    const routeMap = {
+        '/menu': '/menu.html',
+        '/about': '/about.html', 
+        '/contact': '/contact.html',
+        '/career': '/career.html',
+        '/find-us': '/find-us.html',
+        '/privacy': '/privacy.html',
+        // French pages
+        '/menu-fr': '/menu-fr.html',
+        '/about-fr': '/about-fr.html',
+        '/contact-fr': '/contact-fr.html', 
+        '/career-fr': '/career-fr.html',
+        '/find-us-fr': '/find-us-fr.html',
+        '/privacy-fr': '/privacy-fr.html',
+        '/fr': '/index-fr.html'
+    };
+    
+    // If we're on a clean URL that needs to load the .html version
+    if (routeMap[currentPath] && !currentPath.endsWith('.html')) {
+        // Use fetch to get the content and update the page
+        fetch(routeMap[currentPath])
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                }
+                throw new Error('Page not found');
+            })
+            .then(html => {
+                // Replace the current page content
+                document.open();
+                document.write(html);
+                document.close();
+                
+                // Update the page title and URL
+                const titleMatch = html.match(/<title>(.*?)<\/title>/i);
+                if (titleMatch) {
+                    document.title = titleMatch[1];
+                }
+                
+                // Re-run any scripts that might be needed
+                const scripts = document.querySelectorAll('script[src]');
+                scripts.forEach(script => {
+                    if (script.src.includes('main.js') || script.src.includes('highlevel-integration.js')) {
+                        const newScript = document.createElement('script');
+                        newScript.src = script.src;
+                        document.head.appendChild(newScript);
+                    }
+                });
+            })
+            .catch(error => {
+                // If fetch fails, redirect to the .html version as fallback
+                window.location.replace(window.location.origin + routeMap[currentPath] + currentSearch + currentHash);
+            });
     }
 })();
 
