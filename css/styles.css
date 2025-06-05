@@ -2023,19 +2023,19 @@ h2.scrolled {
 }
 
 .cta-card:nth-child(1) {
-    background-image: url('../JOYO - Images/joyo-sign.jpg');
+    background-image: url('../JOYO - Images/optimized/joyo-sign.webp');
     background-size: cover;
     background-position: center;
 }
 
 .cta-card:nth-child(2) {
-    background-image: url('../JOYO - Images/joyo-careers-hero.jpg');
+    background-image: url('../JOYO - Images/optimized/joyo-careers-hero.webp');
     background-size: cover;
     background-position: center;
 }
 
 .cta-card:nth-child(3) {
-    background-image: url('../JOYO - Images/joyo-about-page-hero.png');
+    background-image: url('../JOYO - Images/optimized/joyo-about-page-hero.webp');
     background-size: cover;
     background-position: center;
 }
