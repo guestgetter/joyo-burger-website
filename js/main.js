@@ -3,6 +3,15 @@
  * Performance-focused version with minimal impact on page load
  */
 
+// Redirect .html URLs to clean URLs (fallback if .htaccess doesn't work)
+(function() {
+    const currentPath = window.location.pathname;
+    if (currentPath.endsWith('.html') && currentPath !== '/index.html') {
+        const cleanPath = currentPath.replace('.html', '');
+        window.location.replace(window.location.origin + cleanPath + window.location.search + window.location.hash);
+    }
+})();
+
 // Utility function for debouncing
 function debounce(func, wait) {
     let timeout;
