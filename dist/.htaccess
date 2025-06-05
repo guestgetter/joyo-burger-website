@@ -3,13 +3,9 @@
 # Enable Rewrite Engine
 RewriteEngine On
 
-# Force HTTPS and redirect www to non-www
-RewriteCond %{HTTP_HOST} ^www\.joyoburger\.com [NC]
-RewriteRule ^(.*)$ https://joyoburger.com/$1 [R=301,L]
-
-# Force HTTPS (only if not already HTTPS)
+# Force HTTPS (HostGator handles the www redirect)
 RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://joyoburger.com/$1 [R=301,L]
+RewriteRule ^(.*)$ https://www.joyoburger.com/$1 [R=301,L]
 
 # Redirect index.html to root
 RewriteCond %{THE_REQUEST} /index\.html [NC]
