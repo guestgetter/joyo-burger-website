@@ -1,32 +1,27 @@
 # JOYO Burger Website - Clean URL Configuration
 
-# Enable Rewrite Engine
 RewriteEngine On
 
 # Force HTTPS (HostGator handles the www redirect)
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://www.joyoburger.com/$1 [R=301,L]
 
-# Redirect .html to clean URLs - Using RewriteRule instead of RedirectMatch
-RewriteRule ^menu\.html$ /menu [R=301,L]
-RewriteRule ^about\.html$ /about [R=301,L]
-RewriteRule ^contact\.html$ /contact [R=301,L]
-RewriteRule ^career\.html$ /career [R=301,L]
-RewriteRule ^find-us\.html$ /find-us [R=301,L]
-RewriteRule ^privacy\.html$ /privacy [R=301,L]
-
-# French pages
-RewriteRule ^menu-fr\.html$ /menu-fr [R=301,L]
-RewriteRule ^about-fr\.html$ /about-fr [R=301,L]
-RewriteRule ^contact-fr\.html$ /contact-fr [R=301,L]
-RewriteRule ^career-fr\.html$ /career-fr [R=301,L]
-RewriteRule ^find-us-fr\.html$ /find-us-fr [R=301,L]
-RewriteRule ^privacy-fr\.html$ /privacy-fr [R=301,L]
-
 # Redirect index.html to root
 RewriteRule ^index\.html$ /? [R=301,L]
 
-# Internal rewrites for clean URLs
+# Redirect all .html files to clean URLs (external redirects)
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+# Internal rewrites for clean URLs (serve .html files for clean URLs)
+# French pages first (most specific)
+RewriteRule ^menu-fr$ /menu-fr.html [L]
+RewriteRule ^about-fr$ /about-fr.html [L] 
+RewriteRule ^contact-fr$ /contact-fr.html [L]
+RewriteRule ^career-fr$ /career-fr.html [L]
+RewriteRule ^find-us-fr$ /find-us-fr.html [L]
+RewriteRule ^privacy-fr$ /privacy-fr.html [L]
+
+# English pages
 RewriteRule ^menu$ /menu.html [L]
 RewriteRule ^about$ /about.html [L]
 RewriteRule ^contact$ /contact.html [L]
@@ -34,21 +29,10 @@ RewriteRule ^career$ /career.html [L]
 RewriteRule ^find-us$ /find-us.html [L]
 RewriteRule ^privacy$ /privacy.html [L]
 
-# French pages
-RewriteRule ^menu-fr$ /menu-fr.html [L]
-RewriteRule ^about-fr$ /about-fr.html [L]
-RewriteRule ^contact-fr$ /contact-fr.html [L]
-RewriteRule ^career-fr$ /career-fr.html [L]
-RewriteRule ^find-us-fr$ /find-us-fr.html [L]
-RewriteRule ^privacy-fr$ /privacy-fr.html [L]
-
-# Language handling for root pages
+# Special language handling
 RewriteRule ^fr/?$ /index-fr.html [L]
 
-# General English clean URLs (must be last)
-RewriteRule ^([^/.]+)$ /$1.html [L]
-
-# Security headers and optimization
+# Security headers
 <IfModule mod_headers.c>
     Header always set X-Content-Type-Options nosniff
     Header always set X-Frame-Options DENY
@@ -59,15 +43,7 @@ RewriteRule ^([^/.]+)$ /$1.html [L]
 
 # Compression
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/plain
-    AddOutputFilterByType DEFLATE text/html
-    AddOutputFilterByType DEFLATE text/xml
-    AddOutputFilterByType DEFLATE text/css
-    AddOutputFilterByType DEFLATE application/xml
-    AddOutputFilterByType DEFLATE application/xhtml+xml
-    AddOutputFilterByType DEFLATE application/rss+xml
-    AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript
 </IfModule>
 
 # Cache settings
