@@ -1,4 +1,4 @@
-# JOYO Burger Website - Apache Configuration
+# JOYO Burger Website - Clean URL Configuration
 
 # Enable Rewrite Engine
 RewriteEngine On
@@ -7,27 +7,20 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.joyoburger\.com [NC]
 RewriteRule ^(.*)$ https://joyoburger.com/$1 [R=301,L]
 
-# Force HTTPS
+# Force HTTPS (only if not already HTTPS)
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://joyoburger.com/$1 [R=301,L]
 
 # Redirect index.html to root
 RewriteCond %{THE_REQUEST} /index\.html [NC]
-RewriteRule ^index\.html$ https://joyoburger.com/? [R=301,L]
+RewriteRule ^index\.html$ /? [R=301,L]
 
-# Redirect .html URLs to clean URLs (remove .html extension)
+# Redirect .html URLs to clean URLs
 RewriteCond %{THE_REQUEST} \s/+([^.\s]*?)\.html[\s?] [NC]
 RewriteRule ^ /%1? [R=301,L]
 
-# Remove trailing slash
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)/$ /$1 [L,R=301]
-
-# Language handling
-RewriteRule ^fr/?$ /index-fr.html [L]
-RewriteRule ^en/?$ /index.html [L]
-
-# French page redirects - Fixed syntax to match working general rule
+# Internal rewrites for clean URLs (add .html extension)
+# Specific French pages first
 RewriteRule ^menu-fr$ /menu-fr.html [L]
 RewriteRule ^about-fr$ /about-fr.html [L]
 RewriteRule ^contact-fr$ /contact-fr.html [L]
@@ -35,34 +28,17 @@ RewriteRule ^career-fr$ /career-fr.html [L]
 RewriteRule ^find-us-fr$ /find-us-fr.html [L]
 RewriteRule ^privacy-fr$ /privacy-fr.html [L]
 
-# Add .html extension internally (not in URL) 
+# Language handling for root pages
+RewriteRule ^fr/?$ /index-fr.html [L]
+RewriteRule ^en/?$ /index.html [L]
+
+# General rule for all other pages (English pages and any we missed)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !\.html$
 RewriteRule ^([^\.]+)$ $1.html [L]
 
-# Clear any cached old content with aggressive cache busting
-<IfModule mod_headers.c>
-    # Force revalidation for HTML files to prevent old content
-    <FilesMatch "\.(html|htm)$">
-        Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
-        Header set Pragma "no-cache"
-        Header set Expires "Thu, 01 Jan 1970 00:00:00 GMT"
-    </FilesMatch>
-</IfModule>
-
-# Set proper MIME types for performance
-<IfModule mod_mime.c>
-    # Web fonts
-    AddType application/font-woff2 .woff2
-    AddType application/font-woff .woff
-    
-    # Images
-    AddType image/webp .webp
-    AddType image/avif .avif
-</IfModule>
-
-# Enable compression for performance
+# Performance: Enable compression
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/plain
     AddOutputFilterByType DEFLATE text/html
@@ -76,11 +52,11 @@ RewriteRule ^([^\.]+)$ $1.html [L]
     AddOutputFilterByType DEFLATE image/svg+xml
 </IfModule>
 
-# Browser caching for performance
+# Performance: Browser caching
 <IfModule mod_expires.c>
     ExpiresActive on
-    ExpiresByType text/css "access plus 1 year"
-    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
     ExpiresByType image/png "access plus 1 year"
     ExpiresByType image/jpg "access plus 1 year"
     ExpiresByType image/jpeg "access plus 1 year"
@@ -88,202 +64,25 @@ RewriteRule ^([^\.]+)$ $1.html [L]
     ExpiresByType image/webp "access plus 1 year"
     ExpiresByType image/svg+xml "access plus 1 year"
     ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
 </IfModule>
 
-# Enable GZIP compression
-<IfModule mod_deflate.c>
-  # Compress HTML, CSS, JavaScript, Text, XML and fonts
-  AddOutputFilterByType DEFLATE application/javascript
-  AddOutputFilterByType DEFLATE application/rss+xml
-  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
-  AddOutputFilterByType DEFLATE application/x-font
-  AddOutputFilterByType DEFLATE application/x-font-opentype
-  AddOutputFilterByType DEFLATE application/x-font-otf
-  AddOutputFilterByType DEFLATE application/x-font-truetype
-  AddOutputFilterByType DEFLATE application/x-font-ttf
-  AddOutputFilterByType DEFLATE application/x-javascript
-  AddOutputFilterByType DEFLATE application/xhtml+xml
-  AddOutputFilterByType DEFLATE application/xml
-  AddOutputFilterByType DEFLATE font/opentype
-  AddOutputFilterByType DEFLATE font/otf
-  AddOutputFilterByType DEFLATE font/ttf
-  AddOutputFilterByType DEFLATE image/svg+xml
-  AddOutputFilterByType DEFLATE image/x-icon
-  AddOutputFilterByType DEFLATE text/css
-  AddOutputFilterByType DEFLATE text/html
-  AddOutputFilterByType DEFLATE text/javascript
-  AddOutputFilterByType DEFLATE text/plain
-  AddOutputFilterByType DEFLATE text/xml
-</IfModule>
-
-# Browser caching
-<IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresByType image/jpg "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/gif "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType image/svg+xml "access plus 1 year"
-  ExpiresByType image/x-icon "access plus 1 year"
-  ExpiresByType video/mp4 "access plus 1 year"
-  ExpiresByType video/webm "access plus 1 year"
-  ExpiresByType text/css "access plus 1 month"
-  ExpiresByType text/html "access plus 1 month"
-  ExpiresByType application/pdf "access plus 1 month"
-  ExpiresByType application/javascript "access plus 1 month"
-  ExpiresByType application/x-shockwave-flash "access plus 1 month"
-  ExpiresByType application/x-font-ttf "access plus 1 year"
-  ExpiresByType application/x-font-woff "access plus 1 year"
-  ExpiresByType application/font-woff2 "access plus 1 year"
-  ExpiresByType font/ttf "access plus 1 year"
-  ExpiresByType font/woff "access plus 1 year"
-  ExpiresByType font/woff2 "access plus 1 year"
-  ExpiresDefault "access plus 2 days"
-</IfModule>
-
-# Set security headers
+# Security headers
 <IfModule mod_headers.c>
-  # X-XSS Protection
-  Header set X-XSS-Protection "1; mode=block"
-  # X-Frame-Options
-  Header set X-Frame-Options "SAMEORIGIN"
-  # X-Content-Type-Options
-  Header set X-Content-Type-Options "nosniff"
-  # Referrer-Policy
-  Header set Referrer-Policy "no-referrer-when-downgrade"
-  # Content Security Policy
-  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://maps.googleapis.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; img-src 'self' data: https://maps.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com; frame-src https://www.google.com;"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Content-Type-Options "nosniff"
+    Header set Referrer-Policy "no-referrer-when-downgrade"
 </IfModule>
 
-# Enable Keep-Alive
-<IfModule mod_headers.c>
-  Header set Connection keep-alive
-</IfModule>
-
-# Handle Error Pages
+# Error pages
 ErrorDocument 404 /404.html
 ErrorDocument 500 /500.html
 
 # Prevent directory listing
 Options -Indexes
 
-# Prevent access to sensitive files
-<FilesMatch "^\.(?!well-known).*|(?:package\.json|composer\.json|README\.md)$">
-  Order allow,deny
-  Deny from all
-</FilesMatch>
-
 # Set default charset
-AddDefaultCharset UTF-8
-
-# JOYO Burger Website Performance Optimizations
-
-# Enable compression
-<IfModule mod_deflate.c>
-    # Compress HTML, CSS, JavaScript, Text, XML and fonts
-    AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE application/rss+xml
-    AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
-    AddOutputFilterByType DEFLATE application/x-font
-    AddOutputFilterByType DEFLATE application/x-font-opentype
-    AddOutputFilterByType DEFLATE application/x-font-otf
-    AddOutputFilterByType DEFLATE application/x-font-truetype
-    AddOutputFilterByType DEFLATE application/x-font-ttf
-    AddOutputFilterByType DEFLATE application/x-javascript
-    AddOutputFilterByType DEFLATE application/xhtml+xml
-    AddOutputFilterByType DEFLATE application/xml
-    AddOutputFilterByType DEFLATE font/opentype
-    AddOutputFilterByType DEFLATE font/otf
-    AddOutputFilterByType DEFLATE font/ttf
-    AddOutputFilterByType DEFLATE image/svg+xml
-    AddOutputFilterByType DEFLATE image/x-icon
-    AddOutputFilterByType DEFLATE text/css
-    AddOutputFilterByType DEFLATE text/html
-    AddOutputFilterByType DEFLATE text/javascript
-    AddOutputFilterByType DEFLATE text/plain
-    AddOutputFilterByType DEFLATE text/xml
-</IfModule>
-
-# Alternative compression method if mod_deflate is not available
-<IfModule mod_gzip.c>
-    mod_gzip_on Yes
-    mod_gzip_dechunk Yes
-    mod_gzip_item_include file \.(html?|txt|css|js|php|pl)$
-    mod_gzip_item_include handler ^cgi-script$
-    mod_gzip_item_include mime ^text/.*
-    mod_gzip_item_include mime ^application/x-javascript.*
-    mod_gzip_item_exclude mime ^image/.*
-    mod_gzip_item_exclude rspheader ^Content-Encoding:.*gzip.*
-</IfModule>
-
-# Set cache headers
-<IfModule mod_expires.c>
-    ExpiresActive on
-
-    # Images
-    ExpiresByType image/png "access plus 1 year"
-    ExpiresByType image/jpg "access plus 1 year"
-    ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/gif "access plus 1 year"
-    ExpiresByType image/ico "access plus 1 year"
-    ExpiresByType image/icon "access plus 1 year"
-    ExpiresByType image/x-icon "access plus 1 year"
-    ExpiresByType image/webp "access plus 1 year"
-    ExpiresByType image/svg+xml "access plus 1 year"
-
-    # Fonts
-    ExpiresByType font/ttf "access plus 1 year"
-    ExpiresByType font/otf "access plus 1 year"
-    ExpiresByType font/woff "access plus 1 year"
-    ExpiresByType font/woff2 "access plus 1 year"
-    ExpiresByType application/font-woff "access plus 1 year"
-
-    # CSS and JavaScript
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-    ExpiresByType text/javascript "access plus 1 month"
-
-    # HTML
-    ExpiresByType text/html "access plus 1 hour"
-</IfModule>
-
-# Cache-Control headers
-<IfModule mod_headers.c>
-    # Images
-    <FilesMatch "\.(png|jpg|jpeg|gif|ico|webp|svg)$">
-        Header set Cache-Control "public, max-age=31536000, immutable"
-    </FilesMatch>
-
-    # Fonts
-    <FilesMatch "\.(ttf|otf|woff|woff2|eot)$">
-        Header set Cache-Control "public, max-age=31536000, immutable"
-    </FilesMatch>
-
-    # CSS and JavaScript
-    <FilesMatch "\.(css|js)$">
-        Header set Cache-Control "public, max-age=2592000"
-    </FilesMatch>
-
-    # HTML
-    <FilesMatch "\.(html|htm)$">
-        Header set Cache-Control "public, max-age=3600"
-    </FilesMatch>
-
-    # Security headers
-    Header always set X-Content-Type-Options nosniff
-    Header always set X-Frame-Options DENY
-    Header always set X-XSS-Protection "1; mode=block"
-    Header always set Referrer-Policy "strict-origin-when-cross-origin"
-</IfModule>
-
-# Remove ETags (optional - can improve caching)
-FileETag None
-
-# Force compression for mangled Accept-Encoding headers
-<IfModule mod_setenvif.c>
-    <IfModule mod_headers.c>
-        SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
-        RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
-    </IfModule>
-</IfModule> 
+AddDefaultCharset UTF-8 
