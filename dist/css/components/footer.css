@@ -1,0 +1,112 @@
+/**
+ * JOYO Burger - Footer Component Styles
+ */
+
+/* Footer Container */
+.site-footer {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    padding: 50px 0 30px;
+}
+
+/* Footer Top Section */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Hours */
+.hours {
+    text-align: left;
+}
+
+.hours p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: var(--color-text-light);
+}
+
+.hours p:first-child {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* Social and Contact */
+.social-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.footer-social-icons {
+    margin-bottom: 10px;
+}
+
+.footer-social-icons a {
+    color: var(--color-text-light);
+    font-size: 18px;
+    margin-left: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social-icons a:hover {
+    color: var(--color-primary);
+    transform: scale(1.1);
+}
+
+.social-contact p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: var(--color-text-light);
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Footer Links */
+.footer-links {
+    margin-bottom: 30px;
+}
+
+.footer-links a {
+    color: var(--color-text-light);
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--color-primary);
+}
+
+.separator {
+    margin: 0 10px;
+    color: var(--color-text-muted);
+}
+
+/* Footer Logo */
+.footer-logo {
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 60px;
+    width: auto;
+}
+
+/* Copyright */
+.copyright {
+    color: var(--color-text-muted);
+    font-size: 14px;
+}
+
+.copyright p {
+    margin: 0;
+} 
