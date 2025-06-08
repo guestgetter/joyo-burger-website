@@ -1,9 +1,6 @@
 User-agent: *
 Allow: /
 
-# Prioritize clean URLs without .html extensions
-Disallow: /*.html$
-
 # Point to correct sitemap URL (non-www)
 Sitemap: https://joyoburger.com/sitemap.xml
 
