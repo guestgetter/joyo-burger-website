@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+
+# Development tools
+*.log
+.env
+
+# Temporary files
+*.tmp
+temp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts (keep dist for deployment)
+# dist/ - keeping this since it's needed for deployment 
