@@ -1,47 +1,17 @@
 # JOYO Burger Website - Clean URL Configuration
-
-# Enable Rewrite Engine
 RewriteEngine On
 
 # Force HTTPS (HostGator handles the www redirect)
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://www.joyoburger.com/$1 [R=301,L]
 
-# Redirect .html URLs to clean URLs - FIRST PRIORITY
+# Redirect .html URLs to clean URLs
 RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
 
-# Redirect index.html to root
-RewriteRule ^index\.html$ /? [R=301,L]
+# Internal rewrites for clean URLs - SPECIFIC RULES FIRST
 
-# Test if mod_rewrite is working with a simple redirect
-# Redirect .html to clean URLs - Multiple approaches for maximum compatibility
-
-# Method 1: Direct file-based redirects (most compatible)
-RedirectMatch 301 ^/menu\.html$ /menu
-RedirectMatch 301 ^/about\.html$ /about
-RedirectMatch 301 ^/contact\.html$ /contact
-RedirectMatch 301 ^/career\.html$ /career
-RedirectMatch 301 ^/find-us\.html$ /find-us
-RedirectMatch 301 ^/privacy\.html$ /privacy
-
-# Method 2: French pages
-RedirectMatch 301 ^/menu-fr\.html$ /menu-fr
-RedirectMatch 301 ^/about-fr\.html$ /about-fr
-RedirectMatch 301 ^/contact-fr\.html$ /contact-fr
-RedirectMatch 301 ^/career-fr\.html$ /career-fr
-RedirectMatch 301 ^/find-us-fr\.html$ /find-us-fr
-RedirectMatch 301 ^/privacy-fr\.html$ /privacy-fr
-
-# Internal rewrites for clean URLs
-RewriteRule ^menu$ /menu.html [L]
-RewriteRule ^about$ /about.html [L]
-RewriteRule ^contact$ /contact.html [L]
-RewriteRule ^career$ /career.html [L]
-RewriteRule ^find-us$ /find-us.html [L]
-RewriteRule ^privacy$ /privacy.html [L]
-
-# French pages
+# French pages (must come before general rule)
 RewriteRule ^menu-fr$ /menu-fr.html [L]
 RewriteRule ^about-fr$ /about-fr.html [L]
 RewriteRule ^contact-fr$ /contact-fr.html [L]
@@ -49,32 +19,32 @@ RewriteRule ^career-fr$ /career-fr.html [L]
 RewriteRule ^find-us-fr$ /find-us-fr.html [L]
 RewriteRule ^privacy-fr$ /privacy-fr.html [L]
 
-# Language handling for root pages
+# Special language handling
 RewriteRule ^fr/?$ /index-fr.html [L]
 
-# General English clean URLs (must be last)
+# English pages
+RewriteRule ^menu$ /menu.html [L]
+RewriteRule ^about$ /about.html [L]
+RewriteRule ^contact$ /contact.html [L]
+RewriteRule ^career$ /career.html [L]
+RewriteRule ^find-us$ /find-us.html [L]
+RewriteRule ^privacy$ /privacy.html [L]
+RewriteRule ^blog$ /blog.html [L]
+
+# General fallback for other clean URLs (LAST)
 RewriteRule ^([^/.]+)$ /$1.html [L]
 
-# Security headers and optimization
+# Security headers
 <IfModule mod_headers.c>
     Header always set X-Content-Type-Options nosniff
     Header always set X-Frame-Options DENY
     Header always set X-XSS-Protection "1; mode=block"
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
-    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
 </IfModule>
 
 # Compression
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/plain
-    AddOutputFilterByType DEFLATE text/html
-    AddOutputFilterByType DEFLATE text/xml
-    AddOutputFilterByType DEFLATE text/css
-    AddOutputFilterByType DEFLATE application/xml
-    AddOutputFilterByType DEFLATE application/xhtml+xml
-    AddOutputFilterByType DEFLATE application/rss+xml
-    AddOutputFilterByType DEFLATE application/javascript
-    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json
 </IfModule>
 
 # Cache settings
@@ -82,16 +52,11 @@ RewriteRule ^([^/.]+)$ /$1.html [L]
     ExpiresActive On
     ExpiresByType image/jpg "access plus 1 month"
     ExpiresByType image/jpeg "access plus 1 month"
-    ExpiresByType image/gif "access plus 1 month"
     ExpiresByType image/png "access plus 1 month"
     ExpiresByType image/webp "access plus 1 month"
     ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/pdf "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
-    ExpiresByType application/x-javascript "access plus 1 month"
-    ExpiresByType application/x-shockwave-flash "access plus 1 month"
-    ExpiresByType image/x-icon "access plus 1 year"
-    ExpiresDefault "access plus 7 days"
+    ExpiresDefault "access plus 1 week"
 </IfModule>
 
 # Error pages

@@ -7,6 +7,8 @@
     "optimize-images": "node optimize-images.js"
   },
   "dependencies": {
+    "express": "^5.1.0",
+    "glob": "^11.0.2",
     "sharp": "^0.32.6"
   }
 }

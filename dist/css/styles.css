@@ -645,7 +645,7 @@ header {
     height: 100vh;
     left: 50%;
     transform: translateX(-50%);
-    background-image: url('../JOYO - Images/joyo-burger-homepage-hero-image.jpg');
+    background-image: url('../JOYO - Images/optimized/joyo-burger-homepage-hero-image.webp');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -917,6 +917,7 @@ header {
     width: 100%;
     height: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 /* Gallery Slide - Simple Fade Transition */
@@ -927,8 +928,7 @@ header {
     width: 100%;
     height: 100%;
     opacity: 0;
-    z-index: 1;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .gallery-slide.active {
@@ -936,11 +936,11 @@ header {
     z-index: 2;
 }
 
-.gallery-slide img {
+/* Ensure picture elements don't interfere with layout */
+.gallery-slide picture {
     width: 100%;
-    height: 100%; 
-    object-fit: cover;
-    object-position: center;
+    height: 100%;
+    display: block;
 }
 
 .gallery-dots {
@@ -2023,19 +2023,19 @@ h2.scrolled {
 }
 
 .cta-card:nth-child(1) {
-    background-image: url('../JOYO - Images/joyo-sign.jpg');
+    background-image: url('../JOYO - Images/optimized/joyo-sign.webp');
     background-size: cover;
     background-position: center;
 }
 
 .cta-card:nth-child(2) {
-    background-image: url('../JOYO - Images/joyo-careers-hero.jpg');
+    background-image: url('../JOYO - Images/optimized/joyo-careers-hero.webp');
     background-size: cover;
     background-position: center;
 }
 
 .cta-card:nth-child(3) {
-    background-image: url('../JOYO - Images/joyo-about-page-hero.png');
+    background-image: url('../JOYO - Images/optimized/joyo-about-page-hero.webp');
     background-size: cover;
     background-position: center;
 }
@@ -2749,3 +2749,72 @@ body.mobile-menu-open {
         grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
     }
 }
+
+/* PERFORMANCE OPTIMIZATION FIXES - Override responsive.css constraints */
+
+/* Fix logo height constraints from responsive.css */
+.logo img,
+.logo picture img {
+    height: 50px !important; /* Override all responsive height constraints */
+    width: auto !important;
+    max-height: none !important;
+    object-fit: contain !important;
+}
+
+/* Fix gallery image container and sizing issues */
+.gallery-slide img,
+.gallery-slide picture img {
+    width: 100% !important;
+    height: 100% !important; 
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+}
+
+.gallery-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.gallery-slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Ensure picture elements don't interfere with layout */
+.gallery-slide picture {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Logo container fixes */
+.logo {
+    display: flex;
+    align-items: center;
+    height: auto;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+}
+
+.logo picture {
+    display: flex;
+    align-items: center;
+}
+
+/* END PERFORMANCE OPTIMIZATION FIXES */
