@@ -113,19 +113,17 @@ function switchLanguage(lang) {
  * Initialize language toggle buttons
  */
 function initLanguageToggle() {
-    const langToggles = document.querySelectorAll('.language-toggle');
+    // Disable JavaScript language switching - let HTML links work normally
+    // The HTML links are correctly configured and working
+    console.log('Language toggle: Using native HTML links');
     
+    // Optional: Still save language preference when clicked
+    const langToggles = document.querySelectorAll('.language-toggle');
     langToggles.forEach(toggle => {
         toggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Get the selected language
+            // Don't prevent default - let the link work normally
             const lang = this.textContent.trim().toLowerCase();
-            
-            // Switch language if not already active
-            if (!this.classList.contains('active')) {
-                switchLanguage(lang);
-            }
+            localStorage.setItem('preferred_language', lang);
         });
     });
 }
