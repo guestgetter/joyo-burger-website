@@ -28,7 +28,7 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="JOYO - Images/optimized/Joyo-Logo-RGB-Jaune-transparent-bg.webp" as="image">
     <link rel="preload" href="JOYO - Images/optimized/joyo-burger-homepage-hero-image.webp" as="image">
-    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="css/styles.min.css" as="style">
     <link rel="preload" href="js/main.js" as="script">
     
     <!-- DNS prefetch for external resources -->
@@ -150,12 +150,12 @@
     </script>
     
     <!-- Non-critical CSS loaded asynchronously -->
-    <link rel="stylesheet" href="css/styles.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/responsive.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/animations.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/hero-fix.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/hero-mobile-fix.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/form-messages.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/styles.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/responsive.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/animations.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/hero-fix.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/hero-mobile-fix.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/form-messages.min.css" media="print" onload="this.media='all'">
     
     <!-- Font Awesome loaded asynchronously -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -544,17 +544,17 @@
     </footer>
     
     <!-- Defer JavaScript loading for better performance -->
-    <script src="js/highlevel-integration.js" defer></script>
-    <script src="js/main.js" defer></script>
+    <script src="js/highlevel-integration.min.js" defer></script>
+    <script src="js/main.min.js" defer></script>
     
     <!-- Add noscript fallback for critical CSS -->
     <noscript>
-        <link rel="stylesheet" href="css/styles.css">
-        <link rel="stylesheet" href="css/responsive.css">
-        <link rel="stylesheet" href="css/animations.css">
-        <link rel="stylesheet" href="css/hero-fix.css">
-        <link rel="stylesheet" href="css/hero-mobile-fix.css">
-        <link rel="stylesheet" href="css/form-messages.css">
+        <link rel="stylesheet" href="css/styles.min.css">
+        <link rel="stylesheet" href="css/responsive.min.css">
+        <link rel="stylesheet" href="css/animations.min.css">
+        <link rel="stylesheet" href="css/hero-fix.min.css">
+        <link rel="stylesheet" href="css/hero-mobile-fix.min.css">
+        <link rel="stylesheet" href="css/form-messages.min.css">
     </noscript>
 </body>
 </html> 
