@@ -15,6 +15,9 @@
 @import 'components/menu.css';
 @import 'components/locations.css';
 
+/* Import Magical Button Animation */
+@import 'joyo-order-button-magic.min.css';
+
 /* Import Utility Styles - REMOVE THESE FOR NOW */
 /* @import 'responsive.css'; */
 /* @import 'animations.css'; */
