@@ -1,0 +1,24 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": null,
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/index-fr.html", "destination": "/fr", "permanent": true },
+    { "source": "/career.html", "destination": "/career", "permanent": true },
+    { "source": "/about.html", "destination": "/about", "permanent": true },
+    { "source": "/menu.html", "destination": "/menu", "permanent": true },
+    { "source": "/find-us.html", "destination": "/find-us", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/privacy.html", "destination": "/privacy", "permanent": true },
+    { "source": "/masson-location.html", "destination": "/masson-location", "permanent": true },
+    { "source": "/wellington-location.html", "destination": "/wellington-location", "permanent": true },
+    { "source": "/career-fr.html", "destination": "/career-fr", "permanent": true },
+    { "source": "/about-fr.html", "destination": "/about-fr", "permanent": true },
+    { "source": "/menu-fr.html", "destination": "/menu-fr", "permanent": true },
+    { "source": "/find-us-fr.html", "destination": "/find-us-fr", "permanent": true },
+    { "source": "/contact-fr.html", "destination": "/contact-fr", "permanent": true },
+    { "source": "/privacy-fr.html", "destination": "/privacy-fr", "permanent": true }
+  ]
+}
