@@ -1,0 +1,28 @@
+# DigitalOcean App Platform Redirects
+# Format: from_path to_path status_code
+
+# Home page redirects
+/index.html / 301
+/index-fr.html /fr 301
+
+# English page redirects  
+/career.html /career 301
+/about.html /about 301
+/menu.html /menu 301
+/find-us.html /find-us 301
+/contact.html /contact 301
+/privacy.html /privacy 301
+/masson-location.html /masson-location 301
+/wellington-location.html /wellington-location 301
+
+# French page redirects
+/career-fr.html /career-fr 301
+/about-fr.html /about-fr 301
+/menu-fr.html /menu-fr 301
+/find-us-fr.html /find-us-fr 301
+/contact-fr.html /contact-fr 301
+/privacy-fr.html /privacy-fr 301
+
+# Error pages (no redirect needed - serve directly)
+/404.html 404
+/500.html 500
