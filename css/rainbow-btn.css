@@ -1,0 +1,28 @@
+:root {
+  /* Warm, JOYO-aligned palette (ochre-forward) */
+  --rb-color-1: var(--color-primary);         /* Ochre */
+  --rb-color-2: #e0a04a;                      /* Lighter ochre */
+  --rb-color-3: var(--color-secondary);       /* Warm red-orange */
+  --rb-color-4: var(--color-light-yellow);    /* Pale yellow */
+  --rb-color-5: var(--color-primary-dark);    /* Deeper ochre */
+  --rb-speed: 3.5s;
+}
+
+/* Simplified, on-brand ochre CTA variant (no animation) */
+.order-now-btn.rainbow-btn {
+  position: relative;
+  border: 2px solid var(--color-primary);
+  background: var(--color-primary);
+  color: var(--color-text-dark);
+  box-shadow: 0 6px 16px rgba(202, 131, 26, 0.25);
+  animation: none;
+  background-image: none;
+}
+
+.order-now-btn.rainbow-btn::after { display: none; }
+
+@keyframes rainbow {
+  0% { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
