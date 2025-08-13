@@ -3,7 +3,8 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-const PORT = 8080;
+// Allow port via ENV or CLI arg; default to 5174
+const PORT = Number(process.env.PORT || process.argv[2] || 5174);
 
 // Serve static files
 app.use(express.static('.', {
@@ -18,8 +19,8 @@ app.get(/.*\.html$/, (req, res) => {
     res.redirect(301, cleanUrl);
 });
 
-// Handle clean URLs by serving the corresponding .html file
-app.get('*', (req, res) => {
+// Handle clean URLs by serving the corresponding .html file (use RegExp to match all)
+app.get(/.*/, (req, res) => {
     let filePath;
     
     // Handle root path
