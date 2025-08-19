@@ -1139,6 +1139,8 @@ a.category-item {
     text-decoration: none;
     color: inherit;
     display: block;
+    pointer-events: auto; /* Ensure links are always clickable */
+    cursor: pointer;
 }
 
 a.category-item:visited {
@@ -1148,6 +1150,10 @@ a.category-item:visited {
 a.category-item:focus {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
+}
+
+a.category-item:active {
+    transform: translateY(-5px);
 }
 
 .categories-showcase .view-menu-container {

@@ -62,6 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize conversion tracking
     initConversionTracking();
+    
+    // Handle page visibility changes (back button, etc.)
+    handlePageVisibility();
 });
 
 /**
@@ -474,6 +477,24 @@ function initFormHandlers() {
 }
 
 /**
+ * Handle page visibility changes and navigation state
+ */
+function handlePageVisibility() {
+    // Simple approach: just ensure links work after navigation
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            // Page was loaded from cache, ensure category links are clickable
+            const categoryLinks = document.querySelectorAll('a.category-item');
+            categoryLinks.forEach(link => {
+                // Reset any potential CSS issues
+                link.style.pointerEvents = 'auto';
+                link.style.cursor = 'pointer';
+            });
+        }
+    });
+}
+
+/**
  * Initialize conversion tracking for key business actions
  */
 function initConversionTracking() {
@@ -508,29 +529,33 @@ function initConversionTracking() {
     const categoryLinks = document.querySelectorAll('a.category-item');
     categoryLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            // Don't prevent default navigation - let the link work normally
             const categoryName = this.querySelector('h3')?.textContent || 'unknown';
             const targetSection = this.href.split('#')[1] || 'unknown';
             
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'menu_category_click', {
-                    event_category: 'navigation',
-                    event_label: categoryName,
-                    custom_parameters: {
-                        target_section: targetSection
-                    }
-                });
-            }
-            
-            if (typeof dataLayer !== 'undefined') {
-                dataLayer.push({
-                    event: 'menu_category_click',
-                    event_category: 'navigation',
-                    event_action: 'click',
-                    event_label: categoryName,
-                    target_section: targetSection,
-                    page_language: document.documentElement.lang || 'en'
-                });
-            }
+            // Track the click but don't interfere with navigation
+            setTimeout(() => {
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'menu_category_click', {
+                        event_category: 'navigation',
+                        event_label: categoryName,
+                        custom_parameters: {
+                            target_section: targetSection
+                        }
+                    });
+                }
+                
+                if (typeof dataLayer !== 'undefined') {
+                    dataLayer.push({
+                        event: 'menu_category_click',
+                        event_category: 'navigation',
+                        event_action: 'click',
+                        event_label: categoryName,
+                        target_section: targetSection,
+                        page_language: document.documentElement.lang || 'en'
+                    });
+                }
+            }, 0);
         });
     });
     
