@@ -1080,6 +1080,11 @@ header {
     margin-left: var(--spacing-md); /* Add some left margin to start */
 }
 
+/* Pause animation when hovering over any category item */
+.categories-scroll:hover {
+    animation-play-state: paused;
+}
+
 /* Add animation-play-state control */
 .mobile-menu-open .categories-scroll {
     animation-play-state: paused;
@@ -1139,8 +1144,10 @@ a.category-item {
     text-decoration: none;
     color: inherit;
     display: block;
-    pointer-events: auto; /* Ensure links are always clickable */
-    cursor: pointer;
+    pointer-events: auto !important; /* Ensure links are always clickable */
+    cursor: pointer !important;
+    position: relative;
+    z-index: 10; /* Ensure links are above any other elements */
 }
 
 a.category-item:visited {
@@ -1154,6 +1161,16 @@ a.category-item:focus {
 
 a.category-item:active {
     transform: translateY(-5px);
+}
+
+/* Ensure the h3 text doesn't block clicks */
+a.category-item h3 {
+    pointer-events: none;
+}
+
+/* Ensure images don't block clicks */
+a.category-item img {
+    pointer-events: none;
 }
 
 .categories-showcase .view-menu-container {

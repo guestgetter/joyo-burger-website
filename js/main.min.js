@@ -525,16 +525,36 @@ function initConversionTracking() {
         });
     });
     
-    // Track menu category navigation
+    // Ensure category links are always working with robust handling
+    ensureCategoryLinksWork();
+}
+
+/**
+ * Ensure category links work reliably regardless of animation state
+ */
+function ensureCategoryLinksWork() {
     const categoryLinks = document.querySelectorAll('a.category-item');
+    
     categoryLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // Don't prevent default navigation - let the link work normally
-            const categoryName = this.querySelector('h3')?.textContent || 'unknown';
-            const targetSection = this.href.split('#')[1] || 'unknown';
-            
-            // Track the click but don't interfere with navigation
-            setTimeout(() => {
+        // Ensure the link is always clickable
+        link.style.pointerEvents = 'auto';
+        link.style.cursor = 'pointer';
+        link.style.position = 'relative';
+        link.style.zIndex = '5';
+        
+        // Add multiple event listeners to ensure clicks work
+        ['click', 'touchend'].forEach(eventType => {
+            link.addEventListener(eventType, function(e) {
+                // For touch events, prevent duplicate firing
+                if (eventType === 'touchend') {
+                    e.preventDefault();
+                }
+                
+                const categoryName = this.querySelector('h3')?.textContent || 'unknown';
+                const targetSection = this.href.split('#')[1] || 'unknown';
+                const targetUrl = this.href;
+                
+                // Track the click
                 if (typeof gtag !== 'undefined') {
                     gtag('event', 'menu_category_click', {
                         event_category: 'navigation',
@@ -555,7 +575,27 @@ function initConversionTracking() {
                         page_language: document.documentElement.lang || 'en'
                     });
                 }
-            }, 0);
+                
+                // For touch events, manually navigate since we prevented default
+                if (eventType === 'touchend') {
+                    window.location.href = targetUrl;
+                }
+            }, { passive: eventType === 'click' });
+        });
+        
+        // Add hover event to pause animation
+        link.addEventListener('mouseenter', function() {
+            const categoriesScroll = document.querySelector('.categories-scroll');
+            if (categoriesScroll) {
+                categoriesScroll.style.animationPlayState = 'paused';
+            }
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            const categoriesScroll = document.querySelector('.categories-scroll');
+            if (categoriesScroll) {
+                categoriesScroll.style.animationPlayState = 'running';
+            }
         });
     });
     
