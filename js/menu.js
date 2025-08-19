@@ -11,14 +11,39 @@ document.addEventListener('DOMContentLoaded', function() {
         initLanguageSystem();
     }
 
+    // Check if we have a hash in the URL (anchor navigation)
+    const urlHash = window.location.hash.substring(1); // Remove the # symbol
+    let targetSection = null;
+    
+    if (urlHash) {
+        targetSection = document.getElementById(urlHash);
+    }
+
     // Hide all menu sections except the active one on initial load
     const menuSections = document.querySelectorAll('.menu-section');
     menuSections.forEach(section => {
-        if (!section.classList.contains('active')) {
-            section.style.display = 'none';
-        } else {
+        if (targetSection && section.id === urlHash) {
+            // If we have a target section from URL hash, make it active
+            section.classList.add('active');
             section.style.display = 'block';
             section.classList.add('no-load-animation');
+            
+            // Update the sidebar to reflect the correct active category
+            const menuCategories = document.querySelectorAll('.menu-category');
+            menuCategories.forEach(category => {
+                category.classList.remove('active');
+                if (category.getAttribute('data-category') === urlHash) {
+                    category.classList.add('active');
+                }
+            });
+        } else if (!targetSection && section.classList.contains('active')) {
+            // Default behavior - show the initially active section
+            section.style.display = 'block';
+            section.classList.add('no-load-animation');
+        } else {
+            // Hide all other sections
+            section.style.display = 'none';
+            section.classList.remove('active');
         }
     });
 
@@ -28,7 +53,44 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Set up menu items with translation if available
     setupMenuTranslations();
+    
+    // Scroll to target section if we have one
+    if (targetSection) {
+        setTimeout(() => {
+            scrollToSection(targetSection);
+        }, 100); // Small delay to ensure everything is rendered
+    }
 });
+
+/**
+ * Scroll to a specific menu section
+ */
+function scrollToSection(targetSection) {
+    if (!targetSection) return;
+    
+    // Scroll the target section into view
+    const siteHeader = document.querySelector('.site-header');
+    const siteHeaderHeight = siteHeader ? siteHeader.offsetHeight : 0;
+    let effectiveViewportOffset;
+
+    if (window.innerWidth < 992) {
+        // Mobile: target position is below fixed header + sticky category bar.
+        const mobileCategoryBarGap = 60;
+        effectiveViewportOffset = siteHeaderHeight + mobileCategoryBarGap + 10;
+    } else {
+        // Desktop: target position aligns with where the sticky sidebar visually starts.
+        const desktopSidebarGap = 100;
+        effectiveViewportOffset = desktopSidebarGap + 10;
+    }
+
+    const sectionAbsoluteTop = targetSection.getBoundingClientRect().top + window.pageYOffset;
+    const scrollToPosition = sectionAbsoluteTop - effectiveViewportOffset;
+
+    window.scrollTo({
+        top: scrollToPosition,
+        behavior: 'smooth'
+    });
+}
 
 /**
  * Initialize menu category navigation
@@ -64,28 +126,8 @@ function initMenuNavigation() {
                 targetSection.classList.add('active');
                 targetSection.style.display = 'block'; // Explicitly show only the target section
                 
-                // Scroll the target section into view
-                const siteHeader = document.querySelector('.site-header');
-                const siteHeaderHeight = siteHeader ? siteHeader.offsetHeight : 0;
-                let effectiveViewportOffset; // How far from viewport top the section should start
-
-                if (window.innerWidth < 992) {
-                    // Mobile: target position is below fixed header + sticky category bar.
-                    const mobileCategoryBarGap = 60; // CSS 'top' for .menu-sidebar on mobile
-                    effectiveViewportOffset = siteHeaderHeight + mobileCategoryBarGap + 10; // +10px margin
-                } else {
-                    // Desktop: target position aligns with where the sticky sidebar visually starts.
-                    const desktopSidebarGap = 100; // CSS 'top' for .menu-sidebar on desktop
-                    effectiveViewportOffset = desktopSidebarGap + 10; // +10px margin
-                }
-
-                const sectionAbsoluteTop = targetSection.getBoundingClientRect().top + window.pageYOffset;
-                const scrollToPosition = sectionAbsoluteTop - effectiveViewportOffset;
-
-                window.scrollTo({
-                    top: scrollToPosition,
-                    behavior: 'smooth'
-                });
+                // Use the centralized scroll function
+                scrollToSection(targetSection);
             }
         });
     });

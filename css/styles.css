@@ -1134,6 +1134,22 @@ header {
     text-align: center;
 }
 
+/* Ensure category item links behave properly */
+a.category-item {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+a.category-item:visited {
+    color: inherit;
+}
+
+a.category-item:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
 .categories-showcase .view-menu-container {
     margin-top: 2rem;
     padding-bottom: var(--spacing-xl);
