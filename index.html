@@ -30,8 +30,8 @@
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="JOYO Burger - Meilleurs Smash Burgers Premium Faits Maison de Montréal | #1 à Montréal">
     <meta property="og:description" content="Les smash burgers les mieux notés de Montréal à Rosemont (rue Masson) et Verdun (rue Wellington). Bœuf frais haché quotidiennement, authentiques frites québécoises coupées à la main et bières artisanales locales.">
-    <meta property="og:image" content="https://joyoburger.com/JOYO - Images/joyo-burger-homepage-hero-image.jpg">
-    <meta property="og:url" content="https://joyoburger.com/fr">
+    <meta property="og:image" content="https://joyoburger.com/JOYO - Images/optimized/joyo-burger-homepage-hero-image.jpg">
+    <meta property="og:url" content="https://joyoburger.com/">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     
@@ -40,6 +40,82 @@
     <link rel="alternate" hreflang="en" href="https://www.joyoburger.com/index-en.html">
     <link rel="alternate" hreflang="fr" href="https://www.joyoburger.com/">
     <link rel="alternate" hreflang="x-default" href="https://www.joyoburger.com/">
+    
+    <!-- Schema.org Local Business Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "JOYO Burger",
+      "image": "https://joyoburger.com/JOYO - Images/optimized/joyo-burger-homepage-hero-image.jpg",
+      "url": "https://joyoburger.com",
+      "telephone": "+15145085696",
+      "priceRange": "$$",
+      "servesCuisine": ["Burgers", "Premium Faits Maison", "Smash Burgers", "Restauration Rapide"],
+      "description": "Les smash burgers premium faits maison #1 de Montréal avec bœuf haché quotidiennement, frites coupées à la main et bières artisanales. Deux emplacements à Rosemont et Verdun.",
+      "openingHours": ["Mo-Su 11:00-22:00"],
+      "acceptsReservations": "false",
+      "hasMenu": "https://joyoburger.com/menu-fr",
+      "areaServed": ["Montréal", "Rosemont", "Verdun", "Québec"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3507 rue Masson",
+        "addressLocality": "Montréal",
+        "addressRegion": "QC",
+        "postalCode": "H1X 1R5",
+        "addressCountry": "CA"
+      },
+      "department": [
+        {
+          "@type": "Restaurant",
+          "name": "JOYO Burger Masson",
+          "image": "https://joyoburger.com/JOYO - Images/joyo-sign.jpg",
+          "telephone": "+15145085696",
+          "priceRange": "$$",
+          "servesCuisine": ["Burgers", "Premium Faits Maison", "Smash Burgers"],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3507 rue Masson",
+            "addressLocality": "Montréal",
+            "addressRegion": "QC",
+            "postalCode": "H1X 1R5",
+            "addressCountry": "CA"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "45.5513",
+            "longitude": "-73.5707"
+          }
+        },
+        {
+          "@type": "Restaurant",
+          "name": "JOYO Burger Wellington",
+          "image": "https://joyoburger.com/JOYO - Images/joyo-sign.jpg",
+          "telephone": "+15145075696",
+          "priceRange": "$$",
+          "servesCuisine": ["Burgers", "Premium Faits Maison", "Smash Burgers"],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "4557 rue Wellington",
+            "addressLocality": "Montréal",
+            "addressRegion": "QC",
+            "postalCode": "H4G 1W8",
+            "addressCountry": "CA"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "45.4601",
+            "longitude": "-73.5693"
+          }
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "250"
+      }
+    }
+    </script>
     
     <!-- Load core styles synchronously to avoid FOUC -->
     <link rel="stylesheet" href="css/styles.min.css">
