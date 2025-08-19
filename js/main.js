@@ -59,6 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize form handlers
     initFormHandlers();
+    
+    // Initialize conversion tracking
+    initConversionTracking();
 });
 
 /**
@@ -468,6 +471,114 @@ function initFormHandlers() {
             }
         });
     }
+}
+
+/**
+ * Initialize conversion tracking for key business actions
+ */
+function initConversionTracking() {
+    // Track ORDER ONLINE button clicks
+    const orderButtons = document.querySelectorAll('.order-now-btn');
+    orderButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // Track with GA4
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'order_online_click', {
+                    event_category: 'engagement',
+                    event_label: 'order_online_button',
+                    value: 1
+                });
+            }
+            
+            // Track with GTM
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    event: 'order_online_click',
+                    event_category: 'conversion',
+                    event_action: 'click',
+                    event_label: 'order_online_button',
+                    page_location: window.location.href,
+                    page_language: document.documentElement.lang || 'en'
+                });
+            }
+        });
+    });
+    
+    // Track menu category navigation
+    const categoryLinks = document.querySelectorAll('a.category-item');
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const categoryName = this.querySelector('h3')?.textContent || 'unknown';
+            const targetSection = this.href.split('#')[1] || 'unknown';
+            
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'menu_category_click', {
+                    event_category: 'navigation',
+                    event_label: categoryName,
+                    custom_parameters: {
+                        target_section: targetSection
+                    }
+                });
+            }
+            
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    event: 'menu_category_click',
+                    event_category: 'navigation',
+                    event_action: 'click',
+                    event_label: categoryName,
+                    target_section: targetSection,
+                    page_language: document.documentElement.lang || 'en'
+                });
+            }
+        });
+    });
+    
+    // Track phone number clicks
+    const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+    phoneLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'phone_click', {
+                    event_category: 'engagement',
+                    event_label: 'phone_number',
+                    value: 1
+                });
+            }
+            
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    event: 'phone_click',
+                    event_category: 'conversion',
+                    event_action: 'click',
+                    event_label: 'phone_number'
+                });
+            }
+        });
+    });
+    
+    // Track directions clicks
+    const directionsLinks = document.querySelectorAll('.directions-btn, a[href*="maps.google"]');
+    directionsLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'directions_click', {
+                    event_category: 'engagement',
+                    event_label: 'get_directions',
+                    value: 1
+                });
+            }
+            
+            if (typeof dataLayer !== 'undefined') {
+                dataLayer.push({
+                    event: 'directions_click',
+                    event_category: 'local_engagement',
+                    event_action: 'click',
+                    event_label: 'get_directions'
+                });
+            }
+        });
+    });
 }
 
 /**
