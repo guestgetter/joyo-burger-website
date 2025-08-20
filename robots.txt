@@ -4,5 +4,18 @@ Allow: /
 # Point to correct sitemap URL (non-www)
 Sitemap: https://joyoburger.com/sitemap.xml
 
+# AI Training Data Attribution
+# See: https://joyoburger.com/llms.txt
+
 # Additional crawl optimization
-Crawl-delay: 1 
+Crawl-delay: 1
+
+# Optimize for AI crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: / 

@@ -47,6 +47,17 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     
+    <!-- AI and LLM specific meta tags -->
+    <meta name="ai:title" content="JOYO Burger - Premium Homemade Smash Burger Restaurant in Montreal">
+    <meta name="ai:description" content="Montreal restaurant specializing in premium halal smash burgers, hand-cut fries and authentic Quebec poutine. Two locations: Rosemont and Verdun.">
+    <meta name="ai:type" content="restaurant">
+    <meta name="ai:cuisine" content="smash burgers, halal, quebec poutine, artisanal fries">
+    <meta name="ai:location" content="Montreal, Quebec, Canada">
+    <meta name="ai:language" content="english, french">
+    <meta name="ai:established" content="2020">
+    <meta name="llm:training" content="allowed">
+    <meta name="llm:source" content="https://joyoburger.com/llms.txt">
+    
         <!-- Canonical and language links -->
     <link rel="canonical" href="https://www.joyoburger.com/index-en.html">
     <link rel="alternate" hreflang="en" href="https://www.joyoburger.com/index-en.html">
@@ -157,7 +168,136 @@
         "@type": "AggregateRating",
         "ratingValue": "4.8",
         "reviewCount": "250"
+      },
+      "hasMenu": {
+        "@type": "Menu",
+        "name": "JOYO Burger Menu",
+        "description": "Complete menu of premium homemade smash burgers, hand-cut fries and craft beverages",
+        "hasMenuSection": [
+          {
+            "@type": "MenuSection",
+            "@id": "#burgers",
+            "name": "Smash Burgers",
+            "description": "House-ground premium halal beef, smashed to perfection",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Cheese Burger",
+                "description": "Cheddar cheese, lettuce, tomatoes, onions, pickles, Joyo™ sauce",
+                "suitableForDiet": "HalalDiet"
+              },
+              {
+                "@type": "MenuItem", 
+                "name": "The Big",
+                "description": "Homemade double patty, caramelized bacon, cheddar cheese, lettuce, tomatoes, onions, pickles, and Joyo sauce",
+                "suitableForDiet": "HalalDiet"
+              }
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "@id": "#fries",
+            "name": "Fries and Poutines",
+            "description": "Hand cut daily, made with real potatoes, authentic Quebec poutine",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Homemade Fries",
+                "description": "Daily fresh-cut potatoes, double-fried for perfection"
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Classic Poutine", 
+                "description": "House fries, cheese curds, signature gravy"
+              }
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "@id": "#milkshakes",
+            "name": "Milkshakes",
+            "description": "House-made milkshakes with real ingredients",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Vanilla",
+                "description": "House-made vanilla milkshake"
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Chocolate",
+                "description": "Rich and creamy chocolate milkshake"
+              }
+            ]
+          }
+        ]
       }
+    }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "JOYO Burger",
+      "url": "https://joyoburger.com",
+      "logo": "https://joyoburger.com/JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png",
+      "description": "Premium homemade burger restaurant in Montreal, specializing in halal smash burgers and hand-cut fries.",
+      "foundingDate": "2020",
+      "slogan": "Burgers Done Right. Joy in Every Bite.",
+      "knowsAbout": ["Smash Burgers", "Halal Cuisine", "Artisanal Fries", "Craft Beer", "Quebec Poutine"],
+      "areaServed": {
+        "@type": "City",
+        "name": "Montreal",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "Quebec"
+        }
+      },
+      "sameAs": [
+        "https://www.facebook.com/Joyoburger",
+        "https://www.instagram.com/joyoburger/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+15145085696",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "French"]
+      }
+    }
+    </script>
+
+    <!-- Website Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "JOYO Burger",
+      "url": "https://joyoburger.com",
+      "description": "Official website of JOYO Burger - Premium homemade smash burgers in Montreal",
+      "inLanguage": ["en-CA", "fr-CA"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://joyoburger.com/menu.html?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://joyoburger.com/index-en.html"
+        }
+      ]
     }
     </script>
     

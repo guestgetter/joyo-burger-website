@@ -35,6 +35,17 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     
+    <!-- AI and LLM specific meta tags -->
+    <meta name="ai:title" content="JOYO Burger - Restaurant de Smash Burgers Premium à Montréal">
+    <meta name="ai:description" content="Restaurant montréalais spécialisé en smash burgers halal faits maison, frites coupées à la main et poutine québécoise authentique. Deux emplacements: Rosemont et Verdun.">
+    <meta name="ai:type" content="restaurant">
+    <meta name="ai:cuisine" content="smash burgers, halal, poutine québécoise, frites artisanales">
+    <meta name="ai:location" content="Montréal, Québec, Canada">
+    <meta name="ai:language" content="français, anglais">
+    <meta name="ai:established" content="2020">
+    <meta name="llm:training" content="allowed">
+    <meta name="llm:source" content="https://joyoburger.com/llms.txt">
+    
         <!-- Canonical and language links -->
     <link rel="canonical" href="https://www.joyoburger.com/">
     <link rel="alternate" hreflang="en" href="https://www.joyoburger.com/index-en.html">
@@ -113,7 +124,136 @@
         "@type": "AggregateRating",
         "ratingValue": "4.8",
         "reviewCount": "250"
+      },
+      "hasMenu": {
+        "@type": "Menu",
+        "name": "Menu JOYO Burger",
+        "description": "Menu complet de burgers premium faits maison, frites coupées à la main et boissons artisanales",
+        "hasMenuSection": [
+          {
+            "@type": "MenuSection",
+            "@id": "#burgers",
+            "name": "Smash Burgers",
+            "description": "Bœuf premium halal haché maison quotidiennement, écrasé à la perfection",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Le Classic",
+                "description": "Fromage cheddar, laitue, tomates, oignons, cornichons, sauce Joyo™",
+                "suitableForDiet": "HalalDiet"
+              },
+              {
+                "@type": "MenuItem", 
+                "name": "The Big",
+                "description": "Double galette maison, bacon caramélisé, fromage cheddar, laitue, tomates, oignons, cornichons, sauce Joyo",
+                "suitableForDiet": "HalalDiet"
+              }
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "@id": "#fries",
+            "name": "Frites et Poutines",
+            "description": "Frites coupées à la main quotidiennement, poutine authentique québécoise",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Frites Maison",
+                "description": "Pommes de terre fraîches coupées quotidiennement, frites deux fois pour la perfection"
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Poutine Classique", 
+                "description": "Frites maison, fromage en grains, sauce à poutine signature"
+              }
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "@id": "#milkshakes",
+            "name": "Milkshakes",
+            "description": "Milkshakes faits maison avec de vrais ingrédients",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Vanille",
+                "description": "Milkshake à la vanille fait maison"
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Chocolat",
+                "description": "Milkshake au chocolat riche et crémeux"
+              }
+            ]
+          }
+        ]
       }
+    }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "JOYO Burger",
+      "url": "https://joyoburger.com",
+      "logo": "https://joyoburger.com/JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png",
+      "description": "Restaurant de burgers premium faits maison à Montréal, spécialisé dans les smash burgers halal et les frites coupées à la main.",
+      "foundingDate": "2020",
+      "slogan": "Burgers Done Right. Joy in Every Bite.",
+      "knowsAbout": ["Smash Burgers", "Cuisine Halal", "Frites Artisanales", "Bières Artisanales", "Poutine Québécoise"],
+      "areaServed": {
+        "@type": "City",
+        "name": "Montréal",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "Québec"
+        }
+      },
+      "sameAs": [
+        "https://www.facebook.com/Joyoburger",
+        "https://www.instagram.com/joyoburger/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+15145085696",
+        "contactType": "customer service",
+        "availableLanguage": ["French", "English"]
+      }
+    }
+    </script>
+
+    <!-- Website Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "JOYO Burger",
+      "url": "https://joyoburger.com",
+      "description": "Site officiel de JOYO Burger - Smash burgers premium faits maison à Montréal",
+      "inLanguage": ["fr-CA", "en-CA"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://joyoburger.com/menu-fr.html?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://joyoburger.com/"
+        }
+      ]
     }
     </script>
     
