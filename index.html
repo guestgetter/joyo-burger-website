@@ -235,7 +235,7 @@
     
     <!-- Load core styles synchronously to avoid FOUC -->
     <link rel="stylesheet" href="css/styles.min.css">
-    <link rel="stylesheet" href="css/responsive.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/responsive.min.css">
     <link rel="stylesheet" href="css/animations.min.css" media="print" onload="this.media='all'">
 
     <link rel="stylesheet" href="css/hero-fix.min.css" media="print" onload="this.media='all'">
@@ -255,6 +255,36 @@
         /* Hide mobile overlay nav until CSS/JS are ready to avoid flash */
         .joyo-mobile-nav { display: none; }
         .joyo-mobile-nav.active { display: block; }
+        
+        /* Critical mobile navigation toggle styles */
+        .joyo-mobile-nav-toggle {
+            display: none;
+            background: black;
+            border: 2px solid #ca831a;
+            width: 44px;
+            height: 44px;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 0;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .joyo-mobile-nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 3px;
+            background-color: #ca831a;
+            margin: 3px 0;
+        }
+        
+        @media (max-width: 991px) {
+            .main-nav { display: none !important; }
+            .joyo-mobile-nav-toggle { display: flex !important; }
+            .cta-buttons .language-selector,
+            .cta-buttons .social-icons { display: none !important; }
+        }
     </style>
     
     <!-- Font Awesome loaded asynchronously -->
