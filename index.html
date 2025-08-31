@@ -235,14 +235,12 @@
     
     <!-- Load core styles synchronously to avoid FOUC -->
     <link rel="stylesheet" href="css/styles.min.css">
-    <link rel="stylesheet" href="css/responsive.min.css">
-    <link rel="stylesheet" href="css/animations.min.css">
+    <link rel="stylesheet" href="css/responsive.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/animations.min.css" media="print" onload="this.media='all'">
 
-    <link rel="stylesheet" href="css/form-messages.min.css">
-    <!-- Hero section emergency fix CSS -->
-    <link rel="stylesheet" href="css/hero-fix.min.css">
-    <!-- Mobile-specific hero fix -->
-    <link rel="stylesheet" href="css/hero-mobile-fix.min.css">
+    <link rel="stylesheet" href="css/hero-fix.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/hero-mobile-fix.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/form-messages.min.css" media="print" onload="this.media='all'">
     <style>
         /* Critical navigation styles to prevent FOUC/blue links */
         header { position: fixed; top: 0; width: 100%; background-color: rgba(0,0,0,0.9); z-index: 1000; }
@@ -258,8 +256,10 @@
         .joyo-mobile-nav { display: none; }
         .joyo-mobile-nav.active { display: block; }
     </style>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Font Awesome loaded asynchronously -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -309,6 +309,28 @@
             </div>
         </div>
     </header>
+    
+    <!-- Mobile Navigation -->
+    <div class="joyo-mobile-nav">
+        <button class="joyo-mobile-nav-close" aria-label="Fermer le menu mobile">&times;</button>
+        <ul>
+            <li><a href="/menu-fr.html">MENU</a></li>
+            <li><a href="/about-fr.html">À PROPOS</a></li>
+            <li><a href="/career-fr.html">CARRIÈRE</a></li>
+            <li><a href="/find-us-fr.html">NOUS TROUVER</a></li>
+            <li><a href="/contact-fr.html">CONTACT</a></li>
+        </ul>
+        <a href="https://order.ueat.io/integration/ed824cce-5687-4ec8-aa2b-68f92e7dcff7/fr#/" target="_blank" class="order-now-btn">COMMANDER EN LIGNE</a>
+        <div class="language-selector">
+            <a href="/index-en.html" class="language-toggle">EN</a>
+            <span class="divider">|</span>
+            <a href="/" class="language-toggle active">FR</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/Joyoburger" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/joyoburger/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
     
     <!-- Hero Section -->
     <section class="hero">
@@ -573,30 +595,18 @@
         </div>
     </footer>
     
-    <!-- Mobile Navigation -->
-    <div class="joyo-mobile-nav">
-        <button class="joyo-mobile-nav-close" aria-label="Fermer le menu mobile">&times;</button>
-        <ul>
-            <li><a href="/menu-fr.html">MENU</a></li>
-            <li><a href="/about-fr.html">À PROPOS</a></li>
-            <li><a href="/career-fr.html">CARRIÈRE</a></li>
-            <li><a href="/find-us-fr.html">NOUS TROUVER</a></li>
-            <li><a href="/contact-fr.html">CONTACT</a></li>
-        </ul>
-        <a href="https://order.ueat.io/integration/ed824cce-5687-4ec8-aa2b-68f92e7dcff7/fr#/" target="_blank" class="order-now-btn">COMMANDER EN LIGNE</a>
-        <div class="language-selector">
-            <a href="/index-en.html" class="language-toggle">EN</a>
-            <span class="divider">|</span>
-            <a href="/" class="language-toggle active">FR</a>
-        </div>
-        <div class="social-icons">
-            <a href="https://www.facebook.com/Joyoburger" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/joyoburger/" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-    </div>
+    <!-- Defer JavaScript loading for better performance -->
+    <script src="js/highlevel-integration.min.js" defer></script>
+    <script src="js/main.min.js" defer></script>
     
-    <!-- JavaScript -->
-    <script src="js/highlevel-integration.min.js"></script>
-    <script src="js/main.min.js"></script>
+    <!-- Add noscript fallback for critical CSS -->
+    <noscript>
+        <link rel="stylesheet" href="css/styles.min.css">
+        <link rel="stylesheet" href="css/responsive.min.css">
+        <link rel="stylesheet" href="css/animations.min.css">
+        <link rel="stylesheet" href="css/hero-fix.min.css">
+        <link rel="stylesheet" href="css/hero-mobile-fix.min.css">
+        <link rel="stylesheet" href="css/form-messages.min.css">
+    </noscript>
 </body>
 </html> 
