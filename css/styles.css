@@ -1078,6 +1078,15 @@ header {
     padding: var(--spacing-md) 0;
     will-change: transform;
     margin-left: var(--spacing-md); /* Add some left margin to start */
+    transform: translateZ(0); /* Force hardware acceleration */
+    backface-visibility: hidden; /* Improve mobile performance */
+}
+
+/* Mobile-specific faster scrolling for better performance */
+@media (max-width: 991px) {
+    .categories-scroll {
+        animation: scrollCategories 8s linear infinite;
+    }
 }
 
 /* Add animation-play-state control */
