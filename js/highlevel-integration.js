@@ -166,7 +166,7 @@ class HighLevelIntegration {
             fullName: formData.get('fullName'),
             email: formData.get('email'),
             phone: formData.get('phone'),
-            tags: ['joyo-vip'] // Always tag newsletter signups as VIP
+            tags: ['joyo-vip', 'newsletter-signup', 'website-lead'] // Better segmentation
         };
 
         return await this.submitContact(contactData);
@@ -183,10 +183,13 @@ class HighLevelIntegration {
             comments: formData.get('comments') || '' // Get the comments field
         };
 
+        // Always tag contact form submissions, plus VIP if opted in
+        contactData.tags = ['contact-form', 'website-lead'];
+        
         // Check if they opted into VIP (newsletter checkbox)
         const vipOptIn = formData.get('newsletter');
         if (vipOptIn) {
-            contactData.tags = ['joyo-vip'];
+            contactData.tags.push('joyo-vip', 'newsletter-signup');
         }
 
         // Always send email notification for contact form submissions
