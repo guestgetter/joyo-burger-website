@@ -176,12 +176,10 @@
                     <div class="accent-line"></div>
                     <p class="form-intro">We'd love to hear from you. Share your experience at JOYO™ or simply send us a message with a suggestion or question!</p>
                     
-                    <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                        <!-- Hidden field for Netlify Forms spam protection -->
-                        <input type="hidden" name="form-name" value="contact" />
-                        <div style="display: none;">
-                            <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-                        </div>
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xqakgpbv" method="POST">
+                        <input type="hidden" name="_subject" value="New Contact Form Submission - JOYO Burger" />
+                        <input type="hidden" name="_cc" value="kyle@nimblebar.co" />
+                        <input type="hidden" name="_next" value="https://www.joyoburger.com/contact.html?success=true" />
                         
                         <div class="form-group">
                             <label for="name">Name *</label>
