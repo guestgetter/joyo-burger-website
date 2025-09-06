@@ -193,8 +193,7 @@ class HighLevelIntegration {
             contactData.tags.push('joyo-vip', 'newsletter-signup');
         }
 
-        // Always send email notification for contact form submissions
-        const emailSent = await this.sendContactFormEmail(contactData);
+        // Email notifications handled by Netlify Forms (server-side)
 
         // Also submit to HighLevel CRM
         const crmResult = await this.submitContact(contactData);
@@ -202,15 +201,14 @@ class HighLevelIntegration {
         // Return combined result
         return {
             success: crmResult.success,
-            emailSent: emailSent,
+            emailSent: true, // Netlify Forms handles this
             data: crmResult.data,
-            updated: crmResult.updated,
-            fallback: crmResult.fallback
+            updated: crmResult.updated
         };
     }
 
     /**
-     * Send email notification for contact form submissions
+     * DEPRECATED - Email notifications now handled by Netlify Forms
      */
     async sendContactFormEmail(contactData) {
         try {

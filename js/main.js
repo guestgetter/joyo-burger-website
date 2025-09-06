@@ -427,44 +427,28 @@ function initFormHandlers() {
     const contactForm = document.querySelector('#contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
+            // Don't prevent default - let Netlify Forms handle email delivery
             
             const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
             
             // Show loading state
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
             
             try {
-                // Check if HighLevel integration is available
+                // Do CRM integration in background while form submits normally
                 if (typeof window.highLevelIntegration !== 'undefined') {
                     const formData = new FormData(this);
-                    const result = await window.highLevelIntegration.handleContactSubmission(formData);
-                    
-                    if (result.success) {
-                        // Check if VIP opt-in was selected
-                        const isVip = formData.get('newsletter') ? true : false;
-                        window.highLevelIntegration.showSuccessMessage(
-                            this.parentElement, 
-                            isVip, 
-                            result.emailSent
-                        );
-                    } else {
-                        window.highLevelIntegration.showErrorMessage(this.parentElement);
-                    }
-                } else {
-                    // Fallback if HighLevel integration isn't loaded
-                    console.error('HighLevel integration not available');
-                    showFallbackMessage(this.parentElement, 'success', 'Contact Form');
+                    // Don't await - let it run in background
+                    window.highLevelIntegration.handleContactSubmission(formData);
                 }
+                
+                // Form will submit naturally to Netlify Forms for email delivery
+                console.log('✅ Form submitted - Netlify Forms will handle email delivery');
+                
             } catch (error) {
-                console.error('Form submission error:', error);
-                if (typeof window.highLevelIntegration !== 'undefined') {
-                    window.highLevelIntegration.showErrorMessage(this.parentElement);
-                } else {
-                    showFallbackMessage(this.parentElement, 'error');
-                }
+                console.error('CRM integration error:', error);
+                // Still let form submit for email delivery
             }
         });
     }
