@@ -423,35 +423,8 @@ function initFormHandlers() {
         });
     }
     
-    // Contact form handler
-    const contactForm = document.querySelector('#contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
-            // Don't prevent default - let Netlify Forms handle email delivery
-            
-            const submitBtn = this.querySelector('.submit-btn');
-            
-            // Show loading state
-            submitBtn.classList.add('loading');
-            submitBtn.disabled = true;
-            
-            try {
-                // Do CRM integration in background while form submits normally
-                if (typeof window.highLevelIntegration !== 'undefined') {
-                    const formData = new FormData(this);
-                    // Don't await - let it run in background
-                    window.highLevelIntegration.handleContactSubmission(formData);
-                }
-                
-                // Form will submit naturally to Netlify Forms for email delivery
-                console.log('✅ Form submitted - Netlify Forms will handle email delivery');
-                
-            } catch (error) {
-                console.error('CRM integration error:', error);
-                // Still let form submit for email delivery
-            }
-        });
-    }
+    // Contact form - let it submit naturally to Netlify Forms
+    // No JavaScript interference needed
 }
 
 /**
