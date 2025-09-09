@@ -20,5 +20,6 @@
     { "source": "/find-us-fr.html", "destination": "/find-us-fr", "permanent": true },
     { "source": "/contact-fr.html", "destination": "/contact-fr", "permanent": true },
     { "source": "/privacy-fr.html", "destination": "/privacy-fr", "permanent": true }
+    ,{ "source": "/wellington-location-fr.html", "destination": "/verdun-wellington-fr.html", "permanent": true }
   ]
 }

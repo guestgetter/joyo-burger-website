@@ -7,3 +7,6 @@
 # Error pages (no redirect needed - serve directly)
 /404.html 404
 /500.html 500
+
+# Fix old Wellington FR URL
+/wellington-location-fr.html /verdun-wellington-fr.html 301
