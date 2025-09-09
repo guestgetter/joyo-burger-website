@@ -16,7 +16,7 @@
 @import 'components/locations.css';
 
 /* Import Magical Button Animation */
-@import 'joyo-order-button-magic.min.css';
+/* @import 'joyo-order-button-magic.min.css'; */
 
 /* Import Utility Styles - REMOVE THESE FOR NOW */
 /* @import 'responsive.css'; */
@@ -2276,23 +2276,99 @@ h2, h2.scrolled, section h2, section h2.scrolled,
 .about-intro {
     padding: var(--spacing-xxl) 0;
     background-color: white;
+}
+
+.about-intro-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xxl);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-intro-text {
+    flex: 1;
     text-align: center;
 }
 
-.about-intro .container::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background-color: var(--ochre);
-    margin: 2rem auto 0;
+.about-intro-text h2 {
+    margin-bottom: 1rem;
+}
+
+.about-intro-text .accent-line {
+    margin: 1rem auto 2rem;
 }
 
 .intro-text {
-    max-width: 800px;
-    margin: 0 auto 1.5rem;
     font-size: 1.25rem;
     line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.about-intro .founder-image {
+    flex: 0 0 45%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.about-intro .founder-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    margin-bottom: var(--spacing-md);
+}
+
+.about-intro .founder-image img:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.about-intro .founder-caption p {
+    color: var(--black);
+    font-size: 1.2rem;
+    margin: 0;
+    font-family: var(--font-family-primary);
+    font-weight: 600;
+}
+
+/* Responsive styles for about-intro */
+@media (max-width: 991px) {
+    .about-intro-content {
+        gap: var(--spacing-xl);
+    }
+    
+    .about-intro .founder-image {
+        flex: 0 0 40%;
+        max-width: 400px;
+    }
+    
+    .about-intro .founder-caption p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-intro-content {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+    
+    .about-intro .founder-image {
+        flex: none;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    
+    .intro-text {
+        font-size: 1.1rem;
+    }
+    
+    .about-intro .founder-caption p {
+        font-size: 1.1rem;
+    }
 }
 
 .about-values {
@@ -2681,6 +2757,81 @@ body.mobile-menu-open {
 
 .joyo-mobile-nav-close:hover {
     color: white;
+}
+
+/* Mobile Dropdown Styles (shared across all pages) */
+.mobile-dropdown {
+    position: relative;
+}
+
+.mobile-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    font-family: 'DINRound', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.mobile-dropdown-toggle:hover,
+.mobile-dropdown-toggle.active {
+    color: var(--ochre);
+    background: rgba(202, 131, 26, 0.1);
+}
+
+.mobile-dropdown-arrow {
+    font-size: 14px;
+    transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.active .mobile-dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.mobile-dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.mobile-dropdown.active .mobile-dropdown-menu {
+    max-height: 200px;
+    padding: 8px 0;
+}
+
+.mobile-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 40px;
+    color: #ddd;
+    text-decoration: none;
+    font-family: 'DINRound', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.mobile-dropdown-item:hover {
+    background: rgba(202, 131, 26, 0.1);
+    color: var(--ochre);
+    border-left-color: var(--ochre);
+}
+
+.mobile-dropdown-item i {
+    color: var(--ochre);
+    font-size: 12px;
 }
 
 /* Privacy Page Styles */

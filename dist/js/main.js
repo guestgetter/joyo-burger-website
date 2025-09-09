@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize components with minimal impact
     requestAnimationFrame(() => {
     initMobileMenu();
+    initMobileDropdown();
     initSmoothScrolling();
     initCategoriesScroll();
     initTestimonials();
@@ -123,9 +124,52 @@ function initMobileMenu() {
     // Close menu when clicking on nav links
     const navLinks = mobileNav.querySelectorAll('a');
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+            if (link.classList && link.classList.contains('mobile-dropdown-toggle')) {
+                return;
+            }
             closeMenu();
         }, { passive: true });
+    });
+}
+
+/**
+ * Mobile dropdown toggle behavior (site-wide)
+ */
+function initMobileDropdown() {
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    if (!mobileDropdownToggles.length) return;
+
+    // ARIA setup for accessibility
+    mobileDropdownToggles.forEach(t => {
+        t.setAttribute('aria-haspopup', 'true');
+        t.setAttribute('aria-expanded', 'false');
+    });
+
+    mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const dropdown = this.closest('.mobile-dropdown');
+            if (!dropdown) return;
+
+            const isActive = dropdown.classList.contains('active');
+
+            // Close all other dropdowns
+            document.querySelectorAll('.mobile-dropdown').forEach(otherDropdown => {
+                if (otherDropdown !== dropdown) {
+                    otherDropdown.classList.remove('active');
+                    const otherToggle = otherDropdown.querySelector('.mobile-dropdown-toggle');
+                    if (otherToggle) otherToggle.classList.remove('active');
+                }
+            });
+
+            // Toggle current dropdown
+            dropdown.classList.toggle('active', !isActive);
+            this.classList.toggle('active', !isActive);
+            this.setAttribute('aria-expanded', !isActive ? 'true' : 'false');
+        }, { passive: false });
     });
 }
 
@@ -423,51 +467,8 @@ function initFormHandlers() {
         });
     }
     
-    // Contact form handler
-    const contactForm = document.querySelector('#contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            // Show loading state
-            submitBtn.classList.add('loading');
-            submitBtn.disabled = true;
-            
-            try {
-                // Check if HighLevel integration is available
-                if (typeof window.highLevelIntegration !== 'undefined') {
-                    const formData = new FormData(this);
-                    const result = await window.highLevelIntegration.handleContactSubmission(formData);
-                    
-                    if (result.success) {
-                        // Check if VIP opt-in was selected
-                        const isVip = formData.get('newsletter') ? true : false;
-                        window.highLevelIntegration.showSuccessMessage(
-                            this.parentElement, 
-                            isVip, 
-                            result.emailSent
-                        );
-                    } else {
-                        window.highLevelIntegration.showErrorMessage(this.parentElement);
-                    }
-                } else {
-                    // Fallback if HighLevel integration isn't loaded
-                    console.error('HighLevel integration not available');
-                    showFallbackMessage(this.parentElement, 'success', 'Contact Form');
-                }
-            } catch (error) {
-                console.error('Form submission error:', error);
-                if (typeof window.highLevelIntegration !== 'undefined') {
-                    window.highLevelIntegration.showErrorMessage(this.parentElement);
-                } else {
-                    showFallbackMessage(this.parentElement, 'error');
-                }
-            }
-        });
-    }
+    // Contact form - let it submit naturally to Netlify Forms
+    // No JavaScript interference needed
 }
 
 /**

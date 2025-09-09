@@ -1,0 +1,2 @@
+/* Menu sticky positioning fix */
+.menu-sidebar{position:sticky;top:100px;height:calc(100vh - 100px);overflow-y:auto;z-index:10}@media (max-width:768px){.menu-sidebar{position:relative;top:auto;height:auto;overflow-y:visible;z-index:1}}

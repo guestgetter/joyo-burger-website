@@ -1,0 +1,2333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>JOYO Burger Rosemont | 3036 rue Masson Montréal | Meilleurs Smash Burgers Fait maison</title>
+    <meta name="description" content="Visitez JOYO Burger sur la rue Masson à Rosemont ! Restaurant de smash burgers fait maison #1 de Montréal. Bœuf fraîchement haché, frites coupées à la main. Ouvert 11h-22h tous les jours.">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="keywords" content="JOYO Burger Rosemont, burger rue Masson, restaurant Rosemont, burger fait maison Masson, meilleur burger Rosemont Montréal, smash burger Rosemont, restaurant Plateau Mont-Royal">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.joyoburger.com/rosemont-masson-location-fr.html">
+    <link rel="alternate" hreflang="en" href="https://www.joyoburger.com/rosemont-masson-location.html">
+    <link rel="alternate" hreflang="fr" href="https://www.joyoburger.com/rosemont-masson-location-fr.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.joyoburger.com/rosemont-masson-location-fr.html">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="JOYO Burger Rosemont | 3036 rue Masson | Smash Burgers Fait maison Premium">
+    <meta property="og:description" content="Découvrez les meilleurs smash burgers fait maison de Montréal sur la rue Masson à Rosemont. Bœuf fraîchement haché quotidiennement, frites authentiques du Québec coupées à la main, bière artisanale.">
+    <meta property="og:image" content="https://joyoburger.com/JOYO - Images/joyo-burger-rosemont-interior.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JOYO Burger Rosemont | 3036 rue Masson | Smash Burgers Fait maison Premium">
+    <meta name="twitter:description" content="Découvrez les meilleurs smash burgers fait maison de Montréal sur la rue Masson à Rosemont. Bœuf fraîchement haché quotidiennement, frites authentiques du Québec coupées à la main, bière artisanale.">
+    <meta name="twitter:image" content="https://joyoburger.com/JOYO - Images/joyo-burger-rosemont-interior.jpg">
+    <meta property="og:url" content="https://joyoburger.com/rosemont-masson-location-fr.html">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="JOYO - Images/joyo-burger-favicon.png">
+    <link rel="apple-touch-icon" href="JOYO - Images/joyo-burger-favicon.png">
+    
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="css/responsive.min.css">
+    <link rel="stylesheet" href="css/animations.min.css">
+    <link rel="stylesheet" href="css/locations-fix.min.css">
+    <!-- Font Awesome for icons -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" as="image" href="JOYO - Images/joyo-burger-delicious-burgers-montreal.jpg">
+    
+    <style>
+        /* Critical mobile navigation toggle styles */
+        .joyo-mobile-nav-toggle {
+            display: none;
+            background: black;
+            border: 2px solid #ca831a;
+            width: 44px;
+            height: 44px;
+            border-radius: 4px;
+            cursor: pointer;
+            padding: 0;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .joyo-mobile-nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 3px;
+            background-color: #ca831a;
+            margin: 3px 0;
+        }
+        
+        @media (max-width: 991px) {
+            .main-nav { display: none !important; }
+            .joyo-mobile-nav-toggle { 
+                display: flex !important; 
+                grid-column: 3;
+                justify-self: end;
+                margin-right: 5px;
+            }
+            .header-content {
+                display: grid !important;
+                grid-template-columns: 1fr auto 1fr !important;
+                align-items: center;
+                column-gap: 20px;
+            }
+            .logo {
+                grid-column: 1;
+                justify-self: start;
+                padding-left: 5px;
+            }
+            .cta-buttons {
+                grid-column: 2;
+                justify-self: center;
+                margin: 0;
+                padding: 0;
+            }
+            .cta-buttons .language-selector,
+            .cta-buttons .social-icons { display: none !important; }
+        }
+        
+        /* Hide mobile overlay nav until CSS/JS are ready to avoid flash */
+        .joyo-mobile-nav { display: none; }
+        .joyo-mobile-nav.active { display: block; }
+        /* Ensure dropdowns are never clipped */
+        .site-header, .header-content { overflow: visible; }
+        
+        /* Navigation Dropdown Styles */
+        .nav-dropdown {
+            position: relative;
+        }
+        
+        /* Align all top-level nav links perfectly */
+        .nav-list .nav-link { display: inline-flex; align-items: center; line-height: 1; padding: 8px 0; }
+        .dropdown-toggle { display: inline-flex; align-items: center; gap: 6px; }
+        
+        .dropdown-arrow { font-size: 12px; transition: transform 0.3s ease; position: relative; top: 1px; }
+        
+        .nav-dropdown:hover .dropdown-arrow,
+        .nav-dropdown.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 12px 0;
+            min-width: 220px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(-50%) translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: 1px solid rgba(202, 131, 26, 0.2);
+        }
+        
+        .nav-dropdown:hover .dropdown-menu,
+        .nav-dropdown:focus-within .dropdown-menu,
+        .nav-dropdown.active .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            color: #ddd;
+            text-decoration: none;
+            font-family: 'DINRound', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .dropdown-item:hover {
+            background: rgba(202, 131, 26, 0.1);
+            color: var(--ochre);
+            border-left-color: var(--ochre);
+        }
+        
+        .dropdown-item.active {
+            background: rgba(202, 131, 26, 0.15);
+            color: var(--ochre);
+            border-left-color: var(--ochre);
+        }
+        
+        .dropdown-item i {
+            color: var(--ochre);
+            font-size: 14px;
+        }
+        
+        /* Mobile Dropdown Styles */
+        .mobile-dropdown {
+            position: relative;
+        }
+        
+        .mobile-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 15px 20px;
+            color: #fff;
+            text-decoration: none;
+            font-family: 'DINRound', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-dropdown-toggle:hover,
+        .mobile-dropdown-toggle.active {
+            color: var(--ochre);
+            background: rgba(202, 131, 26, 0.1);
+        }
+        
+        .mobile-dropdown-arrow {
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-dropdown.active .mobile-dropdown-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .mobile-dropdown-menu {
+            max-height: 0;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.3);
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .mobile-dropdown.active .mobile-dropdown-menu {
+            max-height: 200px;
+            padding: 8px 0;
+        }
+        
+        .mobile-dropdown-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 40px;
+            color: #ddd;
+            text-decoration: none;
+            font-family: 'DINRound', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+        
+        .mobile-dropdown-item:hover {
+            background: rgba(202, 131, 26, 0.1);
+            color: var(--ochre);
+            border-left-color: var(--ochre);
+        }
+        
+        .mobile-dropdown-item.active {
+            background: rgba(202, 131, 26, 0.15);
+            color: var(--ochre);
+            border-left-color: var(--ochre);
+        }
+        
+        .mobile-dropdown-item i {
+            color: var(--ochre);
+            font-size: 12px;
+        }
+    </style>
+    
+    <!-- Gallery Section Styles -->
+    <style>
+        .gallery-section {
+            padding: 80px 0;
+            background-color: var(--color-bg-secondary);
+        }
+        
+        .gallery-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: start;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .gallery-content {
+            padding: 40px 30px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            border-left: 5px solid var(--ochre);
+        }
+        
+        .gallery-content h2 {
+            color: #fff !important;
+            font-size: 42px;
+            font-weight: 800;
+            text-align: left;
+            text-transform: uppercase;
+            margin: 0 0 25px;
+            font-family: var(--heading-font);
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+        
+        .gallery-content .accent-line {
+            margin: 0 0 35px;
+            width: 80px;
+            height: 4px;
+        }
+        
+        .gallery-description {
+            color: #e5e5e5;
+            font-size: 20px;
+            line-height: 1.7;
+            margin-bottom: 50px;
+            font-family: var(--body-font);
+            font-weight: 300;
+        }
+        
+        .location-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            margin-bottom: 40px;
+        }
+        
+        .highlight-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .highlight-item:last-child {
+            border-bottom: none;
+        }
+        
+        .highlight-item i {
+            color: var(--ochre);
+            font-size: 28px;
+            margin-top: 8px;
+            min-width: 35px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .highlight-item div {
+            flex: 1;
+        }
+        
+        .highlight-item h4 {
+            color: #fff;
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0 0 12px;
+            font-family: var(--heading-font);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .highlight-item p {
+            color: #ccc;
+            font-size: 17px;
+            line-height: 1.6;
+            margin: 0;
+            font-family: var(--body-font);
+            font-weight: 300;
+        }
+        
+        .gallery-cta {
+            margin-top: 30px;
+        }
+        
+        .gallery-cta .cta-btn {
+            display: inline-block;
+            background-color: var(--ochre);
+            color: #000;
+            padding: 18px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-family: var(--heading-font);
+            text-transform: uppercase;
+            font-size: 16px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(202, 131, 26, 0.3);
+        }
+        
+        .gallery-cta .cta-btn:hover {
+            background-color: #b67616;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(202, 131, 26, 0.4);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            grid-auto-rows: 180px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Make some items span multiple rows/columns for variety */
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        
+        .gallery-item:nth-child(4) {
+            grid-row: span 2;
+        }
+        
+        .gallery-item:nth-child(7) {
+            grid-column: span 2;
+        }
+        
+        @media (max-width: 1200px) {
+            .gallery-layout {
+                gap: 40px;
+            }
+            
+            .gallery-content h2 {
+                font-size: 32px;
+            }
+        }
+        
+        @media (max-width: 991px) {
+            .gallery-layout {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .gallery-content {
+                text-align: center;
+            }
+            
+            .gallery-content h2 {
+                text-align: center;
+            }
+            
+            .gallery-content .accent-line {
+                margin: 0 auto 30px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                grid-auto-rows: 160px;
+            }
+            
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+            
+            .gallery-item:nth-child(4) {
+                grid-row: span 1;
+            }
+            
+            .gallery-item:nth-child(7) {
+                grid-column: span 2;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .gallery-section {
+                padding: 60px 0;
+            }
+            
+            .gallery-layout {
+                gap: 40px;
+            }
+            
+            .gallery-content h2 {
+                font-size: 28px;
+            }
+            
+            .gallery-description {
+                font-size: 16px;
+            }
+            
+            .location-highlights {
+                gap: 25px;
+            }
+            
+            .highlight-item h4 {
+                font-size: 18px;
+            }
+            
+            .highlight-item p {
+                font-size: 15px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+                grid-auto-rows: 200px;
+            }
+            
+            .gallery-item:nth-child(1),
+            .gallery-item:nth-child(4),
+            .gallery-item:nth-child(7) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+        
+        /* FAQ Section Styles */
+        .faq-section {
+            padding: 80px 0;
+            background-color: var(--color-bg-primary);
+        }
+        
+        .faq-section h2 {
+            color: #fff !important;
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0 0 15px;
+            font-family: var(--heading-font);
+        }
+        
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        
+        .faq-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: var(--ochre);
+            font-size: 20px;
+            font-weight: 600;
+            font-family: var(--heading-font);
+            text-align: left;
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: #fff;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .faq-question[aria-expanded="true"] i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(202, 131, 26, 0.2);
+        }
+        
+        .faq-answer.active {
+            max-height: 300px;
+            padding: 25px 30px;
+        }
+        
+        .faq-answer p {
+            color: #e5e5e5;
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 0;
+            font-family: var(--body-font);
+            font-weight: 300;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease 0.1s;
+        }
+        
+        .faq-answer.active p {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .faq-cta {
+            margin-top: 20px;
+        }
+        
+        .faq-cta .cta-btn {
+            display: inline-block;
+            background-color: var(--ochre);
+            color: #000;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-family: var(--heading-font);
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        
+        .faq-cta .cta-btn:hover {
+            background-color: #b67616;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Location with Map Layout */
+        .location-map-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        
+        .location-card-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .location-card-content {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            border-left: 5px solid var(--ochre);
+        }
+        
+        .location-card-content .location-image {
+            height: 280px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .location-card-content .location-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .location-card-content .location-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .location-info h3 {
+            color: var(--ochre) !important;
+            font-size: 28px !important;
+            font-weight: 700 !important;
+            margin: 0 0 25px !important;
+            text-align: center !important;
+            font-family: var(--heading-font) !important;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .location-info .days {
+            color: #fff !important;
+            font-size: 18px !important;
+            font-weight: 600 !important;
+            margin: 0 0 8px !important;
+            text-align: center !important;
+            font-family: var(--heading-font) !important;
+        }
+        
+        .location-info .hours {
+            color: #ccc !important;
+            font-size: 16px !important;
+            margin: 0 0 25px !important;
+            text-align: center !important;
+            font-family: var(--body-font) !important;
+        }
+        
+        .location-info .address {
+            color: #ddd !important;
+            font-size: 16px !important;
+            margin: 0 0 15px !important;
+            text-align: center !important;
+            font-family: var(--body-font) !important;
+        }
+        
+        .location-info .address i {
+            color: var(--ochre);
+            margin-right: 8px;
+        }
+        
+        .location-info .phone {
+            color: #ddd !important;
+            font-size: 16px !important;
+            margin: 0 0 30px !important;
+            text-align: center !important;
+            font-family: var(--body-font) !important;
+        }
+        
+        .location-actions {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .location-actions .btn-directions {
+            flex: 1;
+        }
+        
+        .btn-directions.order-btn {
+            background-color: #ca831a;
+        }
+        
+        .btn-directions.order-btn:hover {
+            background-color: #b67616;
+        }
+        
+        .map-container-inline {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+        
+        .map-info {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 4px solid var(--ochre);
+        }
+        
+        .map-info h4 {
+            color: var(--ochre);
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 15px;
+            font-family: var(--heading-font);
+        }
+        
+        .map-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .map-info li {
+            color: #ddd;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-family: var(--body-font);
+        }
+        
+        .map-info li strong {
+            color: #fff;
+        }
+        
+        @media (max-width: 991px) {
+            .location-map-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .location-card-content .location-image {
+                height: 250px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .location-map-layout {
+                gap: 30px;
+            }
+            
+            .location-card-content .location-image {
+                height: 220px;
+                margin-bottom: 20px;
+            }
+            
+            .map-info {
+                padding: 20px;
+            }
+            
+            .map-info h4 {
+                font-size: 18px;
+            }
+            
+            .map-info li {
+                font-size: 15px;
+            }
+        }
+        
+        /* Rosemont Hero Custom Background */
+        .locations-hero.rosemont-hero {
+            background-image: url('JOYO - Images/joyo-burger-delicious-burgers-montreal.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 85vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .locations-hero.rosemont-hero .locations-hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            max-width: 800px;
+            z-index: 2;
+        }
+        
+        .locations-hero.rosemont-hero .locations-hero-content h1 {
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            font-size: clamp(40px, 8vw, 72px);
+            line-height: 1.05;
+            letter-spacing: 1px;
+        }
+        
+        .locations-hero.rosemont-hero .locations-hero-content .hero-subtitle {
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+            font-size: clamp(16px, 3.2vw, 24px);
+            font-weight: 300;
+            line-height: 1.35;
+        }
+
+        /* Hero CTAs */
+        .hero-cta-group {
+            display: flex;
+            gap: 14px;
+            margin-top: 18px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            padding: 14px 22px;
+            border-radius: 8px;
+            font-weight: 800;
+            letter-spacing: .5px;
+            min-width: 180px;
+            transition: transform .15s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+        }
+        .hero-cta.order {
+            background: var(--ochre);
+            color: #000;
+            box-shadow: 0 6px 16px rgba(202,131,26,.35);
+        }
+        .hero-cta.order:hover { background:#b67616; color:#fff; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(202,131,26,.45); }
+        .hero-cta.call {
+            background: transparent;
+            color: var(--ochre);
+            border: 2px solid var(--ochre);
+        }
+        .hero-cta.call:hover { background: var(--ochre); color:#000; transform: translateY(-2px); }
+        
+        /* Featured Testimonial Section */
+        .featured-testimonial-section {
+            padding: 80px 0;
+            background-image: url('JOYO - Images/best-place-for-burgers-and-beers-montreal.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        .featured-testimonial-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            z-index: 1;
+        }
+        
+        .featured-testimonial-section .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .testimonial-spotlight {
+            background: linear-gradient(135deg, rgba(202, 131, 26, 0.15), rgba(0, 0, 0, 0.4));
+            border-radius: 20px;
+            padding: 60px 50px;
+            text-align: center;
+            border: 2px solid rgba(202, 131, 26, 0.3);
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .stars-large {
+            color: var(--ochre);
+            font-size: 32px;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .testimonial-spotlight h3 {
+            color: #fff;
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin: 0 0 30px;
+            font-family: var(--heading-font);
+            font-style: italic;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .reviewer-spotlight {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .reviewer-spotlight .name {
+            color: var(--ochre);
+            font-size: 20px;
+            font-weight: 700;
+            font-family: var(--heading-font);
+        }
+        
+        .reviewer-spotlight .context {
+            color: #ccc;
+            font-size: 16px;
+            font-family: var(--body-font);
+            padding: 8px 16px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+        
+        @media (max-width: 991px) {
+            .testimonial-spotlight {
+                padding: 50px 40px;
+            }
+            
+            .testimonial-spotlight h3 {
+                font-size: 24px;
+            }
+            
+            .reviewer-spotlight {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .featured-testimonial-section {
+                padding: 60px 0;
+            }
+            
+            .testimonial-spotlight {
+                padding: 40px 30px;
+                margin: 0 20px;
+            }
+            
+            .testimonial-spotlight h3 {
+                font-size: 20px;
+            }
+            
+            .stars-large {
+                font-size: 28px;
+            }
+            
+            .reviewer-spotlight .name {
+                font-size: 18px;
+            }
+            
+            .reviewer-spotlight .context {
+                font-size: 14px;
+            }
+        }
+        
+        /* Hero Testimonial Styles */
+        .hero-testimonial {
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            max-width: 350px;
+            z-index: 3;
+        }
+        
+        .testimonial-card {
+            background-color: rgba(0, 0, 0, 0.85);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--ochre);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+        .testimonial-card .quote { opacity: 1; transition: opacity 0.6s ease; }
+        .testimonial-card .order-btn { margin-top: 12px; display: inline-flex; align-items: center; justify-content: center; background: var(--ochre); color: #000; padding: 12px 18px; border-radius: 8px; font-weight: 800; text-decoration: none; letter-spacing: .5px; min-width: 180px; box-shadow: 0 6px 16px rgba(202,131,26,.35); transition: transform .15s ease, box-shadow .2s ease, background-color .2s ease; }
+        .testimonial-card .order-btn:hover { background: #b67616; color: #fff; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(202,131,26,.45); }
+        .hero-testimonial.floating { position: fixed; right: 30px; bottom: 30px; z-index: 999; }
+        
+        .testimonial-content .stars {
+            color: var(--ochre);
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        
+        .testimonial-content p {
+            color: #fff;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0 0 15px;
+            font-family: var(--body-font);
+            font-style: italic;
+        }
+        
+        .reviewer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .reviewer .name {
+            color: var(--ochre);
+            font-weight: 600;
+            font-family: var(--heading-font);
+        }
+        
+        .reviewer .badge {
+            background-color: var(--ochre);
+            color: #000;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Close (dismiss) button for testimonial */
+        .testimonial-close {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+            border: none;
+            background: rgba(255,255,255,0.08);
+            color: var(--ochre);
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 32px;
+            text-align: center;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+        .testimonial-close:hover { background: rgba(255,255,255,0.15); }
+        .testimonial-close:active { transform: scale(0.98); }
+        @media (max-width: 767px) {
+            .testimonial-close { top: 4px; right: 4px; width: 36px; height: 36px; font-size: 20px; line-height: 36px; }
+        }
+        
+        /* Inline Testimonial Styles */
+        .inline-testimonial {
+            background-color: rgba(202, 131, 26, 0.1);
+            border-radius: 10px;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid var(--ochre);
+        }
+        
+        .stars-small {
+            color: var(--ochre);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .inline-testimonial p {
+            color: #e5e5e5;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0 0 10px;
+            font-family: var(--body-font);
+            font-style: italic;
+        }
+        
+        .reviewer-name {
+            color: var(--ochre);
+            font-weight: 600;
+            font-family: var(--heading-font);
+            font-size: 14px;
+        }
+        
+        /* Location Testimonial */
+        .location-testimonial {
+            background-color: rgba(202, 131, 26, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid var(--ochre);
+        }
+        
+        .location-testimonial p {
+            color: #e5e5e5;
+            font-size: 15px;
+            line-height: 1.5;
+            margin: 8px 0;
+            font-family: var(--body-font);
+            font-style: italic;
+        }
+        
+        /* Reviews Section */
+        .reviews-section {
+            padding: 80px 0;
+            background-color: var(--color-bg-secondary);
+        }
+        
+        .reviews-section h2 {
+            color: #fff !important;
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0 0 15px;
+            font-family: var(--heading-font);
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+        
+        .reviews-column-left {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .reviews-column-right {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .review-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 4px solid var(--ochre);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .review-card.hero-review {
+            border-left: 6px solid var(--ochre);
+            background-color: rgba(202, 131, 26, 0.08);
+            padding: 50px 40px;
+        }
+        
+        .review-card.hero-review p {
+            font-size: 22px;
+            font-weight: 500;
+            line-height: 1.6;
+            color: #f5f5f5;
+        }
+        
+        .review-card.hero-review .reviewer-info h4 {
+            font-size: 24px;
+            color: var(--ochre);
+        }
+        
+        .review-card.hero-review .stars {
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        
+        .review-card.mega-review {
+            border-left: 5px solid var(--ochre);
+            background-color: rgba(202, 131, 26, 0.06);
+            padding: 35px;
+        }
+        
+        .review-card.mega-review p {
+            font-size: 18px;
+            font-weight: 400;
+            color: #e5e5e5;
+        }
+        
+        .review-card.mega-review .reviewer-info h4 {
+            font-size: 20px;
+        }
+        
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .review-card .stars {
+            color: var(--ochre);
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .reviewer-info h4 {
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 5px;
+            font-family: var(--heading-font);
+        }
+        
+        
+        .reviewer-info .badge {
+            background-color: var(--ochre);
+            color: #000;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 5px;
+            display: inline-block;
+        }
+        
+        .review-card p {
+            color: #ddd;
+            font-size: 16px;
+            line-height: 1.7;
+            margin: 0 0 20px;
+            font-family: var(--body-font);
+            font-style: italic;
+        }
+        
+        .rating-breakdown {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+            color: #aaa;
+            font-family: var(--body-font);
+        }
+        
+        .rating-breakdown span {
+            color: var(--ochre);
+            font-weight: 600;
+        }
+        
+        .reviews-cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .cta-btn.secondary {
+            background-color: transparent;
+            color: var(--ochre);
+            border: 2px solid var(--ochre);
+            padding: 15px 30px;
+        }
+        
+        .cta-btn.secondary:hover {
+            background-color: var(--ochre);
+            color: #000;
+        }
+        
+        @media (max-width: 1200px) {
+            .gallery-layout {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .gallery-content {
+                text-align: center;
+            }
+            
+            .gallery-content .accent-line {
+                margin: 0 auto 30px;
+            }
+            
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .reviews-column-left,
+            .reviews-column-right {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 991px) {
+            .hero-testimonial {
+                position: static !important;
+                right: auto !important;
+                bottom: auto !important;
+                max-width: 100%;
+                margin: 30px auto 0 !important;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+                grid-auto-rows: 160px;
+            }
+            
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+            
+            .location-map-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .location-card-content .location-image {
+                height: 250px;
+            }
+            
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .review-card.hero-review {
+                padding: 40px 30px;
+            }
+            
+            .review-card.hero-review p {
+                font-size: 20px;
+            }
+            
+            .featured-testimonial-section {
+                background-attachment: scroll;
+            }
+        }
+        
+        @media (max-width: 767px) {
+            .locations-hero.rosemont-hero {
+                height: 100vh;
+                min-height: 600px;
+                background-attachment: scroll;
+            }
+            /* Keep hero content from overlapping with testimonial on small screens */
+            .locations-hero.rosemont-hero .locations-hero-content {
+                position: static;
+                transform: none;
+                padding: 80px 20px 20px;
+                text-align: center;
+            }
+            
+            .locations-hero.rosemont-hero .locations-hero-content h1 {
+                font-size: 42px;
+                line-height: 1.1;
+                margin-bottom: 15px;
+            }
+            
+            .locations-hero.rosemont-hero .locations-hero-content .hero-subtitle {
+                font-size: 18px;
+                line-height: 1.3;
+                max-width: 300px;
+            }
+            
+            .hero-testimonial {
+                position: fixed !important;
+                left: 50% !important;
+                transform: translateX(-50%);
+                bottom: 12px !important;
+                width: calc(100% - 24px);
+                max-width: 520px;
+                margin: 0 !important;
+                z-index: 1000;
+            }
+            .locations-page { padding-bottom: 160px; background-color: #000; }
+            
+            .testimonial-content {
+                padding: 20px;
+            }
+            
+            .testimonial-content p {
+                font-size: 15px;
+            }
+            
+            .gallery-section {
+                padding: 60px 0;
+            }
+            
+            .gallery-content {
+                padding: 30px 20px;
+                margin: 0 10px;
+            }
+            
+            .gallery-content h2 {
+                font-size: 32px;
+                line-height: 1.2;
+            }
+            
+            .gallery-description {
+                font-size: 17px;
+            }
+            
+            .highlight-item {
+                padding: 15px 0;
+            }
+            
+            .highlight-item h4 {
+                font-size: 18px;
+            }
+            
+            .highlight-item p {
+                font-size: 15px;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                grid-auto-rows: 220px;
+                padding: 0 10px;
+            }
+            
+            .gallery-item:nth-child(1) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+            
+            .featured-testimonial-section {
+                padding: 60px 0;
+                background-attachment: scroll;
+            }
+            
+            .testimonial-spotlight {
+                padding: 30px 20px;
+                margin: 0 15px;
+            }
+            
+            .testimonial-spotlight h3 {
+                font-size: 20px;
+                line-height: 1.4;
+            }
+            
+            .locations-section {
+                padding: 60px 0;
+            }
+            
+            .location-card-content {
+                padding: 25px 20px;
+                margin: 0 10px;
+            }
+            
+            .location-card-content .location-image {
+                height: 200px;
+                margin-bottom: 20px;
+            }
+            
+            .location-info h3 {
+                font-size: 24px !important;
+            }
+            
+            .location-actions {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .map-container-inline {
+                margin: 0 10px;
+            }
+            
+            .map-info {
+                margin: 0 10px;
+                padding: 20px;
+            }
+            
+            .reviews-section {
+                padding: 60px 0;
+            }
+            
+            .review-card {
+                padding: 25px 15px;
+                margin: 0 10px;
+            }
+            
+            .review-card.hero-review {
+                padding: 30px 20px;
+            }
+            
+            .review-card.hero-review p {
+                font-size: 18px;
+            }
+            
+            .review-card.mega-review {
+                padding: 25px 20px;
+            }
+            
+            .faq-section {
+                padding: 60px 0;
+            }
+            
+            .faq-accordion {
+                margin: 0 10px;
+            }
+            
+            .faq-question {
+                font-size: 18px;
+                padding: 20px;
+            }
+            
+            .faq-answer p {
+                font-size: 16px;
+            }
+        }
+    </style>
+    
+    <!-- FAQ Schema for Rosemont Location -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Où puis-je me stationner au JOYO Burger Rosemont?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Du stationnement de rue est disponible sur la rue Masson et les rues avoisinantes. Il y a aussi un stationnement public à 2 rues de distance sur la rue Beaubien."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "À quelle distance JOYO Burger est-il du Marché Jean-Talon?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JOYO Burger Rosemont est à seulement 5 minutes du Marché Jean-Talon ! Parfait pour acheter des ingrédients frais après avoir savouré nos burgers, ou pour s'arrêter déjeuner pendant votre visite au marché."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le meilleur moyen de se rendre au JOYO Burger Rosemont en transport en commun?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prenez la ligne bleue jusqu'à la station Beaubien - nous sommes à 12 minutes de marche agréable sur la rue Masson. Les lignes d'autobus 18 et 45 s'arrêtent aussi à proximité."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Acceptez-vous les réservations au restaurant de Rosemont?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nous fonctionnons sur la base du premier arrivé, premier servi pour garder les choses fraîches et spontanées ! Mais ne vous inquiétez pas - notre service est rapide et l'attente en vaut toujours la peine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je commander en ligne pour ramasser au JOYO Burger Rosemont?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolument ! Commandez en ligne et venez ramasser à notre restaurant de la rue Masson. Nous aurons vos burgers frais prêts à votre arrivée."
+          }
+        }
+      ]
+    }
+    </script>
+    <script>
+    // Auto-push CTA clicks to dataLayer for GTM/GA4
+    window.dataLayer = window.dataLayer || [];
+    document.addEventListener('click', function(e){
+        const el = e.target.closest('[data-gtm-event]');
+        if(!el) return;
+        window.dataLayer.push({
+            event: el.getAttribute('data-gtm-event'),
+            event_category: 'cta',
+            event_label: el.getAttribute('data-gtm-label') || ''
+        });
+    }, { passive: true });
+    </script>
+    
+    <!-- Reviews Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Review",
+      "itemReviewed": {
+        "@type": "Restaurant",
+        "name": "JOYO Burger - Masson",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3036 rue Masson",
+          "addressLocality": "Montréal",
+          "addressRegion": "QC",
+          "postalCode": "H1Y 1X6",
+          "addressCountry": "CA"
+        }
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Elizabeth Torres"
+      },
+      "reviewBody": "Pour moi, les meilleurs burgers que j'ai essayés à MTL... tout est frais et de grande qualité et la SAUCE AU FROMAGE BLEU incroyable. Les bières sont froides et servies à la température parfaite. C'est un joyau caché à Montréal.",
+      "datePublished": "2024-04-13"
+    }
+    </script>
+    
+    <!-- Local Business Schema for Masson Location -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "JOYO Burger - Masson (Rosemont)",
+      "image": "https://joyoburger.com/JOYO - Images/joyo-burger-rosemont-interior.jpg",
+      "url": "https://joyoburger.com/rosemont-masson-location-fr.html",
+      "telephone": "+15145085696",
+      "priceRange": "$$",
+      "servesCuisine": ["Fait maison", "Burgers", "Restauration rapide décontractée", "Cuisine québécoise"],
+      "description": "Le restaurant phare de JOYO Burger sur la rue Masson à Rosemont, servant les meilleurs smash burgers fait maison de Montréal avec du bœuf fraîchement haché et d'authentiques frites québécoises coupées à la main.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3036 rue Masson",
+        "addressLocality": "Montréal",
+        "addressRegion": "QC",
+        "postalCode": "H1Y 1X6",
+        "addressCountry": "CA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 45.549056,
+        "longitude": -73.576743
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "11:00",
+          "closes": "22:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "150"
+      },
+      "areaServed": ["Rosemont", "Plateau-Mont-Royal", "Villeray", "Petite Italie", "Mile End"],
+      "hasMap": "https://www.google.com/maps/search/Joyo+Burger+Masson+Montreal/@45.5490558,-73.5767432,17z",
+      "sameAs": [
+        "https://www.facebook.com/Joyoburger",
+        "https://www.instagram.com/joyoburger/"
+      ]
+    }
+    </script>
+</head>
+<body class="locations-page">
+    
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="/index-fr.html">
+                        <img src="JOYO - Images/Joyo-Logo-RGB-Jaune-transparent-bg.png" alt="JOYO Burger Rosemont - Meilleurs Burgers Fait maison rue Masson">
+                    </a>
+                </div>
+                
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="/menu-fr.html" class="nav-link">MENU</a></li>
+                        <li><a href="/about-fr.html" class="nav-link">À PROPOS</a></li>
+                        <li><a href="/career-fr.html" class="nav-link">CARRIÈRE</a></li>
+                        <li class="nav-dropdown">
+                            <a href="/find-us-fr.html" class="nav-link active dropdown-toggle">
+                                NOUS TROUVER
+                                <i class="fas fa-chevron-down dropdown-arrow"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="/rosemont-masson-location-fr.html" class="dropdown-item active">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Burgers à Rosemont</span>
+                                </a>
+                                <a href="/verdun-wellington-fr.html" class="dropdown-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Burgers à Verdun</span>
+                                </a>
+                            </div>
+                        </li>
+                        <li><a href="/contact-fr.html" class="nav-link">CONTACT</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="cta-buttons">
+                    <a href="https://order.ueat.io/integration/ed824cce-5687-4ec8-aa2b-68f92e7dcff7/fr#/" target="_blank" class="order-now-btn">COMMANDER EN LIGNE</a>
+                    <div class="language-selector">
+                        <a href="/rosemont-masson-location.html" class="language-toggle">EN</a>
+                        <span class="divider">|</span>
+                        <a href="/rosemont-masson-location-fr.html" class="language-toggle active">FR</a>
+                    </div>
+                </div>
+
+                <!-- Mobile Navigation Toggle (same as homepage) -->
+                <button class="joyo-mobile-nav-toggle" aria-label="Basculer le menu mobile">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="joyo-mobile-nav">
+        <button class="joyo-mobile-nav-close" aria-label="Fermer le menu mobile">&times;</button>
+        <ul>
+            <li><a href="/menu-fr.html">MENU</a></li>
+            <li><a href="/about-fr.html">À PROPOS</a></li>
+            <li><a href="/career-fr.html">CARRIÈRE</a></li>
+            <li class="mobile-dropdown">
+                <a href="/find-us-fr.html" class="mobile-dropdown-toggle active">
+                    NOUS TROUVER
+                    <i class="fas fa-chevron-down mobile-dropdown-arrow"></i>
+                </a>
+                <div class="mobile-dropdown-menu">
+                    <a href="/rosemont-masson-location-fr.html" class="mobile-dropdown-item active">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Burgers à Rosemont</span>
+                    </a>
+                    <a href="/verdun-wellington-fr.html" class="mobile-dropdown-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Burgers à Verdun</span>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/contact-fr.html">CONTACT</a></li>
+        </ul>
+        <a href="https://order.ueat.io/integration/ed824cce-5687-4ec8-aa2b-68f92e7dcff7/fr#/" target="_blank" class="order-now-btn">COMMANDER EN LIGNE</a>
+        <div class="language-selector">
+            <a href="/rosemont-masson-location.html" class="language-toggle">EN</a>
+            <span class="divider">|</span>
+            <a href="/rosemont-masson-location-fr.html" class="language-toggle active">FR</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/Joyoburger" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/joyoburger/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <!-- Hero Banner -->
+    <section class="locations-hero rosemont-hero">
+        <div class="hero-overlay"></div>
+        <div class="locations-hero-content">
+            <h1>JOYO BURGER ROSEMONT</h1>
+            <p class="hero-subtitle">3036 rue Masson | L'expérience originale des smash burgers fait maison de Montréal</p>
+            <div class="hero-cta-group">
+                <a class="hero-cta order" data-gtm-event="order_now_click" data-gtm-label="hero_order" href="https://order.ueat.io/integration/ed824cce-5687-4ec8-aa2b-68f92e7dcff7/fr#/" target="_blank" rel="noopener noreferrer" aria-label="Commander JOYO Burger Rosemont en ligne">COMMANDER</a>
+                <a class="hero-cta call" data-gtm-event="call_now_click" data-gtm-label="hero_call" href="tel:+15145085696" aria-label="Appeler JOYO Burger Rosemont au 514-508-5696">APPELER</a>
+            </div>
+        </div>
+        
+        <!-- Hero Testimonials (rotating) -->
+        <div class="hero-testimonial" id="hero-reviews" role="region" aria-live="polite" aria-label="Avis client">
+            <div class="testimonial-card" data-index="0">
+                <button class="testimonial-close" aria-label="Fermer l'avis" title="Fermer">×</button>
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="quote">"C'était de loin l'un des meilleurs burgers que j'ai mangés de ma vie... C'est révolutionnaire !"</p>
+                <div class="reviewer"><span class="name">Jimmy</span></div>
+                <a class="order-btn" data-gtm-event="order_now_click" data-gtm-label="hero_review_order" href="https://order.ueat.io/integration/ed824cce-5687-4ec8-aa2b-68f92e7dcff7/fr#/" target="_blank" rel="noopener noreferrer">COMMANDER</a>
+            </div>
+            <div class="testimonial-card" data-index="1">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="quote">"Meilleur smash burger à Montréal. La sauce au fromage bleu est incroyable. Joyau caché !"</p>
+                <div class="reviewer"><span class="name">Elizabeth</span></div>
+                <a class="order-btn" data-gtm-event="order_now_click" data-gtm-label="hero_review_order" href="https://order.ueat.io/integration/ed824cce-5687-4ec8-aa2b-68f92e7dcff7/fr#/" target="_blank" rel="noopener noreferrer">COMMANDER</a>
+            </div>
+            <div class="testimonial-card" data-index="2">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p class="quote">"Frites coupées à la main, burgers cuits parfaitement. Cet endroit ne rate jamais."</p>
+                <div class="reviewer"><span class="name">Dali</span></div>
+                <a class="order-btn" data-gtm-event="order_now_click" data-gtm-label="hero_review_order" href="https://order.ueat.io/integration/ed824cce-5687-4ec8-aa2b-68f92e7dcff7/fr#/" target="_blank" rel="noopener noreferrer">COMMANDER</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+    // Rotate only the quote text inside a persistent card; make it sticky on desktop
+    (function(){
+        const container = document.getElementById('hero-reviews');
+        if(!container) return;
+        const cards = Array.from(container.querySelectorAll('.testimonial-card'));
+        if(cards.length < 2) return;
+        // show only first card structure, others provide quote text
+        for (let i = 1; i < cards.length; i++) cards[i].style.display = 'none';
+        const base = cards[0];
+        const quotes = cards.map(c => c.querySelector('.quote').textContent);
+        const names = cards.map(c => (c.querySelector('.name') ? c.querySelector('.name').textContent : ''));
+        let i = 0;
+        function next(){
+            i = (i + 1) % quotes.length;
+            const q = base.querySelector('.quote');
+            q.style.opacity = 0;
+            setTimeout(()=>{ 
+                q.textContent = quotes[i]; 
+                q.style.opacity = 1; 
+                const nameEl = base.querySelector('.name');
+                if (nameEl) nameEl.textContent = names[i];
+            }, 300);
+        }
+        setInterval(next, 4500);
+        // sticky on desktop
+        function updateSticky(){
+            if (window.innerWidth >= 992) container.classList.add('floating'); else container.classList.remove('floating');
+        }
+        updateSticky();
+        window.addEventListener('resize', updateSticky, { passive: true });
+
+        // Close button handler (FR)
+        const closeBtn = base.querySelector('.testimonial-close');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function(e){
+                e.preventDefault();
+                container.style.display = 'none';
+            }, { passive: false });
+        }
+    })();
+    </script>
+    <!-- Photo Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-layout">
+                <div class="gallery-content">
+                    <h2>DÉCOUVREZ LE RESTAURANT BURGER PRÉFÉRÉ DE ROSEMONT</h2>
+                    <div class="accent-line"></div>
+                    <p class="gallery-description">Jetez un coup d'œil à l'intérieur de notre restaurant de la rue Masson - de notre salle à manger chaleureuse à nos smash burgers signature préparés frais quotidiennement.</p>
+                    
+                    <div class="location-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-heart"></i>
+                            <div>
+                                <h4>Favori de la Communauté</h4>
+                                <p>Notre restaurant original servant Rosemont depuis 2020</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-utensils"></i>
+                            <div>
+                                <h4>Frais Quotidiennement</h4>
+                                <p>Bœuf fraîchement haché chaque matin, frites coupées à la main</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Emplacement Parfait</h4>
+                                <p>À 5 minutes du Marché Jean-Talon, au cœur de Rosemont</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-cta">
+                        <a href="https://order.ueat.io/integration/ed824cce-5687-4ec8-aa2b-68f92e7dcff7/fr#/" target="_blank" rel="noopener noreferrer" class="cta-btn" data-gtm-event="order_now_click" data-gtm-label="gallery_order">COMMANDER EN LIGNE</a>
+                    </div>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="JOYO - Images/joyo-burgger-masson-location-interior.jpg" alt="Intérieur JOYO Burger Rosemont - Restaurant de burgers chaleureux à Montréal" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="JOYO - Images/Le-Grand.png" alt="Le Grand - Double smash burger signature de JOYO au restaurant Rosemont" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="JOYO - Images/joyo-scene.jpg" alt="Clients heureux chez JOYO Burger Rosemont - Lieu de rassemblement communautaire" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="JOYO - Images/Classic-Fried-Chicken-scaled-e1741170244379.jpeg" alt="Burger de poulet fait maison croustillant - Pané à la main frais chez JOYO Rosemont" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="JOYO - Images/homemade-fries.jpeg" alt="Frites fraîches coupées à la main - Préparées quotidiennement chez JOYO Burger Rosemont" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="JOYO - Images/joyo-milkshake.jpg" alt="Milkshakes maison chez JOYO Burger Rosemont - Compagnon parfait pour les burgers" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="JOYO - Images/Joyo-Poutine.png" alt="Poutine québécoise authentique chez JOYO Rosemont - Frites coupées à la main avec fromage en grains" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="JOYO - Images/craft-local-beer.jpg" alt="Sélection de bières artisanales locales de Montréal chez JOYO Burger Rosemont" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="JOYO - Images/joyo-burger-rosemont-interior.jpg" alt="Intérieur JOYO Burger Rosemont - Expérience culinaire chaleureuse rue Masson" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="JOYO - Images/joyo-enjoying-chicken-tenders.jpg" alt="Savourant les lanières de poulet croustillantes chez JOYO Rosemont - Panées fraîches quotidiennement" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Testimonial Section -->
+    <section class="featured-testimonial-section">
+        <div class="container">
+            <div class="testimonial-spotlight">
+                <div class="stars-large">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h3>"Mes 6 enfants avaient faim et je devais trouver un endroit rapidement. J'ai pu tous les nourrir à un prix raisonnable et on m'a même donné des frites gratuites grâce à la bonne hospitalité. Mon fils a ADORÉ le burger de poulet épicé au miel."</h3>
+                <div class="reviewer-spotlight">
+                    <span class="name">Crystal Leblanc</span>
+                    <span class="context">Famille de 8 • Habituée de Rosemont</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="locations-section">
+        <div class="container">
+            <h2>VISITEZ NOTRE RESTAURANT DE ROSEMONT</h2>
+            <div class="accent-line"></div>
+            <p class="locations-intro">Découvrez la joie de vrais burgers frais à notre restaurant original de la rue Masson. Notre restaurant de Rosemont offre la même grande qualité et le même service qui définissent l'expérience JOYO, avec la chaleur de nos racines de quartier.</p>
+            
+            <div class="location-map-layout">
+                <div class="location-details">
+                    <div class="location-card-content">
+                        <div class="location-image">
+                            <img src="JOYO - Images/joyo-burgger-masson-location-interior.jpg" alt="JOYO Burger restaurant Masson à Rosemont Montréal - Intérieur de restaurant fait maison premium">
+                        </div>
+                        <div class="location-info">
+                            <h3>JOYO Burger - Masson</h3>
+                            
+                            <p class="days">Nous sommes ouverts tous les jours</p>
+                            <p class="hours">11 h 00 à 22 h 00</p>
+                            
+                            <p class="address"><i class="fas fa-map-marker-alt"></i>3036 rue Masson, Montréal, QC, H1Y 1X6</p>
+                            
+                            <p class="phone">Téléphone : <a href="tel:+15145085696" style="color: white; text-decoration: none;">(514) 508-5696</a></p>
+                            
+                        <!-- Location Testimonial -->
+                        <div class="location-testimonial">
+                            <div class="stars-small">★★★★★</div>
+                            <p>"Le seul restaurant de burgers où nous allons à Montréal. Tout est fait à la perfection et l'endroit est super propre."</p>
+                            <span class="reviewer-name">- Elie Yachoui, Guide local</span>
+                        </div>
+                        
+                        <div class="location-actions">
+                            <a href="https://www.google.com/maps/search/Joyo+Burger+Masson+Montreal/@45.5490558,-73.5767432,17z" target="_blank" class="btn-directions">
+                                OBTENIR DIRECTIONS
+                            </a>
+                            <a href="https://order.ueat.io/integration/ed824cce-5687-4ec8-aa2b-68f92e7dcff7/fr#/" target="_blank" class="btn-directions order-btn">
+                                COMMANDER EN LIGNE
+                            </a>
+                        </div>
+                        
+                        <div class="location-social">
+                            <a href="https://www.facebook.com/Joyoburger" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/joyoburger/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="location-map-embed">
+                    <div class="map-container-inline">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2794.063117227854!2d-73.57674322346242!3d45.54905582777264!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91b1f89bbcbcf%3A0x36d1b65e71002dde!2sJoyo%20Burger%20-%20Masson!5e0!3m2!1sfr!2sca!4v1747164095068!5m2!1sfr!2sca" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="map-info">
+                        <h4>Comment s'y rendre</h4>
+                        <ul>
+                            <li><strong>Métro :</strong> Beaubien (ligne bleue) - 12 min à pied</li>
+                            <li><strong>Autobus :</strong> Lignes 18, 45 s'arrêtent à proximité</li>
+                            <li><strong>Stationnement :</strong> Stationnement de rue disponible</li>
+                            <li><strong>À proximité :</strong> À 5 min du Marché Jean-Talon</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2>CE QUE DISENT NOS CLIENTS</h2>
+            <div class="accent-line"></div>
+            <p class="locations-intro">Ne nous croyez pas sur parole - écoutez nos clients fidèles de Rosemont qui reviennent pour plus.</p>
+            
+            <div class="reviews-grid">
+                <div class="reviews-column-left">
+                    <div class="review-card hero-review">
+                        <div class="review-header">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>Elizabeth Torres</h4>
+                            </div>
+                        </div>
+                        <p>"Pour moi, les meilleurs burgers que j'ai essayés à MTL... tout est frais et de grande qualité et la SAUCE AU FROMAGE BLEU incroyable. Les bières sont froides et servies à la température parfaite. C'est un joyau caché à Montréal."</p>
+                        <div class="rating-breakdown">
+                            <span>Nourriture : 5/5</span>
+                            <span>Service : 5/5</span>
+                            <span>Ambiance : 5/5</span>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card mega-review">
+                        <div class="review-header">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>Dali Chabaane</h4>
+                                <span class="badge">Guide local • 107 avis</span>
+                            </div>
+                        </div>
+                        <p>"OMG, Joyo Burger est le meilleur ! Nous avons essayé leur burger de poulet frit classique et le burger de poulet frit épicé Nashville, et les deux étaient tellement bons. Le burger de poulet frit classique a ce poulet super croustillant avec de la laitue fraîche, des tomates, des oignons, des cornichons et une sauce incroyable. C'est juste parfait !"</p>
+                        <div class="rating-breakdown">
+                            <span>Nourriture : 5/5</span>
+                            <span>Service : 5/5</span>
+                            <span>Ambiance : 5/5</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reviews-column-right">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>Guillermo Gutierrez</h4>
+                            </div>
+                        </div>
+                        <p>"Absolument délicieux ! Ce burger était incroyablement juteux et facilement l'un des meilleurs que j'aie jamais goûtés. Les saveurs étaient parfaitement équilibrées, et la qualité de la viande était de premier ordre. À essayer absolument pour tout amateur de burgers !"</p>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="reviewer-info">
+                                <h4>Eliott Morneau</h4>
+                                <span class="badge">6 avis • 11 photos</span>
+                            </div>
+                        </div>
+                        <p>"Cet endroit est incroyable ! La nourriture est tellement bonne ! J'ai pris le burger de poulet frit Nashville et mon ami a pris le burger de bœuf 1/2 et c'était tellement délicieux. L'endroit est magnifique ! Je recommande vivement cet endroit."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="reviews-cta">
+                <a href="https://www.google.com/maps/place/?q=place_id:ChIJz8u7iR8byUwR3i0AcV620TY" target="_blank" rel="noopener noreferrer" class="cta-btn secondary" data-gtm-event="reviews_click" data-gtm-label="read_all_reviews">LIRE TOUS LES AVIS SUR GOOGLE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rosemont FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2>QUESTIONS FRÉQUEMMENT POSÉES</h2>
+            <div class="accent-line"></div>
+            <p class="locations-intro">Tout ce que vous devez savoir pour visiter notre restaurant de Rosemont sur la rue Masson.</p>
+            
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Où puis-je me stationner au restaurant de Rosemont ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Du stationnement de rue est disponible sur la rue Masson et les rues avoisinantes. Il y a aussi un stationnement public à 2 rues de distance sur la rue Beaubien.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>À quelle distance JOYO est-il du Marché Jean-Talon ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nous sommes à seulement 5 minutes du Marché Jean-Talon ! Parfait pour acheter des ingrédients frais après avoir savouré nos burgers, ou pour s'arrêter déjeuner pendant votre visite au marché.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Quel est le meilleur moyen de se rendre au JOYO Rosemont en transport en commun ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Prenez la ligne bleue jusqu'à la station Beaubien - nous sommes à 12 minutes de marche agréable sur la rue Masson. Les lignes d'autobus 18 et 45 s'arrêtent aussi à proximité.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Acceptez-vous les réservations au restaurant de Rosemont ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nous fonctionnons sur la base du premier arrivé, premier servi pour garder les choses fraîches et spontanées ! Mais ne vous inquiétez pas - notre service est rapide et l'attente en vaut toujours la peine.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Puis-je commander en ligne pour ramasser à Rosemont ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolument ! Commandez en ligne et venez ramasser à notre restaurant de la rue Masson. Nous aurons vos burgers frais prêts à votre arrivée.</p>
+                        <div class="faq-cta">
+                            <a href="https://order.ueat.io/integration/ed824cce-5687-4ec8-aa2b-68f92e7dcff7/fr#/" target="_blank" rel="noopener noreferrer" class="cta-btn" data-gtm-event="order_now_click" data-gtm-label="faq_order_pickup">COMMANDER POUR RAMASSER</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Qu'est-ce qui rend le restaurant de Rosemont spécial ?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>En tant que notre restaurant original, Rosemont occupe une place spéciale dans nos cœurs. C'est là où nous avons perfectionné notre technique de smash burger et construit notre communauté de clients fidèles depuis 2020.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact CTA Section -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2>PRÊT À GOÛTER LE MEILLEUR BURGER DE ROSEMONT ?</h2>
+            <div class="accent-line"></div>
+            <p>Visitez-nous aujourd'hui ou commandez en ligne pour ramasser/livraison à Rosemont et les environs.</p>
+            <a href="https://order.ueat.io/integration/ed824cce-5687-4ec8-aa2b-68f92e7dcff7/fr#/" target="_blank" rel="noopener noreferrer" class="cta-btn" data-gtm-event="order_now_click" data-gtm-label="footer_order">COMMANDER EN LIGNE</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <div class="footer-links">
+                    <a href="/index-fr.html">Accueil</a>
+                    <span class="separator">|</span>
+                    <a href="/menu-fr.html">Menu</a>
+                    <span class="separator">|</span>
+                    <a href="/verdun-wellington-fr.html">Restaurant Verdun</a>
+                    <span class="separator">|</span>
+                    <a href="/contact-fr.html">Contact</a>
+                </div>
+                
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/Joyoburger" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/joyoburger/" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+                
+                <div class="copyright">
+                    <p>©2025 Joyo Burger Rosemont. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.min.js"></script>
+    
+    <!-- Dropdown Navigation JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // ARIA setup for accessibility
+            document.querySelectorAll('.dropdown-toggle, .mobile-dropdown-toggle').forEach(t => {
+                t.setAttribute('aria-haspopup', 'true');
+                t.setAttribute('aria-expanded', 'false');
+            });
+            // Mobile dropdown handled globally in main.js (initMobileDropdown)
+            
+            // Close dropdowns when clicking dropdown items (but keep mobile nav open until routing)
+            const mobileDropdownItems = document.querySelectorAll('.mobile-dropdown-item');
+            mobileDropdownItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Close mobile menu after navigation
+                    const mobileNav = document.querySelector('.joyo-mobile-nav');
+                    const mobileNavToggle = document.querySelector('.joyo-mobile-nav-toggle');
+                    if (mobileNav && mobileNavToggle) {
+                        mobileNav.classList.remove('active');
+                        mobileNavToggle.classList.remove('active');
+                        document.body.classList.remove('mobile-menu-open');
+                    }
+                });
+            });
+            
+            // Desktop dropdown - close when clicking outside
+            document.addEventListener('click', function(e) {
+                const dropdowns = document.querySelectorAll('.nav-dropdown');
+                dropdowns.forEach(dropdown => {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Desktop: only toggle when clicking the chevron, allow link navigation otherwise
+            const desktopDropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            desktopDropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 991) return; // Let mobile handle it
+                    const onChevron = e.target && e.target.closest('.dropdown-arrow');
+                    if (!onChevron) return; // allow normal navigation when clicking the link text
+                    e.preventDefault();
+                    const dropdown = this.closest('.nav-dropdown');
+                    const isActive = dropdown.classList.toggle('active');
+                    this.setAttribute('aria-expanded', String(isActive));
+                });
+            });
+        });
+    </script>
+    
+    <!-- FAQ Accordion JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    // Close all other FAQ items
+                    faqQuestions.forEach(otherQuestion => {
+                        if (otherQuestion !== this) {
+                            otherQuestion.setAttribute('aria-expanded', 'false');
+                            otherQuestion.nextElementSibling.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current FAQ item
+                    if (isExpanded) {
+                        this.setAttribute('aria-expanded', 'false');
+                        answer.classList.remove('active');
+                    } else {
+                        this.setAttribute('aria-expanded', 'true');
+                        answer.classList.add('active');
+                        this.setAttribute('aria-controls', `faq-${[...faqQuestions].indexOf(this)}`);
+                        answer.id = `faq-${[...faqQuestions].indexOf(this)}`;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

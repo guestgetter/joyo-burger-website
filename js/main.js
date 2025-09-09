@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize components with minimal impact
     requestAnimationFrame(() => {
     initMobileMenu();
+    initMobileDropdown();
     initSmoothScrolling();
     initCategoriesScroll();
     initTestimonials();
@@ -120,12 +121,56 @@ function initMobileMenu() {
         }
     }, { passive: true });
     
-    // Close menu when clicking on nav links
+    // Close menu when clicking on nav links (but NOT dropdown toggles)
     const navLinks = mobileNav.querySelectorAll('a');
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+            if (link.classList && link.classList.contains('mobile-dropdown-toggle')) {
+                // Let the dropdown handler control behavior
+                return;
+            }
             closeMenu();
         }, { passive: true });
+    });
+}
+
+/**
+ * Mobile dropdown toggle behavior (site-wide)
+ */
+function initMobileDropdown() {
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    if (!mobileDropdownToggles.length) return;
+
+    // ARIA setup for accessibility
+    mobileDropdownToggles.forEach(t => {
+        t.setAttribute('aria-haspopup', 'true');
+        t.setAttribute('aria-expanded', 'false');
+    });
+
+    mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const dropdown = this.closest('.mobile-dropdown');
+            if (!dropdown) return;
+
+            const isActive = dropdown.classList.contains('active');
+
+            // Close all other dropdowns
+            document.querySelectorAll('.mobile-dropdown').forEach(otherDropdown => {
+                if (otherDropdown !== dropdown) {
+                    otherDropdown.classList.remove('active');
+                    const otherToggle = otherDropdown.querySelector('.mobile-dropdown-toggle');
+                    if (otherToggle) otherToggle.classList.remove('active');
+                }
+            });
+
+            // Toggle current dropdown
+            dropdown.classList.toggle('active', !isActive);
+            this.classList.toggle('active', !isActive);
+            this.setAttribute('aria-expanded', !isActive ? 'true' : 'false');
+        }, { passive: false });
     });
 }
 
