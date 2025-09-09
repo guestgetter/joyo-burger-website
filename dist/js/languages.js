@@ -104,7 +104,7 @@ function switchLanguage(lang) {
         window.location.href = targetPage;
     } else {
         // Default index page behavior
-        let targetPage = lang === 'fr' ? 'index-fr.html' : 'index.html';
+        let targetPage = lang === 'fr' ? '/' : 'index-en.html';
         window.location.href = targetPage;
     }
 }

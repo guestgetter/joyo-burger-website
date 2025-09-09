@@ -381,7 +381,7 @@ function initLanguageToggle() {
                     // Default index page behavior
                     let targetPage = 'index.html';
                     if (lang === 'FR') {
-                        targetPage = 'index-fr.html';
+                        targetPage = '/';
                     }
                     window.location.href = targetPage;
                 }
@@ -411,7 +411,7 @@ function initLanguageToggle() {
                     let baseName = currentPage.split('.')[0].replace(/-fr$/, '');
                     targetPage = baseName + (savedLang === 'FR' ? '-fr' : '') + '.html';
                 } else {
-                    targetPage = savedLang === 'FR' ? 'index-fr.html' : 'index.html';
+                    targetPage = savedLang === 'FR' ? '/' : 'index-en.html';
                 }
                 
                 // Small delay to prevent redirect loops
