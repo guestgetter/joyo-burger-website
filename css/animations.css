@@ -178,14 +178,103 @@ header.scrolled {
     transition-delay: 0.5s;
 }
 
-/* CTA Button Animation */
-.cta-button, .order-now-btn, .view-menu-btn, .join-btn, .cta-btn, .submit-btn {
+/* Appetizing Order Button Animation - Subtle, On-Brand, Attention-Grabbing */
+@keyframes appetizingGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(202, 131, 26, 0.4), 0 0 10px rgba(202, 131, 26, 0.2);
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(202, 131, 26, 0.6), 0 0 25px rgba(202, 131, 26, 0.3);
+        transform: translateY(-1px) scale(1.02);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(202, 131, 26, 0.4), 0 0 10px rgba(202, 131, 26, 0.2);
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes warmthPulse {
+    0% {
+        background-color: var(--color-primary);
+    }
+    50% {
+        background-color: var(--color-primary-light);
+    }
+    100% {
+        background-color: var(--color-primary);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) rotate(35deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(35deg);
+    }
+}
+
+/* Enhanced Order Button with Appetizing Animation */
+.order-now-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    animation: appetizingGlow 3s ease-in-out infinite, warmthPulse 4s ease-in-out infinite;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, box-shadow, background-color;
+}
+
+/* Subtle shimmer effect that occasionally passes over the button */
+.order-now-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        35deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%
+    );
+    transform: translateX(-100%) rotate(35deg);
+    animation: shimmer 6s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* Enhanced hover state */
+.order-now-btn:hover {
+    animation-play-state: paused;
+    transform: translateY(-3px) scale(1.05);
+    background-color: var(--color-primary-dark);
+    box-shadow: 
+        0 8px 25px rgba(202, 131, 26, 0.4),
+        0 0 20px rgba(202, 131, 26, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.order-now-btn:hover::before {
+    animation-duration: 0.8s;
+}
+
+/* Active state for better user feedback */
+.order-now-btn:active {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 
+        0 4px 15px rgba(202, 131, 26, 0.5),
+        inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Other CTA Button Animation (unchanged for other buttons) */
+.cta-button, .view-menu-btn, .join-btn, .cta-btn, .submit-btn {
     position: relative;
     overflow: hidden;
     z-index: 1;
 }
 
-.cta-button::before, .order-now-btn::before, .view-menu-btn::before, .join-btn::before, .cta-btn::before, .submit-btn::before {
+.cta-button::before, .view-menu-btn::before, .join-btn::before, .cta-btn::before, .submit-btn::before {
     content: '';
     position: absolute;
     top: 0;
@@ -197,7 +286,7 @@ header.scrolled {
     z-index: -1;
 }
 
-.cta-button:hover::before, .order-now-btn:hover::before, .view-menu-btn:hover::before, .join-btn:hover::before, .cta-btn:hover::before, .submit-btn:hover::before {
+.cta-button:hover::before, .view-menu-btn:hover::before, .join-btn:hover::before, .cta-btn:hover::before, .submit-btn:hover::before {
     left: 0;
 }
 
@@ -377,6 +466,52 @@ h2.scrolled {
 
     .menu-item:hover .menu-item-image img {
         transform: scale(1.05);
+    }
+}
+
+/* Responsive Order Button Animation Adjustments */
+@media (max-width: 768px) {
+    .order-now-btn {
+        /* Reduce animation intensity on mobile for better performance */
+        animation: appetizingGlow 4s ease-in-out infinite, warmthPulse 5s ease-in-out infinite;
+    }
+    
+    .order-now-btn::before {
+        /* Slower shimmer on mobile */
+        animation-duration: 8s;
+    }
+    
+    .order-now-btn:hover {
+        /* Less dramatic hover on mobile */
+        transform: translateY(-2px) scale(1.03);
+    }
+}
+
+/* Accessibility: Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .order-now-btn {
+        animation: none;
+    }
+    
+    .order-now-btn::before {
+        animation: none;
+        opacity: 0;
+    }
+    
+    .order-now-btn:hover {
+        transform: translateY(-1px);
+        animation: none;
+    }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+    .order-now-btn {
+        border: 2px solid var(--color-primary-dark);
+    }
+    
+    .order-now-btn:hover {
+        border-color: var(--color-text-light);
     }
 }
 

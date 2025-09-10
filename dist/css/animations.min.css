@@ -1,1 +1,525 @@
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}@keyframes slideIn{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}.mobile-menu-open .animated,.mobile-menu-open .categories-showcase .category-item,.mobile-menu-open .feature,.mobile-menu-open .hero-text .cta-button,.mobile-menu-open .hero-text h1,.mobile-menu-open .purpose-text h2,.mobile-menu-open .purpose-text p,.mobile-menu-open .testimonial,.mobile-menu-open [class*=animation]{animation-play-state:paused!important;transition-property:none!important}header.scrolled{background-color:rgba(0,0,0,.95);box-shadow:0 4px 10px rgba(0,0,0,.1)}.hero-text h1{animation:fadeIn 1s ease-out .3s forwards;opacity:0}.hero-text .cta-button{animation:fadeIn 1s ease-out .6s forwards;opacity:0}.purpose-text h2{animation:slideIn .8s ease-out .2s forwards;opacity:0}.purpose-text p{animation:fadeIn .8s ease-out .5s forwards;opacity:0}.purpose-text p:nth-child(3){animation-delay:.7s}.purpose-text p:nth-child(4){animation-delay:.9s}.purpose-text p:nth-child(5){animation-delay:1.1s}.categories-showcase .category-item{animation:none;opacity:1}.categories-showcase .category-item:first-child{animation-delay:.1s}.categories-showcase .category-item:nth-child(2){animation-delay:.2s}.categories-showcase .category-item:nth-child(3){animation-delay:.3s}.categories-showcase .category-item:nth-child(4){animation-delay:.4s}.categories-showcase .category-item:nth-child(5){animation-delay:.5s}.categories-showcase .category-item:nth-child(6){animation-delay:.6s}.menu-item{transition:transform .4s ease}.menu-item:hover{transform:translateY(-10px)}.menu-category.scrolled{animation:fadeIn .8s ease-out forwards}.features-grid .feature{opacity:0;transform:translateY(20px);transition:all .6s ease}.features-grid .feature.scrolled{opacity:1;transform:translateY(0)}.features-grid .feature:first-child.scrolled{transition-delay:0.1s}.features-grid .feature:nth-child(2).scrolled{transition-delay:0.2s}.features-grid .feature:nth-child(3).scrolled{transition-delay:0.3s}.features-grid .feature:nth-child(4).scrolled{transition-delay:0.4s}.features-grid .feature:nth-child(5).scrolled{transition-delay:0.5s}.cta-btn,.cta-button,.join-btn,.order-now-btn,.submit-btn,.view-menu-btn{position:relative;overflow:hidden;z-index:1}.cta-btn::before,.cta-button::before,.join-btn::before,.order-now-btn::before,.submit-btn::before,.view-menu-btn::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:rgba(255,255,255,.1);transition:left .4s ease;z-index:-1}.cta-btn:hover::before,.cta-button:hover::before,.join-btn:hover::before,.order-now-btn:hover::before,.submit-btn:hover::before,.view-menu-btn:hover::before{left:0}.testimonial.active{animation:fadeIn .6s ease-out forwards}h2{opacity:0;transform:translateY(20px);transition:all .8s ease}h2.scrolled{opacity:1;transform:translateY(0)}.dot{transition:transform .3s ease,background-color .3s ease}.dot:hover{transform:scale(1.2)}.dot.active{transform:scale(1.1)}.form-group input{transition:border-color .3s ease,box-shadow .3s ease}.form-group input:focus{border-color:var(--ochre);box-shadow:0 0 0 2px rgba(202,131,26,.1);outline:0}.footer-links a{position:relative;transition:color .3s ease}.footer-links a:hover{color:var(--ochre)}.success-message{animation:slideUp .8s ease-out forwards}.mobile-menu-toggle{display:none;flex-direction:column;justify-content:space-between;width:30px;height:25px;cursor:pointer;z-index:1001;position:relative}.bar{width:100%;height:3px;background-color:#fff;border-radius:3px;transition:all .3s ease}.mobile-menu-active .bar:first-child{transform:translateY(11px) rotate(45deg)}.mobile-menu-active .bar:nth-child(2){opacity:0}.mobile-menu-active .bar:nth-child(3){transform:translateY(-11px) rotate(-45deg)}.menu-items-container.scrollable::after{content:'';position:absolute;top:0;right:0;width:50px;height:100%;background:linear-gradient(to right,rgba(0,0,0,0),rgba(0,0,0,.8));pointer-events:none;z-index:1;animation:pulse 2s infinite}.gallery-slide{transition:opacity .5s ease}.gallery-dot{transition:background-color .3s ease}.gallery-dot:hover{background-color:rgba(255,255,255,.7)}.categories-showcase .category-item{transition:transform .4s cubic-bezier(.165, .84, .44, 1),box-shadow .4s cubic-bezier(.165, .84, .44, 1);will-change:transform,box-shadow}.categories-showcase .category-item:hover{transform:translateY(-10px) scale(1.03);box-shadow:0 15px 30px rgba(0,0,0,.3)}.categories-showcase .category-item img{transition:transform .6s cubic-bezier(.165, .84, .44, 1)}.categories-showcase .category-item:hover img{transform:scale(1.08)}@media (max-width:991px){.menu-sidebar .category-icon,.menu-sidebar .category-item,.menu-sidebar .category-item img,.menu-sidebar .category-item:hover{transition:none!important;animation:none!important;transform:none!important;opacity:1!important}.menu-item,.menu-item-content,.menu-item:hover{transition:none!important;animation:none!important;transform:none!important}}.menu-section{display:none}.menu-section.active{display:block;animation:fadeIn .3s ease-out}@media (hover:hover){.menu-item:hover{transform:translateY(-4px);box-shadow:0 10px 20px rgba(0,0,0,.1)}.menu-item:hover .menu-item-image img{transform:scale(1.05)}}@media (hover:none){.menu-item,.menu-item-image img{transform:none!important;transition:none!important}}
+/* JOYO Burger Website - Essential Animations */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide In Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Slide Up Animation */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pause animations when mobile menu is open */
+.mobile-menu-open .animated,
+.mobile-menu-open [class*="animation"],
+.mobile-menu-open .hero-text h1,
+.mobile-menu-open .hero-text .cta-button,
+.mobile-menu-open .purpose-text h2,
+.mobile-menu-open .purpose-text p,
+.mobile-menu-open .categories-showcase .category-item,
+.mobile-menu-open .feature,
+.mobile-menu-open .testimonial {
+    animation-play-state: paused !important;
+    transition-property: none !important;
+}
+
+/* Header Animation */
+header.scrolled {
+    background-color: rgba(0, 0, 0, 0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Animate Hero Content */
+.hero-text h1 {
+    animation: fadeIn 1s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+.hero-text .cta-button {
+    animation: fadeIn 1s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+/* Animate Purpose Section */
+.purpose-text h2 {
+    animation: slideIn 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.purpose-text p {
+    animation: fadeIn 0.8s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+.purpose-text p:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+.purpose-text p:nth-child(4) {
+    animation-delay: 0.9s;
+}
+
+.purpose-text p:nth-child(5) {
+    animation-delay: 1.1s;
+}
+
+/* Categories Showcase Animation */
+.categories-showcase .category-item {
+    animation: none;
+    opacity: 1;
+}
+
+.categories-showcase .category-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.categories-showcase .category-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.categories-showcase .category-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.categories-showcase .category-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.categories-showcase .category-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.categories-showcase .category-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* Menu Items Animation */
+.menu-item {
+    transition: transform 0.4s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+}
+
+.menu-category.scrolled {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Features Animation */
+.features-grid .feature {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.features-grid .feature.scrolled {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.features-grid .feature:nth-child(1).scrolled {
+    transition-delay: 0.1s;
+}
+
+.features-grid .feature:nth-child(2).scrolled {
+    transition-delay: 0.2s;
+}
+
+.features-grid .feature:nth-child(3).scrolled {
+    transition-delay: 0.3s;
+}
+
+.features-grid .feature:nth-child(4).scrolled {
+    transition-delay: 0.4s;
+}
+
+.features-grid .feature:nth-child(5).scrolled {
+    transition-delay: 0.5s;
+}
+
+/* Appetizing Order Button Animation - Subtle, On-Brand, Attention-Grabbing */
+@keyframes appetizingGlow {
+    0% {
+        box-shadow: 0 0 5px rgba(202, 131, 26, 0.4), 0 0 10px rgba(202, 131, 26, 0.2);
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(202, 131, 26, 0.6), 0 0 25px rgba(202, 131, 26, 0.3);
+        transform: translateY(-1px) scale(1.02);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(202, 131, 26, 0.4), 0 0 10px rgba(202, 131, 26, 0.2);
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes warmthPulse {
+    0% {
+        background-color: var(--color-primary);
+    }
+    50% {
+        background-color: var(--color-primary-light);
+    }
+    100% {
+        background-color: var(--color-primary);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) rotate(35deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(35deg);
+    }
+}
+
+/* Enhanced Order Button with Appetizing Animation */
+.order-now-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    animation: appetizingGlow 3s ease-in-out infinite, warmthPulse 4s ease-in-out infinite;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform, box-shadow, background-color;
+}
+
+/* Subtle shimmer effect that occasionally passes over the button */
+.order-now-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        35deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%
+    );
+    transform: translateX(-100%) rotate(35deg);
+    animation: shimmer 6s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* Enhanced hover state */
+.order-now-btn:hover {
+    animation-play-state: paused;
+    transform: translateY(-3px) scale(1.05);
+    background-color: var(--color-primary-dark);
+    box-shadow: 
+        0 8px 25px rgba(202, 131, 26, 0.4),
+        0 0 20px rgba(202, 131, 26, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.order-now-btn:hover::before {
+    animation-duration: 0.8s;
+}
+
+/* Active state for better user feedback */
+.order-now-btn:active {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 
+        0 4px 15px rgba(202, 131, 26, 0.5),
+        inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Other CTA Button Animation (unchanged for other buttons) */
+.cta-button, .view-menu-btn, .join-btn, .cta-btn, .submit-btn {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.cta-button::before, .view-menu-btn::before, .join-btn::before, .cta-btn::before, .submit-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.cta-button:hover::before, .view-menu-btn:hover::before, .join-btn:hover::before, .cta-btn:hover::before, .submit-btn:hover::before {
+    left: 0;
+}
+
+/* Testimonial Animation */
+.testimonial.active {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Section Headers Animation */
+h2 {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+h2.scrolled {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Carousel Dots Animation */
+.dot {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+.dot.active {
+    transform: scale(1.1);
+}
+
+/* Newsletter Form Animation */
+.form-group input {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--ochre);
+    box-shadow: 0 0 0 2px rgba(202, 131, 26, 0.1);
+    outline: none;
+}
+
+/* Footer Animation */
+.footer-links a {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--ochre);
+}
+
+/* Success Message Animation */
+.success-message {
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Mobile Menu Animation */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative;
+}
+
+.bar {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-active .bar:nth-child(1) {
+    transform: translateY(11px) rotate(45deg);
+}
+
+.mobile-menu-active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-active .bar:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Horizontal Scroll Visual Cue */
+.menu-items-container.scrollable::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+    pointer-events: none;
+    z-index: 1;
+    animation: pulse 2s infinite;
+}
+
+/* Gallery - Simple Fade Transition */
+.gallery-slide {
+    transition: opacity 0.5s ease;
+}
+
+.gallery-dot {
+    transition: background-color 0.3s ease;
+}
+
+.gallery-dot:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* Categories Showcase Enhanced Animations */
+.categories-showcase .category-item {
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    will-change: transform, box-shadow;
+}
+
+.categories-showcase .category-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.categories-showcase .category-item img {
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.categories-showcase .category-item:hover img {
+    transform: scale(1.08);
+}
+
+/* Update index.html and index-fr.html to include the animations.css file */
+
+@media (max-width: 991px) {
+    .menu-sidebar .category-item,
+    .menu-sidebar .category-item:hover,
+    .menu-sidebar .category-icon,
+    .menu-sidebar .category-item img {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+    
+    .menu-item,
+    .menu-item:hover,
+    .menu-item-content {
+        transition: none !important;
+        animation: none !important;
+        transform: none !important;
+    }
+}
+
+/* Menu-specific animations */
+.menu-section {
+    display: none;
+}
+
+.menu-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Mobile-friendly hover states */
+@media (hover: hover) {
+    .menu-item:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .menu-item:hover .menu-item-image img {
+        transform: scale(1.05);
+    }
+}
+
+/* Responsive Order Button Animation Adjustments */
+@media (max-width: 768px) {
+    .order-now-btn {
+        /* Reduce animation intensity on mobile for better performance */
+        animation: appetizingGlow 4s ease-in-out infinite, warmthPulse 5s ease-in-out infinite;
+    }
+    
+    .order-now-btn::before {
+        /* Slower shimmer on mobile */
+        animation-duration: 8s;
+    }
+    
+    .order-now-btn:hover {
+        /* Less dramatic hover on mobile */
+        transform: translateY(-2px) scale(1.03);
+    }
+}
+
+/* Accessibility: Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .order-now-btn {
+        animation: none;
+    }
+    
+    .order-now-btn::before {
+        animation: none;
+        opacity: 0;
+    }
+    
+    .order-now-btn:hover {
+        transform: translateY(-1px);
+        animation: none;
+    }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+    .order-now-btn {
+        border: 2px solid var(--color-primary-dark);
+    }
+    
+    .order-now-btn:hover {
+        border-color: var(--color-text-light);
+    }
+}
+
+/* Disable animations on mobile/touch devices */
+@media (hover: none) {
+    .menu-item,
+    .menu-item-image img {
+        transform: none !important;
+        transition: none !important;
+    }
+} 
