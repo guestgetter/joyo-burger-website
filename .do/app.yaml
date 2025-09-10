@@ -1,0 +1,20 @@
+name: joyo-burger-website
+services:
+- name: web
+  source_dir: /
+  github:
+    repo: guestgetter/joyo-burger-website
+    branch: main
+  run_command: echo "Static site - no build needed"
+  environment_slug: static-site
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  routes:
+  - path: /
+  static_sites:
+  - name: joyo-static
+    source_dir: /
+    github:
+      repo: guestgetter/joyo-burger-website
+      branch: main
+    output_dir: /
