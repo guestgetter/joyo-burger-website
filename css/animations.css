@@ -388,3 +388,55 @@ h2.scrolled {
         transition: none !important;
     }
 } 
+
+/* ---------------------------------------------
+   Order Now Button – Subtle Appetizing Animation
+   --------------------------------------------- */
+@keyframes orderGlow {
+    0%, 100% { box-shadow: 0 0 0 rgba(0,0,0,0), 0 0 0 rgba(202,131,26,0); }
+    40% { box-shadow: 0 6px 14px rgba(0,0,0,0.15), 0 0 16px rgba(202,131,26,0.35); }
+    60% { box-shadow: 0 4px 10px rgba(0,0,0,0.12), 0 0 10px rgba(255,98,57,0.25); }
+}
+
+@keyframes orderBackgroundSheen {
+    0%, 80% { background-position: -150% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Idle glow + slow sheen sweep using brand palette */
+.order-now-btn {
+    /* Gentle breathing glow */
+    animation: orderGlow 6.5s ease-in-out infinite 1.5s, orderBackgroundSheen 8s ease-in-out infinite;
+    /* Sheen painted via background to avoid overlaying text */
+    background-image: linear-gradient(120deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.18) 48%,
+        transparent 70%
+    );
+    background-size: 220% 100%;
+    background-blend-mode: overlay;
+    will-change: box-shadow, background-position;
+}
+
+/* On hover, slightly brighten and speed up the sheen */
+@media (hover: hover) {
+    .order-now-btn:hover {
+        filter: brightness(1.02);
+    }
+    .order-now-btn:hover {
+        animation-duration: 6s, 1.2s; /* glow faster; sheen quick pass */
+    }
+}
+
+/* Respect user preference and pause during mobile menu */
+@media (prefers-reduced-motion: reduce) {
+    .order-now-btn { animation: none !important; }
+    .order-now-btn::before,
+    .order-now-btn::after { animation: none !important; }
+}
+
+.mobile-menu-open .order-now-btn,
+.mobile-menu-open .order-now-btn::before,
+.mobile-menu-open .order-now-btn::after {
+    animation-play-state: paused !important;
+}
