@@ -121,11 +121,12 @@ function initMobileMenu() {
         }
     }, { passive: true });
     
-    // Close menu when clicking on nav links
+    // Close menu when clicking on nav links (but NOT dropdown toggles)
     const navLinks = mobileNav.querySelectorAll('a');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             if (link.classList && link.classList.contains('mobile-dropdown-toggle')) {
+                // Let the dropdown handler control behavior
                 return;
             }
             closeMenu();
