@@ -253,16 +253,36 @@
     {
       "@context": "https://schema.org",
       "@type": "Restaurant",
+      "@id": "https://joyoburger.com/#restaurant",
       "name": "JOYO Burger",
-      "image": "https://joyoburger.com/JOYO - Images/optimized/joyo-burger-homepage-hero-image.jpg",
+      "alternateName": "Joyo Burger Montreal",
+      "image": [
+        "https://joyoburger.com/JOYO - Images/optimized/joyo-burger-homepage-hero-image.jpg",
+        "https://joyoburger.com/JOYO - Images/joyo-sign.jpg",
+        "https://joyoburger.com/JOYO - Images/Le-Grand.png"
+      ],
       "url": "https://joyoburger.com",
       "telephone": "+15145085696",
+      "email": "info@joyoburger.com",
       "priceRange": "$$",
-      "servesCuisine": ["Burgers", "Premium Homemade", "Smash Burgers", "Fast Casual"],
+      "servesCuisine": ["Burgers", "Premium Homemade", "Smash Burgers", "Fast Casual", "Halal"],
       "description": "Montreal's #1 premium homemade smash burgers with house-ground beef daily, hand-cut fries, and craft beer. Two locations in Rosemont and Verdun.",
       "openingHours": ["Mo-Su 11:00-22:00"],
       "acceptsReservations": "false",
-      "areaServed": ["Montreal", "Rosemont", "Verdun", "Quebec"],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Montreal"
+        },
+        {
+          "@type": "City",
+          "name": "Rosemont"
+        },
+        {
+          "@type": "City",
+          "name": "Verdun"
+        }
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "3036 Masson St",
@@ -271,6 +291,22 @@
         "postalCode": "H1Y 1X6",
         "addressCountry": "CA"
       },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+15145085696",
+          "contactType": "customer service",
+          "areaServed": "CA",
+          "availableLanguage": ["French", "English"]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+15145075696",
+          "contactType": "customer service",
+          "areaServed": "CA",
+          "availableLanguage": ["French", "English"]
+        }
+      ],
       "department": [
         {
           "@type": "Restaurant",
@@ -330,7 +366,9 @@
       ],
       "hasMenu": {
         "@type": "Menu",
+        "@id": "https://joyoburger.com/menu.html",
         "name": "JOYO Burger Menu",
+        "url": "https://joyoburger.com/menu.html",
         "description": "Complete menu of premium homemade smash burgers, hand-cut fries and craft beverages",
         "hasMenuSection": [
           {
@@ -390,7 +428,42 @@
             ]
           }
         ]
-      }
+      },
+      "potentialAction": [
+        {
+          "@type": "OrderAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://order.ueat.io/integration/ed824cce-5687-4ec8-aa2b-68f92e7dcff7/fr#/",
+            "actionPlatform": [
+              "http://schema.org/DesktopWebPlatform",
+              "http://schema.org/MobileWebPlatform"
+            ]
+          },
+          "deliveryMethod": ["http://purl.org/goodrelations/v1#DeliveryModePickUp", "http://purl.org/goodrelations/v1#DeliveryModeOwnFleet"]
+        },
+        {
+          "@type": "ViewAction",
+          "name": "View Menu",
+          "target": "https://joyoburger.com/menu.html"
+        },
+        {
+          "@type": "CommunicateAction",
+          "name": "Contact Us",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://joyoburger.com/contact.html"
+          }
+        },
+        {
+          "@type": "ReserveAction",
+          "name": "Find a Location",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://joyoburger.com/find-us.html"
+          }
+        }
+      ]
     }
     </script>
 
