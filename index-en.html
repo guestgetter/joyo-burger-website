@@ -310,7 +310,9 @@
       "department": [
         {
           "@type": "Restaurant",
+          "@id": "https://joyoburger.com/rosemont-masson-location.html#restaurant",
           "name": "JOYO Burger Masson",
+          "url": "https://joyoburger.com/rosemont-masson-location.html",
           "image": "https://joyoburger.com/JOYO - Images/joyo-sign.jpg",
           "telephone": "+15145085696",
           "priceRange": "$$",
@@ -331,7 +333,9 @@
         },
         {
           "@type": "Restaurant",
+          "@id": "https://joyoburger.com/verdun-wellington.html#restaurant",
           "name": "JOYO Burger Wellington",
+          "url": "https://joyoburger.com/verdun-wellington.html",
           "image": "https://joyoburger.com/JOYO - Images/joyo-sign.jpg",
           "telephone": "+15145075696",
           "priceRange": "$$",
@@ -469,20 +473,72 @@
 
 
 
-    <!-- Website Schema -->
+    <!-- Website Schema with Navigation -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://joyoburger.com/#website",
       "name": "JOYO Burger",
       "url": "https://joyoburger.com",
       "description": "Official website of JOYO Burger - Premium homemade smash burgers in Montreal",
       "inLanguage": ["en-CA", "fr-CA"],
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://joyoburger.com/menu.html?q={search_term_string}",
-        "query-input": "required name=search_term_string"
+      "publisher": {
+        "@id": "https://joyoburger.com/#restaurant"
       }
+    }
+    </script>
+
+    <!-- Site Navigation Element Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Main Navigation",
+      "itemListElement": [
+        {
+          "@type": "SiteNavigationElement",
+          "position": 1,
+          "name": "Menu",
+          "description": "View our complete menu of burgers, fries and beverages",
+          "url": "https://joyoburger.com/menu.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 2,
+          "name": "Order Online",
+          "description": "Order your burgers online for delivery or pickup",
+          "url": "https://order.ueat.io/integration/ed824cce-5687-4ec8-aa2b-68f92e7dcff7/fr#/"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 3,
+          "name": "Find Us",
+          "description": "Find our locations in Rosemont and Verdun",
+          "url": "https://joyoburger.com/find-us.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 4,
+          "name": "About",
+          "description": "Discover the JOYO Burger story",
+          "url": "https://joyoburger.com/about.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 5,
+          "name": "Contact",
+          "description": "Contact us for any questions",
+          "url": "https://joyoburger.com/contact.html"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 6,
+          "name": "Careers",
+          "description": "Join the JOYO team",
+          "url": "https://joyoburger.com/career.html"
+        }
+      ]
     }
     </script>
 
