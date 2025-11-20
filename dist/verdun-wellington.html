@@ -271,6 +271,12 @@
             color: var(--ochre);
             font-size: 12px;
         }
+
+          /* Retired Verdun anniversary promo banner */
+          .promo-top-banner,
+          #promo-banner {
+              display: none !important;
+          }
     </style>
     
     <!-- Gallery Section Styles -->
@@ -2345,5 +2351,37 @@
             });
         });
     </script>
+
+      <!-- Ensure legacy Verdun promo banners stay removed -->
+      <script>
+          document.addEventListener('DOMContentLoaded', function() {
+              var path = window.location ? window.location.pathname : '';
+              if (!path || path.indexOf('verdun-wellington') === -1) return;
+              
+              var selectors = ['#promo-banner', '.promo-top-banner'];
+              selectors.forEach(function(selector) {
+                  document.querySelectorAll(selector).forEach(function(node) {
+                      if (node && node.parentNode) {
+                          node.parentNode.removeChild(node);
+                      }
+                  });
+              });
+              
+              document.querySelectorAll('a[href*="digicpn.com/p/cara9q/ryzdihmqxvuckmfyaj3p5"]').forEach(function(link) {
+                  var container = link.closest('.promo-top-banner');
+                  if (container && container.parentNode) {
+                      container.parentNode.removeChild(container);
+                  } else {
+                      link.remove();
+                  }
+              });
+              
+              try {
+                  localStorage.removeItem('promoBannerClosed');
+              } catch (err) {
+                  console.warn('Promo banner cleanup issue:', err);
+              }
+          });
+      </script>
 </body>
 </html>
