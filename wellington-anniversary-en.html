@@ -251,40 +251,77 @@
             color: #fff;
         }
         
-        /* Form Section */
-        .form-section {
-            background-color: #000;
-            padding: 40px 20px 60px;
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #111, #000);
+            padding: 80px 20px;
+            text-align: center;
         }
         
-        .form-container {
-            max-width: 1200px;
+        .cta-container {
+            max-width: 800px;
             margin: 0 auto;
         }
         
-        .form-container h2 {
+        .cta-container h2 {
             font-family: var(--heading-font);
-            font-size: clamp(28px, 4vw, 40px);
-            font-weight: 700;
-            color: var(--ochre);
-            text-align: center;
-            margin-bottom: 30px;
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 20px;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
         
-        .iframe-wrapper {
-            width: 100%;
-            min-height: 800px;
-            background-color: #fff;
+        .cta-description {
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: #e5e5e5;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .claim-button {
+            display: inline-block;
+            background: var(--ochre);
+            color: #000;
+            font-family: var(--heading-font);
+            font-size: clamp(20px, 3vw, 28px);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 25px 60px;
             border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(202, 131, 26, 0.2);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(202, 131, 26, 0.4);
+            border: 3px solid var(--ochre);
+            cursor: pointer;
         }
         
-        .iframe-wrapper iframe {
-            width: 100%;
-            min-height: 800px;
-            border: none;
+        .claim-button:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(202, 131, 26, 0.6);
+        }
+        
+        .claim-button:active {
+            transform: translateY(-2px);
+        }
+        
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 25px;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .secure-badge::before {
+            content: '🔒';
+            font-size: 16px;
         }
         
         /* Footer */
@@ -341,8 +378,15 @@
                 padding: 25px 20px;
             }
             
-            .form-section {
-                padding: 30px 15px 40px;
+            .cta-section {
+                padding: 60px 15px;
+            }
+            
+            .claim-button {
+                padding: 20px 40px;
+                font-size: 18px;
+                width: 100%;
+                max-width: 350px;
             }
         }
     </style>
@@ -412,20 +456,21 @@
             </div>
         </section>
         
-        <!-- Form Section with CouponTools Iframe -->
-        <section class="form-section">
-            <div class="form-container">
-                <h2>Claim Your Free Burger Now</h2>
-                <div class="iframe-wrapper">
-                    <iframe src="https://digicpn.com/p/cara9q&web=true" 
-                            width="100%" 
-                            height="800" 
-                            scrolling="yes" 
-                            seamless="seamless"
-                            allow="geolocation"
-                            title="JOYO Wellington Anniversary Offer - Claim Your Free Burger">
-                    </iframe>
-                </div>
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2>Ready to Claim Your Free Burger?</h2>
+                <p class="cta-description">
+                    Click below to fill out your information and receive your Buy 1 Get 1 FREE voucher instantly.
+                </p>
+                <a href="https://digicpn.com/p/cara9q" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="claim-button"
+                   onclick="gtag('event', 'click', {'event_category': 'anniversary_cta', 'event_label': 'claim_offer_button'});">
+                    CLAIM YOUR FREE BURGER NOW
+                </a>
+                <p class="secure-badge">Secure form · Takes 30 seconds</p>
             </div>
         </section>
         
