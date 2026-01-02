@@ -216,6 +216,7 @@
 /* Square menu item images */
 .menu-item-image {
     aspect-ratio: 1 / 1;
+    height: auto !important;
     overflow: hidden;
     border-radius: 10px;
     margin-bottom: 16px;
