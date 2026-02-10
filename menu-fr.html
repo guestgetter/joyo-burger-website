@@ -38,6 +38,113 @@
     <!-- Critical sticky menu fix - added last to override everything -->
     <link rel="stylesheet" href="css/menu-sticky.min.css">
     
+    <!-- Schema.org structured data for Restaurant Menu -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "JOYO Burger",
+      "image": "https://www.joyoburger.com/JOYO - Images/joyo-burger-homepage-hero-image.jpg",
+      "url": "https://www.joyoburger.com",
+      "servesCuisine": ["Burger", "Halal", "Restauration rapide décontractée"],
+      "priceRange": "$$",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "3036 rue Masson",
+          "addressLocality": "Montréal",
+          "addressRegion": "QC",
+          "postalCode": "H1Y 1X6",
+          "addressCountry": "CA"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "4567 rue Wellington",
+          "addressLocality": "Montréal",
+          "addressRegion": "QC",
+          "postalCode": "H4G 1W8",
+          "addressCountry": "CA"
+        }
+      ],
+      "hasMenu": {
+        "@type": "Menu",
+        "hasMenuSection": [
+          {
+            "@type": "MenuSection",
+            "name": "Smash Burgers",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Le Grand",
+                "description": "Double galette smash, cheddar, laitue, tomate, oignon, sauce JOYO",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "16.99",
+                  "priceCurrency": "CAD"
+                },
+                "suitableForDiet": "HalalDiet"
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Le Classic",
+                "description": "Galette smash, fromage américain, cornichons, oignon, sauce JOYO",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "12.99",
+                  "priceCurrency": "CAD"
+                },
+                "suitableForDiet": "HalalDiet"
+              }
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "name": "Burgers au Poulet",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Poulet Frit Classique",
+                "description": "Poitrine de poulet halal croustillante, laitue, cornichons, mayo JOYO",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "15.99",
+                  "priceCurrency": "CAD"
+                },
+                "suitableForDiet": "HalalDiet"
+              }
+            ]
+          },
+          {
+            "@type": "MenuSection",
+            "name": "Accompagnements",
+            "hasMenuItem": [
+              {
+                "@type": "MenuItem",
+                "name": "Frites Coupées à la Main",
+                "description": "Pommes de terre fraîchement coupées chaque jour, frites deux fois à la perfection",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "5.99",
+                  "priceCurrency": "CAD"
+                }
+              },
+              {
+                "@type": "MenuItem",
+                "name": "Poutine JOYO",
+                "description": "Frites coupées à la main, fromage en grains, sauce maison",
+                "offers": {
+                  "@type": "Offer",
+                  "price": "9.99",
+                  "priceCurrency": "CAD"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+    </script>
+    
     <style>
         /* Critical dropdown and mobile navigation styles */
         .joyo-mobile-nav-toggle {
